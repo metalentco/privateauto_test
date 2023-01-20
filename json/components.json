@@ -1,0 +1,678 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "attributes": {
+        "Body": "",
+        "createdAt": "2023-01-09T16:39:47.749Z",
+        "updatedAt": "2023-01-11T17:53:06.857Z",
+        "publishedAt": "2023-01-09T16:43:33.002Z",
+        "slug": "test",
+        "MetaDescription": "This is the meta description for a sample page.",
+        "PageTitle": "Testing",
+        "VehicleType": "Auto",
+        "State": "Alabama",
+        "Image": {
+          "data": {
+            "id": 31,
+            "attributes": {
+              "name": "BeachFails_DogEars.jpg",
+              "alternativeText": "BeachFails_DogEars.jpg",
+              "caption": "BeachFails_DogEars.jpg",
+              "width": 600,
+              "height": 630,
+              "formats": {
+                "small": {
+                  "ext": ".jpg",
+                  "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/small_Beach_Fails_Dog_Ears_4204033b60.jpg",
+                  "hash": "small_Beach_Fails_Dog_Ears_4204033b60",
+                  "mime": "image/jpeg",
+                  "name": "small_BeachFails_DogEars.jpg",
+                  "path": null,
+                  "size": 33.74,
+                  "width": 476,
+                  "height": 500
+                },
+                "thumbnail": {
+                  "ext": ".jpg",
+                  "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/thumbnail_Beach_Fails_Dog_Ears_4204033b60.jpg",
+                  "hash": "thumbnail_Beach_Fails_Dog_Ears_4204033b60",
+                  "mime": "image/jpeg",
+                  "name": "thumbnail_BeachFails_DogEars.jpg",
+                  "path": null,
+                  "size": 4.52,
+                  "width": 149,
+                  "height": 156
+                }
+              },
+              "hash": "Beach_Fails_Dog_Ears_4204033b60",
+              "ext": ".jpg",
+              "mime": "image/jpeg",
+              "size": 48.61,
+              "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/Beach_Fails_Dog_Ears_4204033b60.jpg",
+              "previewUrl": null,
+              "provider": "aws-s3",
+              "provider_metadata": null,
+              "createdAt": "2022-11-03T17:55:13.147Z",
+              "updatedAt": "2022-11-03T17:55:13.147Z"
+            }
+          }
+        },
+        "Content": [
+          {
+            "id": 2,
+            "__component": "page-elements.icon-bar",
+            "Title": null,
+            "TitleStyle": "H1",
+            "Content": null,
+            "Links": [
+              {
+                "id": 3,
+                "URL": "https://finance.yahoo.com/news/privateauto-first-self-payment-app-150000166.html?guccounter=1",
+                "Title": null,
+                "Image": {
+                  "data": {
+                    "id": 41,
+                    "attributes": {
+                      "name": "yahooFinance.svg",
+                      "alternativeText": "yahooFinance.svg",
+                      "caption": "yahooFinance.svg",
+                      "width": 111,
+                      "height": 51,
+                      "formats": null,
+                      "hash": "yahoo_Finance_e2b5778671",
+                      "ext": ".svg",
+                      "mime": "image/svg+xml",
+                      "size": 92.85,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/yahoo_Finance_e2b5778671.svg",
+                      "previewUrl": null,
+                      "provider": "aws-s3",
+                      "provider_metadata": null,
+                      "createdAt": "2023-01-19T15:31:38.905Z",
+                      "updatedAt": "2023-01-19T15:31:38.905Z"
+                    }
+                  }
+                }
+              },
+              {
+                "id": 4,
+                "URL": "https://apnews.com/press-release/globe-newswire/technology-6363890eb7e9e65e9b3f147eef8a9c20",
+                "Title": null,
+                "Image": {
+                  "data": {
+                    "id": 42,
+                    "attributes": {
+                      "name": "associatedPress.svg",
+                      "alternativeText": "associatedPress.svg",
+                      "caption": "associatedPress.svg",
+                      "width": 172,
+                      "height": 33,
+                      "formats": null,
+                      "hash": "associated_Press_02bc9a45af",
+                      "ext": ".svg",
+                      "mime": "image/svg+xml",
+                      "size": 12.4,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/associated_Press_02bc9a45af.svg",
+                      "previewUrl": null,
+                      "provider": "aws-s3",
+                      "provider_metadata": null,
+                      "createdAt": "2023-01-19T16:56:08.915Z",
+                      "updatedAt": "2023-01-19T16:56:08.915Z"
+                    }
+                  }
+                }
+              },
+              {
+                "id": 5,
+                "URL": "https://markets.financialcontent.com/startribune/article/newswire-2022-5-18-privateauto-the-first-self-service-payment-app-for-private-vehicle-sales",
+                "Title": null,
+                "Image": {
+                  "data": {
+                    "id": 43,
+                    "attributes": {
+                      "name": "starTribune.svg",
+                      "alternativeText": "starTribune.svg",
+                      "caption": "starTribune.svg",
+                      "width": 175,
+                      "height": 33,
+                      "formats": null,
+                      "hash": "star_Tribune_8a2e375fa5",
+                      "ext": ".svg",
+                      "mime": "image/svg+xml",
+                      "size": 226.64,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/star_Tribune_8a2e375fa5.svg",
+                      "previewUrl": null,
+                      "provider": "aws-s3",
+                      "provider_metadata": null,
+                      "createdAt": "2023-01-19T16:57:24.496Z",
+                      "updatedAt": "2023-01-19T16:57:24.496Z"
+                    }
+                  }
+                }
+              },
+              {
+                "id": 6,
+                "URL": "https://www.morningstar.com/news/globe-newswire/8545614/privateauto-the-first-self-service-payment-app-for-private-vehicle-sales",
+                "Title": null,
+                "Image": {
+                  "data": {
+                    "id": 44,
+                    "attributes": {
+                      "name": "morningStar.svg",
+                      "alternativeText": "morningStar.svg",
+                      "caption": "morningStar.svg",
+                      "width": 142,
+                      "height": 29,
+                      "formats": null,
+                      "hash": "morning_Star_2fee54db2a",
+                      "ext": ".svg",
+                      "mime": "image/svg+xml",
+                      "size": 57.9,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/morning_Star_2fee54db2a.svg",
+                      "previewUrl": null,
+                      "provider": "aws-s3",
+                      "provider_metadata": null,
+                      "createdAt": "2023-01-19T16:58:05.603Z",
+                      "updatedAt": "2023-01-19T16:58:05.603Z"
+                    }
+                  }
+                }
+              },
+              {
+                "id": 7,
+                "URL": "https://markets.financialcontent.com/ibtimes/article/newswire-2022-5-18-privateauto-the-first-self-service-payment-app-for-private-vehicle-sales",
+                "Title": null,
+                "Image": {
+                  "data": {
+                    "id": 45,
+                    "attributes": {
+                      "name": "iBTimes.svg",
+                      "alternativeText": "iBTimes.svg",
+                      "caption": "iBTimes.svg",
+                      "width": 119,
+                      "height": 49,
+                      "formats": null,
+                      "hash": "i_B_Times_01a6f11922",
+                      "ext": ".svg",
+                      "mime": "image/svg+xml",
+                      "size": 86.72,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/i_B_Times_01a6f11922.svg",
+                      "previewUrl": null,
+                      "provider": "aws-s3",
+                      "provider_metadata": null,
+                      "createdAt": "2023-01-19T16:58:47.512Z",
+                      "updatedAt": "2023-01-19T16:58:47.512Z"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "__component": "page-elements.image-text",
+            "Title": "4. Set your terms",
+            "Position": "Left",
+            "Content": "It’s your car, so you drive the deal! You can control when, where, and who you meet. Decide whether to accept only ID-verified buyers, or buyers with verified funds. Don’t waste your time with buyers who aren’t verified to your preference.",
+            "Color": "White",
+            "Width": "w 80 pct",
+            "TitleStyle": "H1",
+            "SubTitle": null,
+            "SubTitleStyle": "H1",
+            "Buttons": "None",
+            "Image": {
+              "data": {
+                "id": 38,
+                "attributes": {
+                  "name": "4.svg",
+                  "alternativeText": "4.svg",
+                  "caption": "4.svg",
+                  "width": 230,
+                  "height": 196,
+                  "formats": null,
+                  "hash": "4_176b34f62e",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 12.15,
+                  "url": "https://strapi-cms-media-dev.s3.amazonaws.com/4_176b34f62e.svg",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2023-01-19T15:10:17.942Z",
+                  "updatedAt": "2023-01-19T15:10:17.942Z"
+                }
+              }
+            }
+          },
+          {
+            "id": 5,
+            "__component": "page-elements.image-text",
+            "Title": "SIMPLE",
+            "Position": "Right",
+            "Content": "Experience dealer-like services in the palm of your hand. Schedule test drives and conveniently e-sign your <u>Bill of Sale</u>. Want to share important documents with the other party? You can do that too.",
+            "Color": "Dark Blue",
+            "Width": "w 80 pct",
+            "TitleStyle": "H4",
+            "SubTitle": "Take the guesswork out of the sale",
+            "SubTitleStyle": "H1",
+            "Buttons": "None",
+            "Image": {
+              "data": {
+                "id": 39,
+                "attributes": {
+                  "name": "simpleSign.svg",
+                  "alternativeText": "simpleSign.svg",
+                  "caption": "simpleSign.svg",
+                  "width": 225,
+                  "height": 416,
+                  "formats": null,
+                  "hash": "simple_Sign_766af87623",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 288.93,
+                  "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/simple_Sign_766af87623.svg",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2023-01-19T15:13:50.451Z",
+                  "updatedAt": "2023-01-19T15:13:50.451Z"
+                }
+              }
+            }
+          },
+          {
+            "id": 6,
+            "__component": "page-elements.image-text",
+            "Title": "Download the app.",
+            "Position": "Right",
+            "Content": null,
+            "Color": "White",
+            "Width": "w Full",
+            "TitleStyle": "H1",
+            "SubTitle": "Sell or buy a vehicle privately.",
+            "SubTitleStyle": "H2",
+            "Buttons": "App Stores",
+            "Image": {
+              "data": {
+                "id": 40,
+                "attributes": {
+                  "name": "paymentMockupLanding.svg",
+                  "alternativeText": "paymentMockupLanding.svg",
+                  "caption": "paymentMockupLanding.svg",
+                  "width": 353,
+                  "height": 387,
+                  "formats": null,
+                  "hash": "payment_Mockup_Landing_f68b5ef6ac",
+                  "ext": ".svg",
+                  "mime": "image/svg+xml",
+                  "size": 212.11,
+                  "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/payment_Mockup_Landing_f68b5ef6ac.svg",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2023-01-19T15:16:34.906Z",
+                  "updatedAt": "2023-01-19T15:16:34.906Z"
+                }
+              }
+            }
+          },
+          {
+            "id": 3,
+            "__component": "page-elements.jump-link-target",
+            "Name": "what_information_in_on_a_car_title"
+          },
+          {
+            "id": 4,
+            "__component": "page-elements.jump-link-target",
+            "Name": "car_title_vs_registration"
+          },
+          {
+            "id": 5,
+            "__component": "page-elements.jump-link-target",
+            "Name": "how_can_i_transfer_my_car_title"
+          },
+          {
+            "id": 6,
+            "__component": "page-elements.jump-link-target",
+            "Name": "what_if_my_car_title_is_lost"
+          },
+          {
+            "id": 7,
+            "__component": "page-elements.jump-link-target",
+            "Name": "what_are_the_types_of_car_titles"
+          },
+          {
+            "id": 8,
+            "__component": "page-elements.jump-link-target",
+            "Name": "can_i_get_a_car_title_online"
+          },
+          {
+            "id": 2,
+            "__component": "page-elements.faq",
+            "Title": "What is PrivateAuto?",
+            "Content": "PrivateAuto takes the hassle out of selling and buying vehicles privately! The technology driven, self-service solution to safely communicate, e-sign state documents, and send or receive payments instantly and securely. PrivateAuto is the new way to buy and sell cars for sale by owner.\n\n\nVerified information and confidential communication gives you the freedom to comunicate between two parties without giving out personal contact information. Schedule a test drive, negotiate the price, and exchange payments through a secure online system with PrivateAuto.",
+            "Default": "Open"
+          },
+          {
+            "id": 3,
+            "__component": "page-elements.faq",
+            "Title": "Why are private sales better?",
+            "Content": "You can sell your used car to a private individual and make more money on the sale. A dealer can offer you a trade-in value or instant cash offer, but these are almost never as much as you can make in a private sale. Whether you’re selling the latest luxury vehicle or an old car with maintenance issues, you’ll almost always earn more in private sales.\n\n\nBuying a used vehicle from a private party also has some benefits. Dealers not only charge dealer fees but they can be pushy and difficult to negotiate with. Whereas, an individual may be more flexible on pricing or more friendly when discussing the details of the vehicle. Because a private seller is often the individual who drove the car frequently, this seller may know more about the vehicle than a dealer.",
+            "Default": "Closed"
+          },
+          {
+            "id": 1,
+            "__component": "page-elements.inline-image",
+            "URL": null,
+            "Title": "This is an inline image.",
+            "Image": {
+              "data": {
+                "id": 32,
+                "attributes": {
+                  "name": "cole-ankney-87v-WNMiTck-unsplash.jpg",
+                  "alternativeText": "cole-ankney-87v-WNMiTck-unsplash.jpg",
+                  "caption": "cole-ankney-87v-WNMiTck-unsplash.jpg",
+                  "width": 4903,
+                  "height": 3262,
+                  "formats": {
+                    "large": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/large_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835.jpg",
+                      "hash": "large_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835",
+                      "mime": "image/jpeg",
+                      "name": "large_cole-ankney-87v-WNMiTck-unsplash.jpg",
+                      "path": null,
+                      "size": 102.42,
+                      "width": 1000,
+                      "height": 665
+                    },
+                    "small": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/small_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835.jpg",
+                      "hash": "small_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835",
+                      "mime": "image/jpeg",
+                      "name": "small_cole-ankney-87v-WNMiTck-unsplash.jpg",
+                      "path": null,
+                      "size": 35.33,
+                      "width": 500,
+                      "height": 333
+                    },
+                    "medium": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/medium_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835.jpg",
+                      "hash": "medium_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835",
+                      "mime": "image/jpeg",
+                      "name": "medium_cole-ankney-87v-WNMiTck-unsplash.jpg",
+                      "path": null,
+                      "size": 66.24,
+                      "width": 750,
+                      "height": 499
+                    },
+                    "thumbnail": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/thumbnail_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835.jpg",
+                      "hash": "thumbnail_cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835",
+                      "mime": "image/jpeg",
+                      "name": "thumbnail_cole-ankney-87v-WNMiTck-unsplash.jpg",
+                      "path": null,
+                      "size": 10.67,
+                      "width": 235,
+                      "height": 156
+                    }
+                  },
+                  "hash": "cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "size": 781.85,
+                  "url": "https://strapi-cms-media-dev.s3.amazonaws.com/cole_ankney_87v_WN_Mi_Tck_unsplash_f36b663835.jpg",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2023-01-05T16:33:25.563Z",
+                  "updatedAt": "2023-01-05T16:33:25.563Z"
+                }
+              }
+            }
+          },
+          {
+            "id": 1,
+            "__component": "page-elements.bulleted-list",
+            "Color": "Dark Blue",
+            "Width": "w 80 pct",
+            "Title": "Sample Bullets",
+            "TitleStyle": "H2",
+            "Items": [
+              {
+                "id": 1,
+                "Text": "Avoid scammers and fakes though buyer verification",
+                "Image": {
+                  "data": {
+                    "id": 36,
+                    "attributes": {
+                      "name": "pricingCheck.svg",
+                      "alternativeText": "pricingCheck.svg",
+                      "caption": "pricingCheck.svg",
+                      "width": 20,
+                      "height": 20,
+                      "formats": null,
+                      "hash": "pricing_Check_139eda5821",
+                      "ext": ".svg",
+                      "mime": "image/svg+xml",
+                      "size": 0.27,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/pricing_Check_139eda5821.svg",
+                      "previewUrl": null,
+                      "provider": "aws-s3",
+                      "provider_metadata": null,
+                      "createdAt": "2023-01-11T17:21:35.549Z",
+                      "updatedAt": "2023-01-11T17:21:35.549Z"
+                    }
+                  }
+                }
+              },
+              {
+                "id": 2,
+                "Text": "Keep your info private by communicating through our app.",
+                "Image": { "data": null }
+              }
+            ]
+          },
+          {
+            "id": 1,
+            "__component": "page-elements.list",
+            "Color": "White",
+            "Title": "Sample List",
+            "TitleStyle": "H1",
+            "SubTitle": null,
+            "SubTitleStyle": "H1",
+            "Content": null,
+            "Buttons": "None",
+            "Position": "Center",
+            "Image": { "data": null },
+            "Items": [
+              {
+                "id": 1,
+                "Item": "Seller ID Verification",
+                "Icon": {
+                  "data": {
+                    "id": 37,
+                    "attributes": {
+                      "name": "checkbox-checked.svg",
+                      "alternativeText": "checkbox-checked.svg",
+                      "caption": "checkbox-checked.svg",
+                      "width": 20,
+                      "height": 20,
+                      "formats": null,
+                      "hash": "checkbox_checked_5d7673fc78",
+                      "ext": ".svg",
+                      "mime": "image/svg+xml",
+                      "size": 0.34,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/checkbox_checked_5d7673fc78.svg",
+                      "previewUrl": null,
+                      "provider": "aws-s3",
+                      "provider_metadata": null,
+                      "createdAt": "2023-01-11T17:25:13.868Z",
+                      "updatedAt": "2023-01-11T17:25:13.868Z"
+                    }
+                  }
+                }
+              },
+              {
+                "id": 2,
+                "Item": "Autocheck history report",
+                "Icon": { "data": null }
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "__component": "page-elements.jump-links",
+            "Links": [
+              {
+                "id": 3,
+                "TargetName": "What information is on a car title?",
+                "Label": "what_information_in_on_a_car_title",
+                "Image": {
+                  "data": null
+                }
+              },
+              {
+                "id": 4,
+                "TargetName": "Car title vs registration",
+                "Label": "car_title_vs_registration",
+                "Image": {
+                  "data": null
+                }
+              },
+              {
+                "id": 7,
+                "TargetName": "What if my car title is lost?",
+                "Label": "what_if_my_car_title_is_lost",
+                "Image": {
+                  "data": null
+                }
+              },
+              {
+                "id": 5,
+                "TargetName": "How can I transfer my car title?",
+                "Label": "how_can_i_transfer_my_car_title",
+                "Image": {
+                  "data": null
+                }
+              },
+              {
+                "id": 6,
+                "TargetName": "What are the types of car titles?",
+                "Label": "what_are_the_types_of_car_titles",
+                "Image": {
+                  "data": null
+                }
+              },
+              {
+                "id": 8,
+                "TargetName": "Can I get a car title online?",
+                "Label": "can_i_get_a_car_title_online",
+                "Image": {
+                  "data": null
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "attributes": {
+        "Body": null,
+        "createdAt": "2023-01-11T17:55:20.740Z",
+        "updatedAt": "2023-01-11T17:59:01.110Z",
+        "publishedAt": "2023-01-11T17:59:01.096Z",
+        "slug": "test2",
+        "MetaDescription": null,
+        "PageTitle": "Second Sample Page",
+        "VehicleType": "Auto",
+        "State": null,
+        "Image": { "data": null },
+        "Content": [
+          {
+            "id": 2,
+            "__component": "page-elements.inline-image",
+            "URL": null,
+            "Title": "Pig?",
+            "Image": {
+              "data": {
+                "id": 33,
+                "attributes": {
+                  "name": "beachphotos_imgur-wombat588.jpg",
+                  "alternativeText": "beachphotos_imgur-wombat588.jpg",
+                  "caption": "beachphotos_imgur-wombat588.jpg",
+                  "width": 1200,
+                  "height": 630,
+                  "formats": {
+                    "large": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/large_beachphotos_imgur_wombat588_60781f1793.jpg",
+                      "hash": "large_beachphotos_imgur_wombat588_60781f1793",
+                      "mime": "image/jpeg",
+                      "name": "large_beachphotos_imgur-wombat588.jpg",
+                      "path": null,
+                      "size": 72,
+                      "width": 1000,
+                      "height": 525
+                    },
+                    "small": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/small_beachphotos_imgur_wombat588_60781f1793.jpg",
+                      "hash": "small_beachphotos_imgur_wombat588_60781f1793",
+                      "mime": "image/jpeg",
+                      "name": "small_beachphotos_imgur-wombat588.jpg",
+                      "path": null,
+                      "size": 22.32,
+                      "width": 500,
+                      "height": 263
+                    },
+                    "medium": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/medium_beachphotos_imgur_wombat588_60781f1793.jpg",
+                      "hash": "medium_beachphotos_imgur_wombat588_60781f1793",
+                      "mime": "image/jpeg",
+                      "name": "medium_beachphotos_imgur-wombat588.jpg",
+                      "path": null,
+                      "size": 45.09,
+                      "width": 750,
+                      "height": 394
+                    },
+                    "thumbnail": {
+                      "ext": ".jpg",
+                      "url": "https://strapi-cms-media-dev.s3.amazonaws.com/thumbnail_beachphotos_imgur_wombat588_60781f1793.jpg",
+                      "hash": "thumbnail_beachphotos_imgur_wombat588_60781f1793",
+                      "mime": "image/jpeg",
+                      "name": "thumbnail_beachphotos_imgur-wombat588.jpg",
+                      "path": null,
+                      "size": 6.55,
+                      "width": 245,
+                      "height": 129
+                    }
+                  },
+                  "hash": "beachphotos_imgur_wombat588_60781f1793",
+                  "ext": ".jpg",
+                  "mime": "image/jpeg",
+                  "size": 97.94,
+                  "url": "https://strapi-cms-media-dev.s3.amazonaws.com/beachphotos_imgur_wombat588_60781f1793.jpg",
+                  "previewUrl": null,
+                  "provider": "aws-s3",
+                  "provider_metadata": null,
+                  "createdAt": "2023-01-09T16:43:06.693Z",
+                  "updatedAt": "2023-01-09T16:43:06.693Z"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {
+    "pagination": { "page": 1, "pageSize": 25, "pageCount": 1, "total": 2 }
+  }
+}

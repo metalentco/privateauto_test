@@ -1,0 +1,3530 @@
+[
+  {
+    "_id": {
+      "$oid": "6279f9ae591ca000130e8a0d"
+    },
+    "listingLocation": {
+      "city": "Saratoga",
+      "state": "Wyoming",
+      "stateShortname": "WY",
+      "zipcode": "82331",
+      "geometry": {
+        "latitude": 41.4549764,
+        "longitude": -106.8063989
+      }
+    },
+    "availableTimings": {
+      "Sunday": [
+        {
+          "_id": {
+            "$oid": "62cbb605c7fc650013546f76"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1657537200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1657594800000"
+            }
+          }
+        }
+      ],
+      "Monday": [
+        {
+          "_id": {
+            "$oid": "62cbb605c7fc650013546f75"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1657537200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1657594800000"
+            }
+          }
+        }
+      ],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "62cbb605c7fc650013546f74"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1657537200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1657594800000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "62cbb605c7fc650013546f73"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1657537200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1657594800000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "62cbb605c7fc650013546f72"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1657537200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1657594800000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "vehicleHaveLien": false,
+      "carTitle": true,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "documents": [],
+      "seller": {
+        "_id": {
+          "$oid": "6231611a022479000912f2f8"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647404485950-vseller-oldthor.jpg",
+        "city": "Saratoga",
+        "state": "WY",
+        "zipcode": "82331",
+        "firstName": "Satya",
+        "lastName": "N",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647403290698"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "isChanged": true,
+      "verifications": {
+        "fullVerification": true,
+        "verifiedFunds": false
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": false,
+        "crypto": {
+          "btc": false
+        }
+      }
+    },
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "userId": {
+      "$oid": "6231611a022479000912f2f8"
+    },
+    "Zip": "82331",
+    "CarMake": "Harley-Davidson",
+    "CarModel": "FLHXS",
+    "RegistrationYear": 2020,
+    "Trim": "-",
+    "stateRegistered": "Wyoming",
+    "vehicleType": "Motorcycle",
+    "Mileage": 3216,
+    "description": "",
+    "Price": 27699,
+    "licencePlate": "EWSV16",
+    "vinNumber": "1HD1KRP12LB655737",
+    "Engine": "Milwaukee-Eight® 114",
+    "sellerDisclosure": "",
+    "listingLocationLatLng": {
+      "coordinates": [-106.8063989, 41.4549764],
+      "_id": {
+        "$oid": "6279feed591ca000130e8a44"
+      },
+      "type": "Point"
+    },
+    "listingNo": "vWfd",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "6279fe1f591ca000130e8a26"
+        },
+        "images": "/static/listings/6279f9ae591ca000130e8a0d/photos/1652161127205-2020 Harley-Davidson FLHX.jpeg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1652160942830"
+      }
+    },
+    "slug": "2020-harley-davidson-flhxs-vwfd",
+    "__v": 0,
+    "BodyStyle": "SUV",
+    "Cylinders": "Other",
+    "Doors": "2 Door",
+    "DriveType": "FWD",
+    "ExteriorColor": "Black",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "Transmission": "Automatic Transmission (AT)",
+    "vehicleDescription": "Infotainment System: Boom!™ Box GTS | Type: Full Color TFT | Watts Per Channel: 25 | Speakers: 2 | Speaker Size: 6.5 inch BOOM standard | Headset Specifications (if Equipped): 16-64 Ohms | Am: Standard | Fm: Standard | Weather Band (Wb): Standard | Sd Card, Flash Drive and Mp3 - via Usb Connection: Supported | Siriusxm Presets: 20 - P&a Upgrade | hands-free Mobile Phone - via Bluetooth: Standard | Vehicle Information Screen (Air Temperature, Oil Pressure and Eitms): Standard | Usb: Usb/mtp/ipod/iphone | Bluetooth Phone/media Supported\n",
+    "testDriveLocation": {
+      "geometry": {
+        "latitude": 42.9133602,
+        "longitude": -85.7053085
+      },
+      "locationName": "Wyoming",
+      "address": "",
+      "city": "Wyoming",
+      "state": "Michigan",
+      "stateShortname": "MI",
+      "zipcode": ""
+    },
+    "TitleType": "Clear",
+    "hasDamage": false,
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1666654293832"
+        }
+      },
+      "id": "order_1Lwa79IEg7TbGU9uxBkpNRwE"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "628f22daeb7df000143314e0"
+    },
+    "availableTimings": {
+      "Sunday": [],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "628f2604eb7df0001433155a"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1653562800000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1653620400000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "628f2604eb7df00014331559"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1653562800000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1653620400000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "628f2604eb7df00014331558"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1653562800000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1653620400000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "621d751844ba6a30afca2f88"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1667480552100-Thor.jpg",
+        "city": "Salt Lake",
+        "state": "UT",
+        "zipcode": "84116",
+        "firstName": "Thor",
+        "lastName": "O",
+        "joined": {
+          "$date": {
+            "$numberLong": "1646097688367"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": false
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "licencePlate": "6SYS798",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "userId": {
+      "$oid": "621d751844ba6a30afca2f88"
+    },
+    "Zip": "84116",
+    "CarMake": "Ford",
+    "CarModel": "F-150",
+    "RegistrationYear": 2020,
+    "Trim": "XLT SuperCrew 6.5-ft. Bed 4WD",
+    "stateRegistered": "Utah",
+    "vehicleType": "Auto",
+    "Mileage": 27720,
+    "description": "Minor scratches\nMinor scratches",
+    "Price": 55988,
+    "vinNumber": "1FTEW1E45LKD63828",
+    "Engine": "3.5L V6",
+    "sellerDisclosure": "",
+    "listingNo": "vWeT",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "628f24a3eb7df0001433150a"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305809-2020_ford_f-150-pic-746487704169814945-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df0001433150b"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305810-2020_ford_f-150-pic-1355788370720511632-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df0001433150c"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-2073052392179173711-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df0001433150d"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-3488903588471316542-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df0001433150e"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-4229490251920143301-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df0001433150f"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-5969841145801784732-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331510"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-6688337482607967848-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331511"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-6809853169500371252-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331512"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-7711507324984932393-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331513"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305811-2020_ford_f-150-pic-7774050410690260907-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331514"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305812-2020_ford_f-150-pic-7801392883702302597-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331515"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305812-2020_ford_f-150-pic-8239407476189392882-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331516"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305812-2020_ford_f-150-pic-8662667875578067738-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331517"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305812-2020_ford_f-150-pic-8722229598522172516-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "628f24a3eb7df00014331518"
+        },
+        "images": "/static/listings/628f22daeb7df000143314e0/photos/1653548305812-2020_ford_f-150-pic-8776269472574533981-1024x768.jpg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1653547738791"
+      }
+    },
+    "slug": "2020-ford-f-150-vwet",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Salt Lake City",
+      "state": "Utah",
+      "stateShortname": "UT",
+      "zipcode": "84116",
+      "geometry": {
+        "latitude": 40.8038325,
+        "longitude": -112.0237903
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-112.0237903, 40.8038325],
+      "_id": {
+        "$oid": "628f234feb7df000143314fd"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Truck",
+    "Cylinders": "6 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "4-Wheel Drive",
+    "ExteriorColor": "Blue",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "Transmission": "Automatic Transmission (AT)",
+    "vehicleDescription": "Additional Information\nEquipment Group 501A Mid,Electronic Locking w/3.55 Axle Ratio,18\" Machined-Aluminum Wheels,Wheels: 20\" Chrome-Like PVD,Leather-Trimmed 40/20/40 Front Seat,Radio: AM/FM Stereo w/6 Speakers,Lariat Chrome Appearance Package,Lariat Bed Utility Package,Class IV Trailer Hitch Receiver,FX4 Off-Road Package,Trailer Tow Package,Skid Plates,Tailgate Step w/Tailgate Lift Assist,SiriusXM Radio,Remote Start System w/Remote Tailgate Release,110V/400W Outlet,Voice-Activated Touchscreen Navigation,Reverse Sensing System,Tray Style Floor Liner,Front License Plate Bracket,Chrome Angular Step Bars,Pro Trailer Backup Assist,4x4 FX4 Off-Road Bodyside Decal,Hill Descent Control,Chrome Skull Caps on Exterior Mirrors,SYNC 3,4-Wheel Disc Brakes,Air Conditioning,Electronic Stability Control,ABS brakes,Adjustable pedals,Alloy wheels,Auto-dimming door mirrors,Automatic temperature control,Brake assist,Bumpers: chrome,Delay-off headlights,Driver door bin,Driver vanity mirror,Dual front impact airbags,Dual front side impact airbags,Front anti-roll bar,Front dual zone A/C,Front fog lights,Front reading lights,Front wheel independent suspension,Fully automatic headlights,Heated door mirrors,Heated front seats,Illuminated entry,Low tire pressure warning,Memory seat,Occupant sensing airbag,Overhead airbag,Overhead console,Panic alarm,Passenger door bin,Passenger vanity mirror,Pedal memory,Power door mirrors,Power driver seat,Power passenger seat,Power steering,Power windows,Radio data system,Rear reading lights,Rear seat center armrest,Rear step bumper,Rear window defroster,Remote keyless entry,Security system,Speed control,Speed-sensing steering,Split folding rear seat,Steering wheel mounted audio controls,Telescoping steering wheel,Tilt steering wheel,Traction control,Trip computer,Turn signal indicator mirrors,Variably intermittent wipers,Ventilated front seats,Auto-dimming Rear-View mirror,7 Speakers,Front Center Armrest w/Storage,AM/FM radio: SiriusXM,Auto High-beam Headlights,Emergency communication system: SYNC 3 911 Assist,AppLink/Apple CarPlay and Android Auto,Exterior parking camera rear: With Dynamic Hitch Assist,Pedestrian detection: prevention",
+    "testDriveLocation": {
+      "locationName": "Utah State Capitol",
+      "address": "350  State St",
+      "city": "Salt Lake City",
+      "state": "Utah",
+      "stateShortname": "UT",
+      "zipcode": "84103",
+      "geometry": {
+        "latitude": 40.7774076,
+        "longitude": -111.8881773
+      }
+    },
+    "TitleType": "Branded",
+    "hasDamage": true,
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1670066480087"
+        }
+      },
+      "id": "pi_3MAtmTIEg7TbGU9u0ZBcF2KI"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "633bf0fa731e160014348570"
+    },
+    "availableTimings": {
+      "Sunday": [],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [],
+      "Friday": [],
+      "Saturday": []
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "62303f09ce545f0008f1e4ee"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647329381217-SellerNoBank.png",
+        "city": "Holladay",
+        "state": "UT",
+        "zipcode": "84117",
+        "firstName": "Heidi",
+        "lastName": "T",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647329033925"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": false
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "5NJL625",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "JM1NDAD72L0414909",
+    "Price": 2990,
+    "Mileage": 12681,
+    "CarMake": "MAZDA",
+    "CarModel": "MX-5",
+    "RegistrationYear": 2020,
+    "Trim": "Grand Touring 6MT",
+    "Zip": "84117",
+    "Engine": "2.0",
+    "vehicleType": "Auto",
+    "stateRegistered": "Utah",
+    "userId": {
+      "$oid": "62303f09ce545f0008f1e4ee"
+    },
+    "listingNo": "vWd-A6tZWDE=",
+    "uploadImages": [
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d82"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083256-2020_mazda_mx-5_miata-pic-7672881645596444524-1024x768.jpg"
+      },
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d79"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083251-2020_mazda_mx-5_miata-pic-1102465758682674980-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d7a"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083253-2020_mazda_mx-5_miata-pic-2390404739163141295-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d7b"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083253-2020_mazda_mx-5_miata-pic-2673050193771641101-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d7c"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083254-2020_mazda_mx-5_miata-pic-3390170111991297365-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d7d"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083254-2020_mazda_mx-5_miata-pic-3621119647591006456-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d7e"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083254-2020_mazda_mx-5_miata-pic-4263379857477980708-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d7f"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083255-2020_mazda_mx-5_miata-pic-6215400231214021576-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d80"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083255-2020_mazda_mx-5_miata-pic-6424947828338352117-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf1c6acbf120013082d81"
+        },
+        "images": "/static/listings/633bf0fa731e160014348570/photos/1664873083255-2020_mazda_mx-5_miata-pic-7317586698869332324-1024x768.jpg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664872698162"
+      }
+    },
+    "slug": "2020-mazda-mx-5-vwd-a6tzwde",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Millcreek",
+      "state": "Utah",
+      "stateShortname": "UT",
+      "zipcode": "84117",
+      "geometry": {
+        "latitude": 40.6618507,
+        "longitude": -111.8389726
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-111.8389726, 40.6618507],
+      "_id": {
+        "$oid": "637348b3ea820e0014ad39a6"
+      },
+      "type": "Point"
+    },
+    "testDriveLocation": {
+      "locationName": "Utah State University",
+      "address": "",
+      "city": "Logan",
+      "state": "Utah",
+      "stateShortname": "UT",
+      "zipcode": "84322",
+      "geometry": {
+        "latitude": 41.745161,
+        "longitude": -111.8097425
+      }
+    },
+    "BodyStyle": "Convertible",
+    "Cylinders": "6 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "RWD",
+    "ExteriorColor": "Silver",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Additional Information\n10 Speakers,4-Wheel Disc Brakes,ABS brakes,AM/FM radio: SiriusXM,Adaptive Cruise Control,Adaptive suspension,Air Conditioning,Alloy wheels,Anti-whiplash front head restraints,Apple CarPlay/Android Auto,Auto tilt-away steering wheel,Auto-dimming Rear-View mirror,Auto-dimming door mirrors,Automatic temperature control,Black Painted Brake Calipers,Blind spot sensor: warning,Bumpers: body-color,Delay-off headlights,Driver Assistance Package,Driver door bin,Driver vanity mirror,Dual front impact airbags,Dual front side impact airbags,Electronic Stability Control,Exterior Parking Camera Rear,Four wheel independent suspension,Front Bucket Seats,Front Center Armrest,Front Seat Ventilation,Front anti-roll bar,Front dual zone A/C,Front reading lights,Garage door transmitter,Genuine wood console insert,Genuine wood dashboard insert,Heated 12-Way Adjustable Front Seats,Heated door mirrors,Heated front seats,High intensity discharge headlights: Bi-Xenon,Highway Assist,Illuminated entry,Leather Seat Upholstery,Leather Shift Knob,Leather steering wheel,Low tire pressure warning,Memory seat,NOTE*** CARS WITH CUSTOM/UPGRADED WHEELS AND TIRES WILL HAVE AN ADDITIONAL CHARGE,Navigation System,Occupant sensing airbag,Outside temperature display,Overhead airbag,Overhead console,Passenger door bin,Passenger vanity mirror,Power Adjustable Foot Pedals,Power Rear Sunblind,Power door mirrors,Power driver seat,Power moonroof,Power passenger seat,Power steering,Power windows,Radio data system,Radio: AM/FM w/Maserati Touch Control Plus & Nav,Rain sensing wipers,Rear anti-roll bar,Rear fog lights,Rear reading lights,Rear seat center armrest,Rear window defroster,Remote keyless entry,Security system,Soft Close Doors,Speed control,Speed-Sensitive Wipers,Speed-sensing steering,Split folding rear seat,Steering wheel memory,Steering wheel mounted audio controls,Sun blinds,Tachometer,Telescoping steering wheel,Tilt steering wheel,Traction control,Trip computer,Turn signal indicator mirrors,Variably intermittent wipers,Voltmeter,Wheels: 19' Poseidone Alloy,Wheels: 20' Urano Alloy,Wi-Fi Vehicle Hot Spot,harman/kardonÂ Speakers",
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1666655073526"
+        }
+      },
+      "id": "order_1LwaJlIEg7TbGU9umHdGk9Fs"
+    },
+    "isVintageVehicle": false
+  },
+  {
+    "_id": {
+      "$oid": "633bf340acbf120013083029"
+    },
+    "availableTimings": {
+      "Sunday": [
+        {
+          "_id": {
+            "$oid": "633bf748acbf120013083183"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Monday": [
+        {
+          "_id": {
+            "$oid": "633bf748acbf120013083182"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Tuesday": [
+        {
+          "_id": {
+            "$oid": "633bf748acbf120013083181"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Wednesday": [
+        {
+          "_id": {
+            "$oid": "633bf748acbf120013083180"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "633bf748acbf12001308317f"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "633bf748acbf12001308317e"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "633bf748acbf12001308317d"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "623162a6022479000912f35e"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647404323791-vbuyer-harvey.jpg",
+        "city": "Noristown",
+        "state": "PA",
+        "zipcode": "19403",
+        "firstName": "Harvey",
+        "lastName": "S",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647403686207"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": true
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "EHY286",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "WDDYJ7KA5LA028816",
+    "Price": 229888,
+    "Mileage": 2758,
+    "CarMake": "MERCEDES-BENZ",
+    "CarModel": "AMG GT",
+    "RegistrationYear": 2020,
+    "Zip": "19403",
+    "vehicleType": "Auto",
+    "stateRegistered": "Utah",
+    "userId": {
+      "$oid": "623162a6022479000912f35e"
+    },
+    "listingNo": "vWdpjDrr7k8=",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830e7"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234136-2020_mercedes-benz_amg_gt-pic-255735821157760879-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830e8"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234145-2020_mercedes-benz_amg_gt-pic-579321348874341852-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830e9"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234146-2020_mercedes-benz_amg_gt-pic-1170261737923793777-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830ea"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234147-2020_mercedes-benz_amg_gt-pic-1241794820736854038-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830eb"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234149-2020_mercedes-benz_amg_gt-pic-1279956720916586557-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830ec"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234150-2020_mercedes-benz_amg_gt-pic-1581712949964567695-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830ed"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234152-2020_mercedes-benz_amg_gt-pic-1733298485193048464-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830ee"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234153-2020_mercedes-benz_amg_gt-pic-2566864752722542734-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830ef"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234155-2020_mercedes-benz_amg_gt-pic-3026772126788007849-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f0"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234156-2020_mercedes-benz_amg_gt-pic-3167071873178470376-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f1"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234157-2020_mercedes-benz_amg_gt-pic-3315737591146170441-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f2"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234158-2020_mercedes-benz_amg_gt-pic-3341942661058423565-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f3"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234159-2020_mercedes-benz_amg_gt-pic-3555929521648645558-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f4"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234160-2020_mercedes-benz_amg_gt-pic-3912812323847890965-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f5"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234161-2020_mercedes-benz_amg_gt-pic-4236139247667282051-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f6"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234161-2020_mercedes-benz_amg_gt-pic-4488527246349064862-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f7"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234162-2020_mercedes-benz_amg_gt-pic-4578811948978884019-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f8"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234164-2020_mercedes-benz_amg_gt-pic-4653737506085751418-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830f9"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234165-2020_mercedes-benz_amg_gt-pic-5021680128278530570-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830fa"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234165-2020_mercedes-benz_amg_gt-pic-5553464980727038615-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830fb"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234166-2020_mercedes-benz_amg_gt-pic-5754643012266979469-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830fc"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234167-2020_mercedes-benz_amg_gt-pic-6610409597893206769-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830fd"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234168-2020_mercedes-benz_amg_gt-pic-6984464876075339974-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830fe"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234168-2020_mercedes-benz_amg_gt-pic-7970876616185450479-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bf64aacbf1200130830ff"
+        },
+        "images": "/static/listings/633bf340acbf120013083029/photos/1664874234169-2020_mercedes-benz_amg_gt-pic-9187122007244338265-1024x768.jpg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664873280848"
+      }
+    },
+    "slug": "2020-mercedes-benz-amg-gt-vwdpjdrr7k8",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Audubon",
+      "state": "Pennsylvania",
+      "stateShortname": "PA",
+      "zipcode": "19403",
+      "geometry": {
+        "latitude": 40.1373404,
+        "longitude": -75.3761952
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-75.3761952, 40.1373404],
+      "_id": {
+        "$oid": "633bf4d1acbf1200130830d8"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Coupe",
+    "Cylinders": "8 cylinder",
+    "Doors": "2 Door",
+    "DriveType": "RWD",
+    "Engine": "4L V8",
+    "ExteriorColor": "Gray",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Additional Information\nAir filtration: active charcoal, Front air conditioning: automatic climate control, Front air conditioning zones: dual, Airbag deactivation: occupant sensing passenger, Front airbags: dual, Knee airbags: dual front, Side airbags: front, Side curtain airbags: front, Side-curtain airbag rollover sensor, Antenna type: diversity / element, Auxiliary audio input: Bluetooth / USB / iPod/iPhone / memory card slot, Hard drive: 6GB, Internet radio app: Gracenote, Radio: AM/FM / HD radio / voice operated, Radio data system, Satellite radio: SiriusXM, Speed sensitive volume control, Total speakers: 4, Watts: 100, ABS: 4-wheel, Brake drying, Braking assist, Cornering brake control, Electronic brakeforce distribution, Electronic parking brake: auto off, Emergency braking preparation, Front brake diameter: 15.4, Front brake type: ventilated disc, Front brake width: 1.4, Painted brake calipers, Power brakes, Premium brakes, Rear brake diameter: 14.2, Rear brake type: ventilated disc, Rear brake width: 1.0, Cargo area floor mat: carpet, Center console trim: leather, Dash trim: leather, Door sill trim: stainless steel, Door trim: leather, Floor mat material: carpet, Floor material: carpet, Floor mats: front, Interior accents: aluminum, Shift knob trim: alloy, Steering wheel trim: microfiber, Additional key: removable valet, Cargo area light, Cargo cover: retractable, Center console: front console with armrest and storage, Cruise control, Cupholders: front, Easy entry: power steering wheel, Footwell lights: color-adjustable, Memorized settings: 3 driver / driver seat / passenger seat / side mirrors / steering wheel, Multi-function remote: keyless entry / panic alarm / trunk release, One-touch windows: 2, Overhead console: front, Power outlet(s): 12V cargo area / 12V front, Power steering: variable/speed-proportional, Power windows: lockout button, Push-button start, Reading lights: front, Rearview mirror: auto-dimming, Retained accessory power, Steering wheel: power tilt and telescopic, Steering wheel mounted controls: audio / cruise control / multi-function / paddle shifter / phone / voice control, Storage: cargo net / door pockets, Touch-sensitive controls, Universal remote transmitter: Homelink - garage door opener, Vanity mirrors: dual illuminating, Axle ratio: 3.88, Drive mode selector, Limited slip differential: rear, Auto start/stop, Performance exhaust, Door handle color: body-color, Exhaust: integrated / quad tip, Exhaust tip color: stainless-steel, Front bumper color: body-color, Grille color: black with chrome accents, Mirror color: body-color, Rear bumper color: body-color, Rear spoiler: wing, Rear spoiler color: black, Window trim: black, Connected in-car apps: Google POIs / Google search / SiriusXM Travel Link / SiriusXM Weather / driving performance / news / weather, Infotainment screen size: 10.25 in., Smartphone integration: Android Auto / Apple CarPlay, Clock, Compass, Customizable instrument cluster, Digital odometer, Driver information system, External temperature display, Fuel economy display: MPG / range, Gauge: tachometer, Instrument cluster screen size: 12.3 in., Multi-function display, Trip odometer, Warnings and reminders: coolant temperature warning / lamp failure / low fuel level / low oil pressure / tire fill alert, Daytime running lights: LED, Exterior entry lights: approach lamps, Headlights: LED / auto delay off / auto high beam dimmer / auto on/off / cornering / self-leveling, Rear fog lights, Taillights: LED, Side mirror adjustments: manual folding / power / reverse gear tilt, Side mirrors: driver side auto-dimming / integrated turn signals, Automatic emergency braking: front, Automatic hazard warning lights, Body side reinforcements: side impact door beams, Camera system: front / rearview, Child seat anchors: LATCH system, Crumple zones: front / rear, Driver attention alert system, Emergency interior trunk release, Energy absorbing steering column, Impact sensor: post-collision safety system, Parking sensors:",
+    "testDriveLocation": {
+      "locationName": "19403 7th Ave W",
+      "address": "19403  7th Ave W",
+      "city": "Lynnwood",
+      "state": "Washington",
+      "stateShortname": "WA",
+      "zipcode": "98036",
+      "geometry": {
+        "latitude": 47.82212879999999,
+        "longitude": -122.2420544
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1666655454604"
+        }
+      },
+      "id": "pi_3LwaPuIEg7TbGU9u1C2Fcuzk"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "633bf7dbacbf120013083207"
+    },
+    "availableTimings": {
+      "Sunday": [],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "633bf9b2acbf120013083328"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "633bf9b2acbf120013083327"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "633bf9b2acbf120013083326"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "623162a6022479000912f35e"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647404323791-vbuyer-harvey.jpg",
+        "city": "Noristown",
+        "state": "PA",
+        "zipcode": "19403",
+        "firstName": "Harvey",
+        "lastName": "S",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647403686207"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": true
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "P49GEL",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "WMZYW7C05L3L26367",
+    "Price": 30999,
+    "Mileage": 11598,
+    "CarMake": "MINI",
+    "CarModel": "Countryman",
+    "RegistrationYear": 2020,
+    "Zip": "19403",
+    "vehicleType": "Auto",
+    "stateRegistered": "Pennsylvania",
+    "userId": {
+      "$oid": "623162a6022479000912f35e"
+    },
+    "listingNo": "vWe1cSXoDqY=",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "633bf8d8acbf1200130832d5"
+        },
+        "images": "/static/listings/633bf7dbacbf120013083207/photos/1664874893310-2020_mini_countryman-pic-7042139094928941398-1024x768.jpg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664874459814"
+      }
+    },
+    "slug": "2020-mini-countryman-vwe1csxodqy",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Audubon",
+      "state": "Pennsylvania",
+      "stateShortname": "PA",
+      "zipcode": "19403",
+      "geometry": {
+        "latitude": 40.1373404,
+        "longitude": -75.3761952
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-75.3761952, 40.1373404],
+      "_id": {
+        "$oid": "633bf885acbf1200130832bf"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Hatchback",
+    "Cylinders": "4 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "FWD",
+    "Engine": "2L I4",
+    "ExteriorColor": "White",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Additional Information\nSIGNATURE TRIM -inc: Dynamic Damper Control harman/kardon Premium Sound System Piano Black Interior Surface Radio: Connected Media System w/6.5\" Touchscreen ConnectedDrive Services Remote Services Power Tailgate,PREMIUM PACKAGE -inc: Auto-Dimming Interior & Exterior Mirrors Auto-Dimming Rearview Mirror Power-Folding Mirrors Chrome Line Exterior SiriusXM Satellite Radio 1 year All Access subscription Power Front Seats,JCW LEATHER STEERING WHEEL,Turbocharged,Front Wheel Drive,Power Steering,ABS,4-Wheel Disc Brakes,Brake Assist,Brake Actuated Limited Slip Differential,Aluminum Wheels,Tires - Front Performance,Tires - Rear Performance,Wheel Locks,Sun/Moonroof,Generic Sun/Moonroof,Dual Moonroof,Heated Mirrors,Power Mirror(s),Rear Defrost,Intermittent Wipers,Variable Speed Intermittent Wipers,Rain Sensing Wipers,Power Door Locks,Automatic Highbeams,Daytime Running Lights,Automatic Headlights,LED Headlights,Fog Lamps,AM/FM Stereo,HD Radio,MP3 Player,Steering Wheel Audio Controls,Auxiliary Audio Input,HD Radio,Bucket Seats,Heated Front Seat(s),Pass-Through Rear Seat,Rear Bench Seat,Adjustable Steering Wheel,Trip Computer,Power Windows,Leather Steering Wheel,Keyless Entry,Power Door Locks,Keyless Entry,Power Door Locks,Keyless Start,Cruise Control,Climate Control,Multi-Zone A/C,A/C,Premium Synthetic Seats,Driver Vanity Mirror,Passenger Vanity Mirror,Driver Illuminated Vanity Mirror,Passenger Illuminated Visor Mirror,Floor Mats,Cargo Shade,Keyless Start,Telematics,Requires Subscription,Smart Device Integration,MP3 Player,Bluetooth Connection,Power Windows,Power Door Locks,Trip Computer,Immobilizer,Traction Control,Stability Control,Traction Control,Front Side Air Bag,Rear Parking Aid,Front Collision Mitigation,Tire Pressure Monitor,Driver Air Bag,Passenger Air Bag,Front Head Air Bag,Rear Head Air Bag,Passenger Air Bag Sensor,Knee Air Bag,Back-Up Camera",
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1666655479908"
+        }
+      },
+      "id": "order_1LwaQJIEg7TbGU9uTU9uKoBw"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "633bff04acbf12001308369c"
+    },
+    "availableTimings": {
+      "Sunday": [
+        {
+          "_id": {
+            "$oid": "633c0042acbf120013083792"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Monday": [
+        {
+          "_id": {
+            "$oid": "633c0042acbf120013083791"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Tuesday": [
+        {
+          "_id": {
+            "$oid": "633c0042acbf120013083790"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Wednesday": [
+        {
+          "_id": {
+            "$oid": "633c0042acbf12001308378f"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "633c0042acbf12001308378e"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "633c0042acbf12001308378d"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "633c0042acbf12001308378c"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1664881200000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1664938800000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "623162a6022479000912f35e"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647404323791-vbuyer-harvey.jpg",
+        "city": "Noristown",
+        "state": "PA",
+        "zipcode": "19403",
+        "firstName": "Harvey",
+        "lastName": "S",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647403686207"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": true
+      },
+      "paymentMethod": {
+        "privateAutoPay": false,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "DWL1459",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "KM8J2CA47LU119142",
+    "Price": 20911,
+    "Mileage": 46202,
+    "CarMake": "HYUNDAI",
+    "CarModel": "Tucson",
+    "RegistrationYear": 2020,
+    "Zip": "19403",
+    "vehicleType": "Auto",
+    "stateRegistered": "Pennsylvania",
+    "userId": {
+      "$oid": "623162a6022479000912f35e"
+    },
+    "listingNo": "vWeNBUvlzwM=",
+    "uploadImages": [
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836e7"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682974-2020_hyundai_tucson-pic-2085120707948321122-1024x768.jpg"
+      },
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836e3"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682963-2020_hyundai_tucson-pic-253808875174287279-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836e4"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682972-2020_hyundai_tucson-pic-377330799064308372-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836e5"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682973-2020_hyundai_tucson-pic-420187129132880588-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836e6"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682974-2020_hyundai_tucson-pic-1507974152612913067-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836e8"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682975-2020_hyundai_tucson-pic-3062640562507261684-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836e9"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682976-2020_hyundai_tucson-pic-3115976339969045017-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836ea"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682977-2020_hyundai_tucson-pic-3173471922746461529-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836eb"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682977-2020_hyundai_tucson-pic-3485859726267845093-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836ec"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682978-2020_hyundai_tucson-pic-4439390938686878668-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836ed"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682979-2020_hyundai_tucson-pic-5316539832770330816-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836ee"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682980-2020_hyundai_tucson-pic-5335173889093493264-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836ef"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682982-2020_hyundai_tucson-pic-5581766533666367113-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836f0"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682983-2020_hyundai_tucson-pic-5751603571544346374-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633bffd6acbf1200130836f1"
+        },
+        "images": "/static/listings/633bff04acbf12001308369c/photos/1664876682984-2020_hyundai_tucson-pic-7414718884503203858-1024x768.jpg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664876292357"
+      }
+    },
+    "slug": "2020-hyundai-tucson-vwenbuvlzwm",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Audubon",
+      "state": "Pennsylvania",
+      "stateShortname": "PA",
+      "zipcode": "19403",
+      "geometry": {
+        "latitude": 40.1373404,
+        "longitude": -75.3761952
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-75.3761952, 40.1373404],
+      "_id": {
+        "$oid": "633bff2eacbf1200130836cd"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Hatchback",
+    "Cylinders": "4 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "AWD",
+    "Engine": "2L I4",
+    "ExteriorColor": "White",
+    "Fuel": "Gas",
+    "InteriorColor": "Gray",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Additional Information\nOption Group 01,6 Speakers,AM/FM radio,Radio: AM/FM Audio System,Air Conditioning,Rear window defroster,Power steering,Power windows,Remote keyless entry,Steering wheel mounted audio controls,Four wheel independent suspension,Speed-sensing steering,Traction control,4-Wheel Disc Brakes,ABS brakes,Dual front impact airbags,Dual front side impact airbags,Front anti-roll bar,Low tire pressure warning,Occupant sensing airbag,Overhead airbag,Rear anti-roll bar,Brake assist,Electronic Stability Control,Exterior Parking Camera Rear,Delay-off headlights,Fully automatic headlights,Panic alarm,Security system,Speed control,Bumpers: body-color,Power door mirrors,Spoiler,Apple CarPlay & Android Auto,Driver door bin,Driver vanity mirror,Front reading lights,Illuminated entry,Outside temperature display,Overhead console,Passenger vanity mirror,Rear seat center armrest,Tachometer,Telescoping steering wheel,Tilt steering wheel,Trip computer,Front Bucket Seats,Front Center Armrest,Split folding rear seat,YES Essentials Stain-Resistant Cloth Seat Trim,Passenger door bin,17\" x 7.0J Alloy Wheels,Alloy wheels,Rear window wiper,Variably intermittent wipers,Axle Ratio: 3.648,*AWD*AWD*AWD*,*BACKUP CAMERA*,*LANE KEEP ASSIST*,*EXCELLENT CONDITION INSIDE AND OUT*,*BLUE TOOTH WIRELESS*,*KEYLESS ENTRY*",
+    "testDriveLocation": {
+      "locationName": "Pennsylvania Station",
+      "address": "4  Pennsylvania Plaza",
+      "city": "New York",
+      "state": "New York",
+      "stateShortname": "NY",
+      "zipcode": "10001",
+      "geometry": {
+        "latitude": 40.7505621,
+        "longitude": -73.99347089999999
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1666655550449"
+        }
+      },
+      "id": "order_1LwaRPIEg7TbGU9uSsNMIbDd"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "633c059facbf120013083a51"
+    },
+    "availableTimings": {
+      "Sunday": [],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [],
+      "Friday": [],
+      "Saturday": []
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "622732e562fb60000a7b7015"
+        },
+        "verification": {
+          "phone": false,
+          "email": false,
+          "bank": false
+        },
+        "profileImage": "/static/profile/1664876937839-2020_hyundai_tucson-pic-2085120707948321122-1024x768.jpg",
+        "city": "Monterey",
+        "state": "CA",
+        "zipcode": "95940",
+        "firstName": "Leslie",
+        "lastName": "S",
+        "joined": {
+          "$date": {
+            "$numberLong": "1646736101862"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": false
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": false
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "1004126",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "1FMSK7FH4LGB65646",
+    "Price": 31729,
+    "Mileage": 61417,
+    "CarMake": "FORD",
+    "CarModel": "Explorer",
+    "RegistrationYear": 2020,
+    "Zip": "95940",
+    "vehicleType": "Auto",
+    "stateRegistered": "California",
+    "userId": {
+      "$oid": "622732e562fb60000a7b7015"
+    },
+    "listingNo": "vWfeLQ4NUkI=",
+    "uploadImages": [
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "6357284d7dc20500158dde52"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1666656328211-2020_ford_escape-pic-194552717951559834-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "633c0757acbf120013083a85"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601609-2020_ford_explorer-pic-989212620757959541-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a86"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601617-2020_ford_explorer-pic-1085504288247164014-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a87"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601618-2020_ford_explorer-pic-1419849065746374566-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a88"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601619-2020_ford_explorer-pic-2850357896652208354-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a89"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601620-2020_ford_explorer-pic-3691662196003639342-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a8a"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601620-2020_ford_explorer-pic-3765156399867874287-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a8b"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601621-2020_ford_explorer-pic-4621945857779169634-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a8c"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601622-2020_ford_explorer-pic-5431835740575247795-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a8d"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601623-2020_ford_explorer-pic-7233077988861832888-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a8e"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601624-2020_ford_explorer-pic-7780855388936938184-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a8f"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601625-2020_ford_explorer-pic-8171368956267436760-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a90"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601626-2020_ford_explorer-pic-8817916802654785996-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a91"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601627-2020_ford_explorer-pic-8831444596237482263-1024x768.jpg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "633c0757acbf120013083a92"
+        },
+        "images": "/static/listings/633c059facbf120013083a51/photos/1664878601628-2020_ford_explorer-pic-9126965694019689875-1024x768.jpg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1664877983812"
+      }
+    },
+    "slug": "2020-ford-explorer-vwfelq4nuki",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Feather Falls",
+      "state": "California",
+      "stateShortname": "CA",
+      "zipcode": "95940",
+      "geometry": {
+        "latitude": 39.51153000000001,
+        "longitude": -121.55755
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-121.55755, 39.51153000000001],
+      "_id": {
+        "$oid": "633c05f3acbf120013083a76"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "SUV",
+    "Cylinders": "4 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "RWD",
+    "Engine": "2.3L I4",
+    "ExteriorColor": "Black",
+    "Fuel": "Gas",
+    "InteriorColor": "Gray",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Additional Information\nNavigation System,12 Speakers,AM/FM radio: SiriusXM,Radio data system,Radio: B&O Sound System by Bang & Olufsen,SYNC 3 Communications & Entertainment System,Air Conditioning,Automatic temperature control,Front dual zone A/C,Rear air conditioning,Rear window defroster,Memory seat,Power driver seat,Power steering,Power windows,Remote keyless entry,Steering wheel memory,Steering wheel mounted audio controls,Four wheel independent suspension,Speed-sensing steering,Traction control,4-Wheel Disc Brakes,ABS brakes,Dual front impact airbags,Dual front side impact airbags,Emergency communication system: SYNC 3 911 Assist,Front anti-roll bar,Knee airbag,Low tire pressure warning,Occupant sensing airbag,Overhead airbag,Rear anti-roll bar,Power Liftgate,Brake assist,Electronic Stability Control,Exterior Parking Camera Rear,Auto High-beam Headlights,Delay-off headlights,Front fog lights,Fully automatic headlights,Panic alarm,Security system,Speed control,Bumpers: body-color,Heated door mirrors,Power door mirrors,Roof rack: rails only,Spoiler,Turn signal indicator mirrors,Auto-dimming Rear-View mirror,Compass,Driver door bin,Driver vanity mirror,FordPass Connect,Front reading lights,Garage door transmitter: HomeLink,Heated steering wheel,Illuminated entry,Leather Heated/Ventilated Captain's Chairs,Outside temperature display,Overhead console,Passenger vanity mirror,Rear reading lights,Sun blinds,SYNC 3/Apple CarPlay/Android Auto,Tachometer,Telescoping steering wheel,Tilt steering wheel,Trip computer,Voice-Activated Touchscreen Navigation System,3rd row seats: bench,Front Bucket Seats,Front Center Armrest,Heated front seats,Heated rear seats,Power passenger seat,Split folding rear seat,Ventilated front seats,Passenger door bin,20\" Premium Painted Aluminum Wheels,Alloy wheels,Rain sensing wipers,Rear window wiper,Speed-Sensitive Wipers,Variably intermittent wipers,3.58 Non-Limited-Slip Rear Axle Ratio",
+    "testDriveLocation": {
+      "locationName": "Monterey Park",
+      "address": "",
+      "city": "Monterey Park",
+      "state": "California",
+      "stateShortname": "CA",
+      "zipcode": "",
+      "geometry": {
+        "latitude": 34.0625106,
+        "longitude": -118.1228476
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1666656349931"
+        }
+      },
+      "id": "order_1LwaeLIEg7TbGU9u3TT0o4WJ"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e1a2f705ac60013a0f718"
+    },
+    "availableTimings": {
+      "Sunday": [],
+      "Monday": [
+        {
+          "_id": {
+            "$oid": "63ac6fdcc09f8200132a0521"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1670241600000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1670299200000"
+            }
+          }
+        }
+      ],
+      "Tuesday": [
+        {
+          "_id": {
+            "$oid": "63ac6fdcc09f8200132a0520"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1670241600000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1670299200000"
+            }
+          }
+        }
+      ],
+      "Wednesday": [],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "63ac6fdcc09f8200132a051f"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1670241600000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1670299200000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "63ac6fdcc09f8200132a051e"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1670241600000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1670299200000"
+            }
+          }
+        }
+      ],
+      "Saturday": []
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "632a572f6be3280013740eb8"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": null,
+        "city": "Virginia Beach",
+        "state": "VA",
+        "zipcode": "23451",
+        "firstName": "Landon",
+        "lastName": "E",
+        "joined": {
+          "$date": {
+            "$numberLong": "1663719215452"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": true,
+        "verifiedFunds": true
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": false,
+        "crypto": {
+          "btc": false
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "VVC4594",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "JTEBU5JR5L5739357",
+    "Price": 42000,
+    "Mileage": 1271,
+    "CarMake": "TOYOTA",
+    "CarModel": "4-Runner",
+    "RegistrationYear": 2020,
+    "Trim": "Trail 4WD",
+    "Zip": "23451",
+    "isVintageVehicle": false,
+    "Engine": "4.0",
+    "vehicleType": "Auto",
+    "stateRegistered": "Virginia",
+    "userId": {
+      "$oid": "632a572f6be3280013740eb8"
+    },
+    "listingNo": "vWcZacbUaWI=",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "638e1a42705ac60013a0f74d"
+        },
+        "images": "/static/listings/638e1a2f705ac60013a0f718/photos/1670257215410-72616e646f6d33326c656e6774687374_8542406531503ccece00959e0a94bc93e0238875d27865d541d0b4fbdb4df0759da7dc16a70c655bcf49a4048cb591b5c77a6bee08b071d5b346ead719e0f0d52e426ce6b2772c77be897f9b94b34f42f.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a45ea601b08c0014e31d6a"
+        },
+        "images": "/static/listings/638e1a2f705ac60013a0f718/photos/1671716514342-Screen Shot 2022-12-22 at 8.41.36 AM.png"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a45e0b01b08c0014e31d39"
+        },
+        "images": "/static/listings/638e1a2f705ac60013a0f718/photos/1671716361304-interior.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a45e0b01b08c0014e31d38"
+        },
+        "images": "/static/listings/638e1a2f705ac60013a0f718/photos/1671716361303-2020_toyota_4runner_frontseat.jpeg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1670257199716"
+      }
+    },
+    "slug": "2020-toyota-4-runner-vwczacbuawi",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Virginia Beach",
+      "state": "Virginia",
+      "stateShortname": "VA",
+      "zipcode": "23451",
+      "geometry": {
+        "latitude": 36.8643566,
+        "longitude": -75.9985693
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-75.9985693, 36.8643566],
+      "_id": {
+        "$oid": "638e1a39705ac60013a0f737"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "SUV",
+    "Cylinders": "6 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "4-Wheel Drive",
+    "ExteriorColor": "Green",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Great test buy!",
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1670257261195"
+        }
+      },
+      "id": "order_1MBhPYIEg7TbGU9uySze9hRA"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63989dc34340f00013692f93"
+    },
+    "availableTimings": {
+      "Sunday": [
+        {
+          "_id": {
+            "$oid": "6398a0d64340f00013693048"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1670886000000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1670943600000"
+            }
+          }
+        }
+      ],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [],
+      "Friday": [],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "6398a0d64340f00013693047"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1670886000000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1670943600000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": true,
+      "bankName": "Bank of America",
+      "phoneNumber": "+14071230000",
+      "loanAccountNumber": "123456789",
+      "estimatedLoanAmount": "20000",
+      "coSeller": {
+        "onLoan": true,
+        "firstName": "Kristin",
+        "lastName": "Lopez",
+        "phoneNumber": "+14071230001"
+      },
+      "seller": {
+        "_id": {
+          "$oid": "63989dc14340f00013692f89"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": false
+        },
+        "profileImage": null,
+        "firstName": "PA",
+        "lastName": "Q",
+        "joined": {
+          "$date": {
+            "$numberLong": "1670946241238"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": false
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "ABCD1001",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "JF1ZNAA17K8700341",
+    "Price": 24900,
+    "Mileage": 36308,
+    "CarMake": "TOYOTA",
+    "CarModel": "86",
+    "RegistrationYear": 2019,
+    "Trim": "Base 6A",
+    "Zip": "37040",
+    "isVintageVehicle": false,
+    "Engine": "2.0",
+    "vehicleType": "Auto",
+    "stateRegistered": "Tennessee",
+    "userId": {
+      "$oid": "63989dc14340f00013692f89"
+    },
+    "listingNo": "vWdlXuDQids=",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fe5"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678878-2019_toyota_86-pic-332533281693757488-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fe6"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678880-2019_toyota_86-pic-453502379590046625-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fe7"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678882-2019_toyota_86-pic-459857296602406834-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fe8"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678883-2019_toyota_86-pic-885648917454216514-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fe9"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678885-2019_toyota_86-pic-1606426392531808585-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fea"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678887-2019_toyota_86-pic-1610578506274353239-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692feb"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678888-2019_toyota_86-pic-1807032443736979660-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fec"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678890-2019_toyota_86-pic-1936126384794363186-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fed"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678891-2019_toyota_86-pic-2309656076723602232-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fee"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678893-2019_toyota_86-pic-2801970254260753534-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692fef"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678895-2019_toyota_86-pic-3833120941044449788-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692ff0"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678897-2019_toyota_86-pic-3901727638277986998-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692ff1"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678898-2019_toyota_86-pic-4869283344512211866-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692ff2"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678900-2019_toyota_86-pic-4933316956768815392-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692ff3"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678902-2019_toyota_86-pic-7607802411767749616-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692ff4"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678905-2019_toyota_86-pic-8071609544039112640-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692ff5"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678907-2019_toyota_86-pic-8628637252115561667-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63989f7d4340f00013692ff6"
+        },
+        "images": "/static/listings/63989dc34340f00013692f93/photos/1670946678909-2019_toyota_86-pic-9134857267573310648-1024x768.jpeg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1670946243549"
+      }
+    },
+    "slug": "2019-toyota-86-vwdlxudqids",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Clarksville",
+      "state": "Tennessee",
+      "stateShortname": "TN",
+      "zipcode": "37040",
+      "geometry": {
+        "latitude": 36.4722803,
+        "longitude": -87.3612205
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-87.3612205, 36.4722803],
+      "_id": {
+        "$oid": "63989de94340f00013692fd6"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Coupe",
+    "Cylinders": "6 cylinder",
+    "Doors": "2 Door",
+    "DriveType": "RWD",
+    "ExteriorColor": "White",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Branded",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "https://www.cargurus.com/Cars/l-Used-Coupe-bg0#listing=344521093/NONE\n\nAlloy Wheels\nBluetooth",
+    "testDriveLocation": {
+      "locationName": "Walmart",
+      "address": "1680  Fort Campbell Blvd",
+      "city": "Clarksville",
+      "state": "Tennessee",
+      "stateShortname": "TN",
+      "zipcode": "37042-3537",
+      "geometry": {
+        "latitude": 36.580358,
+        "longitude": -87.41224799999999
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1670947290755"
+        }
+      },
+      "id": "pi_3MEav5IEg7TbGU9u1VLIXQuS"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63a2727e6c9e49001759e2a4"
+    },
+    "availableTimings": {
+      "Sunday": [
+        {
+          "_id": {
+            "$oid": "63a2784b6c9e49001759e4e0"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671547500000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671582600000"
+            }
+          }
+        }
+      ],
+      "Monday": [
+        {
+          "_id": {
+            "$oid": "63a2784b6c9e49001759e4df"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671547500000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671582600000"
+            }
+          }
+        }
+      ],
+      "Tuesday": [
+        {
+          "_id": {
+            "$oid": "63a2784b6c9e49001759e4de"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671547500000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671582600000"
+            }
+          }
+        }
+      ],
+      "Wednesday": [
+        {
+          "_id": {
+            "$oid": "63a2784b6c9e49001759e4dd"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671547500000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671582600000"
+            }
+          }
+        }
+      ],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "63a2784b6c9e49001759e4dc"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671547500000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671582600000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "63a2784b6c9e49001759e4db"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671547500000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671582600000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "63a2784b6c9e49001759e4da"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671547500000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671582600000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "6231611a022479000912f2f8"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647404485950-vseller-oldthor.jpg",
+        "city": "Saratoga",
+        "state": "WY",
+        "zipcode": "82331",
+        "firstName": "Satya",
+        "lastName": "N",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647403290698"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": true
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": false,
+        "crypto": {
+          "btc": false
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "41GD821",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "WMZYX1C00L3L61604",
+    "Price": 31000,
+    "Mileage": 27067,
+    "CarMake": "MINI",
+    "CarModel": "Countryman",
+    "RegistrationYear": 2020,
+    "Zip": "90840",
+    "isVintageVehicle": false,
+    "vehicleType": "Auto",
+    "stateRegistered": "California",
+    "userId": {
+      "$oid": "6231611a022479000912f2f8"
+    },
+    "listingNo": "vWcrnxhv-tU=",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2f4"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550754-2020_mini_countryman-pic-3132238056257625192-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2f5"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550755-2020_mini_countryman-pic-3578501416110797309-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2f6"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550756-2020_mini_countryman-pic-3852912415395610441-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2f7"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550757-2020_mini_countryman-pic-4855300567863725678-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2f8"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550758-2020_mini_countryman-pic-5865040760317184930-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2f9"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550759-2020_mini_countryman-pic-5935967041645693734-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2fa"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550759-2020_mini_countryman-pic-6217310584401916607-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2fb"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550760-2020_mini_countryman-pic-8469021520058898278-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a275c16c9e49001759e2fc"
+        },
+        "images": "/static/listings/63a2727e6c9e49001759e2a4/photos/1671591550761-2020_mini_countryman-pic-9096300314376220548-1024x768.jpeg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1671590526422"
+      }
+    },
+    "slug": "2020-mini-countryman-vwcrnxhv-tu",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Long Beach",
+      "state": "California",
+      "stateShortname": "CA",
+      "zipcode": "90840",
+      "geometry": {
+        "latitude": 33.7838081,
+        "longitude": -118.1206801
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-118.1206801, 33.7838081],
+      "_id": {
+        "$oid": "63a274b46c9e49001759e2de"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Crossover",
+    "Cylinders": "4 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "AWD",
+    "Engine": "189 hp 2L I4",
+    "ExteriorColor": "Green",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Additional Information\nMINI Excitement Package,Signature Trim,6 Speakers,AM/FM radio,Media Display,Radio data system,Radio: AM/FM/HD Audio System,Radio: Connected Media System w/6.5\" Touchscreen,Air Conditioning,Automatic Climate Control,Automatic temperature control,Front dual zone A/C,Rear window defroster,Comfort Access Keyless Entry,Power steering,Power windows,Remote keyless entry,Steering wheel mounted audio controls,Four wheel independent suspension,Speed-sensing steering,Standard Suspension,Traction control,4-Wheel Disc Brakes,ABS brakes,Dual front impact airbags,Dual front side impact airbags,Emergency communication system: MINI Intelligent Emergency Call,Front anti-roll bar,Knee airbag,Low tire pressure warning,Occupant sensing airbag,Overhead airbag,Rear anti-roll bar,Panoramic Moonroof,Power moonroof,Power Tailgate,Brake assist,Electronic Stability Control,Piano Black Interior Surface,Exterior Parking Camera Rear,Auto High-beam Headlights,Delay-off headlights,Front fog lights,Fully automatic headlights,Speed control,MINI Driving Modes,Bumpers: body-color,Heated door mirrors,Power door mirrors,Roof rack: rails only,ConnectedDrive Services,Driver door bin,Driver vanity mirror,Enhanced USB & Bluetooth,Front reading lights,Illuminated entry,Leather steering wheel,MINI Assist eCall,MINI Connected,MINI TeleServices,Outside temperature display,Overhead console,Passenger vanity mirror,Remote Services,Sport steering wheel,Tachometer,Telescoping steering wheel,Tilt steering wheel,Trip computer,Cloth/Leatherette Upholstery,Front Sport Seats,Heated Front Seats,Heated front seats,Sensatec Leatherette Upholstery,Split folding rear seat,Front Center Armrest w/Storage,Passenger door bin,Alloy wheels,Locking Wheel Bolts,Wheels: 18\" x 7.5\" Pair Spoke Alloy,Rain sensing wipers,Rear window wiper,Speed-Sensitive Wipers,Variably intermittent wipers,Axle Ratio: 3.20",
+    "testDriveLocation": {
+      "locationName": "Malibu Beach",
+      "address": "",
+      "city": "Malibu",
+      "state": "California",
+      "stateShortname": "CA",
+      "zipcode": "90265",
+      "geometry": {
+        "latitude": 34.0385257,
+        "longitude": -118.6569421
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1672904778047"
+        }
+      },
+      "id": "pi_3MMo7kIEg7TbGU9u0OGf6yfU"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63a2792b6c9e49001759e506"
+    },
+    "availableTimings": {
+      "Sunday": [],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [
+        {
+          "_id": {
+            "$oid": "63a27b9b6c9e49001759e5fc"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671543000000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671586200000"
+            }
+          }
+        }
+      ],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "63a27b9b6c9e49001759e5fb"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671543000000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671586200000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "63a27b9b6c9e49001759e5fa"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1671543000000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1671586200000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "6231611a022479000912f2f8"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647404485950-vseller-oldthor.jpg",
+        "city": "Saratoga",
+        "state": "WY",
+        "zipcode": "82331",
+        "firstName": "Satya",
+        "lastName": "N",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647403290698"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": false,
+        "verifiedFunds": true
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": false
+        }
+      }
+    },
+    "hasDamage": false,
+    "licencePlate": "235ZY5",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "5YJXCBE45LF233293",
+    "Price": 89846,
+    "Mileage": 17851,
+    "CarMake": "TESLA",
+    "CarModel": "Model X",
+    "RegistrationYear": 2020,
+    "Zip": "90840",
+    "isVintageVehicle": false,
+    "vehicleType": "Auto",
+    "stateRegistered": "California",
+    "userId": {
+      "$oid": "6231611a022479000912f2f8"
+    },
+    "listingNo": "vWdnAqtZmD0=",
+    "uploadImages": [
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e552"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567242-2020_tesla_model_x-pic-2370898611013667008-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e54f"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567240-2020_tesla_model_x-pic-1737070561841235227-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e550"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567241-2020_tesla_model_x-pic-1753017374519851360-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e551"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567242-2020_tesla_model_x-pic-2053934809582578780-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e553"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567242-2020_tesla_model_x-pic-3418514822690769164-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e554"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567243-2020_tesla_model_x-pic-3552348896972710614-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e555"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567243-2020_tesla_model_x-pic-5133321196185845467-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e556"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567243-2020_tesla_model_x-pic-5713405815350562882-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e557"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567244-2020_tesla_model_x-pic-6432373739406475794-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e558"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567244-2020_tesla_model_x-pic-6521350571007060866-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e559"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567244-2020_tesla_model_x-pic-7575558596415463069-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63a279b96c9e49001759e55a"
+        },
+        "images": "/static/listings/63a2792b6c9e49001759e506/photos/1671592567245-2020_tesla_model_x-pic-8638909891087236263-1024x768.jpeg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1671592235325"
+      }
+    },
+    "slug": "2020-tesla-model-x-vwdnaqtzmd0",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Long Beach",
+      "state": "California",
+      "stateShortname": "CA",
+      "zipcode": "90840",
+      "geometry": {
+        "latitude": 33.7838081,
+        "longitude": -118.1206801
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-118.1206801, 33.7838081],
+      "_id": {
+        "$oid": "63a279486c9e49001759e539"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Crossover",
+    "Cylinders": "4 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "AWD",
+    "Engine": "305 mi",
+    "ExteriorColor": "White",
+    "Fuel": "Electric",
+    "InteriorColor": "White",
+    "TitleType": "Clear",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "",
+    "vehicleDescription": "Additional Information\nNavigation System,17 Speakers,Premium Audio System,Radio data system,Air Conditioning,Automatic temperature control,Front dual zone A/C,Rear window defroster,Head restraints memory,Memory seat,Power driver seat,Power steering,Power windows,Remote keyless entry,Steering wheel memory,Steering wheel mounted A/C controls,Steering wheel mounted audio controls,Adaptive suspension,Auto-leveling suspension,Four wheel independent suspension,Speed-sensing steering,Traction control,4-Wheel Disc Brakes,ABS brakes,Dual front impact airbags,Dual front side impact airbags,Front anti-roll bar,Knee airbag,Low tire pressure warning,Occupant sensing airbag,Overhead airbag,Power adjustable front head restraints,Rear anti-roll bar,Rear side impact airbag,Power Liftgate,Brake assist,Electronic Stability Control,Exterior Parking Camera Rear,Auto High-beam Headlights,Delay-off headlights,Front fog lights,Fully automatic headlights,Security system,Speed control,Auto-dimming door mirrors,Bumpers: body-color,Door auto-latch,Heated door mirrors,Power door mirrors,Spoiler,Auto tilt-away steering wheel,Auto-dimming Rear-View mirror,Compass,Driver door bin,Driver vanity mirror,Front reading lights,Garage door transmitter: Homelink,Heated steering wheel,Illuminated entry,Leather steering wheel,Outside temperature display,Passenger vanity mirror,Rear reading lights,Telescoping steering wheel,Tilt steering wheel,Trip computer,5 Seat Interior,Front Bucket Seats,Front Center Armrest,Heated front seats,Heated rear seats,Power passenger seat,Premium Seat Trim,Split folding rear seat,Ventilated front seats,Passenger door bin,Alloy wheels,Wheels: 20\" x 9.0J Front & 20\" x 9.5J Rear Silver,Rain sensing wipers,Speed-Sensitive Wipers,Variably intermittent wipers,9.73 Axle Ratio",
+    "testDriveLocation": {
+      "locationName": "Long Beach",
+      "address": "",
+      "city": "Long Beach",
+      "state": "California",
+      "stateShortname": "CA",
+      "zipcode": "",
+      "geometry": {
+        "latitude": 33.7700504,
+        "longitude": -118.1937395
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1672904922930"
+        }
+      },
+      "id": "pi_3MMoBoIEg7TbGU9u1UdgzfnD"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63bc262cd31bbc00149105ce"
+    },
+    "payLater": {
+      "enabled": true,
+      "promoCode": "95OFF",
+      "paymentMethod": "pm_1MOMa3IEg7TbGU9u2KAMGA2R",
+      "customer": "cus_Lq1zWndE3xBujN",
+      "amount": 15000,
+      "discount": 14250
+    },
+    "availableTimings": {
+      "Sunday": [
+        {
+          "_id": {
+            "$oid": "63bc27e5d31bbc00149106c1"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1673218800000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1673276400000"
+            }
+          }
+        }
+      ],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [],
+      "Friday": [
+        {
+          "_id": {
+            "$oid": "63bc27e5d31bbc00149106c0"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1673218800000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1673276400000"
+            }
+          }
+        }
+      ],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "63bc27e5d31bbc00149106bf"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1673218800000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1673276400000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "62303f09ce545f0008f1e4ee"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647329381217-SellerNoBank.png",
+        "city": "Holladay",
+        "state": "UT",
+        "zipcode": "84117",
+        "firstName": "Heidi",
+        "lastName": "T",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647329033925"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": true,
+        "verifiedFunds": false
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "hasDamage": true,
+    "licencePlate": "ABCD22030",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "3VWC57BU2KM220485",
+    "Price": 18450,
+    "Mileage": 42751,
+    "CarMake": "VOLKSWAGEN",
+    "CarModel": "Jetta",
+    "RegistrationYear": 2019,
+    "Zip": "22030",
+    "vehicleType": "Auto",
+    "stateRegistered": "California",
+    "userId": {
+      "$oid": "62303f09ce545f0008f1e4ee"
+    },
+    "listingNo": "vWffqJ5-XGs=",
+    "uploadImages": [
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "63bc2701d31bbc0014910633"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134370-2019_volkswagen_jetta-pic-772571719778570469-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2701d31bbc0014910634"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134372-2019_volkswagen_jetta-pic-810653979243269160-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2701d31bbc0014910635"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134374-2019_volkswagen_jetta-pic-1871590863607151226-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2701d31bbc0014910636"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134377-2019_volkswagen_jetta-pic-3120363941340437470-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2701d31bbc0014910637"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134379-2019_volkswagen_jetta-pic-4834269266789293245-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2701d31bbc0014910638"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134380-2019_volkswagen_jetta-pic-6360065122441771930-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2701d31bbc0014910639"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134382-2019_volkswagen_jetta-pic-7682253555938177724-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2701d31bbc001491063a"
+        },
+        "images": "/static/listings/63bc262cd31bbc00149105ce/photos/1673275134384-2019_volkswagen_jetta-pic-9170352158241366397-1024x768.jpeg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1673274924141"
+      }
+    },
+    "slug": "2019-volkswagen-jetta-vwffqj5-xgs",
+    "__v": 0,
+    "BodyStyle": "Sedan",
+    "Cylinders": "4 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "FWD",
+    "Engine": "Engine Engine  147 hp 1.4L I4",
+    "ExteriorColor": "Silver",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Branded",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "Damage 1\nDamage 2",
+    "vehicleDescription": "PAY LATER DISC CODE\n\nhttps://www.cargurus.com/Cars/l-Used-Sedan-bg6#listing=344130008/NONE\n\nSmooth ride, Vehicle Runs Well, Lots of storage, Must test drive, Great first ride, Drives great,",
+    "Trim": "SE FWD",
+    "listingLocation": {
+      "city": "Fairfax",
+      "state": "Virginia",
+      "stateShortname": "VA",
+      "zipcode": "22030",
+      "geometry": {
+        "latitude": 38.8454321,
+        "longitude": -77.3209555
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-77.3209555, 38.8454321],
+      "_id": {
+        "$oid": "63bc268ed31bbc001491061a"
+      },
+      "type": "Point"
+    },
+    "testDriveLocation": {
+      "locationName": "McDonald's",
+      "address": "10775  Lee Hwy",
+      "city": "Fairfax",
+      "state": "Virginia",
+      "stateShortname": "VA",
+      "zipcode": "22030",
+      "geometry": {
+        "latitude": 38.8548508,
+        "longitude": -77.3158543
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1673275448864"
+        }
+      },
+      "id": "seti_1MOMYwIEg7TbGU9uaDCPgJUm"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "63bc2ab2d31bbc00149108cf"
+    },
+    "payLater": {
+      "enabled": false
+    },
+    "availableTimings": {
+      "Sunday": [],
+      "Monday": [],
+      "Tuesday": [],
+      "Wednesday": [],
+      "Thursday": [],
+      "Friday": [],
+      "Saturday": [
+        {
+          "_id": {
+            "$oid": "63bc2c0cd31bbc00149109ce"
+          },
+          "start": {
+            "$date": {
+              "$numberLong": "1673218800000"
+            }
+          },
+          "end": {
+            "$date": {
+              "$numberLong": "1673276400000"
+            }
+          }
+        }
+      ]
+    },
+    "ownershipInfo": {
+      "carTitle": true,
+      "vehicleHaveLien": false,
+      "bankName": "",
+      "phoneNumber": "",
+      "loanAccountNumber": "",
+      "estimatedLoanAmount": "",
+      "coSeller": {
+        "onLoan": false,
+        "firstName": "",
+        "lastName": "",
+        "phoneNumber": ""
+      },
+      "seller": {
+        "_id": {
+          "$oid": "62303f09ce545f0008f1e4ee"
+        },
+        "verification": {
+          "phone": true,
+          "email": true,
+          "bank": true
+        },
+        "profileImage": "/static/profile/1647329381217-SellerNoBank.png",
+        "city": "Holladay",
+        "state": "UT",
+        "zipcode": "84117",
+        "firstName": "Heidi",
+        "lastName": "T",
+        "joined": {
+          "$date": {
+            "$numberLong": "1647329033925"
+          }
+        }
+      }
+    },
+    "dealPreferences": {
+      "verifications": {
+        "fullVerification": true,
+        "verifiedFunds": false
+      },
+      "paymentMethod": {
+        "privateAutoPay": true,
+        "cash": true,
+        "crypto": {
+          "btc": true
+        }
+      }
+    },
+    "hasDamage": true,
+    "licencePlate": "ABCD08648",
+    "status": "live",
+    "messages": [],
+    "documentsToSign": [],
+    "vinNumber": "4T1B61HK3KU205225",
+    "Price": 27498,
+    "Mileage": 8722,
+    "CarMake": "TOYOTA",
+    "CarModel": "Camry",
+    "RegistrationYear": 2019,
+    "Trim": "XSE",
+    "Zip": "08648",
+    "vehicleType": "Auto",
+    "stateRegistered": "New Jersey",
+    "userId": {
+      "$oid": "62303f09ce545f0008f1e4ee"
+    },
+    "listingNo": "vWc4GMiVYeg=",
+    "uploadImages": [
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc001491095e"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276140-2019_toyota_camry-pic-8842162023896679396-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": true,
+        "_id": {
+          "$oid": "63bc2b79d31bbc0014910955"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276120-2019_toyota_camry-pic-277991578589745331-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc0014910956"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276122-2019_toyota_camry-pic-350816834766949104-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc0014910957"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276124-2019_toyota_camry-pic-962361621762613293-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc0014910958"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276126-2019_toyota_camry-pic-2161453301346175751-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc0014910959"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276128-2019_toyota_camry-pic-3403848319140492811-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc001491095a"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276130-2019_toyota_camry-pic-4690396439976369477-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc001491095b"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276133-2019_toyota_camry-pic-6145543538655153595-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc001491095c"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276135-2019_toyota_camry-pic-6910037247604337584-1024x768.jpeg"
+      },
+      {
+        "primaryStatus": false,
+        "_id": {
+          "$oid": "63bc2b79d31bbc001491095d"
+        },
+        "images": "/static/listings/63bc2ab2d31bbc00149108cf/photos/1673276276137-2019_toyota_camry-pic-8666761029029435912-1024x768.jpeg"
+      }
+    ],
+    "uploadFiles": [],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1673276082665"
+      }
+    },
+    "slug": "2019-toyota-camry-vwc4gmivyeg",
+    "__v": 0,
+    "listingLocation": {
+      "city": "Trenton",
+      "state": "New Jersey",
+      "stateShortname": "NJ",
+      "zipcode": "08648",
+      "geometry": {
+        "latitude": 40.2912966,
+        "longitude": -74.72200169999999
+      }
+    },
+    "listingLocationLatLng": {
+      "coordinates": [-74.72200169999999, 40.2912966],
+      "_id": {
+        "$oid": "63bc2bcfd31bbc001491099d"
+      },
+      "type": "Point"
+    },
+    "BodyStyle": "Sedan",
+    "Cylinders": "4 cylinder",
+    "Doors": "4 Door",
+    "DriveType": "FWD",
+    "Engine": "206 hp 2.5L I4",
+    "ExteriorColor": "Silver",
+    "Fuel": "Gas",
+    "InteriorColor": "Black",
+    "TitleType": "Branded",
+    "Transmission": "Automatic Transmission (AT)",
+    "description": "Damage 1\nDamage 2",
+    "vehicleDescription": "PAY NOW\n\nhttps://www.cargurus.com/Cars/l-Used-Sedan-bg6#listing=344060130/NONE\n\nPower passenger seat,Split folding rear seat,Passenger door bin,Alloy wheels,Wheels: 8.0J x 19\" Black Machined-Finish Alloy,Variably intermittent wipers,Clean Carfax,Blind Spot Monitoring,Alloy Wheels,Oil changed and new filters,Apple CarPlay,Backed by Toyota Factory Warrant",
+    "testDriveLocation": {
+      "locationName": "McDonald's",
+      "address": "2940  Brunswick Pike",
+      "city": "Lawrence Township",
+      "state": "New Jersey",
+      "stateShortname": "NJ",
+      "zipcode": "08648",
+      "geometry": {
+        "latitude": 40.2733092,
+        "longitude": -74.70748019999999
+      }
+    },
+    "payment": {
+      "date": {
+        "$date": {
+          "$numberLong": "1673276551706"
+        }
+      },
+      "id": "pi_3MOMrpIEg7TbGU9u1jjWmnWy"
+    }
+  }
+]
