@@ -1,9 +1,11 @@
+import Image from 'next/image';
+
 const Footer = () => {
   return (
     <footer className="w-full px-32 bg-[#45577d] pb-12">
       <div className="flex justify-between pt-12">
         <div>
-          <img src="/assets/listings/logo-white.svg" alt="Logo" />
+          <Image src="/assets/listings/logo-white.svg" alt="Logo" />
           <div className="max-w-[398px] font-normal text-sm text-white pt-1">
             PrivateAuto makes selling a car privately safe, simple, and secure.
             The only technology-driven, self-service solution to close the deal
@@ -29,22 +31,34 @@ const Footer = () => {
       </div>
       <div className="flex justify-between pt-6">
         <div className="w-[220px] flex justify-between">
-          <a href="https://www.facebook.com/privateauto" target="_blank">
-            <img
+          <a
+            href="https://www.facebook.com/privateauto"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
               className="w-[20px] h-[20px]"
               src="/assets/listings/facebook.svg"
               alt="facebook"
             />
           </a>
-          <a href="https://twitter.com/_PrivateAuto" target="_blank">
-            <img
+          <a
+            href="https://twitter.com/_PrivateAuto"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
               className="w-[20px] h-[20px]"
               src="/assets/listings/twitter.svg"
               alt="twitter"
             />
           </a>
-          <a href="https://www.instagram.com/privateauto/" target="_blank">
-            <img
+          <a
+            href="https://www.instagram.com/privateauto/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
               className="w-[20px] h-[20px]"
               src="/assets/listings/instagram.svg"
               alt="instagram"
@@ -53,8 +67,9 @@ const Footer = () => {
           <a
             href="https://www.linkedin.com/company/privateauto/"
             target="_blank"
+            rel="noreferrer"
           >
-            <img
+            <Image
               className="w-[20px] h-[20px]"
               src="/assets/listings/linkedin.svg"
               alt="linkedin"
@@ -63,8 +78,9 @@ const Footer = () => {
           <a
             href="https://www.youtube.com/channel/UCAzVYyuUM09LDhaZN_uDrGQ"
             target="_blank"
+            rel="noreferrer"
           >
-            <img
+            <Image
               className="w-[20px] h-[20px]"
               src="/assets/listings/youtube.svg"
               alt="youtube"
@@ -72,15 +88,23 @@ const Footer = () => {
           </a>
         </div>
         <div className="w-[183px] flex justify-between">
-          <a href="https://www.facebook.com/privateauto" target="_blank">
-            <img
+          <a
+            href="https://www.facebook.com/privateauto"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
               className="w-[78px] h-[26px]"
               src="/assets/appstore.svg"
               alt="IOS store"
             />
           </a>
-          <a href="https://twitter.com/_PrivateAuto" target="_blank">
-            <img
+          <a
+            href="https://twitter.com/_PrivateAuto"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Image
               className="w-[81px] h-[29px]"
               src="/assets/googleplay.svg"
               alt="Google Play Store"

@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 type Props = {
   data: any;
 };
@@ -12,10 +14,16 @@ const IconBar = ({ data }: Props) => {
           <div className="flex space-x-8">
             {data.Links.map((item: any, index: number) => {
               return (
-                <a href={item.URL} key={index} target="_blank">
-                  <img
+                <a
+                  href={item.URL}
+                  key={item.id}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <Image
                     className={`w-[${item.Image.data.attributes.width}px] h-[${item.Image.data.attributes.height}px]`}
                     src={item.Image.data.attributes.url}
+                    alt={item.Image.data.attributes.alternativeText}
                   />
                 </a>
               );
