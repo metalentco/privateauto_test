@@ -435,19 +435,19 @@
             }
           },
           {
-            "id": 1,
+            "id": 2,
             "__component": "page-elements.bulleted-list",
-            "Color": "Dark Blue",
-            "Width": "w 80 pct",
-            "Title": "Sample Bullets",
-            "TitleStyle": "H2",
+            "Color": "White",
+            "Width": "w Full",
+            "Title": null,
+            "TitleStyle": "H1",
             "Items": [
               {
-                "id": 1,
-                "Text": "Avoid scammers and fakes though buyer verification",
+                "id": 3,
+                "Text": "Avoid scammers and fakes through buyer verification",
                 "Image": {
                   "data": {
-                    "id": 36,
+                    "id": 46,
                     "attributes": {
                       "name": "pricingCheck.svg",
                       "alternativeText": "pricingCheck.svg",
@@ -455,71 +455,126 @@
                       "width": 20,
                       "height": 20,
                       "formats": null,
-                      "hash": "pricing_Check_139eda5821",
+                      "hash": "pricing_Check_8263864ce1",
                       "ext": ".svg",
                       "mime": "image/svg+xml",
                       "size": 0.27,
-                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/pricing_Check_139eda5821.svg",
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/pricing_Check_8263864ce1.svg",
                       "previewUrl": null,
                       "provider": "aws-s3",
                       "provider_metadata": null,
-                      "createdAt": "2023-01-11T17:21:35.549Z",
-                      "updatedAt": "2023-01-11T17:21:35.549Z"
+                      "createdAt": "2023-01-19T21:57:51.752Z",
+                      "updatedAt": "2023-01-19T21:57:51.752Z"
                     }
                   }
                 }
               },
               {
-                "id": 2,
-                "Text": "Keep your info private by communicating through our app.",
-                "Image": { "data": null }
+                "id": 4,
+                "Text": "Keep your info private by communicating and scheduling through our app",
+                "Image": {
+                  "data": null
+                }
+              },
+              {
+                "id": 5,
+                "Text": "Cut down paperwork hassle with built-in e-signing of the bill of sale",
+                "Image": {
+                  "data": null
+                }
+              },
+              {
+                "id": 6,
+                "Text": "Receive your money quickly and securely with our integrated banking solution",
+                "Image": {
+                  "data": null
+                }
               }
             ]
           },
           {
-            "id": 1,
+            "id": 2,
             "__component": "page-elements.list",
             "Color": "White",
-            "Title": "Sample List",
-            "TitleStyle": "H1",
-            "SubTitle": null,
+            "Title": "Buyer",
+            "TitleStyle": "H3",
+            "SubTitle": "Free",
             "SubTitleStyle": "H1",
-            "Content": null,
-            "Buttons": "None",
+            "Content": "No fees, completely free*",
+            "Buttons": "Create account",
             "Position": "Center",
-            "Image": { "data": null },
+            "Image": {
+              "data": null
+            },
             "Items": [
               {
-                "id": 1,
-                "Item": "Seller ID Verification",
+                "id": 3,
+                "Item": "Seller ID verification",
                 "Icon": {
                   "data": {
-                    "id": 37,
+                    "id": 46,
                     "attributes": {
-                      "name": "checkbox-checked.svg",
-                      "alternativeText": "checkbox-checked.svg",
-                      "caption": "checkbox-checked.svg",
+                      "name": "pricingCheck.svg",
+                      "alternativeText": "pricingCheck.svg",
+                      "caption": "pricingCheck.svg",
                       "width": 20,
                       "height": 20,
                       "formats": null,
-                      "hash": "checkbox_checked_5d7673fc78",
+                      "hash": "pricing_Check_8263864ce1",
                       "ext": ".svg",
                       "mime": "image/svg+xml",
-                      "size": 0.34,
-                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/checkbox_checked_5d7673fc78.svg",
+                      "size": 0.27,
+                      "url": "https://strapi-cms-media-dev.s3.us-east-2.amazonaws.com/pricing_Check_8263864ce1.svg",
                       "previewUrl": null,
                       "provider": "aws-s3",
                       "provider_metadata": null,
-                      "createdAt": "2023-01-11T17:25:13.868Z",
-                      "updatedAt": "2023-01-11T17:25:13.868Z"
+                      "createdAt": "2023-01-19T21:57:51.752Z",
+                      "updatedAt": "2023-01-19T21:57:51.752Z"
                     }
                   }
                 }
               },
               {
-                "id": 2,
-                "Item": "Autocheck history report",
-                "Icon": { "data": null }
+                "id": 4,
+                "Item": "AutoCheck history report",
+                "Icon": {
+                  "data": null
+                }
+              },
+              {
+                "id": 5,
+                "Item": "Test drive & make offer tools",
+                "Icon": {
+                  "data": null
+                }
+              },
+              {
+                "id": 6,
+                "Item": "E-sign the bill of sale",
+                "Icon": {
+                  "data": null
+                }
+              },
+              {
+                "id": 7,
+                "Item": "Instantly send Funds",
+                "Icon": {
+                  "data": null
+                }
+              },
+              {
+                "id": 8,
+                "Item": "Buyer financing available",
+                "Icon": {
+                  "data": null
+                }
+              },
+              {
+                "id": 9,
+                "Item": "No transaction fees",
+                "Icon": {
+                  "data": null
+                }
               }
             ]
           },
