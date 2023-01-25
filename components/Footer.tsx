@@ -7,7 +7,6 @@ const Footer = () => {
         <div className="space-y-4 md:space-y-0">
           <div className="flex md:block justify-center">
             <Image
-              e
               className=" flex justify-center"
               src="/assets/listings/logo-white.svg"
               alt="Logo"

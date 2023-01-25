@@ -1,14 +1,15 @@
-import { parseWidth, parseTitle, parseColor } from "@/common/Parse";
+import { parseWidth, parseTitle, parseColor } from '@/common/Parse';
+import Image from 'next/image';
 
 type Props = {
   data: any;
 };
 
 const Lists = ({ data }: Props) => {
-  var url = "";
-  var alt = "";
-  var width = 0;
-  var height = 0;
+  let url = '';
+  let alt = '';
+  let width = 0;
+  let height = 0;
 
   return (
     <div className="w-5/6 md:w-4/6 mx-auto py-8">
@@ -45,7 +46,7 @@ const Lists = ({ data }: Props) => {
               }
               return (
                 <div className="w-full flex items-center space-x-4" key={index}>
-                  <img
+                  <Image
                     className={`w-[${width}]px h-[${height}px]`}
                     src={url}
                     alt={alt}
