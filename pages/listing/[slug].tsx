@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
@@ -26,13 +25,13 @@ export default function SlugPage() {
   }, [slug]);
 
   const getData = (value: string) => {
-    for (var i = 0; i < content.length; i++) {
+    for (let i = 0; i < content.length; i++) {
       if (content[i].slug === value) {
-        var date = new Date(
+        const date = new Date(
           Number(content[i].ownershipInfo.seller.joined.$date.$numberLong)
         );
-        var arr = date.toString().split(' ');
-        var date_str = arr[1] + ' ' + arr[2] + ', ' + arr[3];
+        const arr = date.toString().split(' ');
+        const date_str = arr[1] + ' ' + arr[2] + ', ' + arr[3];
         content[i].ownershipInfo.seller.joined.$date.$numberLong = date_str;
         setData(content[i]);
         setImageURI(content[i].uploadImages[0].images);
@@ -49,7 +48,7 @@ export default function SlugPage() {
   };
 
   const showAdditionalInfo = () => {
-    if (isAdditionalInfo == false) {
+    if (!isAdditionalInfo) {
       setIsAdditionalInfo(true);
     } else {
       setIsAdditionalInfo(false);
@@ -100,7 +99,7 @@ export default function SlugPage() {
                       return (
                         <div
                           className="w-[202px] h-[236px] mt-2.5 mr-2"
-                          key={index}
+                          key={item.id}
                         >
                           <Image
                             className="w-[202px] h-[236px] cursor-pointer"
@@ -173,11 +172,14 @@ export default function SlugPage() {
                   <div>
                     {data?.uploadImages.map((item: any, index: number) => {
                       return (
-                        <div className="w-[1154px] h-[923px] mb-8" key={index}>
+                        <div
+                          className="w-[1154px] h-[923px] mb-8"
+                          key={item.id}
+                        >
                           <Image
                             className="w-[1154px] h-[923px] cursor-pointer"
                             src={'/images/1250x1000' + item.images}
-                            key={index}
+                            key={item.id}
                             alt={''}
                           />
                         </div>
@@ -440,7 +442,7 @@ export default function SlugPage() {
                       </div>
                     </div>
                   )}
-                  {data && data.description != '' ? (
+                  {data.description != '' ? (
                     <div className="w-full bg-[#f7f9fc] text-sm font-normal px-4 py-4 my-4 border-[#dee2e6] border rounded">
                       {data.description
                         .split('\n')
@@ -624,7 +626,7 @@ export default function SlugPage() {
               </svg>
             </div>
             <div className="flex space-x-8 mt-8">
-              {data && data.dealPreferences.paymentMethod.privateAutoPay ? (
+              {data.dealPreferences.paymentMethod.privateAutoPay ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
                     className="w-[46px] h-[17px]"
@@ -635,7 +637,7 @@ export default function SlugPage() {
               ) : (
                 ''
               )}
-              {data && data.dealPreferences.paymentMethod.cash ? (
+              {data.dealPreferences.paymentMethod.cash ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
                     className="w-[60px] h-[14px]"
@@ -646,7 +648,7 @@ export default function SlugPage() {
               ) : (
                 ''
               )}
-              {data && data.dealPreferences.paymentMethod.crypto.btc ? (
+              {data.dealPreferences.paymentMethod.crypto.btc ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
                     className="w-[60px] h-[13px]"
@@ -660,7 +662,7 @@ export default function SlugPage() {
             </div>
             <hr className="mt-6" />
           </section>
-          {data && data.testDriveLocation ? (
+          {data.testDriveLocation ? (
             <section className="w-full my-8">
               <div className="flex justify-between">
                 <div>
