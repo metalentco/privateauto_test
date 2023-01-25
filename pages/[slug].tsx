@@ -47,7 +47,7 @@ export default function Components() {
       <div className="w-full">
         <Header />
         <main className="w-full space-y-5">
-          <section className="w-4/6 mx-auto">
+          <section className="w-4/6 mx-auto mb-20">
             <div className="text-3xl font-semibold mt-14">
               {data.attributes.PageTitle}
             </div>

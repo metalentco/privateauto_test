@@ -22,7 +22,7 @@ export const parseTitle = (type: string) => {
   } else if (type == "H2") {
     return "text-3xl font-semibold";
   } else if (type == "H3") {
-    return "text-xl font-medium";
+    return "text-2xl font-medium";
   } else {
     return "text-sm font-medium";
   }

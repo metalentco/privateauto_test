@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import GoogleMapReact from 'google-map-react';
@@ -78,8 +79,16 @@ export default function SlugPage() {
   if (data) {
     return (
       <div className="w-full">
+        <Head>
+          <title>Car buying | selling</title>
+          <meta
+            name="description"
+            content={`Used ${data.vehicleType} for sale. ${data.RegistrationYear} ${data.CarMake} ${data.CarModel} for sale in ${data.listingLocation.city},${data.listingLocation.stateShortname}. Buy and sell used cars on PrivateAuto.`}
+            key="desc"
+          />
+        </Head>
         <Header />
-        <main className="w-3/4 mx-auto">
+        <main className="w-11/12 kl:w-10/12 lg:w-3/4 mx-auto">
           <section className="mt-14">
             <span className="flex hover:underline cursor-pointer">
               <span>
@@ -93,8 +102,8 @@ export default function SlugPage() {
             </span>
             <div className="w-full mt-6">
               {data ? (
-                <div className="flex">
-                  <div className="w-[420px] h-[490px] flex-wrap overflow-hidden flex">
+                <div className="flex justify-center">
+                  <div className="w-[420px] h-[490px] flex-wrap overflow-hidden hidden md:flex">
                     {data?.uploadImages.map((item: any, index: number) => {
                       return (
                         <div
@@ -113,18 +122,18 @@ export default function SlugPage() {
                     })}
                   </div>
                   <div
-                    className="w-[570px] relative pt-2.5 pb-1.5 pl-1.5"
+                    className="w-full md:w-[570px] relative pt-2.5 pb-1.5 pl-1.5"
                     onClick={() => {
                       setShowImageModal(true);
                       setScrollHidden();
                     }}
                   >
                     <Image
-                      className="w-[564px] h-[480px] cursor-pointer"
+                      className="w-full h-full md:w-[564px] h-[480px] cursor-pointer"
                       src={'/images/564x480' + imageURI}
                       alt={'not sure'}
                     />
-                    <button className="bg-white absolute top-[440px] left-[375px] flex items-center text-base text-[#00b3de] font-medium py-2 px-4 border border-[#00b3de] hover:border-transparent rounded space-x-1">
+                    <button className="bg-white absolute top-[440px] left-[375px] hidden md:flex items-center text-base text-[#00b3de] font-medium py-2 px-4 border border-[#00b3de] hover:border-transparent rounded space-x-1">
                       <svg
                         fill="#00b3de"
                         viewBox="-32 0 512 512"
@@ -173,11 +182,11 @@ export default function SlugPage() {
                     {data?.uploadImages.map((item: any, index: number) => {
                       return (
                         <div
-                          className="w-[1154px] h-[923px] mb-8"
+                          className="w-full md:w-[1154px] mb-8"
                           key={item.id}
                         >
                           <Image
-                            className="w-[1154px] h-[923px] cursor-pointer"
+                            className="w-full h-full cursor-pointer"
                             src={'/images/1250x1000' + item.images}
                             key={item.id}
                             alt={''}
@@ -190,8 +199,8 @@ export default function SlugPage() {
               </div>
             ) : null}
           </section>
-          <section className="max-w-[650px] mt-8">
-            <h1 className="text-4xl text-slate-800 font-bold leading-8">
+          <section className="w-full md:max-w-[650px] mt-8">
+            <h1 className="text-xl md:text-4xl text-slate-800 font-bold leading-8">
               {data.RegistrationYear}&nbsp;{data.CarMake}&nbsp;{data.CarModel}
               &nbsp;{data.Trim}
             </h1>
@@ -217,10 +226,10 @@ export default function SlugPage() {
             </div>
           </section>
           <hr className="w-full mt-8 mb-4" />
-          <section>
+          <section className="w-full">
             <h3 className="text-2xl font-bold mb-4">Details</h3>
-            <div>
-              <div className="w-[600px] grid grid-cols-3 gap-2">
+            <div className="w-full">
+              <div className="w-full md:w-[600px] block md:grid grid-cols-3 gap-2 space-y-4">
                 <div className="flex items-center space-x-4">
                   <Image
                     className="w-[25px] h-[22px]"
@@ -265,7 +274,7 @@ export default function SlugPage() {
                   </div>
                 </div>
               </div>
-              <div className="w-[600px] mt-8 grid grid-cols-3 gap-2">
+              <div className="w-full md:w-[600px] mt-8 block md:grid grid-cols-3 gap-2 space-y-4">
                 <div className="flex items-center space-x-4">
                   <Image
                     className="w-[25px] h-[16px]"
@@ -461,7 +470,7 @@ export default function SlugPage() {
             <hr className="mt-[20px]" />
           </section>
           <section className="w-full bg-[#f7f9fc] px-8 py-8 my-8">
-            <div className="w-full flex justify-between">
+            <div className="w-full block md:flex justify-between space-y-8">
               <div className="flex items-center">
                 <Image
                   className="w-[45px] h-[45px] mr-8"
@@ -485,7 +494,7 @@ export default function SlugPage() {
             </div>
           </section>
           <section className="w-full pt-3">
-            <div className="flex justify-between">
+            <div className="block md:flex justify-between space-y-8">
               <div className="flex space-x-4">
                 <div className="flex relative">
                   {data.ownershipInfo.seller.profileImage != null ? (
@@ -545,7 +554,7 @@ export default function SlugPage() {
                 <path d="M512 85.333333a426.666667 426.666667 0 1 0 426.666667 426.666667A426.666667 426.666667 0 0 0 512 85.333333z m0 682.666667a42.666667 42.666667 0 1 1 42.666667-42.666667 42.666667 42.666667 0 0 1-42.666667 42.666667z m42.666667-220.16V597.333333a42.666667 42.666667 0 0 1-85.333334 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667 64 64 0 1 0-64-64 42.666667 42.666667 0 0 1-85.333333 0 149.333333 149.333333 0 1 1 192 142.506667z" />
               </svg>
             </div>
-            <div className="w-3/5 flex justify-between pt-4">
+            <div className="w-3/5 block md:flex justify-between pt-4 space-y-6">
               <div className="flex items-center">
                 <svg
                   fill="#0b9709"
@@ -666,14 +675,16 @@ export default function SlugPage() {
             <section className="w-full my-8">
               <div className="flex justify-between">
                 <div>
-                  <p className="text-[25px] font-bold">Test drive location</p>
-                  <p className="text-sm text-[#212529]">
+                  <p className="text-sm md:text-[25px] font-bold">
+                    Test drive location
+                  </p>
+                  <p className="text-xs md:text-sm text-[#212529]">
                     {data.listingLocation.city},&nbsp;
                     {data.listingLocation.stateShortname}
                   </p>
                 </div>
                 <div className="flex items-center">
-                  <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-1 px-4 rounded cursor-pointer">
+                  <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-xs md:text-sm font-bold py-1 px-4 rounded cursor-pointer">
                     Schedule Test Drive
                   </button>
                 </div>
@@ -699,20 +710,20 @@ export default function SlugPage() {
           ) : (
             ''
           )}
-          <section className="w-full bg-[#f7f9fc] mt-20 px-12 py-16">
+          <section className="w-full bg-[#f7f9fc] mt-20 px-4 md:px-12 py-8 md:py-16">
             <div className="text-[28px] font-bold pb-4">Why PrivateAuto</div>
             <div className="space-y-8">
               <div className="flex items-center space-x-6">
                 <Image
-                  className="w-[82px] h-[82px]"
+                  className="w-[60px] md:w-[82px]"
                   src="/assets/listings/sendMoneyIcon.svg"
                   alt="Image-size"
                 />
                 <div>
-                  <p className="text-2xl font-medium">
+                  <p className="text-lg md:text-2xl font-medium">
                     Direct banking integration
                   </p>
-                  <p className="text-base font-normal">
+                  <p className="text-sm md:text-base font-normal">
                     Instantly transfer or receive money with PrivateAuto Pay. No
                     transaction fees.
                   </p>
@@ -720,13 +731,15 @@ export default function SlugPage() {
               </div>
               <div className="flex items-center space-x-6">
                 <Image
-                  className="w-[82px] h-[82px]"
+                  className="w-[60px] md:w-[82px]"
                   src="/assets/listings/chatFeatureIcon.svg"
                   alt="Image-size"
                 />
                 <div>
-                  <p className="text-2xl font-medium">Online chat feature</p>
-                  <p className="text-base font-normal">
+                  <p className="text-lg md:text-2xl font-medium">
+                    Online chat feature
+                  </p>
+                  <p className="text-sm md:text-base font-normal">
                     Simply communicate with the seller without disclosing your
                     personal info.
                   </p>
@@ -734,13 +747,15 @@ export default function SlugPage() {
               </div>
               <div className="flex items-center space-x-6">
                 <Image
-                  className="w-[82px] h-[82px]"
+                  className="w-[60px] md:w-[82px]"
                   src="/assets/listings/easySchedulingIcon.svg"
                   alt="Image-size"
                 />
                 <div>
-                  <p className="text-2xl font-medium">Buying made easy</p>
-                  <p className="text-base font-normal">
+                  <p className="text-lg md:text-2xl font-medium">
+                    Buying made easy
+                  </p>
+                  <p className="text-sm md:text-base font-normal">
                     Easily schedule test drives, make offers, and e-sign your
                     bill of sale.
                   </p>

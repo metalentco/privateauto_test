@@ -19,9 +19,9 @@ const Faq = ({ data, faq, index }: Props) => {
   };
 
   return (
-    <div className="w-8/12 mx-auto">
+    <div className="w-10/12 md:w-8/12 mx-auto">
       {faq == index ? (
-        <div className="text-center text-4xl font-bold space-y-5">
+        <div className="text-center text-3xl md:text-4xl font-bold space-y-5">
           <span>Frequently Asked Questions</span>
           <hr className="py-3" />
         </div>
