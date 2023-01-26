@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { useRouter } from "next/router";
 import Header from "@/components/Header";
+import Menu from "@/components/Menu";
 import JumpLinkTarget from "@/components/JumpLinkTarget";
 import IconBar from "@/components/IconBar";
 import ContentBlock from "@/components/ContentBlock";
@@ -19,11 +20,8 @@ export default function Components() {
   const [indexFaq, setIndexFaq] = useState<any>(0);
 
   useEffect(() => {
-    if (slug) {
-      const slugValue = slug.toString();
-      getData(slugValue);
-    }
-  }, [slug]);
+    getData("test");
+  }, []);
 
   const getData = (value: string) => {
     for (var i = 0; i < content.data.length; i++) {
@@ -46,6 +44,7 @@ export default function Components() {
     return (
       <div className="w-full">
         <Header />
+        <Menu />
         <main className="w-full space-y-5">
           <section className="w-4/6 mx-auto mb-20">
             <div className="text-3xl font-semibold mt-14">

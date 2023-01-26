@@ -2,9 +2,10 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Menu from "@/components/Menu";
 import content from "../../json/seller_listings.json";
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
@@ -88,6 +89,7 @@ export default function SlugPage() {
           />
         </Head>
         <Header />
+        <Menu />
         <main className="w-11/12 kl:w-10/12 lg:w-3/4 mx-auto">
           <section className="mt-14">
             <span className="flex hover:underline cursor-pointer">
@@ -128,7 +130,7 @@ export default function SlugPage() {
                     }}
                   >
                     <img
-                      className="w-full h-full md:w-[564px] h-[480px] cursor-pointer"
+                      className="w-full md:w-[564px] h-[480px] cursor-pointer"
                       src={"/images/564x480" + imageURI}
                     />
                     <button className="bg-white absolute top-[440px] left-[375px] hidden md:flex items-center text-base text-[#00b3de] font-medium py-2 px-4 border border-[#00b3de] hover:border-transparent rounded space-x-1">

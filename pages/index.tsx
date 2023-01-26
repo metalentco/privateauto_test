@@ -1,5 +1,8 @@
 import Head from "next/head";
 import { Inter } from "@next/font/google";
+import Header from "@/components/Header";
+import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +15,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header />
+      <Menu />
+      <div className="w-full py-32 text-center text-4xl">Updating now...</div>
+      <Footer />
     </div>
   );
 }
