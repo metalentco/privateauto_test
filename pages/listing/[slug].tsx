@@ -12,11 +12,11 @@ export default function SlugPage() {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
-  const [isAdditionalInfo, setIsAdditionalInfo] = useState<Boolean>(false);
+  const [isAdditionalInfo, setIsAdditionalInfo] = useState<boolean>(false);
   const [isSellerDisclosures, setIsSellerDisclosures] =
-    useState<Boolean>(false);
-  const [imageURI, setImageURI] = useState<String>('');
-  const [showImageModal, setShowImageModal] = useState<Boolean>(false);
+    useState<boolean>(false);
+  const [imageURI, setImageURI] = useState<string>('');
+  const [showImageModal, setShowImageModal] = useState<boolean>(false);
 
   useEffect(() => {
     if (slug) {
