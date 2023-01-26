@@ -351,31 +351,31 @@ export default function SlugPage() {
                 )}
               </div>
               {isAdditionalInfo ? (
-                <div className="flex mt-4">
-                  <div className="w-1/2 space-y-4">
-                    <div className="grid grid-cols-2 pr-32">
+                <div className="block sm:flex mt-4">
+                  <div className="w-full sm:w-1/2 space-y-4">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Trim</p>
                       <p className="text-sm font-bold">{data.Trim}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Number of cylinders</p>
                       <p className="text-sm font-bold">{data.Cylinders}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Number of doors</p>
                       <p className="text-sm font-bold">{data.Doors}</p>
                     </div>
                   </div>
-                  <div className="w-1/2 space-y-4">
-                    <div className="grid grid-cols-2 pr-32">
+                  <div className="w-full sm:w-1/2 space-y-4">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Body style</p>
                       <p className="text-sm font-bold">{data.BodyStyle}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Exterior color</p>
                       <p className="text-sm font-bold">{data.ExteriorColor}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Title type</p>
                       <p className="text-sm font-bold">{data.TitleType}</p>
                     </div>
