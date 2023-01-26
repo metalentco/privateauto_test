@@ -2,9 +2,10 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import GoogleMapReact from 'google-map-react';
-import { useRouter } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Menu from '@/components/Menu';
 import content from '../../json/seller_listings.json';
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
@@ -88,6 +89,7 @@ export default function SlugPage() {
           />
         </Head>
         <Header />
+        <Menu />
         <main className="w-11/12 kl:w-10/12 lg:w-3/4 mx-auto">
           <section className="mt-14">
             <span className="flex hover:underline cursor-pointer">
@@ -129,7 +131,7 @@ export default function SlugPage() {
                     }}
                   >
                     <Image
-                      className="w-full h-full md:w-[564px] h-[480px] cursor-pointer"
+                      className="w-full md:w-[564px] h-[480px] cursor-pointer"
                       src={'/images/564x480' + imageURI}
                       alt={'not sure'}
                     />
@@ -356,31 +358,31 @@ export default function SlugPage() {
                 )}
               </div>
               {isAdditionalInfo ? (
-                <div className="flex mt-4">
-                  <div className="w-1/2 space-y-4">
-                    <div className="grid grid-cols-2 pr-32">
+                <div className="block sm:flex mt-4">
+                  <div className="w-full sm:w-1/2 space-y-4">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Trim</p>
                       <p className="text-sm font-bold">{data.Trim}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Number of cylinders</p>
                       <p className="text-sm font-bold">{data.Cylinders}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Number of doors</p>
                       <p className="text-sm font-bold">{data.Doors}</p>
                     </div>
                   </div>
-                  <div className="w-1/2 space-y-4">
-                    <div className="grid grid-cols-2 pr-32">
+                  <div className="w-full sm:w-1/2 space-y-4">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Body style</p>
                       <p className="text-sm font-bold">{data.BodyStyle}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Exterior color</p>
                       <p className="text-sm font-bold">{data.ExteriorColor}</p>
                     </div>
-                    <div className="grid grid-cols-2 pr-32">
+                    <div className="grid grid-cols-2 pr-0 sm:pr-32">
                       <p>Title type</p>
                       <p className="text-sm font-bold">{data.TitleType}</p>
                     </div>

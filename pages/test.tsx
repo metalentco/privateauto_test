@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import Header from '@/components/Header';
+import Menu from '@/components/Menu';
 import JumpLinkTarget from '@/components/JumpLinkTarget';
 import IconBar from '@/components/IconBar';
 import ContentBlock from '@/components/ContentBlock';
@@ -19,16 +20,13 @@ export default function Components() {
   const [indexFaq, setIndexFaq] = useState<any>(0);
 
   useEffect(() => {
-    if (slug) {
-      const slugValue = slug.toString();
-      getData(slugValue);
-    }
-  }, [slug]);
+    getData('test');
+  }, []);
 
   const getData = (value: string) => {
-    for (let i = 0; i < content.data.length; i++) {
+    for (var i = 0; i < content.data.length; i++) {
       if (content.data[i].attributes.slug === value) {
-        for (let j = 0; j < content.data[i].attributes.Content.length; j++) {
+        for (var j = 0; j < content.data[i].attributes.Content.length; j++) {
           if (
             content.data[i].attributes.Content[j].__component ==
             'page-elements.faq'
@@ -46,14 +44,15 @@ export default function Components() {
     return (
       <div className="w-full">
         <Header />
+        <Menu />
         <main className="w-full space-y-5">
           <section className="w-4/6 mx-auto mb-20">
             <div className="text-3xl font-semibold mt-14">
               {data.attributes.PageTitle}
             </div>
-            {data.attributes.Image.data ? (
+            {data && data.attributes.Image.data ? (
               <div className="w-full flex justify-center mt-8">
-                <Image
+                <img
                   src={data.attributes.Image.data.attributes.formats.small.url}
                   alt={data.attributes.Image.data.attributes.formats.small.name}
                 />
@@ -65,24 +64,24 @@ export default function Components() {
               {data.attributes.Body}
             </div>
           </section>
-          {data.attributes.Content.length != 0
+          {data && data.attributes.Content.length != 0
             ? data.attributes.Content.map((item: any, index: number) => {
                 return item.__component == 'page-elements.jump-link-target' ? (
-                  <JumpLinkTarget key={item.id} data={item} />
+                  <JumpLinkTarget key={index} data={item} />
                 ) : item.__component == 'page-elements.icon-bar' ? (
-                  <IconBar key={item.id} data={item} />
+                  <IconBar key={index} data={item} />
                 ) : item.__component == 'page-elements.image-text' ? (
-                  <ContentBlock key={item.id} data={item} />
+                  <ContentBlock key={index} data={item} />
                 ) : item.__component == 'page-elements.inline-image' ? (
-                  <InlineImage key={item.id} data={item} />
+                  <InlineImage key={index} data={item} />
                 ) : item.__component == 'page-elements.bulleted-list' ? (
-                  <BulletedList key={item.id} data={item} />
+                  <BulletedList key={index} data={item} />
                 ) : item.__component == 'page-elements.list' ? (
-                  <Lists key={item.id} data={item} />
+                  <Lists key={index} data={item} />
                 ) : item.__component == 'page-elements.jump-links' ? (
-                  <JumpLinks key={item.id} data={item} />
+                  <JumpLinks key={index} data={item} />
                 ) : (
-                  <Faq key={item.id} data={item} faq={indexFaq} index={index} />
+                  <Faq key={index} data={item} faq={indexFaq} index={index} />
                 );
               })
             : ''}
