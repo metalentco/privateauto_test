@@ -1,38 +1,44 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Menu = () => {
   const [showMenuModal, setShowMenuModal] = useState<Boolean>(false);
 
   const setScrollHidden = () => {
-    if (document.body.style.overflow !== "hidden") {
-      document.body.style.overflow = "hidden";
+    if (document.body.style.overflow !== 'hidden') {
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflow = 'scroll';
     }
   };
   return (
     <div className="w-full px-[8%] pt-10">
       <div className="md:flex justify-between">
         <div className="flex justify-between md:items-center space-x-8">
-          <a className="cursor-pointer" href="/">
-            <img className="w-[134px] h-[24px]" src="/assets/logo.svg" />
-          </a>
+          <Link className="cursor-pointer" href="/">
+            <Image
+              className="w-[134px] h-[24px]"
+              src="/assets/logo.svg"
+              alt="PrivateAuto"
+            />
+          </Link>
           <div className="hidden md:flex text-xl font-normal text-[#333] space-x-6">
-            <a className="cursor-pointer" href="/sell">
+            <Link className="cursor-pointer" href="/sell">
               Sell
-            </a>
-            <a className="cursor-pointer" href="/buy">
+            </Link>
+            <Link className="cursor-pointer" href="/buy">
               Buy
-            </a>
-            <a className="cursor-pointer" href="/pricing">
+            </Link>
+            <Link className="cursor-pointer" href="/pricing">
               Pricing
-            </a>
-            <a className="cursor-pointer" href="/how-it-works">
+            </Link>
+            <Link className="cursor-pointer" href="/how-it-works">
               How it works
-            </a>
-            <a className="cursor-pointer" href="/blog">
+            </Link>
+            <Link className="cursor-pointer" href="/blog">
               Blog
-            </a>
+            </Link>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,66 +67,66 @@ const Menu = () => {
                 viewBox="0 0 92.13 92.13"
                 onClick={() => {
                   setShowMenuModal(false);
-                  document.body.style.overflow = "scroll";
+                  document.body.style.overflow = 'scroll';
                 }}
               >
                 <g id="SVGRepo_bgCarrier"></g>
                 <g id="SVGRepo_tracerCarrier"></g>
                 <g id="SVGRepo_iconCarrier">
-                  {" "}
+                  {' '}
                   <g>
-                    {" "}
+                    {' '}
                     <g>
-                      {" "}
-                      <path d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"></path>{" "}
-                    </g>{" "}
-                  </g>{" "}
+                      {' '}
+                      <path d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"></path>{' '}
+                    </g>{' '}
+                  </g>{' '}
                 </g>
               </svg>
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/sell"
               >
                 Sell
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/buy"
               >
                 Buy
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/pricing"
               >
                 Pricing
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/how-it-works"
               >
                 How it works
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/blog"
               >
                 Blog
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div className="w-[80%] mx-auto my-8">

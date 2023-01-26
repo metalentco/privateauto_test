@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import React from 'react';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
@@ -50,9 +51,9 @@ export default function Components() {
             <div className="text-3xl font-semibold mt-14">
               {data.attributes.PageTitle}
             </div>
-            {data && data.attributes.Image.data ? (
+            {data.attributes.Image.data ? (
               <div className="w-full flex justify-center mt-8">
-                <img
+                <Image
                   src={data.attributes.Image.data.attributes.formats.small.url}
                   alt={data.attributes.Image.data.attributes.formats.small.name}
                 />
@@ -64,7 +65,7 @@ export default function Components() {
               {data.attributes.Body}
             </div>
           </section>
-          {data && data.attributes.Content.length != 0
+          {data.attributes.Content.length != 0
             ? data.attributes.Content.map((item: any, index: number) => {
                 return item.__component == 'page-elements.jump-link-target' ? (
                   <JumpLinkTarget key={index} data={item} />
