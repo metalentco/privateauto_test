@@ -6,10 +6,9 @@ import { Router, useRouter } from "next/router";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
-import content from "../../json/seller_listings.json";
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
-export default function SlugPage() {
+function SlugPage(content: any) {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
@@ -27,16 +26,20 @@ export default function SlugPage() {
   }, [slug]);
 
   const getData = (value: string) => {
-    for (var i = 0; i < content.length; i++) {
-      if (content[i].slug === value) {
+    const listing_content = content.content;
+    for (var i = 0; i < listing_content.length; i++) {
+      if (listing_content[i].slug === value) {
         var date = new Date(
-          Number(content[i].ownershipInfo.seller.joined.$date.$numberLong)
+          Number(
+            listing_content[i].ownershipInfo.seller.joined.$date.$numberLong
+          )
         );
         var arr = date.toString().split(" ");
         var date_str = arr[1] + " " + arr[2] + ", " + arr[3];
-        content[i].ownershipInfo.seller.joined.$date.$numberLong = date_str;
-        setData(content[i]);
-        setImageURI(content[i].uploadImages[0].images);
+        listing_content[i].ownershipInfo.seller.joined.$date.$numberLong =
+          date_str;
+        setData(listing_content[i]);
+        setImageURI(listing_content[i].uploadImages[0].images);
       }
     }
   };
@@ -117,6 +120,7 @@ export default function SlugPage() {
                             src={"/images/202x236" + item.images}
                             key={index}
                             onClick={() => changeImage(item.images)}
+                            alt="car_image_202x236"
                           />
                         </div>
                       );
@@ -132,6 +136,7 @@ export default function SlugPage() {
                     <img
                       className="w-full md:w-[564px] h-[480px] cursor-pointer"
                       src={"/images/564x480" + imageURI}
+                      alt="car_image_564x480"
                     />
                     <button className="bg-white absolute top-[440px] left-[375px] hidden md:flex items-center text-base text-[#00b3de] font-medium py-2 px-4 border border-[#00b3de] hover:border-transparent rounded space-x-1">
                       <svg
@@ -186,6 +191,7 @@ export default function SlugPage() {
                             className="w-full h-full cursor-pointer"
                             src={"/images/1250x1000" + item.images}
                             key={index}
+                            alt="car_image_1250x1000"
                           />
                         </div>
                       );
@@ -328,6 +334,7 @@ export default function SlugPage() {
               <img
                 className="w-[70px] h-[24px]"
                 src="/assets/listings/authochek-logo.png"
+                alt="authocheck-logo"
               />
               <a className="text-xs text-[#727a82] font-normal cursor-pointer">
                 Vehicle history {">"}
@@ -773,3 +780,36 @@ export default function SlugPage() {
     );
   }
 }
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { slug: "2020-harley-davidson-flhxs-vwfd" } },
+      { params: { slug: "2020-ford-f-150-vwet" } },
+      { params: { slug: "2020-mazda-mx-5-vwd-a6tzwde" } },
+      { params: { slug: "2020-mercedes-benz-amg-gt-vwdpjdrr7k8" } },
+      { params: { slug: "2020-mini-countryman-vwe1csxodqy" } },
+      { params: { slug: "2020-hyundai-tucson-vwenbuvlzwm" } },
+      { params: { slug: "2020-ford-explorer-vwfelq4nuki" } },
+      { params: { slug: "2020-toyota-4-runner-vwczacbuawi" } },
+      { params: { slug: "2019-toyota-86-vwdlxudqids" } },
+      { params: { slug: "2020-mini-countryman-vwcrnxhv-tu" } },
+      { params: { slug: "2020-tesla-model-x-vwdnaqtzmd0" } },
+      { params: { slug: "2019-volkswagen-jetta-vwffqj5-xgs" } },
+      { params: { slug: "2019-toyota-camry-vwc4gmivyeg" } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:3000/json/seller_listings.json");
+  const content = await res.json();
+  return {
+    props: {
+      content,
+    },
+  };
+}
+
+export default SlugPage;

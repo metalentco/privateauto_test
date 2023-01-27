@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/common/*": ["common/*"]
+      "@/common/*": ["common/*"],
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

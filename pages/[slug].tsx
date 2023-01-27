@@ -12,30 +12,37 @@ import BulletedList from "@/components/BulletedList";
 import Lists from "@/components/Lists";
 import JumpLinks from "@/components/JumpLinks";
 import Footer from "@/components/Footer";
-import content from "../json/components.json";
-export default function Components() {
+function Components(content: any) {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
   const [indexFaq, setIndexFaq] = useState<any>(0);
 
   useEffect(() => {
-    getData("test");
-  }, []);
+    if (slug) {
+      const slugValue = slug.toString();
+      getData(slugValue);
+    }
+  }, [slug]);
 
   const getData = (value: string) => {
-    for (var i = 0; i < content.data.length; i++) {
-      if (content.data[i].attributes.slug === value) {
-        for (var j = 0; j < content.data[i].attributes.Content.length; j++) {
+    const listing_content = content.content;
+    for (var i = 0; i < listing_content.data.length; i++) {
+      if (listing_content.data[i].attributes.slug === value) {
+        for (
+          var j = 0;
+          j < listing_content.data[i].attributes.Content.length;
+          j++
+        ) {
           if (
-            content.data[i].attributes.Content[j].__component ==
+            listing_content.data[i].attributes.Content[j].__component ==
             "page-elements.faq"
           ) {
             setIndexFaq(j);
             break;
           }
         }
-        setData(content.data[i]);
+        setData(listing_content.data[i]);
       }
     }
   };
@@ -89,5 +96,64 @@ export default function Components() {
         <Footer />
       </div>
     );
+  } else {
+    return (
+      <div className="w-full">
+        <Header />
+        <Menu />
+        <div className="w-[80%] md:w-[70%] mx-auto py-20">
+          <div className="block md:flex items-center justify-between">
+            <div className="hidden md:block text-center md:text-left space-y-8">
+              <div className="text-[40px] font-bold">
+                Uh no... Page not found
+              </div>
+              <div className="text-xl font-normal">
+                We couldn't find the page you were looking for.
+              </div>
+              <button className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-base font-medium py-1 px-4 rounded cursor-pointer">
+                Go back
+              </button>
+            </div>
+            <div className="flex md:block justify-center pb-20 md:pb-0">
+              <img
+                className="w-[60%] md:w-full"
+                src="/assets/notFoundCar.svg"
+              />
+            </div>
+            <div className="block md:hidden text-center md:text-left space-y-8">
+              <div className="text-2xl sm:text-3xl md:text-[40px] font-bold">
+                Uh no... Page not found
+              </div>
+              <div className="text-base sm:text-lg md:text-xl font-normal">
+                We couldn't find the page you were looking for.
+              </div>
+              <button className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-base font-medium py-1 px-4 rounded cursor-pointer">
+                Go back
+              </button>
+            </div>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
   }
 }
+
+export async function getStaticPaths() {
+  return {
+    paths: [{ params: { slug: "test" } }, { params: { slug: "test2" } }],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps() {
+  const res = await fetch("http://localhost:3000/json/components.json");
+  const content = await res.json();
+  return {
+    props: {
+      content,
+    },
+  };
+}
+
+export default Components;
