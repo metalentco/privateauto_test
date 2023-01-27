@@ -1,11 +1,14 @@
+import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="w-full md:px-32 bg-[#45577d] pb-12">
       <div className="w-full block md:flex justify-between pt-12">
         <div className="space-y-4 md:space-y-0">
           <div className="flex md:block justify-center">
-            <img
+            <Image
               className=" flex justify-center"
+              width={134}
+              height={24}
               src="/assets/listings/logo-white.svg"
               alt="Logo"
             />
@@ -38,22 +41,25 @@ const Footer = () => {
       <div className="block md:flex md:justify-between pt-6 md:px-0">
         <div className="w-1/2 mx-auto md:w-[220px] flex justify-between">
           <a href="https://www.facebook.com/privateauto" target="_blank">
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/facebook.svg"
               alt="facebook"
             />
           </a>
           <a href="https://twitter.com/_PrivateAuto" target="_blank">
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/twitter.svg"
               alt="twitter"
             />
           </a>
           <a href="https://www.instagram.com/privateauto/" target="_blank">
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/instagram.svg"
               alt="instagram"
             />
@@ -62,8 +68,9 @@ const Footer = () => {
             href="https://www.linkedin.com/company/privateauto/"
             target="_blank"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/linkedin.svg"
               alt="linkedin"
             />
@@ -72,8 +79,9 @@ const Footer = () => {
             href="https://www.youtube.com/channel/UCAzVYyuUM09LDhaZN_uDrGQ"
             target="_blank"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/youtube.svg"
               alt="youtube"
             />
@@ -81,15 +89,17 @@ const Footer = () => {
         </div>
         <div className="md:w-[183px] mx-auto md:mx-0 flex justify-center md:justify-between space-x-8 mt-8 md:mt-0">
           <a href="https://www.facebook.com/privateauto" target="_blank">
-            <img
-              className="w-[78px] h-[26px]"
+            <Image
+              width={78}
+              height={26}
               src="/assets/appstore.svg"
               alt="IOS store"
             />
           </a>
           <a href="https://twitter.com/_PrivateAuto" target="_blank">
-            <img
-              className="w-[81px] h-[29px]"
+            <Image
+              width={81}
+              height={29}
               src="/assets/googleplay.svg"
               alt="Google Play Store"
             />

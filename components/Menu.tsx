@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { useEffect, useState } from "react";
 
 const Menu = () => {
@@ -15,7 +17,7 @@ const Menu = () => {
       <div className="md:flex justify-between">
         <div className="flex justify-between md:items-center space-x-8">
           <a className="cursor-pointer" href="/">
-            <img className="w-[134px] h-[24px]" src="/assets/logo.svg" />
+            <Image width={134} height={24} src="/assets/logo.svg" alt="logo" />
           </a>
           <div className="hidden md:flex text-xl font-normal text-[#333] space-x-6">
             <a className="cursor-pointer" href="/sell">

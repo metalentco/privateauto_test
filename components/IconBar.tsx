@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type Props = {
   data: any;
 };
@@ -18,9 +20,11 @@ const IconBar = ({ data }: Props) => {
                   key={index}
                   target="_blank"
                 >
-                  <img
-                    className={`w-[${item.Image.data.attributes.width}px] h-[${item.Image.data.attributes.height}px]`}
+                  <Image
+                    width={item.Image.data.attributes.width}
+                    height={item.Image.data.attributes.height}
                     src={item.Image.data.attributes.url}
+                    alt="icon_bar"
                   />
                 </a>
               );

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { parseColor, parseWidth, parseTitle } from "@/common/Parse";
 
 type Props = {
@@ -13,9 +14,11 @@ const ContentBlock = ({ data }: Props) => {
         )}] block md:flex items-center mx-auto mt-16 space-x-0 md:space-x-8 space-y-8 md:space-y-0`}
       >
         <div className="w-full flex md:block justify-center">
-          <img
-            className={`w-[${data.Image.data.attributes.width}px] h-[${data.Image.data.attributes.height}px]`}
+          <Image
+            width={data.Image.data.attributes.width}
+            height={data.Image.data.attributes.height}
             src={data.Image.data.attributes.url}
+            alt="4.term"
           />
         </div>
         <div className="space-y-4">
@@ -76,13 +79,23 @@ const ContentBlock = ({ data }: Props) => {
                 href="https://apps.apple.com/us/app/privateauto-sell-privately/id1614271597"
                 target="_blank"
               >
-                <img src="/assets/appstore.svg" />
+                <Image
+                  width={132}
+                  height={45}
+                  src="/assets/appstore.svg"
+                  alt="appstore"
+                />
               </a>
               <a
                 href="https://play.google.com/store/apps/details?id=io.gonative.android.qwkoyk"
                 target="_blank"
               >
-                <img src="/assets/googleplay.svg" />
+                <Image
+                  width={137}
+                  height={49}
+                  src="/assets/googleplay.svg"
+                  alt="googleplay"
+                />
               </a>
             </div>
           ) : (
@@ -90,9 +103,12 @@ const ContentBlock = ({ data }: Props) => {
           )}
         </div>
         <div className="w-full flex md:block justify-center">
-          <img
-            className={`w-[${data.Image.data.attributes.width}px] h-[${data.Image.data.attributes.height}px] mt-6 md:mt-0`}
+          <Image
+            className={`mt-6 md:mt-0`}
+            width={data.Image.data.attributes.width}
+            height={data.Image.data.attributes.height}
             src={data.Image.data.attributes.url}
+            alt="left_img"
           />
         </div>
       </div>

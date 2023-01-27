@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import JumpLinkTarget from "@/components/JumpLinkTarget";
@@ -59,8 +60,14 @@ function Components(content: any) {
             </div>
             {data && data.attributes.Image.data ? (
               <div className="w-full flex justify-center mt-8">
-                <img
+                <Image
                   src={data.attributes.Image.data.attributes.formats.small.url}
+                  width={
+                    data.attributes.Image.data.attributes.formats.small.width
+                  }
+                  height={
+                    data.attributes.Image.data.attributes.formats.small.height
+                  }
                   alt={data.attributes.Image.data.attributes.formats.small.name}
                 />
               </div>
@@ -115,9 +122,11 @@ function Components(content: any) {
               </button>
             </div>
             <div className="flex md:block justify-center pb-20 md:pb-0">
-              <img
-                className="w-[60%] md:w-full"
+              <Image
+                width={286}
+                height={286}
                 src="/assets/notFoundCar.svg"
+                alt="notFoundCar"
               />
             </div>
             <div className="block md:hidden text-center md:text-left space-y-8">
