@@ -1,13 +1,14 @@
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
+import Filter from "@/components/buy/Filter";
 
 export default function Buy() {
   return (
     <div className="w-full">
       <Header />
       <Menu />
-      <div className="w-full py-32 text-center text-4xl">Updating now...</div>
+      <Filter />
       <Footer />
     </div>
   );

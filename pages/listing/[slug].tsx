@@ -523,7 +523,7 @@ function SlugPage(content: any) {
                 <div className="flex relative">
                   {data && data.ownershipInfo.seller.profileImage != null ? (
                     <Image
-                      className="rounded-[56px]"
+                      className="w-[56px] h-[56px] rounded-full"
                       width={56}
                       height={56}
                       src={"/images" + data.ownershipInfo.seller.profileImage}
@@ -531,7 +531,7 @@ function SlugPage(content: any) {
                     />
                   ) : (
                     <Image
-                      className="rounded-[56px]"
+                      className="w-[56px] h-[56px] rounded-full"
                       width={56}
                       height={56}
                       src="/static/profile/defaultImg.png"
@@ -582,7 +582,7 @@ function SlugPage(content: any) {
                 <path d="M512 85.333333a426.666667 426.666667 0 1 0 426.666667 426.666667A426.666667 426.666667 0 0 0 512 85.333333z m0 682.666667a42.666667 42.666667 0 1 1 42.666667-42.666667 42.666667 42.666667 0 0 1-42.666667 42.666667z m42.666667-220.16V597.333333a42.666667 42.666667 0 0 1-85.333334 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667 64 64 0 1 0-64-64 42.666667 42.666667 0 0 1-85.333333 0 149.333333 149.333333 0 1 1 192 142.506667z" />
               </svg>
             </div>
-            <div className="w-3/5 block md:flex justify-between pt-4 space-y-6">
+            <div className="w-3/5 block md:flex justify-between pt-4">
               <div className="flex items-center">
                 <svg
                   fill="#0b9709"

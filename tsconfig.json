@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
+      "@/components/buy/*": ["components/buy/*"],
       "@/common/*": ["common/*"],
     },
     "target": "es5",

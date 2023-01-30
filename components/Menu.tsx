@@ -1,9 +1,11 @@
-import Image from "next/image";
-
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Menu = () => {
   const [showMenuModal, setShowMenuModal] = useState<Boolean>(false);
+
+  const router = useRouter();
 
   const setScrollHidden = () => {
     if (document.body.style.overflow !== "hidden") {
@@ -13,26 +15,51 @@ const Menu = () => {
     }
   };
   return (
-    <div className="w-full px-[8%] pt-10">
+    <div className="w-full px-[8%] py-4 bg-[#f1f5f9]">
       <div className="md:flex justify-between">
         <div className="flex justify-between md:items-center space-x-8">
           <a className="cursor-pointer" href="/">
             <Image width={134} height={24} src="/assets/logo.svg" alt="logo" />
           </a>
           <div className="hidden md:flex text-xl font-normal text-[#333] space-x-6">
-            <a className="cursor-pointer" href="/sell">
+            <a
+              className={`"cursor-pointer" ${
+                router.pathname == "/sell" ? "underline" : ""
+              }`}
+              href="/sell"
+            >
               Sell
             </a>
-            <a className="cursor-pointer" href="/buy">
+            <a
+              className={`"cursor-pointer" ${
+                router.pathname == "/buy" ? "underline" : ""
+              }`}
+              href="/buy"
+            >
               Buy
             </a>
-            <a className="cursor-pointer" href="/pricing">
+            <a
+              className={`"cursor-pointer" ${
+                router.pathname == "/pricing" ? "underline" : ""
+              }`}
+              href="/pricing"
+            >
               Pricing
             </a>
-            <a className="cursor-pointer" href="/how-it-works">
+            <a
+              className={`"cursor-pointer" ${
+                router.pathname == "/how-it-works" ? "underline" : ""
+              }`}
+              href="/how-it-works"
+            >
               How it works
             </a>
-            <a className="cursor-pointer" href="/blog">
+            <a
+              className={`"cursor-pointer" ${
+                router.pathname == "/blog" ? "underline" : ""
+              }`}
+              href="/blog"
+            >
               Blog
             </a>
           </div>
@@ -51,7 +78,7 @@ const Menu = () => {
           </svg>
         </div>
         {showMenuModal ? (
-          <div className="w-[80%] h-[550px] bg-[#eef2f5] justify-center items-center overflow-x-hidden overflow-y-scroll fixed inset-0 z-50 outline-none focus:outline-none border-1 border-l-gray-400 px-8 mt-[52px] mx-[20%]">
+          <div className="w-[80%] h-[550px] bg-white justify-center items-center overflow-x-hidden overflow-y-scroll fixed inset-0 z-50 outline-none focus:outline-none border-1 border-2-gray-400 shadow-md px-8 mt-[52px] mx-[20%]">
             <div className="flex justify-end py-4">
               <svg
                 fill="#00b3de"
@@ -126,7 +153,7 @@ const Menu = () => {
               <hr className="bg-black my-4" />
             </div>
             <div className="w-[80%] mx-auto my-8">
-              <button className="w-full bg-transparent hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded">
+              <button className="w-full bg-white hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded">
                 Sign in
               </button>
             </div>
@@ -138,7 +165,7 @@ const Menu = () => {
           </div>
         ) : null}
         <div className="hidden md:flex space-x-6">
-          <button className="bg-transparent hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded">
+          <button className="bg-white hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded">
             Sign in
           </button>
           <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-base font-bold py-1 px-4 rounded-lg cursor-pointer">
