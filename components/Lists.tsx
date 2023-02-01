@@ -40,18 +40,21 @@ const Lists = ({ data }: Props) => {
             {data.Items.map((item: any, index: number) => {
               if (item.Icon.data != null) {
                 url = item.Icon.data.attributes.url;
-                alt = item.Icon.data.attributesalternativeText;
+                alt = item.Icon.data.attributes.alternativeText;
                 width = item.Icon.data.attributes.width;
                 height = item.Icon.data.attributes.height;
-              }
-              return (
-                <div className="w-full flex items-center space-x-4" key={index}>
-                  <Image width={width} height={height} src={url} alt={alt} />
-                  <div className="text-sm text-[#182035] font-normal">
-                    {item.Item}
+                return (
+                  <div
+                    className="w-full flex items-center space-x-4"
+                    key={index}
+                  >
+                    <Image width={width} height={height} src={url} alt={alt} />
+                    <div className="text-sm text-[#182035] font-normal">
+                      {item.Item}
+                    </div>
                   </div>
-                </div>
-              );
+                );
+              }
             })}
           </div>
           <div className="flex justify-center">

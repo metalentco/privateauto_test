@@ -19,7 +19,7 @@ const BulletedList = ({ data }: Props) => {
         {data.Items.map((item: any, index: number) => {
           if (item.Image.data != null) {
             url = item.Image.data.attributes.url;
-            alt = item.Image.data.attributesalternativeText;
+            alt = item.Image.data.attributes.alternativeText;
             width = item.Image.data.attributes.width;
             height = item.Image.data.attributes.height;
           }

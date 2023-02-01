@@ -98,7 +98,7 @@ function Components(content: any) {
                   <Faq key={index} data={item} faq={indexFaq} index={index} />
                 );
               })
-            : ""}
+            : null}
         </main>
         <Footer />
       </div>
@@ -149,8 +149,17 @@ function Components(content: any) {
 }
 
 export async function getStaticPaths() {
+  const res = await fetch("http://localhost:3000/json/components.json");
+  const content = await res.json();
+  const paths = content.data.map((item: any, index: number) => {
+    return {
+      params: {
+        slug: item.attributes.slug,
+      },
+    };
+  });
   return {
-    paths: [{ params: { slug: "test" } }, { params: { slug: "test2" } }],
+    paths,
     fallback: false,
   };
 }
