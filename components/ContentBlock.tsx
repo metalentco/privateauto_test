@@ -82,7 +82,8 @@ const ContentBlock = ({ data }: Props) => {
               >
                 <Image
                   src="/assets/appstore.svg"
-                  alt-="Apple AppStore"
+                  width={132}
+                  height={45}
                   alt={data.Image.data.attributes.alternativeText}
                 />
               </a>

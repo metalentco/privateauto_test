@@ -20,6 +20,8 @@ const Menu = () => {
             <Image
               className="w-[134px] h-[24px]"
               src="/assets/logo.svg"
+              width="134"
+              height="24"
               alt="PrivateAuto"
             />
           </Link>

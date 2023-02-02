@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="w-full block md:flex justify-between pt-12">
         <div className="space-y-4 md:space-y-0">
           <div className="flex md:block justify-center">
-            <Image
+            <img
               className=" flex justify-center"
               src="/assets/listings/logo-white.svg"
               alt="Logo"
@@ -44,7 +44,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
+            <img
               className="w-[20px] h-[20px]"
               src="/assets/listings/facebook.svg"
               alt="facebook"
@@ -55,7 +55,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
+            <img
               className="w-[20px] h-[20px]"
               src="/assets/listings/twitter.svg"
               alt="twitter"
@@ -66,7 +66,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
+            <img
               className="w-[20px] h-[20px]"
               src="/assets/listings/instagram.svg"
               alt="instagram"
@@ -77,7 +77,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
+            <img
               className="w-[20px] h-[20px]"
               src="/assets/listings/linkedin.svg"
               alt="linkedin"
@@ -88,7 +88,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <Image
+            <img
               className="w-[20px] h-[20px]"
               src="/assets/listings/youtube.svg"
               alt="youtube"
@@ -104,6 +104,8 @@ const Footer = () => {
             <Image
               className="w-[78px] h-[26px]"
               src="/assets/appstore.svg"
+              width={78}
+              height={26}
               alt="IOS store"
             />
           </a>
@@ -115,6 +117,8 @@ const Footer = () => {
             <Image
               className="w-[81px] h-[29px]"
               src="/assets/googleplay.svg"
+              width={81}
+              height={29}
               alt="Google Play Store"
             />
           </a>

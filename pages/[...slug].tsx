@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Header from '@/components/Header';
@@ -14,16 +13,41 @@ import Lists from '@/components/Lists';
 import JumpLinks from '@/components/JumpLinks';
 import Footer from '@/components/Footer';
 import content from '../json/components.json';
-export default function Components() {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [data, setData] = useState<any>();
-  const [indexFaq, setIndexFaq] = useState<any>(0);
 
-  useEffect(() => {
-    getData('test2');
-  }, []);
+import { getUrls, getStrapiPage, getPages } from '../cms/strapi';
 
+export async function getStaticPaths() {
+  return {
+    paths: await getUrls(),
+    fallback: true, // can also be true or 'blocking'
+  };
+}
+
+export async function getStaticProps(context: any) {
+  const data = await getStrapiPage(context.params.slug);
+  console.log(`${context.params.slug.join('/')}: `, data);
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+export default function Components(props: any) {
+  // const router = useRouter();
+  // const { slug } = router.query;
+  // const [data, setData] = useState<any>();
+  //const [indexFaq, setIndexFaq] = useState<any>(0);
+
+  console.log('props: ', props);
+  const { data } = props;
+
+  //useEffect(() => {
+  //  console.log(`slug: ${slug}`);
+  //  getPage(slug);
+  //}, [slug]);
+
+  /*
   const getData = (value: string) => {
     for (var i = 0; i < content.data.length; i++) {
       if (content.data[i].attributes.slug === value) {
@@ -40,6 +64,7 @@ export default function Components() {
       }
     }
   };
+  */
 
   if (data) {
     return (
@@ -49,7 +74,7 @@ export default function Components() {
         <main className="w-full space-y-5">
           <section className="w-4/6 mx-auto mb-20">
             <div className="text-3xl font-semibold mt-14">
-              {data.attributes.PageTitle}
+              {data.attributes?.PageTitle}
             </div>
             {data.attributes.Image.data ? (
               <div className="w-full flex justify-center mt-8">
@@ -65,7 +90,7 @@ export default function Components() {
               {data.attributes.Body}
             </div>
           </section>
-          {data && data.attributes.Content.length != 0
+          {data.attributes.Content.length != 0
             ? data.attributes.Content.map((item: any, index: number) => {
                 return item.__component == 'page-elements.jump-link-target' ? (
                   <JumpLinkTarget key={index} data={item} />
@@ -82,7 +107,7 @@ export default function Components() {
                 ) : item.__component == 'page-elements.jump-links' ? (
                   <JumpLinks key={index} data={item} />
                 ) : (
-                  <Faq key={index} data={item} faq={indexFaq} index={index} />
+                  <Faq key={index} data={item} faq={index} index={index} />
                 );
               })
             : ''}

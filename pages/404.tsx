@@ -24,6 +24,8 @@ export default function NotPageFound() {
               className="w-[60%] md:w-full"
               src="/assets/notFoundCar.svg"
               alt="Not found"
+              width={60}
+              height={100}
             />
           </div>
           <div className="block md:hidden text-center md:text-left space-y-8">

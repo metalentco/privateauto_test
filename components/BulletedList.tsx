@@ -18,10 +18,10 @@ const BulletedList = ({ data }: Props) => {
       <div className="w-5/6 md:w-4/6 mx-auto space-y-4">
         {data.Items.map((item: any, index: number) => {
           if (item.Image.data != null) {
-            url = item.Image.data.attributes.url;
-            alt = item.Image.data.attributesalternativeText;
-            width = item.Image.data.attributes.width;
-            height = item.Image.data.attributes.height;
+            url = item.Image?.data.attributes.url;
+            alt = item.Image?.data.attributesalternativeText;
+            width = item.Image?.data.attributes.width;
+            height = item.Image?.data.attributes.height;
           }
           return (
             <div className="w-full flex items-center space-x-4" key={index}>
