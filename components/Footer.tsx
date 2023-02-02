@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Image from 'next/image';
 
 const Footer = () => {
   return (
@@ -6,8 +7,10 @@ const Footer = () => {
       <div className="w-full block md:flex justify-between pt-12">
         <div className="space-y-4 md:space-y-0">
           <div className="flex md:block justify-center">
-            <img
+            <Image
               className=" flex justify-center"
+              width={134}
+              height={24}
               src="/assets/listings/logo-white.svg"
               alt="Logo"
             />
@@ -44,8 +47,9 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/facebook.svg"
               alt="facebook"
             />
@@ -55,8 +59,9 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/twitter.svg"
               alt="twitter"
             />
@@ -66,8 +71,9 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/instagram.svg"
               alt="instagram"
             />
@@ -77,8 +83,9 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/linkedin.svg"
               alt="linkedin"
             />
@@ -88,8 +95,9 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img
-              className="w-[20px] h-[20px]"
+            <Image
+              width={20}
+              height={20}
               src="/assets/listings/youtube.svg"
               alt="youtube"
             />

@@ -1,5 +1,5 @@
-import { parseWidth, parseTitle, parseColor } from '@/common/Parse';
 import Image from 'next/image';
+import { parseTitle, parseColor } from '@/common/Parse';
 
 type Props = {
   data: any;
@@ -47,8 +47,10 @@ const Lists = ({ data }: Props) => {
               return (
                 <div className="w-full flex items-center space-x-4" key={index}>
                   <Image
-                    className={`w-[${width}]px h-[${height}px]`}
+                    width={width}
+                    height={height}
                     src={url}
+                    className={`w-[${width}]px h-[${height}px]`}
                     alt={alt}
                   />
                   <div className="text-sm text-[#182035] font-normal">

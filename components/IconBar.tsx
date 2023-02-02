@@ -23,6 +23,8 @@ const IconBar = ({ data }: Props) => {
                 >
                   <Image
                     className={`w-[${item.Image.data.attributes.width}px] h-[${item.Image.data.attributes.height}px]`}
+                    width={item.Image.data.attributes.width}
+                    height={item.Image.data.attributes.height}
                     src={item.Image.data.attributes.url}
                     alt={item.Image.data.attributes.alternativeText}
                   />

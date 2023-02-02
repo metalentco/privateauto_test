@@ -9,7 +9,7 @@ import Menu from '@/components/Menu';
 import content from '../../json/seller_listings.json';
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
-export default function SlugPage() {
+function SlugPage(content: any) {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
@@ -27,16 +27,20 @@ export default function SlugPage() {
   }, [slug]);
 
   const getData = (value: string) => {
-    for (let i = 0; i < content.length; i++) {
-      if (content[i].slug === value) {
-        const date = new Date(
-          Number(content[i].ownershipInfo.seller.joined.$date.$numberLong)
+    const listing_content = content.content;
+    for (var i = 0; i < listing_content.length; i++) {
+      if (listing_content[i].slug === value) {
+        var date = new Date(
+          Number(
+            listing_content[i].ownershipInfo.seller.joined.$date.$numberLong
+          )
         );
         const arr = date.toString().split(' ');
         const date_str = arr[1] + ' ' + arr[2] + ', ' + arr[3];
-        content[i].ownershipInfo.seller.joined.$date.$numberLong = date_str;
-        setData(content[i]);
-        setImageURI(content[i].uploadImages[0].images);
+        listing_content[i].ownershipInfo.seller.joined.$date.$numberLong =
+          date_str;
+        setData(listing_content[i]);
+        setImageURI(listing_content[i].uploadImages[0].images);
       }
     }
   };
@@ -95,7 +99,9 @@ export default function SlugPage() {
             <span className="flex hover:underline cursor-pointer">
               <span>
                 <Image
-                  className="w-[14px] h-[14px] mt-[6px]"
+                  className="mt-[6px]"
+                  width={14}
+                  height={14}
                   src="/assets/listings/arrow.png"
                   alt="back to search"
                 />
@@ -113,11 +119,13 @@ export default function SlugPage() {
                           key={item.id}
                         >
                           <Image
-                            className="w-[202px] h-[236px] cursor-pointer"
+                            className="cursor-pointer"
                             src={'/images/202x236' + item.images}
+                            width={202}
+                            height={236}
                             key={index}
                             onClick={() => changeImage(item.images)}
-                            alt={''}
+                            alt="car_image_202x236"
                           />
                         </div>
                       );
@@ -130,11 +138,15 @@ export default function SlugPage() {
                       setScrollHidden();
                     }}
                   >
-                    <Image
-                      className="w-full md:w-[564px] h-[480px] cursor-pointer"
-                      src={'/images/564x480' + imageURI}
-                      alt={'not sure'}
-                    />
+                    <div className="flex justify-center">
+                      <Image
+                        className="cursor-pointer"
+                        width={564}
+                        height={480}
+                        src={'/images/564x480' + imageURI}
+                        alt="car_image_564x480"
+                      />
+                    </div>
                     <button className="bg-white absolute top-[440px] left-[375px] hidden md:flex items-center text-base text-[#00b3de] font-medium py-2 px-4 border border-[#00b3de] hover:border-transparent rounded space-x-1">
                       <svg
                         fill="#00b3de"
@@ -170,7 +182,9 @@ export default function SlugPage() {
                     <div className="flex">
                       <span>
                         <Image
-                          className="w-[14px] h-[14px] mt-[6px]"
+                          className="mt-[6px]"
+                          width={14}
+                          height={14}
                           src="/assets/listings/arrow.png"
                           alt="back to search"
                         />
@@ -184,14 +198,16 @@ export default function SlugPage() {
                     {data?.uploadImages.map((item: any, index: number) => {
                       return (
                         <div
-                          className="w-full md:w-[1154px] mb-8"
+                          className="w-full lg:w-[1154px] mb-8"
                           key={item.id}
                         >
                           <Image
                             className="w-full h-full cursor-pointer"
                             src={'/images/1250x1000' + item.images}
+                            width={1153}
+                            height={923}
                             key={item.id}
-                            alt={''}
+                            alt="car_image_1250x1000"
                           />
                         </div>
                       );
@@ -234,7 +250,8 @@ export default function SlugPage() {
               <div className="w-full md:w-[600px] block md:grid grid-cols-3 gap-2 space-y-4">
                 <div className="flex items-center space-x-4">
                   <Image
-                    className="w-[25px] h-[22px]"
+                    width={25}
+                    height={22}
                     src="/assets/listings/miles.png"
                     alt="miles"
                   />
@@ -247,7 +264,8 @@ export default function SlugPage() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <Image
-                    className="w-[22px] h-[22px]"
+                    width={22}
+                    height={22}
                     src="/assets/listings/gearbox.png"
                     alt="null"
                   />
@@ -262,7 +280,8 @@ export default function SlugPage() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <Image
-                    className="w-[25px] h-[26px]"
+                    width={25}
+                    height={26}
                     src="/assets/listings/interior.png"
                     alt="null"
                   />
@@ -279,7 +298,8 @@ export default function SlugPage() {
               <div className="w-full md:w-[600px] mt-8 block md:grid grid-cols-3 gap-2 space-y-4">
                 <div className="flex items-center space-x-4">
                   <Image
-                    className="w-[25px] h-[16px]"
+                    width={25}
+                    height={16}
                     src="/assets/listings/engine.png"
                     alt="null"
                   />
@@ -292,7 +312,8 @@ export default function SlugPage() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <Image
-                    className="w-[25px] h-[27px]"
+                    width={25}
+                    height={27}
                     src="/assets/listings/fuel.png"
                     alt="null"
                   />
@@ -305,7 +326,8 @@ export default function SlugPage() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <Image
-                    className="w-[25px] h-[25px]"
+                    width={25}
+                    height={25}
                     src="/assets/listings/drive.png"
                     alt="null"
                   />
@@ -332,9 +354,10 @@ export default function SlugPage() {
             </div>
             <div className="mt-4 flex items-center space-x-2">
               <Image
-                className="w-[70px] h-[24px]"
+                width={70}
+                height={24}
                 src="/assets/listings/authochek-logo.png"
-                alt={''}
+                alt="authocheck-logo"
               />
               <a className="text-xs text-[#727a82] font-normal cursor-pointer">
                 Vehicle history {'>'}
@@ -475,7 +498,9 @@ export default function SlugPage() {
             <div className="w-full block md:flex justify-between space-y-8">
               <div className="flex items-center">
                 <Image
-                  className="w-[45px] h-[45px] mr-8"
+                  className="mr-8"
+                  width={45}
+                  height={45}
                   src="/assets/listings/green-circle-dollar.png"
                   alt="$"
                 />
@@ -499,16 +524,20 @@ export default function SlugPage() {
             <div className="block md:flex justify-between space-y-8">
               <div className="flex space-x-4">
                 <div className="flex relative">
-                  {data.ownershipInfo.seller.profileImage != null ? (
+                  {data && data.ownershipInfo.seller.profileImage != null ? (
                     <Image
-                      className="w-[56px] h-[56px] rounded-[56px]"
+                      className="rounded-[56px]"
+                      width={56}
+                      height={56}
                       src={'/images' + data.ownershipInfo.seller.profileImage}
                       alt="profile"
                     />
                   ) : (
                     <Image
-                      className="w-[56px] h-[56px] rounded-[56px]"
-                      src="/static/profile/defaultImage.png"
+                      className="rounded-[56px]"
+                      width={56}
+                      height={56}
+                      src="/static/profile/defaultImg.png"
                       alt="profile"
                     />
                   )}
@@ -640,7 +669,8 @@ export default function SlugPage() {
               {data.dealPreferences.paymentMethod.privateAutoPay ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
-                    className="w-[46px] h-[17px]"
+                    width={46}
+                    height={17}
                     src="/assets/listings/payment-pa-pay.png"
                     alt="pa-pay"
                   />
@@ -651,7 +681,8 @@ export default function SlugPage() {
               {data.dealPreferences.paymentMethod.cash ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
-                    className="w-[60px] h-[14px]"
+                    width={60}
+                    height={14}
                     src="/assets/listings/payment-cash.png"
                     alt="cash"
                   />
@@ -662,7 +693,8 @@ export default function SlugPage() {
               {data.dealPreferences.paymentMethod.crypto.btc ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
-                    className="w-[60px] h-[13px]"
+                    width={60}
+                    height={13}
                     src="/assets/listings/payment-btc.png"
                     alt="bitcoin"
                   />
@@ -717,7 +749,8 @@ export default function SlugPage() {
             <div className="space-y-8">
               <div className="flex items-center space-x-6">
                 <Image
-                  className="w-[60px] md:w-[82px]"
+                  width={82}
+                  height={82}
                   src="/assets/listings/sendMoneyIcon.svg"
                   alt="Image-size"
                 />
@@ -733,7 +766,8 @@ export default function SlugPage() {
               </div>
               <div className="flex items-center space-x-6">
                 <Image
-                  className="w-[60px] md:w-[82px]"
+                  width={82}
+                  height={82}
                   src="/assets/listings/chatFeatureIcon.svg"
                   alt="Image-size"
                 />
@@ -749,7 +783,8 @@ export default function SlugPage() {
               </div>
               <div className="flex items-center space-x-6">
                 <Image
-                  className="w-[60px] md:w-[82px]"
+                  width={82}
+                  height={82}
                   src="/assets/listings/easySchedulingIcon.svg"
                   alt="Image-size"
                 />
@@ -780,3 +815,36 @@ export default function SlugPage() {
     );
   }
 }
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { slug: '2020-harley-davidson-flhxs-vwfd' } },
+      { params: { slug: '2020-ford-f-150-vwet' } },
+      { params: { slug: '2020-mazda-mx-5-vwd-a6tzwde' } },
+      { params: { slug: '2020-mercedes-benz-amg-gt-vwdpjdrr7k8' } },
+      { params: { slug: '2020-mini-countryman-vwe1csxodqy' } },
+      { params: { slug: '2020-hyundai-tucson-vwenbuvlzwm' } },
+      { params: { slug: '2020-ford-explorer-vwfelq4nuki' } },
+      { params: { slug: '2020-toyota-4-runner-vwczacbuawi' } },
+      { params: { slug: '2019-toyota-86-vwdlxudqids' } },
+      { params: { slug: '2020-mini-countryman-vwcrnxhv-tu' } },
+      { params: { slug: '2020-tesla-model-x-vwdnaqtzmd0' } },
+      { params: { slug: '2019-volkswagen-jetta-vwffqj5-xgs' } },
+      { params: { slug: '2019-toyota-camry-vwc4gmivyeg' } },
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps() {
+  const res = await fetch('http://localhost:3000/json/seller_listings.json');
+  const content = await res.json();
+  return {
+    props: {
+      content,
+    },
+  };
+}
+
+export default SlugPage;

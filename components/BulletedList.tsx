@@ -1,5 +1,5 @@
-import { parseWidth, parseTitle } from '@/common/Parse';
 import Image from 'next/image';
+import { parseWidth, parseTitle } from '@/common/Parse';
 
 type Props = {
   data: any;
@@ -25,8 +25,10 @@ const BulletedList = ({ data }: Props) => {
           }
           return (
             <div className="w-full flex items-center space-x-4" key={index}>
-              <Image
+              <img
                 className={`w-[${width}]px h-[${height}px]`}
+                width={width}
+                height={height}
                 src={url}
                 alt={alt}
               />

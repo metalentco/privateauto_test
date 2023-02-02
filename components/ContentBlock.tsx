@@ -1,5 +1,4 @@
 import Image from 'next/image';
-
 import { parseColor, parseWidth, parseTitle } from '@/common/Parse';
 
 type Props = {
@@ -15,8 +14,10 @@ const ContentBlock = ({ data }: Props) => {
         )}] block md:flex items-center mx-auto mt-16 space-x-0 md:space-x-8 space-y-8 md:space-y-0`}
       >
         <div className="w-full flex md:block justify-center">
-          <Image
+          <img
             className={`w-[${data.Image.data.attributes.width}px] h-[${data.Image.data.attributes.height}px]`}
+            width={data.Image.data.attributes.width}
+            height={data.Image.data.attributes.height}
             src={data.Image.data.attributes.url}
             alt={data.Image.data.attributes.alternativeText}
           />
@@ -81,10 +82,10 @@ const ContentBlock = ({ data }: Props) => {
                 rel="noreferrer"
               >
                 <Image
-                  src="/assets/appstore.svg"
                   width={132}
                   height={45}
-                  alt={data.Image.data.attributes.alternativeText}
+                  src="/assets/appstore.svg"
+                  alt={data.Image.data.attributes.alternativeText || 'appstore'}
                 />
               </a>
               <a
@@ -92,7 +93,12 @@ const ContentBlock = ({ data }: Props) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Image src="/assets/googleplay.svg" alt="GooglePlay" />
+                <Image
+                  width={137}
+                  height={49}
+                  src="/assets/googleplay.svg"
+                  alt="GooglePlay"
+                />
               </a>
             </div>
           ) : (
@@ -102,6 +108,8 @@ const ContentBlock = ({ data }: Props) => {
         <div className="w-full flex md:block justify-center">
           <Image
             className={`w-[${data.Image.data.attributes.width}px] h-[${data.Image.data.attributes.height}px] mt-6 md:mt-0`}
+            width={data.Image.data.attributes.width}
+            height={data.Image.data.attributes.height}
             src={data.Image.data.attributes.url}
             alt={data.Image.data.attributes.alternativeText}
           />
