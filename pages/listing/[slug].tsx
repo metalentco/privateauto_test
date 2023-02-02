@@ -1,7 +1,7 @@
+import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import React from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
 import GoogleMapReact from "google-map-react";
 import { Router, useRouter } from "next/router";
 import Image from "next/image";
@@ -15,7 +15,7 @@ interface Props {
 }
 
 function SlugPage(content: Props) {
-  console.log("content:", content);
+  // console.log(content);
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
@@ -822,6 +822,7 @@ function SlugPage(content: Props) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await fetch("http://localhost:3000/json/seller_listings.json");
   const content = await res.json();
+
   const paths = content.map((item: any, index: number) => {
     return {
       params: {
@@ -840,6 +841,7 @@ export const getStaticProps: GetStaticProps<Props> = async (
 ): Promise<{ props: Props }> => {
   const res = await fetch("http://localhost:3000/json/seller_listings.json");
   const content = await res.json();
+
   return {
     props: {
       content,

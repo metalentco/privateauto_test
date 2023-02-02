@@ -1,0 +1,119 @@
+export const vehicles = ["All Vehicles", "Auto", "ATV/OHV", "Motorcycle"];
+export const comingVehicles = ["RV", "Boat"];
+
+export const initalCarsArray = [
+  {
+    type: "SUV",
+    img: "suv.svg",
+    width: 70,
+    height: 28,
+    isSelected: false,
+  },
+  {
+    type: "Sedan",
+    img: "sedan.svg",
+    width: 62,
+    height: 21,
+    isSelected: false,
+  },
+  {
+    type: "Truck",
+    img: "truck.svg",
+    width: 72,
+    height: 28,
+    isSelected: false,
+  },
+  {
+    type: "Hatchback",
+    img: "hatchback.svg",
+    width: 56,
+    height: 21,
+    isSelected: false,
+  },
+  {
+    type: "Coupe",
+    img: "coupe.svg",
+    width: 62,
+    height: 21,
+    isSelected: false,
+  },
+  {
+    type: "Convertible",
+    img: "convertible.svg",
+    width: 62,
+    height: 21,
+    isSelected: false,
+  },
+  {
+    type: "Minivan",
+    img: "minivan.svg",
+    width: 62,
+    height: 25,
+    isSelected: false,
+  },
+  {
+    type: "Wagon",
+    img: "wagon.svg",
+    width: 62,
+    height: 21,
+    isSelected: false,
+  },
+  {
+    type: "Van",
+    img: "van.svg",
+    width: 68,
+    height: 29,
+    isSelected: false,
+  },
+];
+
+export const fuelType = [
+  {
+    type: "Diesel",
+    isSelected: false,
+  },
+  {
+    type: "Electric",
+    isSelected: false,
+  },
+  {
+    type: "Gas",
+    isSelected: false,
+  },
+];
+
+export const transmission = [
+  {
+    type: "Automated Manual Transmission (AM)",
+    isSelected: false,
+  },
+  {
+    type: "Automatic Transmission (AT)",
+    isSelected: false,
+  },
+  {
+    type: "Continuously Variable Transmission (CVT)",
+    isSelected: false,
+  },
+  {
+    type: "Manual Transmission (MT)",
+    isSelected: false,
+  },
+];
+
+export const initialMakeArray = [
+  "Acura",
+  "Alfa Romeo",
+  "Audi",
+  "BMW",
+  "Buick",
+  "Cadillac",
+];
+
+export const sortArray = [
+  "Newest inventory",
+  "Highest price",
+  "Lowest price",
+  "Lowest mileage",
+  "Newest year",
+];

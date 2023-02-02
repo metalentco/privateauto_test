@@ -1,0 +1,44 @@
+const LocationModal = () => {
+  return (
+    <div className="absolute top-[40px] left-[0px] w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
+      <div className="w-full px-6 pb-8 space-y-4">
+        <div className="text-left">
+          <label className="form-label inline-block text-lg text-[#333]">
+            Location
+          </label>
+          <input
+            type="text"
+            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            placeholder="Enter a location"
+          />
+        </div>
+        <div className="text-left">
+          <label className="form-label inline-block text-lg text-[#333]">
+            Mile radius
+          </label>
+          <select
+            className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer"
+            defaultValue={50}
+          >
+            <option value={10}>10 miles</option>
+            <option value={25}>25 miles</option>
+            <option value={50}>50 miles</option>
+            <option value={100}>100 miles</option>
+            <option value={200}>200+ miles</option>
+          </select>
+        </div>
+      </div>
+      <hr className="w-full" />
+      <div className="flex justify-between px-4 pt-6">
+        <button className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded">
+          Clear
+        </button>
+        <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer">
+          Apply
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default LocationModal;

@@ -13,8 +13,8 @@ export default function Buy() {
   }, []);
 
   const getLoading = async () => {
-    // let data = await getInitialData();
-    // console.log("data:", data);
+    let data = await getInitialData();
+    console.log("data:", data);
   };
 
   return (

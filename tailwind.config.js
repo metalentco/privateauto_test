@@ -14,9 +14,9 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'search-bar': "url('/assets/search.svg')"
-      }
+        "search-bar": "url('/assets/search.svg')",
+      },
     },
   },
-  plugins: [],
-}
+  plugins: [require("tailwind-scrollbar-hide")],
+};
