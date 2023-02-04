@@ -12,7 +12,6 @@ const useApi = () => {
     const hash = createHmac("sha256", secret)
       .update(JSON.stringify(payload))
       .digest("base64");
-    console.log("hash:", hash);
 
     return hash;
   };
