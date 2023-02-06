@@ -12,13 +12,11 @@ const useApi = () => {
     const hash = createHmac("sha256", secret)
       .update(JSON.stringify(payload))
       .digest("base64");
-
+    console.log("hash:", hash);
     return hash;
   };
 
-  const getInitialData = async () => {
-    const url =
-      "/api/listings?_page=0&_limit=24&_sort%5B0%5D%5Bcolumn%5D=payment.date&_sort%5B0%5D%5Bdirection%5D=desc";
+  const getResponseFromAPI = async (url: string) => {
     const agent =
       typeof window !== "undefined"
         ? window.navigator.userAgent
@@ -31,10 +29,25 @@ const useApi = () => {
         "x-pa": makeHash(url, agent, body),
       },
     });
-    return await response.json();
+    return response.json();
   };
 
-  return { getInitialData };
+  const getPageData = async (page: number) => {
+    const url = `/api/listings?_page=${page}&_limit=24&_sort%5B0%5D%5Bcolumn%5D=payment.date&_sort%5B0%5D%5Bdirection%5D=desc`;
+    return await getResponseFromAPI(url);
+  };
+
+  const getInitMakeData = async () => {
+    const url = "/api/listings/automobile-makes";
+    return await getResponseFromAPI(url);
+  };
+
+  const getModelDataByMake = async (make: string) => {
+    const url = `/api/vehicles/make/${make}`;
+    return await getResponseFromAPI(url);
+  };
+
+  return { getPageData, getInitMakeData, getModelDataByMake };
 };
 
 export default useApi;

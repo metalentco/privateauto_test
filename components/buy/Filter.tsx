@@ -9,7 +9,11 @@ import MoreFilterModal from "@/components/buy/modals/MoreFilterModal";
 import LocationModal from "@/components/buy/modals/LocationModal";
 import SortModal from "@/components/buy/modals/SortModal";
 
-const Filter = () => {
+type Props = {
+  makeData: Array<string>;
+};
+
+const Filter = ({ makeData }: Props) => {
   const [isVehicleModal, setIsVehicleModal] = useState<Boolean>(false);
   const [isMakeModelModal, setIsMakeModelModal] = useState<Boolean>(false);
   const [isCarTypeModal, setIsCarTypeModal] = useState<Boolean>(false);
@@ -116,7 +120,7 @@ const Filter = () => {
                 alt="null"
               />
             </button>
-            {isMakeModelModal && <MakeModelModal />}
+            {isMakeModelModal && <MakeModelModal makeData={makeData} />}
           </div>
           <div className="relative z-10">
             <button

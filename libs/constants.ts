@@ -101,15 +101,6 @@ export const transmission = [
   },
 ];
 
-export const initialMakeArray = [
-  "Acura",
-  "Alfa Romeo",
-  "Audi",
-  "BMW",
-  "Buick",
-  "Cadillac",
-];
-
 export const sortArray = [
   "Newest inventory",
   "Highest price",
