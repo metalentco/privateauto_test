@@ -1,4 +1,5 @@
 import { createHmac } from "crypto";
+import { LIMIT } from "@/libs/constants";
 
 const useApi = () => {
   const makeHash = (url: string, agent: string, body: any) => {
@@ -12,7 +13,6 @@ const useApi = () => {
     const hash = createHmac("sha256", secret)
       .update(JSON.stringify(payload))
       .digest("base64");
-    console.log("hash:", hash);
     return hash;
   };
 
@@ -32,8 +32,8 @@ const useApi = () => {
     return response.json();
   };
 
-  const getPageData = async (page: number) => {
-    const url = `/api/listings?_page=${page}&_limit=24&_sort%5B0%5D%5Bcolumn%5D=payment.date&_sort%5B0%5D%5Bdirection%5D=desc`;
+  const getAllData = async () => {
+    const url = `/api/listings?_page=0&_limit=${LIMIT}&_sort%5B0%5D%5Bcolumn%5D=payment.date&_sort%5B0%5D%5Bdirection%5D=desc`;
     return await getResponseFromAPI(url);
   };
 
@@ -47,7 +47,17 @@ const useApi = () => {
     return await getResponseFromAPI(url);
   };
 
-  return { getPageData, getInitMakeData, getModelDataByMake };
+  const getCarDetailsFilter = async () => {
+    const url = `/api/listings/car-details-filter`;
+    return await getResponseFromAPI(url);
+  };
+
+  return {
+    getAllData,
+    getInitMakeData,
+    getModelDataByMake,
+    getCarDetailsFilter,
+  };
 };
 
 export default useApi;

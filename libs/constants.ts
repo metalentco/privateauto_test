@@ -1,3 +1,8 @@
+export const Google_Map_API_Key = "AIzaSyBAefhRlXEH3vCko-zZTX6PHllTR6av4WI";
+export const BASE_URL = "https://padev.xyz";
+export const PAGE_SIZE = 24;
+export const LIMIT = 1000;
+
 export const vehicles = ["All Vehicles", "Auto", "ATV/OHV", "Motorcycle"];
 export const comingVehicles = ["RV", "Boat"];
 
@@ -63,21 +68,6 @@ export const initalCarsArray = [
     img: "van.svg",
     width: 68,
     height: 29,
-    isSelected: false,
-  },
-];
-
-export const fuelType = [
-  {
-    type: "Diesel",
-    isSelected: false,
-  },
-  {
-    type: "Electric",
-    isSelected: false,
-  },
-  {
-    type: "Gas",
     isSelected: false,
   },
 ];

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import AllVehiclesModal from "@/components/buy/modals/AllVehiclesModal";
+import VehicleTypeModal from "@/components/buy/modals/VehicleTypeModal";
 import MakeModelModal from "@/components/buy/modals/MakeModelModal";
 import CarTypeModal from "@/components/buy/modals/CarTypeModal";
 import YearModal from "@/components/buy/modals/YearModal";
@@ -10,10 +10,66 @@ import LocationModal from "@/components/buy/modals/LocationModal";
 import SortModal from "@/components/buy/modals/SortModal";
 
 type Props = {
+  vehicleType: string;
+  setVehicleType: Function;
+  searchKey: string;
+  setSearchKey: Function;
+  make: string;
+  setMake: Function;
+  models: Array<string>;
+  setModels: Function;
+  bodyType: Array<string>;
+  setBodyType: Function;
+  minYear: number;
+  setMinYear: Function;
+  maxYear: number;
+  setMaxYear: Function;
+  minMiles: number;
+  setMinMiles: Function;
+  maxMiles: number;
+  setMaxMiles: Function;
+  moreFiltersArr: any;
+  setMoreFiltersArr: Function;
+  location: string;
+  setLocation: Function;
+  radius: number;
+  setRadius: Function;
+  sort: string;
+  SetSort: Function;
   makeData: Array<string>;
+  moreFilterData: any;
 };
 
-const Filter = ({ makeData }: Props) => {
+const Filter = ({
+  vehicleType,
+  setVehicleType,
+  searchKey,
+  setSearchKey,
+  make,
+  setMake,
+  models,
+  setModels,
+  bodyType,
+  setBodyType,
+  minYear,
+  setMinYear,
+  maxYear,
+  setMaxYear,
+  minMiles,
+  setMinMiles,
+  maxMiles,
+  setMaxMiles,
+  moreFiltersArr,
+  setMoreFiltersArr,
+  location,
+  setLocation,
+  radius,
+  setRadius,
+  sort,
+  SetSort,
+  makeData,
+  moreFilterData,
+}: Props) => {
   const [isVehicleModal, setIsVehicleModal] = useState<Boolean>(false);
   const [isMakeModelModal, setIsMakeModelModal] = useState<Boolean>(false);
   const [isCarTypeModal, setIsCarTypeModal] = useState<Boolean>(false);
@@ -90,7 +146,9 @@ const Filter = ({ makeData }: Props) => {
             className="flex items-center space-x-4 py-4"
             onClick={() => vehicleModal()}
           >
-            <span className="text-[#333] text-lg">All Vehicles</span>
+            <span className="text-base text-[#333] font-medium">
+              {vehicleType}
+            </span>
             <Image
               width={10}
               height={6}
@@ -98,7 +156,12 @@ const Filter = ({ makeData }: Props) => {
               alt="null"
             />
           </button>
-          {isVehicleModal && <AllVehiclesModal />}
+          {isVehicleModal && (
+            <VehicleTypeModal
+              setVehicleType={setVehicleType}
+              setIsVehicleModal={setIsVehicleModal}
+            />
+          )}
         </div>
         <input
           className="bg-[url('/assets/search.svg')] bg-no-repeat bg-[center_left_0.5rem] border border-[#333] rounded-full w-full py-2 px-8 text-[#2e3b54] leading-tight focus:border-sky-400 focus:outline-none"
@@ -184,7 +247,10 @@ const Filter = ({ makeData }: Props) => {
               />
             </button>
             {isMoreFilterModal && (
-              <MoreFilterModal setIsMoreFilterModal={setIsMoreFilterModal} />
+              <MoreFilterModal
+                setIsMoreFilterModal={setIsMoreFilterModal}
+                moreFilterData={moreFilterData}
+              />
             )}
           </div>
           <button className="flex items-center space-x-4 py-2">

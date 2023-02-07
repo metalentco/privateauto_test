@@ -1,12 +1,29 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { fuelType } from "@/libs/constants";
 
 type Props = {
   setIsMoreFilterModal: Function;
+  moreFilterData: any;
 };
 
-const MoreFilterModal = ({ setIsMoreFilterModal }: Props) => {
+const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
+  const [isTrim, setIsTrim] = useState<Boolean>(false);
+  const [isExteriorColor, setIsExteriorColor] = useState<Boolean>(false);
+  const [isInteriorColor, setIsInteriorColor] = useState<Boolean>(false);
+  const [isFuelType, setIsFuelType] = useState<Boolean>(false);
+  const [isTransmission, setIsTransmission] = useState<Boolean>(false);
+  const [isDriveType, setIsDriveType] = useState<Boolean>(false);
+  const [isCyclinders, setIsCyclinders] = useState<Boolean>(false);
+
+  const init = () => {
+    setIsTrim(false);
+    setIsExteriorColor(false);
+    setIsInteriorColor(false);
+    setIsFuelType(false);
+    setIsTransmission(false);
+    setIsDriveType(false);
+    setIsCyclinders(false);
+  };
   return (
     <div className="w-full max-h-[753px] justify-center items-center overflow-x-hidden overflow-y-scroll fixed inset-0 z-50 outline-none focus:outline-none">
       <div className="w-[358px] mx-auto opacity-100 bg-white text-[#333] border-1 border-2-gray-400 shadow-md rounded-xl py-4 mt-20">
@@ -40,64 +57,286 @@ const MoreFilterModal = ({ setIsMoreFilterModal }: Props) => {
             </g>
           </svg>
         </div>
-        <div className="text-lg py-3 px-8">More filters</div>
+        <div className="text-base font-medium py-3 px-8">More filters</div>
         <div className="w-full py-2 px-8">
-          <div className="text-base">Trim</div>
-          <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer">
-            <option value={10}>10 miles</option>
-            <option value={25}>25 miles</option>
-          </select>
+          <div className="text-sm font-medium">Trim</div>
+          <div className="relative">
+            <button
+              className="w-[290px] h-[35px] bg-white text-sm font-medium py-2 px-4 border border-[#808080] rounded"
+              onClick={() => {
+                init();
+                setIsTrim(!isTrim);
+              }}
+            >
+              <div className="flex justify-between">
+                <span>{"firstTrim"}</span>
+                <Image
+                  width={10}
+                  height={6}
+                  className="float-right"
+                  src="/assets/expand_more.svg"
+                  alt="expand"
+                />
+              </div>
+            </button>
+            {isTrim && (
+              <div className="absolute top-[35px] left-0 w-[290px] h-[140px] bg-white border border-[#808080] rounded whitespace-nowrap overflow-auto scrollbar-hide z-20">
+                {moreFilterData.trim
+                  .sort((a: string, b: string) => a.localeCompare(b))
+                  .map((item: string, index: number) => {
+                    return (
+                      <div
+                        className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
+                        key={index}
+                      >
+                        <input type="checkbox" />
+                        <div>{item}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-full py-2 px-8">
-          <div className="text-base">Exterior color</div>
-          <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer">
-            <option value={10}>10 miles</option>
-            <option value={25}>25 miles</option>
-          </select>
+          <div className="text-sm font-medium">Exterior color</div>
+          <div className="relative">
+            <button
+              className="w-[290px] h-[35px] bg-white text-sm font-medium py-2 px-4 border border-[#808080] rounded"
+              onClick={() => {
+                init();
+                setIsExteriorColor(!isExteriorColor);
+              }}
+            >
+              <div className="flex justify-between">
+                <span>{"firstTrim"}</span>
+                <Image
+                  width={10}
+                  height={6}
+                  className="float-right"
+                  src="/assets/expand_more.svg"
+                  alt="expand"
+                />
+              </div>
+            </button>
+            {isExteriorColor && (
+              <div className="absolute top-[35px] left-0 w-[290px] h-[140px] bg-white border border-[#808080] rounded whitespace-nowrap overflow-auto scrollbar-hide z-20">
+                {moreFilterData.exteriorColor
+                  .sort()
+                  .map((item: string, index: number) => {
+                    return (
+                      <div
+                        className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
+                        key={index}
+                      >
+                        <input type="checkbox" />
+                        <div>{item}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-full py-2 px-8">
-          <div className="text-base">Interior color</div>
-          <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer">
-            <option value={10}>10 miles</option>
-            <option value={25}>25 miles</option>
-          </select>
+          <div className="text-sm font-medium">Interior color</div>
+          <div className="relative">
+            <button
+              className="w-[290px] h-[35px] bg-white text-sm font-medium py-2 px-4 border border-[#808080] rounded"
+              onClick={() => {
+                init();
+                setIsInteriorColor(!isInteriorColor);
+              }}
+            >
+              <div className="flex justify-between">
+                <span>{"firstTrim"}</span>
+                <Image
+                  width={10}
+                  height={6}
+                  className="float-right"
+                  src="/assets/expand_more.svg"
+                  alt="expand"
+                />
+              </div>
+            </button>
+            {isInteriorColor && (
+              <div className="absolute top-[35px] left-0 w-[290px] h-[140px] bg-white border border-[#808080] rounded whitespace-nowrap overflow-auto scrollbar-hide z-20">
+                {moreFilterData.interiorColor
+                  .sort()
+                  .map((item: string, index: number) => {
+                    return (
+                      <div
+                        className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
+                        key={index}
+                      >
+                        <input type="checkbox" />
+                        <div>{item}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-full py-2 px-8">
-          <div className="text-base">Fuel type</div>
-          <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer">
-            {fuelType.map((item: any, index: number) => {
-              return (
-                <option value={item.type}>
-                  <input
-                    type="checkbox"
-                    className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
-                  />
-                  <span>{item.type}</span>
-                </option>
-              );
-            })}
-          </select>
+          <div className="text-sm font-medium">Fuel type</div>
+          <div className="relative">
+            <button
+              className="w-[290px] h-[35px] bg-white text-sm font-medium py-2 px-4 border border-[#808080] rounded"
+              onClick={() => {
+                init();
+                setIsFuelType(!isFuelType);
+              }}
+            >
+              <div className="flex justify-between">
+                <span>{"firstTrim"}</span>
+                <Image
+                  width={10}
+                  height={6}
+                  className="float-right"
+                  src="/assets/expand_more.svg"
+                  alt="expand"
+                />
+              </div>
+            </button>
+            {isFuelType && (
+              <div className="absolute top-[35px] left-0 w-[290px] h-[120px] bg-white border border-[#808080] rounded whitespace-nowrap overflow-auto scrollbar-hide z-20">
+                {moreFilterData.fuel
+                  .sort()
+                  .map((item: string, index: number) => {
+                    return (
+                      <div
+                        className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
+                        key={index}
+                      >
+                        <input type="checkbox" />
+                        <div>{item}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-full py-2 px-8">
-          <div className="text-base">Transmission</div>
-          <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer">
-            <option value={10}>10 miles</option>
-            <option value={25}>25 miles</option>
-          </select>
+          <div className="text-sm font-medium">Transmission</div>
+          <div className="relative">
+            <button
+              className="w-[290px] h-[35px] bg-white text-sm font-medium py-2 px-4 border border-[#808080] rounded"
+              onClick={() => {
+                init();
+                setIsTransmission(!isTransmission);
+              }}
+            >
+              <div className="flex justify-between">
+                <span>{"firstTrim"}</span>
+                <Image
+                  width={10}
+                  height={6}
+                  className="float-right"
+                  src="/assets/expand_more.svg"
+                  alt="expand"
+                />
+              </div>
+            </button>
+            {isTransmission && (
+              <div className="absolute top-[35px] left-0 w-[290px] h-[120px] bg-white border border-[#808080] rounded whitespace-nowrap overflow-auto scrollbar-hide z-20">
+                {moreFilterData.transmission
+                  .sort()
+                  .map((item: string, index: number) => {
+                    return (
+                      <div
+                        className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
+                        key={index}
+                      >
+                        <input type="checkbox" />
+                        <div>{item}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-full py-2 px-8">
-          <div className="text-base">Drive type</div>
-          <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer">
-            <option value={10}>10 miles</option>
-            <option value={25}>25 miles</option>
-          </select>
+          <div className="text-sm font-medium">Drive type</div>
+          <div className="relative">
+            <button
+              className="w-[290px] h-[35px] bg-white text-sm font-medium py-2 px-4 border border-[#808080] rounded"
+              onClick={() => {
+                init();
+                setIsDriveType(!isDriveType);
+              }}
+            >
+              <div className="flex justify-between">
+                <span>{"firstTrim"}</span>
+                <Image
+                  width={10}
+                  height={6}
+                  className="float-right"
+                  src="/assets/expand_more.svg"
+                  alt="expand"
+                />
+              </div>
+            </button>
+            {isDriveType && (
+              <div className="absolute top-[35px] left-0 w-[290px] h-[120px] bg-white border border-[#808080] rounded whitespace-nowrap overflow-auto scrollbar-hide z-20">
+                {moreFilterData.driveType
+                  .sort()
+                  .map((item: string, index: number) => {
+                    return (
+                      <div
+                        className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
+                        key={index}
+                      >
+                        <input type="checkbox" />
+                        <div>{item}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
         <div className="w-full py-2 px-8">
-          <div className="text-base">Cylinders</div>
-          <select className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none cursor-pointer">
-            <option value={10}>10 miles</option>
-            <option value={25}>25 miles</option>
-          </select>
+          <div className="text-sm font-medium">Cylinders</div>
+          <div className="relative">
+            <button
+              className="w-[290px] h-[35px] bg-white text-sm font-medium py-2 px-4 border border-[#808080] rounded"
+              onClick={() => {
+                init();
+                setIsCyclinders(!isCyclinders);
+              }}
+            >
+              <div className="flex justify-between">
+                <span>{"firstTrim"}</span>
+                <Image
+                  width={10}
+                  height={6}
+                  className="float-right"
+                  src="/assets/expand_more.svg"
+                  alt="expand"
+                />
+              </div>
+            </button>
+            {isCyclinders && (
+              <div className="absolute top-[-120px] left-0 w-[290px] h-[120px] bg-white border border-[#808080] rounded whitespace-nowrap overflow-auto scrollbar-hide shadow-lg z-20">
+                {moreFilterData.cylinders
+                  .sort()
+                  .map((item: string, index: number) => {
+                    return (
+                      <div
+                        className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
+                        key={index}
+                      >
+                        <input type="checkbox" />
+                        <div>{item}</div>
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
+          </div>
         </div>
         <hr className="w-full mt-4" />
         <div className="flex justify-between px-4 pt-4">

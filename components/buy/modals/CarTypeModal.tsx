@@ -23,11 +23,10 @@ const CarTypeModal = () => {
       <div className="grid grid-cols-3 gap-x-10 px-6">
         {cars.map((car: any, index: number) => {
           return (
-            <div>
+            <div key={index}>
               {car.isSelected ? (
                 <div
                   className="bg-[#e2e8f0] py-1 mb-4 rounded"
-                  key={index}
                   onClick={() => {
                     carHandle(car.type, false);
                   }}

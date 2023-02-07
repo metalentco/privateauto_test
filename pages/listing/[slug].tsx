@@ -8,6 +8,7 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
+import { Google_Map_API_Key } from "@/libs/constants";
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
 interface Props {
@@ -729,7 +730,7 @@ function SlugPage(content: Props) {
               <div className="w-full h-[216px] my-6">
                 <GoogleMapReact
                   bootstrapURLKeys={{
-                    key: "AIzaSyBAefhRlXEH3vCko-zZTX6PHllTR6av4WI",
+                    key: Google_Map_API_Key,
                   }}
                   defaultCenter={{
                     lat: data.testDriveLocation.geometry.latitude,

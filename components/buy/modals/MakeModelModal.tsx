@@ -62,7 +62,7 @@ const makeModelModal = ({ makeData }: Props) => {
           <div className="h-[130px] whitespace-nowrap overflow-auto scrollbar-hide text-left">
             {listData.map((item: string, index: number) => {
               return (
-                <div>
+                <div key={index}>
                   {!isModel ? (
                     <div
                       className="flex justify-between cursor-pointer px-2"
