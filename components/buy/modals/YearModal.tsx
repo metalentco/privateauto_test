@@ -1,20 +1,46 @@
 import { useEffect, useState } from "react";
 import MultiRangeSlider from "@/components/multiRangeSlider/multiRangeSlider";
 
-const YearModal = () => {
-  const [minYearInput, setMinYearInput] = useState<number>(1910);
-  const [maxYearInput, setMaxYearInput] = useState<number>(2022);
+type Props = {
+  parentMinYear: number;
+  setParentMinYear: Function;
+  parentMaxYear: number;
+  setParentMaxYear: Function;
+  setIsYearModal: Function;
+};
 
-  const [minYear, setMinYear] = useState<number>(1910);
-  const [maxYear, setMaxYear] = useState<number>(2022);
+const YearModal = ({
+  parentMinYear,
+  setParentMinYear,
+  parentMaxYear,
+  setParentMaxYear,
+  setIsYearModal,
+}: Props) => {
+  const [minYearInput, setMinYearInput] = useState<number>(parentMinYear);
+  const [maxYearInput, setMaxYearInput] = useState<number>(parentMaxYear);
+
+  const [minYear, setMinYear] = useState<number>(parentMinYear);
+  const [maxYear, setMaxYear] = useState<number>(parentMinYear);
 
   useEffect(() => {
     setMinYearInput(minYear);
     setMaxYearInput(maxYear);
   }, [minYear, maxYear]);
 
+  const apply = () => {
+    setIsYearModal(false);
+    setParentMinYear(minYearInput);
+    setParentMaxYear(maxYearInput);
+  };
+
+  const clear = () => {
+    setIsYearModal(false);
+    setParentMinYear(1910);
+    setParentMaxYear(2022);
+  };
+
   return (
-    <div className="absolute top-[40px] left-[0px] w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
+    <div className="absolute top-[50px] left-[-90px] vs:left-[-200px] sm:left-[0px] w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg z-20">
       <div className="text-left text-lg text-[#333] font-normal px-6 pb-4">
         Year
       </div>
@@ -77,10 +103,16 @@ const YearModal = () => {
       </div>
       <hr className="w-full" />
       <div className="flex justify-between px-4 pt-6">
-        <button className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded">
+        <button
+          className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded"
+          onClick={() => clear()}
+        >
           Clear
         </button>
-        <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer">
+        <button
+          className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer"
+          onClick={() => apply()}
+        >
           Apply
         </button>
       </div>

@@ -1,19 +1,46 @@
 import { useEffect, useState } from "react";
 import MultiRangeSlider from "@/components/multiRangeSlider/multiRangeSlider";
 
-const MilesModal = () => {
-  const [minMiles, setMinMiles] = useState<number>(0);
-  const [maxMiles, setMaxMiles] = useState<number>(300000);
-  const [minMilesInput, setMinMilesInput] = useState<number>(0);
-  const [maxMilesInput, setMaxMilesInput] = useState<number>(300000);
+type Props = {
+  parentMinMiles: number;
+  setParentMinMiles: Function;
+  parentMaxMiles: number;
+  setParentMaxMiles: Function;
+  setIsMilesModal: Function;
+};
+
+const MilesModal = ({
+  parentMinMiles,
+  setParentMinMiles,
+  parentMaxMiles,
+  setParentMaxMiles,
+  setIsMilesModal,
+}: Props) => {
+  const [minMiles, setMinMiles] = useState<number>(parentMinMiles);
+  const [maxMiles, setMaxMiles] = useState<number>(parentMaxMiles);
+
+  const [minMilesInput, setMinMilesInput] = useState<number>(parentMinMiles);
+  const [maxMilesInput, setMaxMilesInput] = useState<number>(parentMaxMiles);
 
   useEffect(() => {
     setMinMilesInput(minMiles);
     setMaxMilesInput(maxMiles);
   }, [minMiles, maxMiles]);
 
+  const apply = () => {
+    setIsMilesModal(false);
+    setParentMinMiles(minMilesInput);
+    setParentMaxMiles(maxMilesInput);
+  };
+
+  const clear = () => {
+    setIsMilesModal(false);
+    setParentMinMiles(0);
+    setParentMaxMiles(300000);
+  };
+
   return (
-    <div className="absolute top-[40px] left-[0px] w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
+    <div className="absolute top-[50px] left-[-190px] vs:left-[-300px] sm:left-[-80px] md:left-[0px] w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg z-20">
       <div className="text-left text-lg text-[#333] font-normal px-6 pb-4">
         Miles
       </div>
@@ -87,10 +114,16 @@ const MilesModal = () => {
       </div>
       <hr className="w-full" />
       <div className="flex justify-between px-4 pt-6">
-        <button className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded">
+        <button
+          className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded"
+          onClick={() => clear()}
+        >
           Clear
         </button>
-        <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer">
+        <button
+          className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer"
+          onClick={() => apply()}
+        >
           Apply
         </button>
       </div>

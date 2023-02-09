@@ -84,7 +84,7 @@ function SlugPage(content: Props) {
     if (document.body.style.overflow !== "hidden") {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflowY = "scroll";
     }
   };
 
@@ -183,7 +183,7 @@ function SlugPage(content: Props) {
                     className="h-[70px] flex items-center px-8 hover:underline cursor-pointer"
                     onClick={() => {
                       setShowImageModal(false);
-                      document.body.style.overflow = "scroll";
+                      document.body.style.overflowY = "scroll";
                     }}
                   >
                     <div className="flex">

@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import { MoreFilter } from "@/interfaces/MoreFilter";
 
 type Props = {
-  setIsMoreFilterModal: Function;
   moreFilterData: any;
+  moreFiltersArr: any;
+  setMoreFiltersArr: Function;
+  setIsMoreFilterModal: Function;
 };
 
-const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
+const MoreFilterModal = ({
+  moreFilterData,
+  moreFiltersArr,
+  setMoreFiltersArr,
+  setIsMoreFilterModal,
+}: Props) => {
   const [isTrim, setIsTrim] = useState<Boolean>(false);
   const [isExteriorColor, setIsExteriorColor] = useState<Boolean>(false);
   const [isInteriorColor, setIsInteriorColor] = useState<Boolean>(false);
@@ -14,6 +22,26 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
   const [isTransmission, setIsTransmission] = useState<Boolean>(false);
   const [isDriveType, setIsDriveType] = useState<Boolean>(false);
   const [isCyclinders, setIsCyclinders] = useState<Boolean>(false);
+
+  const [trimArr, setTrimArr] = useState<Array<string>>(moreFiltersArr.trim);
+  const [exteriorColorArr, setExteriorColorArr] = useState<Array<string>>(
+    moreFiltersArr.exteriorColor
+  );
+  const [interiorColorArr, setInteriorColorArr] = useState<Array<string>>(
+    moreFiltersArr.interiorColor
+  );
+  const [fuelTypeArr, setFuelTypeArr] = useState<Array<string>>(
+    moreFiltersArr.fuelType
+  );
+  const [transmissionArr, setTransmissionArr] = useState<Array<string>>(
+    moreFiltersArr.transmission
+  );
+  const [driveTypeArr, setDriveTypeArr] = useState<Array<string>>(
+    moreFiltersArr.driveType
+  );
+  const [cylindersArr, setCylindersArr] = useState<Array<string>>(
+    moreFiltersArr.cylinders
+  );
 
   const init = () => {
     setIsTrim(false);
@@ -24,6 +52,88 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
     setIsDriveType(false);
     setIsCyclinders(false);
   };
+
+  const getResetArr = (arr: Array<string>, item: string) => {
+    if (arr.includes(item)) {
+      const index = arr.indexOf(item);
+      if (index > -1) {
+        arr.splice(index, 1);
+      }
+    } else {
+      arr.push(item);
+    }
+    return arr;
+  };
+
+  const clickItem = (type: string, item: string) => {
+    if (type == "trim") {
+      const trims = trimArr.slice();
+      setTrimArr(getResetArr(trims, item));
+    } else if (type == "exterior") {
+      const exteriors = exteriorColorArr.slice();
+      setExteriorColorArr(getResetArr(exteriors, item));
+    } else if (type == "interior") {
+      const interiors = interiorColorArr.slice();
+      setInteriorColorArr(getResetArr(interiors, item));
+    } else if (type == "fuel") {
+      const fuels = fuelTypeArr.slice();
+      setFuelTypeArr(getResetArr(fuels, item));
+    } else if (type == "transmission") {
+      const transmissions = transmissionArr.slice();
+      setTransmissionArr(getResetArr(transmissions, item));
+    } else if (type == "drive") {
+      const drives = driveTypeArr.slice();
+      setDriveTypeArr(getResetArr(drives, item));
+    } else {
+      const cylinders = cylindersArr.slice();
+      setCylindersArr(getResetArr(cylinders, item));
+    }
+  };
+
+  const apply = () => {
+    setIsMoreFilterModal(false);
+    document.body.style.overflowY = "scroll";
+    let data: MoreFilter = {
+      trim: [],
+      exteriorColor: [],
+      interiorColor: [],
+      fuelType: [],
+      transmission: [],
+      driveType: [],
+      cylinders: [],
+    };
+    data.trim = trimArr;
+    data.exteriorColor = exteriorColorArr;
+    data.interiorColor = interiorColorArr;
+    data.fuelType = fuelTypeArr;
+    data.transmission = transmissionArr;
+    data.driveType = driveTypeArr;
+    data.cylinders = cylindersArr;
+    setMoreFiltersArr(data);
+  };
+
+  const clear = () => {
+    setIsMoreFilterModal(false);
+    document.body.style.overflowY = "scroll";
+    let data: MoreFilter = {
+      trim: [],
+      exteriorColor: [],
+      interiorColor: [],
+      fuelType: [],
+      transmission: [],
+      driveType: [],
+      cylinders: [],
+    };
+    data.trim = [];
+    data.exteriorColor = [];
+    data.interiorColor = [];
+    data.fuelType = [];
+    data.transmission = [];
+    data.driveType = [];
+    data.cylinders = [];
+    setMoreFiltersArr(data);
+  };
+
   return (
     <div className="w-full max-h-[753px] justify-center items-center overflow-x-hidden overflow-y-scroll fixed inset-0 z-50 outline-none focus:outline-none">
       <div className="w-[358px] mx-auto opacity-100 bg-white text-[#333] border-1 border-2-gray-400 shadow-md rounded-xl py-4 mt-20">
@@ -40,7 +150,7 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
             className="cursor-pointer"
             onClick={() => {
               setIsMoreFilterModal(false);
-              document.body.style.overflow = "scroll";
+              document.body.style.overflowY = "scroll";
             }}
           >
             <g id="SVGRepo_bgCarrier"></g>
@@ -69,7 +179,9 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
               }}
             >
               <div className="flex justify-between">
-                <span>{"firstTrim"}</span>
+                <span>
+                  {trimArr[0] != undefined ? trimArr[0].slice(0, 35) : ""}
+                </span>
                 <Image
                   width={10}
                   height={6}
@@ -88,8 +200,14 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
+                        onClick={() => clickItem("trim", item)}
                       >
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="cursor-pointer"
+                          checked={trimArr.includes(item)}
+                          onChange={() => {}}
+                        />
                         <div>{item}</div>
                       </div>
                     );
@@ -109,7 +227,7 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
               }}
             >
               <div className="flex justify-between">
-                <span>{"firstTrim"}</span>
+                <span>{exteriorColorArr[0]}</span>
                 <Image
                   width={10}
                   height={6}
@@ -128,8 +246,14 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
+                        onClick={() => clickItem("exterior", item)}
                       >
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="cursor-pointer"
+                          checked={exteriorColorArr.includes(item)}
+                          onChange={() => {}}
+                        />
                         <div>{item}</div>
                       </div>
                     );
@@ -149,7 +273,7 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
               }}
             >
               <div className="flex justify-between">
-                <span>{"firstTrim"}</span>
+                <span>{interiorColorArr[0]}</span>
                 <Image
                   width={10}
                   height={6}
@@ -168,8 +292,14 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
+                        onClick={() => clickItem("interior", item)}
                       >
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="cursor-pointer"
+                          checked={interiorColorArr.includes(item)}
+                          onChange={() => {}}
+                        />
                         <div>{item}</div>
                       </div>
                     );
@@ -189,7 +319,7 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
               }}
             >
               <div className="flex justify-between">
-                <span>{"firstTrim"}</span>
+                <span>{fuelTypeArr[0]}</span>
                 <Image
                   width={10}
                   height={6}
@@ -208,8 +338,14 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
+                        onClick={() => clickItem("fuel", item)}
                       >
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="cursor-pointer"
+                          checked={fuelTypeArr.includes(item)}
+                          onChange={() => {}}
+                        />
                         <div>{item}</div>
                       </div>
                     );
@@ -229,7 +365,7 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
               }}
             >
               <div className="flex justify-between">
-                <span>{"firstTrim"}</span>
+                <span>{transmissionArr[0]}</span>
                 <Image
                   width={10}
                   height={6}
@@ -248,8 +384,14 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
+                        onClick={() => clickItem("transmission", item)}
                       >
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="cursor-pointer"
+                          checked={transmissionArr.includes(item)}
+                          onChange={() => {}}
+                        />
                         <div>{item}</div>
                       </div>
                     );
@@ -269,7 +411,7 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
               }}
             >
               <div className="flex justify-between">
-                <span>{"firstTrim"}</span>
+                <span>{driveTypeArr[0]}</span>
                 <Image
                   width={10}
                   height={6}
@@ -288,8 +430,14 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
+                        onClick={() => clickItem("drive", item)}
                       >
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="cursor-pointer"
+                          checked={driveTypeArr.includes(item)}
+                          onChange={() => {}}
+                        />
                         <div>{item}</div>
                       </div>
                     );
@@ -309,7 +457,7 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
               }}
             >
               <div className="flex justify-between">
-                <span>{"firstTrim"}</span>
+                <span>{cylindersArr[0]}</span>
                 <Image
                   width={10}
                   height={6}
@@ -328,8 +476,14 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
+                        onClick={() => clickItem("cylinders", item)}
                       >
-                        <input type="checkbox" />
+                        <input
+                          type="checkbox"
+                          className="cursor-pointer"
+                          checked={cylindersArr.includes(item)}
+                          onChange={() => {}}
+                        />
                         <div>{item}</div>
                       </div>
                     );
@@ -340,10 +494,16 @@ const MoreFilterModal = ({ setIsMoreFilterModal, moreFilterData }: Props) => {
         </div>
         <hr className="w-full mt-4" />
         <div className="flex justify-between px-4 pt-4">
-          <button className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded">
+          <button
+            className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded"
+            onClick={() => clear()}
+          >
             Clear
           </button>
-          <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer">
+          <button
+            className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer"
+            onClick={() => apply()}
+          >
             Apply
           </button>
         </div>

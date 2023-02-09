@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import VehicleTypeModal from "@/components/buy/modals/VehicleTypeModal";
 import MakeModelModal from "@/components/buy/modals/MakeModelModal";
@@ -18,7 +18,7 @@ type Props = {
   setMake: Function;
   models: Array<string>;
   setModels: Function;
-  bodyType: Array<string>;
+  bodyType: any;
   setBodyType: Function;
   minYear: number;
   setMinYear: Function;
@@ -35,9 +35,10 @@ type Props = {
   radius: number;
   setRadius: Function;
   sort: string;
-  SetSort: Function;
+  setSort: Function;
   makeData: Array<string>;
   moreFilterData: any;
+  clearAll: Function;
 };
 
 const Filter = ({
@@ -66,9 +67,10 @@ const Filter = ({
   radius,
   setRadius,
   sort,
-  SetSort,
+  setSort,
   makeData,
   moreFilterData,
+  clearAll,
 }: Props) => {
   const [isVehicleModal, setIsVehicleModal] = useState<Boolean>(false);
   const [isMakeModelModal, setIsMakeModelModal] = useState<Boolean>(false);
@@ -78,6 +80,7 @@ const Filter = ({
   const [isMoreFilterModal, setIsMoreFilterModal] = useState<Boolean>(false);
   const [isLocationModal, setIsLocationModal] = useState<Boolean>(false);
   const [isSortModal, setIsSortModal] = useState<Boolean>(false);
+  const [search, setSearch] = useState<string>("");
 
   const initModal = () => {
     setIsVehicleModal(false);
@@ -134,7 +137,7 @@ const Filter = ({
     if (document.body.style.overflow !== "hidden") {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflowY = "scroll";
     }
   };
 
@@ -168,100 +171,237 @@ const Filter = ({
           id="search"
           type="text"
           placeholder="Search..."
+          value={search}
+          onChange={(e: any) => setSearch(e.target.value)}
+          onKeyPress={(event: any) => {
+            if (event.key === "Enter") {
+              setSearchKey(search);
+            }
+          }}
         />
-        <div className="flex space-x-4 py-4">
-          <div className="relative z-10">
-            <button
-              className="bg-white border border-slate-400 flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded"
-              onClick={() => makeModelModal()}
-            >
-              <span className="text-slate-400">Make and Model</span>
-              <Image
-                width={10}
-                height={6}
-                src="/assets/expand_more.svg"
-                alt="null"
-              />
-            </button>
-            {isMakeModelModal && <MakeModelModal makeData={makeData} />}
+        <div className="block sm:flex space-x-4 py-4">
+          <div className="block vs:flex justify-center space-x-4">
+            <div className="flex justify-center space-x-4">
+              <div className="relative z-10 py-3">
+                <button
+                  className={`w-[152px] bg-white border ${
+                    make == "" ? "border-slate-400" : "border-[#00b3de]"
+                  } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
+                  onClick={() => makeModelModal()}
+                >
+                  {make == "" ? (
+                    <span className="text-slate-400">Make and Model</span>
+                  ) : models.length == 0 ? (
+                    <span className="text-[#00b3de]">{make}-</span>
+                  ) : (
+                    <span className="text-[#00b3de]">
+                      {make}-{models[0]}
+                    </span>
+                  )}
+                  <Image
+                    width={10}
+                    height={6}
+                    src={`${
+                      make == ""
+                        ? "/assets/expand_more.svg"
+                        : "/assets/expand_more_blue.svg"
+                    }`}
+                    alt="null"
+                  />
+                </button>
+                {isMakeModelModal && (
+                  <MakeModelModal
+                    parentMake={make}
+                    parentModels={models}
+                    setParentMake={setMake}
+                    setParentModels={setModels}
+                    makeData={makeData}
+                    setIsMakeModelModal={setIsMakeModelModal}
+                  />
+                )}
+              </div>
+              <div className="relative z-10 py-3">
+                <button
+                  className={`w-[113px] bg-white border ${
+                    bodyType.length ? "border-[#00b3de]" : "border-slate-400"
+                  } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
+                  onClick={() => carTypeModal()}
+                >
+                  {bodyType.length ? (
+                    <span className="text-[#00b3de]">{bodyType[0]}</span>
+                  ) : (
+                    <span className="text-slate-400">Body Type</span>
+                  )}
+                  <Image
+                    width={10}
+                    height={6}
+                    src={`${
+                      bodyType.length
+                        ? "/assets/expand_more_blue.svg"
+                        : "/assets/expand_more.svg"
+                    }`}
+                    alt="null"
+                  />
+                </button>
+                {isCarTypeModal && (
+                  <CarTypeModal
+                    bodyType={bodyType}
+                    setBodyType={setBodyType}
+                    setIsCarTypeModal={setIsCarTypeModal}
+                  />
+                )}
+              </div>
+            </div>
+            <div className="flex justify-center space-x-4">
+              <div className="relative py-3">
+                <button
+                  className={`w-[73px] bg-white border ${
+                    minYear == 1910 && maxYear == 2022
+                      ? "border-slate-400"
+                      : "border-[#00b3de]"
+                  } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
+                  onClick={() => yearModal()}
+                >
+                  {minYear == 1910 && maxYear == 2022 ? (
+                    <span className="text-slate-400">Year</span>
+                  ) : (
+                    <span className="text-[#00b3de]">
+                      {minYear} - {maxYear}
+                    </span>
+                  )}
+                  <Image
+                    width={10}
+                    height={6}
+                    src={`${
+                      minYear == 1910 && maxYear == 2022
+                        ? "/assets/expand_more.svg"
+                        : "/assets/expand_more_blue.svg"
+                    }`}
+                    alt="null"
+                  />
+                </button>
+                {isYearModal && (
+                  <YearModal
+                    parentMinYear={minYear}
+                    setParentMinYear={setMinYear}
+                    parentMaxYear={maxYear}
+                    setParentMaxYear={setMaxYear}
+                    setIsYearModal={setIsYearModal}
+                  />
+                )}
+              </div>
+              <div className="relative py-3">
+                <button
+                  className={`w-[80px] bg-white border ${
+                    minMiles == 0 && maxMiles == 300000
+                      ? "border-slate-400"
+                      : "border-[#00b3de]"
+                  } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
+                  onClick={() => milesModal()}
+                >
+                  {minMiles == 0 && maxMiles == 300000 ? (
+                    <span className="text-slate-400">Miles</span>
+                  ) : (
+                    <span className="text-[#00b3de]">
+                      {minMiles} - {maxMiles}
+                    </span>
+                  )}
+                  <Image
+                    width={10}
+                    height={6}
+                    src={`${
+                      minMiles == 0 && maxMiles == 300000
+                        ? "/assets/expand_more.svg"
+                        : "/assets/expand_more_blue.svg"
+                    }`}
+                    alt="null"
+                  />
+                </button>
+                {isMilesModal && (
+                  <MilesModal
+                    parentMinMiles={minMiles}
+                    setParentMinMiles={setMinMiles}
+                    parentMaxMiles={maxMiles}
+                    setParentMaxMiles={setMaxMiles}
+                    setIsMilesModal={setIsMilesModal}
+                  />
+                )}
+              </div>
+            </div>
           </div>
-          <div className="relative z-10">
+          <div className="flex justify-center space-x-4">
+            <div className="relative py-3">
+              <button
+                className={`w-[122px] bg-white border ${
+                  !moreFiltersArr.trim.length &&
+                  !moreFiltersArr.exteriorColor.length &&
+                  !moreFiltersArr.interiorColor.length &&
+                  !moreFiltersArr.fuelType.length &&
+                  !moreFiltersArr.transmission.length &&
+                  !moreFiltersArr.driveType.length &&
+                  !moreFiltersArr.cylinders.length
+                    ? "border-slate-400"
+                    : "border-[#00b3de]"
+                } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
+                onClick={() => {
+                  moreFilterModal();
+                  setScrollHidden();
+                }}
+              >
+                <span
+                  className={`${
+                    !moreFiltersArr.trim.length &&
+                    !moreFiltersArr.exteriorColor.length &&
+                    !moreFiltersArr.interiorColor.length &&
+                    !moreFiltersArr.fuelType.length &&
+                    !moreFiltersArr.transmission.length &&
+                    !moreFiltersArr.driveType.length &&
+                    !moreFiltersArr.cylinders.length
+                      ? "text-slate-400"
+                      : "text-[#00b3de]"
+                  }`}
+                >
+                  More Filters
+                </span>
+                <Image
+                  width={10}
+                  height={6}
+                  src={`${
+                    !moreFiltersArr.trim.length &&
+                    !moreFiltersArr.exteriorColor.length &&
+                    !moreFiltersArr.interiorColor.length &&
+                    !moreFiltersArr.fuelType.length &&
+                    !moreFiltersArr.transmission.length &&
+                    !moreFiltersArr.driveType.length &&
+                    !moreFiltersArr.cylinders.length
+                      ? "/assets/expand_more.svg"
+                      : "/assets/expand_more_blue.svg"
+                  }`}
+                  alt="null"
+                />
+              </button>
+              {isMoreFilterModal && (
+                <MoreFilterModal
+                  moreFilterData={moreFilterData}
+                  moreFiltersArr={moreFiltersArr}
+                  setMoreFiltersArr={setMoreFiltersArr}
+                  setIsMoreFilterModal={setIsMoreFilterModal}
+                />
+              )}
+            </div>
             <button
-              className="bg-white border border-slate-400 flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded"
-              onClick={() => carTypeModal()}
+              className="flex items-center space-x-4 py-2"
+              onClick={() => clearAll()}
             >
-              <span className="text-slate-400">Body Type</span>
-              <Image
-                width={10}
-                height={6}
-                src="/assets/expand_more.svg"
-                alt="null"
-              />
+              <span className="text-[#063829] text-sm">Clear All</span>
             </button>
-            {isCarTypeModal && <CarTypeModal />}
           </div>
-          <div className="relative">
-            <button
-              className="bg-white border border-slate-400 flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded"
-              onClick={() => yearModal()}
-            >
-              <span className="text-slate-400">Year</span>
-              <Image
-                width={10}
-                height={6}
-                src="/assets/expand_more.svg"
-                alt="null"
-              />
-            </button>
-            {isYearModal && <YearModal />}
-          </div>
-          <div className="relative">
-            <button
-              className="bg-white border border-slate-400 flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded"
-              onClick={() => milesModal()}
-            >
-              <span className="text-slate-400">Miles</span>
-              <Image
-                width={10}
-                height={6}
-                src="/assets/expand_more.svg"
-                alt="null"
-              />
-            </button>
-            {isMilesModal && <MilesModal />}
-          </div>
-          <div className="relative">
-            <button
-              className="bg-white border border-slate-400 flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded"
-              onClick={() => {
-                moreFilterModal();
-                setScrollHidden();
-              }}
-            >
-              <span className="text-slate-400">More Filters</span>
-              <Image
-                width={10}
-                height={6}
-                src="/assets/expand_more.svg"
-                alt="null"
-              />
-            </button>
-            {isMoreFilterModal && (
-              <MoreFilterModal
-                setIsMoreFilterModal={setIsMoreFilterModal}
-                moreFilterData={moreFilterData}
-              />
-            )}
-          </div>
-          <button className="flex items-center space-x-4 py-2">
-            <span className="text-[#063829] text-sm">Clear All</span>
-          </button>
         </div>
       </div>
-      <div className="w-full px-[8%] flex justify-between bg-white ">
+      <div className="w-full px-[2%] vs:px-[8%] flex justify-between bg-white ">
         <div className="relative">
           <button
-            className="flex items-center text-sm font-medium space-x-4 py-4"
+            className="flex items-center text-sm font-medium space-x-1 vs:space-x-4 py-4"
             onClick={() => locationModal()}
           >
             <span className="text-slate-400">Location:</span>
@@ -277,11 +417,11 @@ const Filter = ({
         </div>
         <div className="relative">
           <button
-            className="flex items-center text-sm font-medium space-x-4 py-4"
+            className="flex items-center text-sm font-medium space-x-1 vs:space-x-4 py-4"
             onClick={() => sortModal()}
           >
             <span className="text-slate-400">Sort by:</span>
-            <span>Newest</span>
+            <span>{sort}</span>
             <Image
               width={10}
               height={6}
@@ -289,7 +429,9 @@ const Filter = ({
               alt="null"
             />
           </button>
-          {isSortModal && <SortModal />}
+          {isSortModal && (
+            <SortModal setIsSortModal={setIsSortModal} setSort={setSort} />
+          )}
         </div>
       </div>
     </div>

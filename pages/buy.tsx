@@ -7,12 +7,21 @@ import Filter from "@/components/buy/Filter";
 import Pagination from "@/components/buy/Pagination";
 import useApi from "@/hooks/useApi";
 import { BASE_URL, PAGE_SIZE } from "@/libs/constants";
+import { MoreFilter } from "@/interfaces/MoreFilter";
 
 export default function Buy() {
-  const { getAllData, getInitMakeData, getCarDetailsFilter } = useApi();
+  const initFilters = {
+    trim: [],
+    exteriorColor: [],
+    interiorColor: [],
+    fuelType: [],
+    transmission: [],
+    driveType: [],
+    cylinders: [],
+  };
+  const { getPageData, getInitMakeData, getCarDetailsFilter } = useApi();
   const [isLoading, setIsLoading] = useState<Boolean>(true);
-  const [allData, setAllData] = useState<any>([]);
-  const [filterData, setFilterData] = useState<any>([]);
+  const [pageData, setPageData] = useState<any>([]);
   const [pages, setPages] = useState<number>(0);
   const [current, setCurrent] = useState<number>(0);
   const [total, setTotal] = useState<number>(0);
@@ -29,36 +38,37 @@ export default function Buy() {
   const [maxYear, setMaxYear] = useState<number>(2022);
   const [minMiles, setMinMiles] = useState<number>(0);
   const [maxMiles, setMaxMiles] = useState<number>(300000);
-  const [moreFiltersArr, setMoreFiltersArr] = useState<any>([]);
+  const [moreFiltersArr, setMoreFiltersArr] = useState<MoreFilter>(initFilters);
   const [location, setLocation] = useState<string>("");
-  const [radius, setRadius] = useState<number>(0);
-  const [sort, SetSort] = useState<string>("Newest");
+  const [lat, setLat] = useState<number>(0);
+  const [lng, setLng] = useState<number>(0);
+  const [radius, setRadius] = useState<number>(50);
+  const [sort, setSort] = useState<string>("Newest");
 
   useEffect(() => {
     initPage();
   }, []);
 
   useEffect(() => {
-    filterFunc(
-      allData,
-      vehicleType,
-      searchKey,
-      make,
-      models,
-      bodyType,
-      minYear,
-      maxYear,
-      minMiles,
-      maxMiles,
-      moreFiltersArr,
-      location,
-      radius,
-      sort
-    );
-  }, [vehicleType, searchKey]);
+    getData();
+  }, [
+    vehicleType,
+    searchKey,
+    make,
+    models,
+    bodyType,
+    minYear,
+    maxYear,
+    minMiles,
+    maxMiles,
+    moreFiltersArr,
+    lat,
+    lng,
+    radius,
+    sort,
+  ]);
 
   const initPage = () => {
-    getAllPageData();
     getMakeData();
     getMoreFilterData();
   };
@@ -84,17 +94,34 @@ export default function Buy() {
     });
   };
 
-  const getAllPageData = async () => {
-    window.scrollTo(0, 0);
+  const getData = async () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
     setIsLoading(true);
-    let data = await getAllData();
+    const data = await getPageData(
+      vehicleType,
+      searchKey,
+      make,
+      models,
+      bodyType,
+      minYear,
+      maxYear,
+      minMiles,
+      maxMiles,
+      moreFiltersArr,
+      location,
+      radius,
+      sort
+    );
     setIsLoading(false);
+    console.log("RESULT:", data);
     setPages(Math.floor(data._meta.total / PAGE_SIZE));
     setCurrent(data._meta.page);
     imageFormat(data);
-    setAllData(data.data);
-    setFilterData(data.data);
-    console.log("data:", data);
+    setPageData(data.data);
     setTotal(data._meta.total);
   };
 
@@ -116,48 +143,26 @@ export default function Buy() {
     setMoreFilterData(data.results);
   };
 
-  const filterFunc = (
-    allData: any,
-    vehicleType: string,
-    searchKey: string,
-    make: string,
-    models: Array<string>,
-    bodyType: Array<string>,
-    minYear: number,
-    maxYear: number,
-    minMiles: number,
-    maxMiles: number,
-    moreFiltersArr: any,
-    location: string,
-    radius: number,
-    sort: string
-  ) => {
-    var filteredData = allData.slice();
-    if (vehicleType != "All Vehicles") {
-      const data = filteredData;
-      filteredData = [];
-      data.map((item: any, index: number) => {
-        if (item.vehicleType == vehicleType) {
-          filteredData.push(item);
-        }
-      });
-    }
-    if (searchKey != "") {
-      const data = filteredData;
-      filteredData = [];
-      data.map((item: any, index: number) => {
-        // if()
-      });
-    }
-    console.log("filteredData:", filteredData);
-    setFilterData(filteredData);
-    setPages(Math.floor(filteredData.length / PAGE_SIZE));
-    setCurrent(0);
-    setTotal(filteredData.length);
+  const clearAll = () => {
+    setVehicleType("All Vehicles");
+    setSearchKey("");
+    setMake("");
+    setModels([]);
+    setBodyType([]);
+    setMinYear(1910);
+    setMaxYear(2022);
+    setMinMiles(0);
+    setMaxMiles(300000);
+    setMoreFiltersArr(initFilters);
+    setLocation("");
+    setLat(0);
+    setLng(0);
+    setRadius(50);
+    setSort("Newest");
   };
 
   return (
-    <div>
+    <div className="w-full">
       {!isLoading ? (
         <div className="w-full">
           <Header />
@@ -188,20 +193,20 @@ export default function Buy() {
             radius={radius}
             setRadius={setRadius}
             sort={sort}
-            SetSort={SetSort}
+            setSort={setSort}
             makeData={makeData}
             moreFilterData={moreFilterData}
+            clearAll={clearAll}
           />
-          <div className="px-[8%] grid grid-cols-4 gap-x-8">
-            {filterData
-              .slice(current * PAGE_SIZE, (current + 1) * PAGE_SIZE)
-              .map((item: any, index: number) => {
+          {total ? (
+            <div className="px-[8%] grid grid-cols-1 vs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8">
+              {pageData.map((item: any, index: number) => {
                 return (
                   <div
                     className="w-full bg-white border rounded-lg shadow cursor-pointer my-6"
                     key={index}
                   >
-                    <div className="w-full h-[160px] overflow-hidden rounded-t-lg">
+                    <div className="w-full h-[230px] vs:h-[160px] overflow-hidden rounded-t-lg">
                       <Image
                         width={264}
                         height={160}
@@ -300,7 +305,35 @@ export default function Buy() {
                   </div>
                 );
               })}
-          </div>
+            </div>
+          ) : (
+            <div className="w-full">
+              <div className="w-full flex justify-center pt-8 pb-3">
+                <Image
+                  width={212}
+                  height={200}
+                  src="/assets/no-search-results.svg"
+                  alt="no-search"
+                />
+              </div>
+              <div className="w-full text-center text-[#000]">
+                <p className="text-xl font-semibold py-1">
+                  We didn't find any matches
+                </p>
+                <p className="text-sm">
+                  Try changing your search criteria or remove filters.
+                </p>
+              </div>
+              <div className="w-full flex justify-center py-6">
+                <button
+                  className="bg-white hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded"
+                  onClick={() => clearAll()}
+                >
+                  Clear search
+                </button>
+              </div>
+            </div>
+          )}
           {total ? (
             <Pagination
               pages={pages}

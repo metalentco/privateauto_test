@@ -12,7 +12,7 @@ const VehicleTypeModal = ({ setVehicleType, setIsVehicleModal }: Props) => {
     setVehicleType(vehicle);
   };
   return (
-    <div className="absolute top-[50px] left-[0px] w-[264px] py-2 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
+    <div className="absolute top-[50px] left-[0px] w-[250px] vs:w-[264px] py-2 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg z-30">
       {vehicles.map((item: string, index: number) => {
         return (
           <button

@@ -11,7 +11,7 @@ const Menu = () => {
     if (document.body.style.overflow !== "hidden") {
       document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "scroll";
+      document.body.style.overflowY = "scroll";
     }
   };
   return (
@@ -90,7 +90,7 @@ const Menu = () => {
                 viewBox="0 0 92.13 92.13"
                 onClick={() => {
                   setShowMenuModal(false);
-                  document.body.style.overflow = "scroll";
+                  document.body.style.overflowY = "scroll";
                 }}
               >
                 <g id="SVGRepo_bgCarrier"></g>

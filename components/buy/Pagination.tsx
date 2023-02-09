@@ -13,7 +13,6 @@ const IntegerToArray = (pages: Number) => {
   for (var i = 0; i <= pages; i++) {
     pagesArr.push(i);
   }
-  console.log("pagesArr:", pagesArr);
   return pagesArr;
 };
 
@@ -42,7 +41,11 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
               src="/assets/chevron-left.svg"
               alt="left"
               onClick={() => {
-                window.scrollTo(0, 0);
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
                 onClick(currentPage - 1);
               }}
             />
@@ -60,7 +63,11 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
                 key={index}
                 className="cursor-pointer"
                 onClick={() => {
-                  window.scrollTo(0, 0);
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
                   onClick(page);
                 }}
               >
@@ -84,7 +91,11 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
               src="/assets/chevron-right.svg"
               alt="left"
               onClick={() => {
-                window.scrollTo(0, 0);
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
                 onClick(currentPage + 1);
               }}
             />

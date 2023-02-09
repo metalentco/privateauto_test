@@ -1,4 +1,5 @@
 export const Google_Map_API_Key = "AIzaSyBAefhRlXEH3vCko-zZTX6PHllTR6av4WI";
+export const Google_Map = "AIzaSyBxkR1SN2EQJDJ5KXVjuLgl9J-_KpArI4E";
 export const BASE_URL = "https://padev.xyz";
 export const PAGE_SIZE = 24;
 export const LIMIT = 1000;
