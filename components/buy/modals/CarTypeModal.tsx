@@ -47,7 +47,7 @@ const CarTypeModal = ({ bodyType, setBodyType, setIsCarTypeModal }: Props) => {
   };
 
   return (
-    <div className="absolute top-[50px] left-[-150px] vs:left-[-70px] sm:left-[0px] w-[280px] vs:w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
+    <div className="absolute top-[50px] left-[-170px] vs:left-[-70px] sm:left-[0px] w-[280px] vs:w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
       <div className="text-left text-lg text-[#333] font-normal px-6 pb-4">
         Body type
       </div>

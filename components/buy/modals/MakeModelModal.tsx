@@ -56,7 +56,7 @@ const makeModelModal = ({
     } else {
       const searchKey = e.target.value;
       let searchedMakeList: any = [];
-      listData.map((item: string, index: number) => {
+      makeData.map((item: string, index: number) => {
         if (item.toLowerCase().includes(searchKey.toLowerCase())) {
           searchedMakeList.push(item);
         }
@@ -72,7 +72,7 @@ const makeModelModal = ({
     } else {
       const searchKey = e.target.value;
       let searchedMakeList: any = [];
-      listData.map((item: string, index: number) => {
+      modelData.map((item: string, index: number) => {
         if (item.toLowerCase().includes(searchKey.toLowerCase())) {
           searchedMakeList.push(item);
         }

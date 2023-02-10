@@ -84,7 +84,7 @@ const Filter = ({
   const [isMoreFilterModal, setIsMoreFilterModal] = useState<Boolean>(false);
   const [isLocationModal, setIsLocationModal] = useState<Boolean>(false);
   const [isSortModal, setIsSortModal] = useState<Boolean>(false);
-  const [search, setSearch] = useState<string>("");
+  const [search, setSearch] = useState<string>(searchKey);
 
   const initModal = () => {
     setIsVehicleModal(false);

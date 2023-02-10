@@ -40,7 +40,7 @@ const MilesModal = ({
   };
 
   return (
-    <div className="absolute top-[50px] left-[-190px] vs:left-[-300px] sm:left-[-80px] md:left-[0px] w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg z-20">
+    <div className="absolute top-[50px] left-[-170px] vs:left-[-300px] sm:left-[-80px] md:left-[0px] w-[305px] vs:w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg z-20">
       <div className="text-left text-lg text-[#333] font-normal px-6 pb-4">
         Miles
       </div>
