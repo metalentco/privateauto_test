@@ -1,15 +1,20 @@
-import Head from 'next/head';
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import GoogleMapReact from 'google-map-react';
-import { Router, useRouter } from 'next/router';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Menu from '@/components/Menu';
-import content from '../../json/seller_listings.json';
+import GoogleMapReact from "google-map-react";
+import { Router, useRouter } from "next/router";
+import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Menu from "@/components/Menu";
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
-function SlugPage(content: any) {
+interface Props {
+  content: any;
+}
+
+function SlugPage(content: Props) {
+  // console.log(content);
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
@@ -526,7 +531,7 @@ function SlugPage(content: any) {
                 <div className="flex relative">
                   {data && data.ownershipInfo.seller.profileImage != null ? (
                     <Image
-                      className="rounded-[56px]"
+                      className="w-[56px] h-[56px] rounded-full"
                       width={56}
                       height={56}
                       src={'/images' + data.ownershipInfo.seller.profileImage}
@@ -534,7 +539,7 @@ function SlugPage(content: any) {
                     />
                   ) : (
                     <Image
-                      className="rounded-[56px]"
+                      className="w-[56px] h-[56px] rounded-full"
                       width={56}
                       height={56}
                       src="/static/profile/defaultImg.png"
@@ -585,7 +590,7 @@ function SlugPage(content: any) {
                 <path d="M512 85.333333a426.666667 426.666667 0 1 0 426.666667 426.666667A426.666667 426.666667 0 0 0 512 85.333333z m0 682.666667a42.666667 42.666667 0 1 1 42.666667-42.666667 42.666667 42.666667 0 0 1-42.666667 42.666667z m42.666667-220.16V597.333333a42.666667 42.666667 0 0 1-85.333334 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667 64 64 0 1 0-64-64 42.666667 42.666667 0 0 1-85.333333 0 149.333333 149.333333 0 1 1 192 142.506667z" />
               </svg>
             </div>
-            <div className="w-3/5 block md:flex justify-between pt-4 space-y-6">
+            <div className="w-3/5 block md:flex justify-between pt-4">
               <div className="flex items-center">
                 <svg
                   fill="#0b9709"
@@ -816,35 +821,34 @@ function SlugPage(content: any) {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await fetch("http://localhost:3000/json/seller_listings.json");
+  const content = await res.json();
+
+  const paths = content.map((item: any, index: number) => {
+    return {
+      params: {
+        slug: item.slug,
+      },
+    };
+  });
   return {
-    paths: [
-      { params: { slug: '2020-harley-davidson-flhxs-vwfd' } },
-      { params: { slug: '2020-ford-f-150-vwet' } },
-      { params: { slug: '2020-mazda-mx-5-vwd-a6tzwde' } },
-      { params: { slug: '2020-mercedes-benz-amg-gt-vwdpjdrr7k8' } },
-      { params: { slug: '2020-mini-countryman-vwe1csxodqy' } },
-      { params: { slug: '2020-hyundai-tucson-vwenbuvlzwm' } },
-      { params: { slug: '2020-ford-explorer-vwfelq4nuki' } },
-      { params: { slug: '2020-toyota-4-runner-vwczacbuawi' } },
-      { params: { slug: '2019-toyota-86-vwdlxudqids' } },
-      { params: { slug: '2020-mini-countryman-vwcrnxhv-tu' } },
-      { params: { slug: '2020-tesla-model-x-vwdnaqtzmd0' } },
-      { params: { slug: '2019-volkswagen-jetta-vwffqj5-xgs' } },
-      { params: { slug: '2019-toyota-camry-vwc4gmivyeg' } },
-    ],
+    paths,
     fallback: false,
   };
-}
+};
 
-export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/json/seller_listings.json');
+export const getStaticProps: GetStaticProps<Props> = async (
+  ctx
+): Promise<{ props: Props }> => {
+  const res = await fetch("http://localhost:3000/json/seller_listings.json");
   const content = await res.json();
+
   return {
     props: {
       content,
     },
   };
-}
+};
 
 export default SlugPage;

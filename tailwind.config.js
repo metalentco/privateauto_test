@@ -12,7 +12,11 @@ module.exports = {
       kl: "1249px",
       xl: "1440px",
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "search-bar": "url('/assets/search.svg')",
+      },
+    },
   },
-  plugins: [],
-}
+  plugins: [require("tailwind-scrollbar-hide")],
+};

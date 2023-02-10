@@ -12,7 +12,7 @@ import BulletedList from '@/components/BulletedList';
 import Lists from '@/components/Lists';
 import JumpLinks from '@/components/JumpLinks';
 import Footer from '@/components/Footer';
-import content from '../json/components.json';
+// vimport content from '../json/components.json';
 
 import { getUrls, getStrapiPage, getPages } from '../cms/strapi';
 
