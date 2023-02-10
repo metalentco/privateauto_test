@@ -5,7 +5,7 @@ type Props = {
   pages: number;
   currentPage: number;
   total: number;
-  onClick: any;
+  onClick: Function;
 };
 
 const IntegerToArray = (pages: Number) => {
@@ -20,7 +20,7 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
   const [pagesArr, setPagesArr] = useState<any>(null);
   useEffect(() => {
     setPagesArr(IntegerToArray(pages));
-  }, []);
+  }, [total]);
   if (pagesArr != null) {
     return (
       <div>
@@ -40,7 +40,14 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
               className="cursor-pointer"
               src="/assets/chevron-left.svg"
               alt="left"
-              onClick={() => onClick(currentPage - 1)}
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
+                onClick(currentPage - 1);
+              }}
             />
           )}
           {pagesArr.map((page: number, index: number) => {
@@ -55,7 +62,14 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
               <div
                 key={index}
                 className="cursor-pointer"
-                onClick={() => onClick(page)}
+                onClick={() => {
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                  onClick(page);
+                }}
               >
                 {page + 1}
               </div>
@@ -76,7 +90,14 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
               className="cursor-pointer"
               src="/assets/chevron-right.svg"
               alt="left"
-              onClick={() => onClick(currentPage + 1)}
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
+                onClick(currentPage + 1);
+              }}
             />
           )}
         </div>

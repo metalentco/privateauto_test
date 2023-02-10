@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Image from "next/image";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Link from 'next/link';
 
 const Menu = () => {
@@ -12,7 +12,7 @@ const Menu = () => {
     if (document.body.style.overflow !== 'hidden') {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'scroll';
+      document.body.style.overflowY = 'scroll';
     }
   };
   return (
@@ -30,19 +30,43 @@ const Menu = () => {
           </Link>
           <div className="hidden md:flex text-xl font-normal text-[#333] space-x-6">
             <Link
-              className={`"cursor-pointer" ${ router.pathname == "/sell" ? "underline" : "" }`} href="/sell" >
+              className={`"cursor-pointer" ${
+                router.pathname == '/sell' ? 'underline' : ''
+              }`}
+              href="/sell"
+            >
               Sell
             </Link>
-            <Link className={`"cursor-pointer" ${ router.pathname == "/buy" ? "underline" : "" }`} href="/buy" >
+            <Link
+              className={`"cursor-pointer" ${
+                router.pathname == '/buy' ? 'underline' : ''
+              }`}
+              href="/buy"
+            >
               Buy
             </Link>
-            <Link className={`"cursor-pointer" ${ router.pathname == "/pricing" ? "underline" : "" }`} href="/pricing" >
+            <Link
+              className={`"cursor-pointer" ${
+                router.pathname == '/pricing' ? 'underline' : ''
+              }`}
+              href="/pricing"
+            >
               Pricing
             </Link>
-            <Link className={`"cursor-pointer" ${ router.pathname == "/how-it-works" ? "underline" : "" }`} href="/how-it-works" >
+            <Link
+              className={`"cursor-pointer" ${
+                router.pathname == '/how-it-works' ? 'underline' : ''
+              }`}
+              href="/how-it-works"
+            >
               How it works
             </Link>
-            <Link className={`"cursor-pointer" ${ router.pathname == "/blog" ? "underline" : "" }`} href="/blog" >
+            <Link
+              className={`"cursor-pointer" ${
+                router.pathname == '/blog' ? 'underline' : ''
+              }`}
+              href="/blog"
+            >
               Blog
             </Link>
           </div>
@@ -73,7 +97,7 @@ const Menu = () => {
                 viewBox="0 0 92.13 92.13"
                 onClick={() => {
                   setShowMenuModal(false);
-                  document.body.style.overflow = 'scroll';
+                  document.body.style.overflowY = 'scroll';
                 }}
               >
                 <g id="SVGRepo_bgCarrier"></g>

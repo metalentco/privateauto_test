@@ -1,8 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { initalCarsArray } from "@/libs/constants";
 
-const CarTypeModal = () => {
+type Props = {
+  bodyType: Array<string>;
+  setBodyType: Function;
+  setIsCarTypeModal: Function;
+};
+
+const CarTypeModal = ({ bodyType, setBodyType, setIsCarTypeModal }: Props) => {
+  initalCarsArray.map((item: any, index: number) => {
+    if (bodyType.includes(item.type)) {
+      item.isSelected = true;
+    }
+  });
   const [cars, SetCars] = useState<any>(initalCarsArray);
 
   const carHandle = (type: string, selected: Boolean) => {
@@ -15,19 +26,38 @@ const CarTypeModal = () => {
     SetCars(_cars);
   };
 
+  const apply = () => {
+    setIsCarTypeModal(false);
+    const data: any = [];
+    cars.map((item: any, index: number) => {
+      if (item.isSelected) {
+        data.push(item.type);
+      }
+    });
+    setBodyType(data);
+  };
+
+  const clear = () => {
+    setIsCarTypeModal(false);
+    cars.map((item: any, index: number) => {
+      item.isSelected = false;
+    });
+    SetCars(cars);
+    setBodyType([]);
+  };
+
   return (
-    <div className="absolute top-[40px] left-[0px] w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
+    <div className="absolute top-[50px] left-[-170px] vs:left-[-70px] sm:left-[0px] w-[280px] vs:w-[358px] py-6 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
       <div className="text-left text-lg text-[#333] font-normal px-6 pb-4">
         Body type
       </div>
       <div className="grid grid-cols-3 gap-x-10 px-6">
         {cars.map((car: any, index: number) => {
           return (
-            <div>
+            <div key={index}>
               {car.isSelected ? (
                 <div
                   className="bg-[#e2e8f0] py-1 mb-4 rounded"
-                  key={index}
                   onClick={() => {
                     carHandle(car.type, false);
                   }}
@@ -75,10 +105,16 @@ const CarTypeModal = () => {
       </div>
       <hr className="w-full" />
       <div className="flex justify-between px-4 pt-6">
-        <button className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded">
+        <button
+          className="bg-[#f7f9fc] hover:bg-blue-500 text-sm font-medium hover:text-white py-2 px-3 hover:border-transparent rounded"
+          onClick={() => clear()}
+        >
           Clear
         </button>
-        <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer">
+        <button
+          className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-2 px-3 rounded cursor-pointer"
+          onClick={() => apply()}
+        >
           Apply
         </button>
       </div>

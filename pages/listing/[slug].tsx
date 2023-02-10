@@ -1,12 +1,13 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import GoogleMapReact from "google-map-react";
-import { Router, useRouter } from "next/router";
-import Image from "next/image";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Menu from "@/components/Menu";
+import GoogleMapReact from 'google-map-react';
+import { Router, useRouter } from 'next/router';
+import Image from 'next/image';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Menu from '@/components/Menu';
+import { Google_Map_API_Key } from '@/libs/constants';
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
 interface Props {
@@ -14,7 +15,6 @@ interface Props {
 }
 
 function SlugPage(content: Props) {
-  // console.log(content);
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
@@ -82,7 +82,7 @@ function SlugPage(content: Props) {
     if (document.body.style.overflow !== 'hidden') {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'scroll';
+      document.body.style.overflowY = 'scroll';
     }
   };
 
@@ -181,7 +181,7 @@ function SlugPage(content: Props) {
                     className="h-[70px] flex items-center px-8 hover:underline cursor-pointer"
                     onClick={() => {
                       setShowImageModal(false);
-                      document.body.style.overflow = 'scroll';
+                      document.body.style.overflowY = 'scroll';
                     }}
                   >
                     <div className="flex">
@@ -731,7 +731,7 @@ function SlugPage(content: Props) {
               <div className="w-full h-[216px] my-6">
                 <GoogleMapReact
                   bootstrapURLKeys={{
-                    key: 'AIzaSyBAefhRlXEH3vCko-zZTX6PHllTR6av4WI',
+                    key: Google_Map_API_Key,
                   }}
                   defaultCenter={{
                     lat: data.testDriveLocation.geometry.latitude,
@@ -822,7 +822,7 @@ function SlugPage(content: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch("http://localhost:3000/json/seller_listings.json");
+  const res = await fetch('http://localhost:3000/json/seller_listings.json');
   const content = await res.json();
 
   const paths = content.map((item: any, index: number) => {
@@ -841,7 +841,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async (
   ctx
 ): Promise<{ props: Props }> => {
-  const res = await fetch("http://localhost:3000/json/seller_listings.json");
+  const res = await fetch('http://localhost:3000/json/seller_listings.json');
   const content = await res.json();
 
   return {

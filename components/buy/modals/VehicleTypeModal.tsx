@@ -1,15 +1,25 @@
 import Image from "next/image";
 import { vehicles, comingVehicles } from "@/libs/constants";
 
-const AllVehiclesModal = () => {
+type Props = {
+  setVehicleType: Function;
+  setIsVehicleModal: Function;
+};
+
+const VehicleTypeModal = ({ setVehicleType, setIsVehicleModal }: Props) => {
+  const changeVehicleType = (vehicle: string) => {
+    setIsVehicleModal(false);
+    setVehicleType(vehicle);
+  };
   return (
-    <div className="absolute top-[50px] left-[0px] w-[264px] py-2 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg">
+    <div className="absolute top-[50px] left-[0px] w-[250px] vs:w-[264px] py-2 bg-white text-base text-[#212529] border-2 shadow-2xl rounded-lg z-30">
       {vehicles.map((item: string, index: number) => {
         return (
           <button
             key={index}
             type="button"
             className="w-[256px] h-[56px] text-left px-4 hover:bg-[#e9ecef]"
+            onClick={() => changeVehicleType(item)}
           >
             {item}
           </button>
@@ -37,4 +47,4 @@ const AllVehiclesModal = () => {
   );
 };
 
-export default AllVehiclesModal;
+export default VehicleTypeModal;
