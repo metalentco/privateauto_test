@@ -16,7 +16,7 @@ const SortModal = ({ setIsSortModal, setSort }: Props) => {
   };
 
   return (
-    <div className="absolute top-[40px] left-[-60px] vs:left-[0px] w-[172px] py-6 bg-white text-base text-[#333] border-2 shadow-2xl rounded-lg">
+    <div className="absolute top-[40px] left-[-60px] vs:left-[0px] w-[172px] py-6 bg-white text-base text-[#333] border-2 shadow-2xl rounded-lg z-30">
       {sortArray.map((item, index) => {
         return (
           <div

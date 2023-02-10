@@ -16,7 +16,6 @@ interface Props {
 }
 
 function SlugPage(content: Props) {
-  // console.log(content);
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();

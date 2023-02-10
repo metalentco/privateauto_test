@@ -92,7 +92,6 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           const value = Math.min(+event.target.value, maxVal - 1);
           setMinVal(value);
           event.target.value = value.toString();
-          console.log("min:", value);
         }}
         className={classnames("thumb thumb--zindex-3", {
           "thumb--zindex-5": minVal > max - 100,

@@ -27,6 +27,16 @@ export default function Buy() {
   const [total, setTotal] = useState<number>(0);
   const [makeData, setMakeData] = useState<Array<string>>([]);
   const [moreFilterData, setMoreFilterData] = useState<any>(null);
+  const [isHovering, setIsHovered] = useState<Boolean>(false);
+  const [hoverNum, setHoverNum] = useState<number>(-1);
+  const onMouseEnter = (index: number) => {
+    setIsHovered(true);
+    setHoverNum(index);
+  };
+  const onMouseLeave = (index: number) => {
+    setIsHovered(false);
+    setHoverNum(index);
+  };
 
   //page states
   const [vehicleType, setVehicleType] = useState<string>("All Vehicles");
@@ -113,11 +123,12 @@ export default function Buy() {
       maxMiles,
       moreFiltersArr,
       location,
+      lat,
+      lng,
       radius,
       sort
     );
     setIsLoading(false);
-    console.log("RESULT:", data);
     setPages(Math.floor(data._meta.total / PAGE_SIZE));
     setCurrent(data._meta.page);
     imageFormat(data);
@@ -190,6 +201,8 @@ export default function Buy() {
             setMoreFiltersArr={setMoreFiltersArr}
             location={location}
             setLocation={setLocation}
+            setLat={setLat}
+            setLng={setLng}
             radius={radius}
             setRadius={setRadius}
             sort={sort}
@@ -206,7 +219,7 @@ export default function Buy() {
                     className="w-full bg-white border rounded-lg shadow cursor-pointer my-6"
                     key={index}
                   >
-                    <div className="w-full h-[230px] vs:h-[160px] overflow-hidden rounded-t-lg">
+                    <div className="relative w-full h-[230px] vs:h-[160px] overflow-hidden rounded-t-lg">
                       <Image
                         width={264}
                         height={160}
@@ -214,6 +227,27 @@ export default function Buy() {
                         src={`${BASE_URL}${item.uploadImages[0].images}`}
                         alt={`${item.CarMake}_${item.CarModel}`}
                       />
+                      <div
+                        onMouseEnter={() => onMouseEnter(index)}
+                        onMouseLeave={() => onMouseLeave(index)}
+                      >
+                        <Image
+                          width={20}
+                          height={20}
+                          className="absolute top-1 right-1"
+                          src="/assets/fav-heart.svg"
+                          alt="heart"
+                        />
+                        {isHovering && hoverNum == index && (
+                          <Image
+                            width={20}
+                            height={20}
+                            className="absolute top-1 right-1"
+                            src="/assets/fav-active.svg"
+                            alt="heart"
+                          />
+                        )}
+                      </div>
                     </div>
                     <div className="px-4 py-4 space-y-6">
                       <div>

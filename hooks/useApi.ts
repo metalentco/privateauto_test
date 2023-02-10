@@ -1,5 +1,5 @@
 import { createHmac } from "crypto";
-import { LIMIT } from "@/libs/constants";
+import { PAGE_SIZE } from "@/libs/constants";
 import { MoreFilter } from "@/interfaces/MoreFilter";
 
 const useApi = () => {
@@ -18,7 +18,6 @@ const useApi = () => {
   };
 
   const getResponseFromAPI = async (url: string) => {
-    console.log("url:", url);
     const agent =
       typeof window !== "undefined"
         ? window.navigator.userAgent
@@ -56,10 +55,12 @@ const useApi = () => {
     maxMiles: number,
     moreFiltersArr: MoreFilter,
     location: string,
+    lat: number,
+    lng: number,
     radius: number,
     sort: string
   ) => {
-    let url = `/api/listings?_page=0&_limit=24`;
+    let url = `/api/listings?_page=0&_limit=${PAGE_SIZE}`;
 
     //Filter by vehicleType
     if (vehicleType != "All Vehicles") {
@@ -100,6 +101,13 @@ const useApi = () => {
 
     //Filter by Mileage Range
     url += text_format(`&Mileage[$gte]=${minMiles}&Mileage[$lte]=${maxMiles}`);
+
+    //Filter by location (lat, lng) and radius
+    if (location != "") {
+      url += text_format(
+        `&latlng[latitude]=${lat}&latlng[longitude]=${lng}&state=&radius=${radius}`
+      );
+    }
 
     //Filter by moreFilters
     if (moreFiltersArr.trim.length) {

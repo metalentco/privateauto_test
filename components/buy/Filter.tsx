@@ -32,6 +32,8 @@ type Props = {
   setMoreFiltersArr: Function;
   location: string;
   setLocation: Function;
+  setLat: Function;
+  setLng: Function;
   radius: number;
   setRadius: Function;
   sort: string;
@@ -64,6 +66,8 @@ const Filter = ({
   setMoreFiltersArr,
   location,
   setLocation,
+  setLat,
+  setLng,
   radius,
   setRadius,
   sort,
@@ -405,7 +409,13 @@ const Filter = ({
             onClick={() => locationModal()}
           >
             <span className="text-slate-400">Location:</span>
-            <span>All Locations</span>
+            {location == "" ? (
+              <span className="text-slate-700">All Locations</span>
+            ) : (
+              <span className="text-slate-700">
+                {location.slice(0, location.length - 5)}-{radius}miles
+              </span>
+            )}
             <Image
               width={10}
               height={6}
@@ -413,7 +423,17 @@ const Filter = ({
               alt="null"
             />
           </button>
-          {isLocationModal && <LocationModal />}
+          {isLocationModal && (
+            <LocationModal
+              location={location}
+              setLocation={setLocation}
+              setLat={setLat}
+              setLng={setLng}
+              radius={radius}
+              setRadius={setRadius}
+              setIsLocationModal={setIsLocationModal}
+            />
+          )}
         </div>
         <div className="relative">
           <button

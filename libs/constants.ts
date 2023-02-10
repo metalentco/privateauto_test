@@ -1,12 +1,12 @@
 export const Google_Map_API_Key = "AIzaSyBAefhRlXEH3vCko-zZTX6PHllTR6av4WI";
-export const Google_Map = "AIzaSyBxkR1SN2EQJDJ5KXVjuLgl9J-_KpArI4E";
+export const Google_Autocomplete_Key =
+  "AIzaSyABX4LTqTLQGg_b3jFOH8Z6_H5CDqn8tbc";
+
 export const BASE_URL = "https://padev.xyz";
 export const PAGE_SIZE = 24;
-export const LIMIT = 1000;
 
 export const vehicles = ["All Vehicles", "Auto", "ATV/OHV", "Motorcycle"];
 export const comingVehicles = ["RV", "Boat"];
-
 export const initalCarsArray = [
   {
     type: "SUV",
@@ -72,26 +72,6 @@ export const initalCarsArray = [
     isSelected: false,
   },
 ];
-
-export const transmission = [
-  {
-    type: "Automated Manual Transmission (AM)",
-    isSelected: false,
-  },
-  {
-    type: "Automatic Transmission (AT)",
-    isSelected: false,
-  },
-  {
-    type: "Continuously Variable Transmission (CVT)",
-    isSelected: false,
-  },
-  {
-    type: "Manual Transmission (MT)",
-    isSelected: false,
-  },
-];
-
 export const sortArray = [
   "Newest inventory",
   "Highest price",
