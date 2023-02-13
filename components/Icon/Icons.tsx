@@ -27,11 +27,7 @@ export const ExclamationSVG = () => {
       viewBox="0 0 45.311 45.311"
     >
       <g id="SVGRepo_bgCarrier" />
-      <g
-        id="SVGRepo_tracerCarrier"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
+      <g id="SVGRepo_tracerCarrier" />
       <g id="SVGRepo_iconCarrier">
         {" "}
         <g>

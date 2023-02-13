@@ -42,7 +42,6 @@ function SlugPage(content: Props) {
       var date_str = arr[1] + " " + arr[2] + ", " + arr[3];
       slugData.userId.createdAt = date_str;
     }
-    console.log("data:", slugData);
     slugData.uploadImages.map((item: any, index: number) => {
       const image_url = item.images;
       if (item.images.includes("vehicle-listing")) {
@@ -109,11 +108,10 @@ function SlugPage(content: Props) {
             content={`Used ${data.vehicleType} for sale. ${
               data.RegistrationYear
             } ${data.CarMake} ${data.CarModel} ${
-              // data.listingLocation != undefined
-              //   ? ` for sale in ${data.listingLocation.city}, ${data.listingLocation.stateShortname}`
-              //   : ""
-              ""
-            },. Buy and sell used cars on PrivateAuto.`}
+              data.listingLocation != undefined
+                ? ` for sale in ${data.listingLocation.city}, ${data.listingLocation.stateShortname}`
+                : ""
+            }. Buy and sell used cars on PrivateAuto.`}
             key="desc"
           />
         </Head>
