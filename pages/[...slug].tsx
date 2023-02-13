@@ -15,7 +15,9 @@ import Footer from '@/components/Footer';
 // vimport content from '../json/components.json';
 
 import { getUrls, getStrapiPage, getPages } from '../cms/strapi';
+import { isArray } from 'util';
 
+/*
 export async function getStaticPaths() {
   return {
     paths: await getUrls(),
@@ -32,22 +34,24 @@ export async function getStaticProps(context: any) {
     },
   };
 }
+*/
 
 export default function Components(props: any) {
-  // const router = useRouter();
-  // const { slug } = router.query;
-  // const [data, setData] = useState<any>();
-  //const [indexFaq, setIndexFaq] = useState<any>(0);
+  const router = useRouter();
+  const { slug } = router.query;
+  const [data, setData] = useState<any>();
+  const [indexFaq, setIndexFaq] = useState<any>(0);
 
-  console.log('props: ', props);
-  const { data } = props;
+  //console.log('props: ', props);
+  //const { data } = props;
 
-  //useEffect(() => {
-  //  console.log(`slug: ${slug}`);
-  //  getPage(slug);
-  //}, [slug]);
+  useEffect(() => {
+    console.log(`slug: ${slug}`);
+    //getPage(slug);
+    if (Array.isArray(slug)) slug.forEach((s) => getData(s));
+    else if (slug) getData(slug);
+  }, [slug]);
 
-  /*
   const getData = (value: string) => {
     for (var i = 0; i < content.data.length; i++) {
       if (content.data[i].attributes.slug === value) {
@@ -64,7 +68,6 @@ export default function Components(props: any) {
       }
     }
   };
-  */
 
   if (data) {
     return (
