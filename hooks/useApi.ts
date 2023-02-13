@@ -1,5 +1,5 @@
 import { createHmac } from "crypto";
-import { PAGE_SIZE } from "@/libs/constants";
+import { PAGE_SIZE, LIMIT } from "@/libs/constants";
 import { MoreFilter } from "@/interfaces/MoreFilter";
 
 const useApi = () => {
@@ -33,6 +33,22 @@ const useApi = () => {
     return response.json();
   };
 
+  const getTotalDataFromURL = async (url: string) => {
+    const agent =
+      typeof window !== "undefined"
+        ? window.navigator.userAgent
+        : "build-server";
+    const body = {};
+    const response = await fetch("https://prelogin.padev.xyz" + url, {
+      method: "GET",
+      headers: {
+        "x-client": agent,
+        "x-pa": makeHash(url, agent, body),
+      },
+    });
+    return response.json();
+  };
+
   const text_format = (text: string) => {
     const formatted_text = text
       .replace(/ /g, "%20")
@@ -43,7 +59,15 @@ const useApi = () => {
     return formatted_text;
   };
 
+  const getTotalData = async () => {
+    const url =
+      `/api/listings?_page=0&_limit=${LIMIT}` +
+      text_format("&_sort[0][column]=payment.date&_sort[0][direction]=desc");
+    return await getTotalDataFromURL(url);
+  };
+
   const getPageData = async (
+    current: number,
     vehicleType: string,
     searchKey: string,
     make: string,
@@ -60,7 +84,7 @@ const useApi = () => {
     radius: number,
     sort: string
   ) => {
-    let url = `/api/listings?_page=0&_limit=${PAGE_SIZE}`;
+    let url = `/api/listings?_page=${current}&_limit=${PAGE_SIZE}`;
 
     //Filter by vehicleType
     if (vehicleType != "All Vehicles") {
@@ -195,6 +219,9 @@ const useApi = () => {
   };
 
   return {
+    makeHash,
+    text_format,
+    getTotalData,
     getPageData,
     getInitMakeData,
     getModelDataByMake,

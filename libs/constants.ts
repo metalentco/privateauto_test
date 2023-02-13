@@ -4,6 +4,7 @@ export const Google_Autocomplete_Key =
 
 export const BASE_URL = "https://padev.xyz";
 export const PAGE_SIZE = 24;
+export const LIMIT = 1000;
 
 export const vehicles = ["All Vehicles", "Auto", "ATV/OHV", "Motorcycle"];
 export const comingVehicles = ["RV", "Boat"];
