@@ -28,10 +28,10 @@ function Components(content: any) {
 
   const getData = (value: string) => {
     const listing_content = content.content;
-    for (var i = 0; i < listing_content.data.length; i++) {
+    for (let i = 0; i < listing_content?.data.length; i++) {
       if (listing_content.data[i].attributes.slug === value) {
         for (
-          var j = 0;
+          let j = 0;
           j < listing_content.data[i].attributes.Content.length;
           j++
         ) {
@@ -98,8 +98,8 @@ function Components(content: any) {
                   <Faq key={index} data={item} faq={indexFaq} index={index} />
                 );
               })
-            // : ''}
-            : null}
+            : // : ''}
+              null}
         </main>
         <Footer />
       </div>
@@ -150,7 +150,7 @@ function Components(content: any) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:3000/json/components.json");
+  const res = await fetch('http://localhost:3000/json/components.json');
   const content = await res.json();
   const paths = content.data.map((item: any, index: number) => {
     return {

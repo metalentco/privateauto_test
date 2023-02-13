@@ -76,7 +76,7 @@ export default function Components(props: any) {
             <div className="text-3xl font-semibold mt-14">
               {data.attributes?.PageTitle}
             </div>
-            {data.attributes.Image.data ? (
+            {data.attributes?.Image.data ? (
               <div className="w-full flex justify-center mt-8">
                 <Image
                   src={data.attributes.Image.data.attributes.formats.small.url}
@@ -87,11 +87,11 @@ export default function Components(props: any) {
               ''
             )}
             <div className="text-base text-center break-words mt-8">
-              {data.attributes.Body}
+              {data.attributes?.Body}
             </div>
           </section>
-          {data.attributes.Content.length != 0
-            ? data.attributes.Content.map((item: any, index: number) => {
+          {data.attributes?.Content.length != 0
+            ? data.attributes?.Content.map((item: any, index: number) => {
                 return item.__component == 'page-elements.jump-link-target' ? (
                   <JumpLinkTarget key={index} data={item} />
                 ) : item.__component == 'page-elements.icon-bar' ? (
