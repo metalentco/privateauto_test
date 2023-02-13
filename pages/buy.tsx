@@ -76,6 +76,7 @@ export default function Buy() {
     lng,
     radius,
     sort,
+    current,
   ]);
 
   const initPage = () => {
@@ -112,6 +113,7 @@ export default function Buy() {
     });
     setIsLoading(true);
     const data = await getPageData(
+      current,
       vehicleType,
       searchKey,
       make,
@@ -212,136 +214,152 @@ export default function Buy() {
             clearAll={clearAll}
           />
           {total ? (
-            <div className="px-[8%] grid grid-cols-1 vs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-8">
+            <section className="max-w-[1160px] mx-auto w-full flex justify-center space-x-6 flex-wrap">
               {pageData.map((item: any, index: number) => {
                 return (
-                  <div
-                    className="w-full bg-white border rounded-lg shadow cursor-pointer my-6"
-                    key={index}
-                  >
-                    <div className="relative w-full h-[230px] vs:h-[160px] overflow-hidden rounded-t-lg">
-                      <Image
-                        width={264}
-                        height={160}
-                        className="w-full object-cover"
-                        src={`${BASE_URL}${item.uploadImages[0].images}`}
-                        alt={`${item.CarMake}_${item.CarModel}`}
-                      />
-                      <div
-                        onMouseEnter={() => onMouseEnter(index)}
-                        onMouseLeave={() => onMouseLeave(index)}
-                      >
+                  <a href={`/listing/${item.slug}`} key={index}>
+                    <div className="w-[264px] bg-white rounded-lg shadow cursor-pointer my-6">
+                      <div className="relative w-full overflow-hidden rounded-t-lg">
                         <Image
-                          width={20}
-                          height={20}
-                          className="absolute top-1 right-1"
-                          src="/assets/fav-heart.svg"
-                          alt="heart"
+                          width={264}
+                          height={160}
+                          className="w-[264px] h-[160px] object-cover"
+                          src={`${BASE_URL}${item.uploadImages[0].images}`}
+                          alt={`${item.CarMake}_${item.CarModel}`}
                         />
-                        {isHovering && hoverNum == index && (
+                        <div
+                          onMouseEnter={() => onMouseEnter(index)}
+                          onMouseLeave={() => onMouseLeave(index)}
+                        >
                           <Image
                             width={20}
                             height={20}
                             className="absolute top-1 right-1"
-                            src="/assets/fav-active.svg"
+                            src="/assets/fav-heart.svg"
                             alt="heart"
                           />
-                        )}
+                          {isHovering && hoverNum == index && (
+                            <Image
+                              width={20}
+                              height={20}
+                              className="absolute top-1 right-1"
+                              src="/assets/fav-active.svg"
+                              alt="heart"
+                            />
+                          )}
+                        </div>
                       </div>
-                    </div>
-                    <div className="px-4 py-4 space-y-6">
-                      <div>
+                      <div className="px-4 py-4 space-y-6">
+                        <div>
+                          <div className="flex justify-between">
+                            <div className="text-sm font-medium text-[#212529]">
+                              {item.RegistrationYear} {item.CarMake}
+                            </div>
+                            <div className="text-lg text-[#00b3de] font-bold">
+                              ${item.Price.toLocaleString()}
+                            </div>
+                          </div>
+                          <div className="text-sm font-medium text-[#212529]">
+                            {item.CarModel}
+                          </div>
+                        </div>
                         <div className="flex justify-between">
-                          <div className="text-sm font-medium text-[#212529]">
-                            {item.RegistrationYear} {item.CarMake}
+                          <div className="text-xs text-[#808080] font-normal">
+                            <div>{item.Trim}</div>
+                            <div>
+                              {item.Mileage.toLocaleString()}&nbsp;miles
+                            </div>
                           </div>
-                          <div className="text-lg text-[#00b3de] font-bold">
-                            ${item.Price.toLocaleString()}
-                          </div>
-                        </div>
-                        <div className="text-sm font-medium text-[#212529]">
-                          {item.CarModel}
-                        </div>
-                      </div>
-                      <div className="flex justify-between">
-                        <div className="text-xs text-[#808080] font-normal">
-                          <div>{item.Trim}</div>
-                          <div>{item.Mileage.toLocaleString()}&nbsp;miles</div>
-                        </div>
-                        <div className="flex space-x-1 items-center">
-                          <div className="relative w-[28px] h-[28px]">
-                            {item.userId.userDetails.profileImage != null ? (
-                              <div>
-                                <Image
-                                  width={28}
-                                  height={28}
-                                  className="w-[28px] h-[28px] rounded-full"
-                                  src={`${BASE_URL}${item.userId.userDetails.profileImage}`}
-                                  alt="profile"
-                                />
-                                {item.userId.verification.vouched ? (
+                          <div className="flex space-x-1 items-center">
+                            <div className="relative w-[28px] h-[28px]">
+                              {item.userId.userDetails.profileImage != null ? (
+                                <div>
                                   <Image
-                                    width={14}
-                                    height={14}
-                                    className="absolute top-[15px] left-[13px]"
-                                    src="/assets/verified.svg"
-                                    alt="verified"
+                                    width={28}
+                                    height={28}
+                                    className="w-[28px] h-[28px] rounded-full"
+                                    src={`${BASE_URL}${item.userId.userDetails.profileImage}`}
+                                    alt="profile"
                                   />
-                                ) : (
+                                  {item.userId.verification.vouched &&
+                                  item.userId.verification.email &&
+                                  item.userId.verification.phone &&
+                                  item.userId.verification.bank ? (
+                                    <Image
+                                      width={14}
+                                      height={14}
+                                      className="absolute top-[15px] left-[13px]"
+                                      src="/assets/verified.svg"
+                                      alt="verified"
+                                    />
+                                  ) : (
+                                    <Image
+                                      width={14}
+                                      height={14}
+                                      className="absolute top-[15px] left-[13px]"
+                                      src="/assets/not-verified.svg"
+                                      alt="not-verified"
+                                    />
+                                  )}
+                                </div>
+                              ) : (
+                                <div>
                                   <Image
-                                    width={14}
-                                    height={14}
-                                    className="absolute top-[15px] left-[13px]"
-                                    src="/assets/not-verified.svg"
-                                    alt="not-verified"
+                                    width={28}
+                                    height={28}
+                                    className="w-full rounded-full"
+                                    src={`${BASE_URL}${"/assets/defaultImg.png"}`}
+                                    alt="profile"
                                   />
-                                )}
-                              </div>
-                            ) : (
-                              <div>
-                                <Image
-                                  width={28}
-                                  height={28}
-                                  className="w-full rounded-full"
-                                  src={`${BASE_URL}${"/assets/defaultImg.png"}`}
-                                  alt="profile"
-                                />
-                                {item.userId.verification.vouched ? (
-                                  <Image
-                                    width={14}
-                                    height={14}
-                                    className="absolute top-[15px] left-[13px]"
-                                    src="/assets/verified.svg"
-                                    alt="verified"
-                                  />
-                                ) : (
-                                  <Image
-                                    width={14}
-                                    height={14}
-                                    className="absolute top-[15px] left-[13px]"
-                                    src="/assets/not-verified.svg"
-                                    alt="not-verified"
-                                  />
-                                )}
-                              </div>
-                            )}
-                          </div>
-                          <div className="text-sm font-medium text-[#212529]">
-                            {item.userId.userDetails.nickname != null
-                              ? item.userId.userDetails.nickname
-                              : item.userId.userDetails.firstName}
-                            &nbsp;
-                            {item.userId.userDetails.lastName}.
+                                  {item.userId.verification.vouched ? (
+                                    <Image
+                                      width={14}
+                                      height={14}
+                                      className="absolute top-[15px] left-[13px]"
+                                      src="/assets/verified.svg"
+                                      alt="verified"
+                                    />
+                                  ) : (
+                                    <Image
+                                      width={14}
+                                      height={14}
+                                      className="absolute top-[15px] left-[13px]"
+                                      src="/assets/not-verified.svg"
+                                      alt="not-verified"
+                                    />
+                                  )}
+                                </div>
+                              )}
+                            </div>
+                            <div className="text-sm font-medium text-[#212529]">
+                              <p>
+                                {item.userId.userDetails.nickname != null
+                                  ? item.userId.userDetails.nickname
+                                  : item.userId.userDetails.firstName}
+                                &nbsp;
+                                {item.userId.userDetails.lastName}.
+                              </p>
+                              {item.listingLocation ? (
+                                <p className="font-xs text-[#808080] font-normal">
+                                  {item.listingLocation.city},&nbsp;
+                                  {item.listingLocation.stateShortname}
+                                </p>
+                              ) : (
+                                <p className="font-xs text-[#808080] font-normal">
+                                  N/A
+                                </p>
+                              )}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 );
               })}
-            </div>
+            </section>
           ) : (
-            <div className="w-full">
+            <section className="w-full">
               <div className="w-full flex justify-center pt-8 pb-3">
                 <Image
                   width={212}
@@ -366,7 +384,7 @@ export default function Buy() {
                   Clear search
                 </button>
               </div>
-            </div>
+            </section>
           )}
           {total ? (
             <Pagination
