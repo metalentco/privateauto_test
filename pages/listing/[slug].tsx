@@ -3,12 +3,18 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import React from "react";
 import GoogleMapReact from "google-map-react";
-import { Router, useRouter } from "next/router";
 import Image from "next/image";
+import useApi from "@/hooks/useApi";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
 import { Google_Map_API_Key } from "@/libs/constants";
+import {
+  CheckSVG,
+  ExclamationSVG,
+  QuestionSVG,
+  GripHorizontalSVG,
+} from "@/components/Icon/Icons";
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
 interface Props {
@@ -16,8 +22,6 @@ interface Props {
 }
 
 function SlugPage(content: Props) {
-  const router = useRouter();
-  const { slug } = router.query;
   const [data, setData] = useState<any>();
   const [isAdditionalInfo, setIsAdditionalInfo] = useState<Boolean>(false);
   const [isSellerDisclosures, setIsSellerDisclosures] =
@@ -26,29 +30,36 @@ function SlugPage(content: Props) {
   const [showImageModal, setShowImageModal] = useState<Boolean>(false);
 
   useEffect(() => {
-    if (slug) {
-      const slugValue = slug.toString();
-      getData(slugValue);
-    }
-  }, [slug]);
+    formatData();
+  }, []);
 
-  const getData = (value: string) => {
-    const listing_content = content.content;
-    for (var i = 0; i < listing_content.length; i++) {
-      if (listing_content[i].slug === value) {
-        var date = new Date(
-          Number(
-            listing_content[i].ownershipInfo.seller.joined.$date.$numberLong
-          )
-        );
-        var arr = date.toString().split(" ");
-        var date_str = arr[1] + " " + arr[2] + ", " + arr[3];
-        listing_content[i].ownershipInfo.seller.joined.$date.$numberLong =
-          date_str;
-        setData(listing_content[i]);
-        setImageURI(listing_content[i].uploadImages[0].images);
-      }
+  const formatData = () => {
+    const slugData = content.content;
+
+    if (slugData.userId.createdAt != null) {
+      var date = new Date(slugData.userId.createdAt);
+      var arr = date.toString().split(" ");
+      var date_str = arr[1] + " " + arr[2] + ", " + arr[3];
+      slugData.userId.createdAt = date_str;
     }
+    slugData.uploadImages.map((item: any, index: number) => {
+      const image_url = item.images;
+      if (item.images.includes("vehicle-listing")) {
+        item.images = image_url.substring(
+          image_url.indexOf("/vehicle-listing"),
+          image_url.length
+        );
+      } else if (item.images.includes("jfif")) {
+        item.images = item.images;
+      } else {
+        item.images = image_url.substring(
+          image_url.indexOf("/listings"),
+          image_url.length
+        );
+      }
+    });
+    setData(slugData);
+    setImageURI(slugData.uploadImages[0].images);
   };
 
   const defaultProps = {
@@ -94,7 +105,13 @@ function SlugPage(content: Props) {
           <title>Car buying | selling</title>
           <meta
             name="description"
-            content={`Used ${data.vehicleType} for sale. ${data.RegistrationYear} ${data.CarMake} ${data.CarModel} for sale in ${data.listingLocation.city},${data.listingLocation.stateShortname}. Buy and sell used cars on PrivateAuto.`}
+            content={`Used ${data.vehicleType} for sale. ${
+              data.RegistrationYear
+            } ${data.CarMake} ${data.CarModel} ${
+              data.listingLocation != undefined
+                ? ` for sale in ${data.listingLocation.city}, ${data.listingLocation.stateShortname}`
+                : ""
+            }. Buy and sell used cars on PrivateAuto.`}
             key="desc"
           />
         </Head>
@@ -126,7 +143,9 @@ function SlugPage(content: Props) {
                         >
                           <Image
                             className="cursor-pointer"
-                            src={"/images/202x236" + item.images}
+                            src={
+                              "https://padev.xyz/images/202x236" + item.images
+                            }
                             width={202}
                             height={236}
                             key={index}
@@ -149,24 +168,12 @@ function SlugPage(content: Props) {
                         className="cursor-pointer"
                         width={564}
                         height={480}
-                        src={"/images/564x480" + imageURI}
+                        src={"https://padev.xyz/images/564x480" + imageURI}
                         alt="car_image_564x480"
                       />
                     </div>
                     <button className="bg-white absolute top-[440px] left-[375px] hidden md:flex items-center text-base text-[#00b3de] font-medium py-2 px-4 border border-[#00b3de] hover:border-transparent rounded space-x-1">
-                      <svg
-                        fill="#00b3de"
-                        viewBox="-32 0 512 512"
-                        xmlns="http://www.w3.org/2000/svg"
-                        stroke="#00b3de"
-                        className="w-[20px]"
-                      >
-                        <g id="SVGRepo_bgCarrier"></g>
-                        <g id="SVGRepo_tracerCarrier"></g>
-                        <g id="SVGRepo_iconCarrier">
-                          <path d="M96 288H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm160 0h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm160 0h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zM96 96H32c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm160 0h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32zm160 0h-64c-17.67 0-32 14.33-32 32v64c0 17.67 14.33 32 32 32h64c17.67 0 32-14.33 32-32v-64c0-17.67-14.33-32-32-32z"></path>
-                        </g>
-                      </svg>
+                      <GripHorizontalSVG />
                       <span>Show All Photos</span>
                     </button>
                   </div>
@@ -206,7 +213,9 @@ function SlugPage(content: Props) {
                         <div className="w-full lg:w-[1154px] mb-8" key={index}>
                           <Image
                             className="w-full h-full cursor-pointer"
-                            src={"/images/1250x1000" + item.images}
+                            src={
+                              "https://padev.xyz/images/1250x1000" + item.images
+                            }
                             width={1153}
                             height={923}
                             key={index}
@@ -229,10 +238,14 @@ function SlugPage(content: Props) {
               <h1 className="text-4xl text-slate-900 font-bold leading-10">
                 ${data.Price.toLocaleString()}
               </h1>
-              <span>
-                {data.listingLocation.city},&nbsp;
-                {data.listingLocation.stateShortname}
-              </span>
+              {data.listingLocation ? (
+                <span>
+                  {data.listingLocation.city},&nbsp;
+                  {data.listingLocation.stateShortname}
+                </span>
+              ) : (
+                <span>N/A</span>
+              )}
             </div>
             <div className="flex mt-10 space-x-4">
               <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-1 px-4 rounded cursor-pointer">
@@ -527,12 +540,15 @@ function SlugPage(content: Props) {
             <div className="block md:flex justify-between space-y-8">
               <div className="flex space-x-4">
                 <div className="flex relative">
-                  {data && data.ownershipInfo.seller.profileImage != null ? (
+                  {data && data.userId.userDetails.profileImage != null ? (
                     <Image
                       className="w-[56px] h-[56px] rounded-full"
                       width={56}
                       height={56}
-                      src={"/images" + data.ownershipInfo.seller.profileImage}
+                      src={
+                        "https://padev.xyz" +
+                        data.userId.userDetails.profileImage
+                      }
                       alt="profile"
                     />
                   ) : (
@@ -540,30 +556,31 @@ function SlugPage(content: Props) {
                       className="w-[56px] h-[56px] rounded-full"
                       width={56}
                       height={56}
-                      src="/static/profile/defaultImg.png"
+                      src="/images/static/profile/defaultImg.png"
                       alt="profile"
                     />
                   )}
-                  <svg
-                    fill="#0b9709"
-                    version="1.1"
-                    id="Capa_1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="800px"
-                    height="800px"
-                    viewBox="0 0 342.508 342.508"
-                    className="w-4 h-4 absolute top-[40px] left-[40px]"
-                  >
-                    <path d="M171.254,0C76.837,0,0.003,76.819,0.003,171.248c0,94.428,76.829,171.26,171.251,171.26 c94.438,0,171.251-76.826,171.251-171.26C342.505,76.819,265.697,0,171.254,0z M245.371,136.161l-89.69,89.69 c-2.693,2.69-6.242,4.048-9.758,4.048c-3.543,0-7.059-1.357-9.761-4.048l-39.007-39.007c-5.393-5.398-5.393-14.129,0-19.521 c5.392-5.392,14.123-5.392,19.516,0l29.252,29.262l79.944-79.948c5.381-5.386,14.111-5.386,19.504,0 C250.764,122.038,250.764,130.769,245.371,136.161z" />
-                  </svg>
+                  <div className="w-4 h-4 absolute top-[40px] left-[40px]">
+                    {data.userId.verification.email &&
+                    data.userId.verification.phone &&
+                    data.userId.verification.bank &&
+                    data.userId.verification.vouched ? (
+                      <CheckSVG />
+                    ) : (
+                      <ExclamationSVG />
+                    )}
+                  </div>
                 </div>
                 <div className="space-y-1">
                   <div className="text-xl font-bold">
-                    {data.ownershipInfo.seller.firstName}&nbsp;
-                    {data.ownershipInfo.seller.lastName}.
+                    {data.userId.userDetails.nickname != null
+                      ? data.userId.userDetails.nickname
+                      : data.userId.userDetails.firstName}
+                    &nbsp;
+                    {data.userId.userDetails.lastName}.
                   </div>
                   <div className="text-neutral-400">
-                    Joined {data.ownershipInfo.seller.joined.$date.$numberLong}
+                    Joined {data.userId.createdAt}
                   </div>
                 </div>
               </div>
@@ -578,78 +595,42 @@ function SlugPage(content: Props) {
             </div>
             <div className="flex items-center text-2xl font-bold mt-8">
               Seller's Verification&nbsp;
-              <svg
-                fill="#828282"
-                className="w-5 h-5 svg-icon"
-                viewBox="0 0 1024 1024"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M512 85.333333a426.666667 426.666667 0 1 0 426.666667 426.666667A426.666667 426.666667 0 0 0 512 85.333333z m0 682.666667a42.666667 42.666667 0 1 1 42.666667-42.666667 42.666667 42.666667 0 0 1-42.666667 42.666667z m42.666667-220.16V597.333333a42.666667 42.666667 0 0 1-85.333334 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667 64 64 0 1 0-64-64 42.666667 42.666667 0 0 1-85.333333 0 149.333333 149.333333 0 1 1 192 142.506667z" />
-              </svg>
+              <QuestionSVG />
             </div>
-            <div className="w-3/5 block md:flex justify-between pt-4">
+            <div className="w-3/6 block md:flex justify-between pt-4">
               <div className="flex items-center">
-                <svg
-                  fill="#0b9709"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="800px"
-                  height="800px"
-                  viewBox="0 0 342.508 342.508"
-                  className="w-4 h-4"
-                >
-                  <path d="M171.254,0C76.837,0,0.003,76.819,0.003,171.248c0,94.428,76.829,171.26,171.251,171.26 c94.438,0,171.251-76.826,171.251-171.26C342.505,76.819,265.697,0,171.254,0z M245.371,136.161l-89.69,89.69 c-2.693,2.69-6.242,4.048-9.758,4.048c-3.543,0-7.059-1.357-9.761-4.048l-39.007-39.007c-5.393-5.398-5.393-14.129,0-19.521 c5.392-5.392,14.123-5.392,19.516,0l29.252,29.262l79.944-79.948c5.381-5.386,14.111-5.386,19.504,0 C250.764,122.038,250.764,130.769,245.371,136.161z" />
-                </svg>
+                {data.userId.verification.email ? (
+                  <CheckSVG />
+                ) : (
+                  <ExclamationSVG />
+                )}
                 &nbsp;
                 <span>Email</span>
               </div>
               <div className="flex items-center">
-                <svg
-                  fill="#0b9709"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="800px"
-                  height="800px"
-                  viewBox="0 0 342.508 342.508"
-                  className="w-4 h-4"
-                >
-                  <path d="M171.254,0C76.837,0,0.003,76.819,0.003,171.248c0,94.428,76.829,171.26,171.251,171.26 c94.438,0,171.251-76.826,171.251-171.26C342.505,76.819,265.697,0,171.254,0z M245.371,136.161l-89.69,89.69 c-2.693,2.69-6.242,4.048-9.758,4.048c-3.543,0-7.059-1.357-9.761-4.048l-39.007-39.007c-5.393-5.398-5.393-14.129,0-19.521 c5.392-5.392,14.123-5.392,19.516,0l29.252,29.262l79.944-79.948c5.381-5.386,14.111-5.386,19.504,0 C250.764,122.038,250.764,130.769,245.371,136.161z" />
-                </svg>
+                {data.userId.verification.phone ? (
+                  <CheckSVG />
+                ) : (
+                  <ExclamationSVG />
+                )}
                 &nbsp;
                 <span>Mobile</span>
               </div>
               <div className="flex items-center">
-                <svg
-                  fill="#0b9709"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="800px"
-                  height="800px"
-                  viewBox="0 0 342.508 342.508"
-                  className="w-4 h-4"
-                >
-                  <path d="M171.254,0C76.837,0,0.003,76.819,0.003,171.248c0,94.428,76.829,171.26,171.251,171.26 c94.438,0,171.251-76.826,171.251-171.26C342.505,76.819,265.697,0,171.254,0z M245.371,136.161l-89.69,89.69 c-2.693,2.69-6.242,4.048-9.758,4.048c-3.543,0-7.059-1.357-9.761-4.048l-39.007-39.007c-5.393-5.398-5.393-14.129,0-19.521 c5.392-5.392,14.123-5.392,19.516,0l29.252,29.262l79.944-79.948c5.381-5.386,14.111-5.386,19.504,0 C250.764,122.038,250.764,130.769,245.371,136.161z" />
-                </svg>
+                {data.userId.verification.vouched ? (
+                  <CheckSVG />
+                ) : (
+                  <ExclamationSVG />
+                )}
                 &nbsp;
                 <span>Driver's license</span>
               </div>
               <div className="flex items-center">
-                <svg
-                  fill="#0b9709"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="800px"
-                  height="800px"
-                  viewBox="0 0 342.508 342.508"
-                  className="w-4 h-4"
-                >
-                  <path d="M171.254,0C76.837,0,0.003,76.819,0.003,171.248c0,94.428,76.829,171.26,171.251,171.26 c94.438,0,171.251-76.826,171.251-171.26C342.505,76.819,265.697,0,171.254,0z M245.371,136.161l-89.69,89.69 c-2.693,2.69-6.242,4.048-9.758,4.048c-3.543,0-7.059-1.357-9.761-4.048l-39.007-39.007c-5.393-5.398-5.393-14.129,0-19.521 c5.392-5.392,14.123-5.392,19.516,0l29.252,29.262l79.944-79.948c5.381-5.386,14.111-5.386,19.504,0 C250.764,122.038,250.764,130.769,245.371,136.161z" />
-                </svg>
+                {data.userId.verification.bacnk ? (
+                  <CheckSVG />
+                ) : (
+                  <ExclamationSVG />
+                )}
                 &nbsp;
                 <span>PrivateAuto Pay</span>
               </div>
@@ -658,15 +639,7 @@ function SlugPage(content: Props) {
           <section className="w-full mt-8">
             <div className="flex items-center text-2xl font-bold">
               Payment Methods&nbsp;
-              <svg
-                fill="#828282"
-                className="w-5 h-5 svg-icon"
-                viewBox="0 0 1024 1024"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M512 85.333333a426.666667 426.666667 0 1 0 426.666667 426.666667A426.666667 426.666667 0 0 0 512 85.333333z m0 682.666667a42.666667 42.666667 0 1 1 42.666667-42.666667 42.666667 42.666667 0 0 1-42.666667 42.666667z m42.666667-220.16V597.333333a42.666667 42.666667 0 0 1-85.333334 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667 64 64 0 1 0-64-64 42.666667 42.666667 0 0 1-85.333333 0 149.333333 149.333333 0 1 1 192 142.506667z" />
-              </svg>
+              <QuestionSVG />
             </div>
             <div className="flex space-x-8 mt-8">
               {data && data.dealPreferences.paymentMethod.privateAutoPay ? (
@@ -708,17 +681,23 @@ function SlugPage(content: Props) {
             </div>
             <hr className="mt-6" />
           </section>
-          {data && data.testDriveLocation ? (
+          {data &&
+          data.testDriveLocation != undefined &&
+          Object.keys(data.testDriveLocation).length != 0 ? (
             <section className="w-full my-8">
               <div className="flex justify-between">
                 <div>
                   <p className="text-sm md:text-[25px] font-bold">
                     Test drive location
                   </p>
-                  <p className="text-xs md:text-sm text-[#212529]">
-                    {data.listingLocation.city},&nbsp;
-                    {data.listingLocation.stateShortname}
-                  </p>
+                  {data.listingLocation != undefined ? (
+                    <p className="text-xs md:text-sm text-[#212529]">
+                      {data.listingLocation.city},&nbsp;
+                      {data.listingLocation.stateShortname}
+                    </p>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div className="flex items-center">
                   <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-xs md:text-sm font-bold py-1 px-4 rounded cursor-pointer">
@@ -820,10 +799,10 @@ function SlugPage(content: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await fetch("http://localhost:3000/json/seller_listings.json");
-  const content = await res.json();
+  const { getTotalData } = useApi();
+  const content = await getTotalData();
 
-  const paths = content.map((item: any, index: number) => {
+  const paths = content.data.map((item: any, index: number) => {
     return {
       params: {
         slug: item.slug,
@@ -837,11 +816,20 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (
-  ctx
+  context
 ): Promise<{ props: Props }> => {
-  const res = await fetch("http://localhost:3000/json/seller_listings.json");
-  const content = await res.json();
-
+  const { getTotalData } = useApi();
+  const totalData = await getTotalData();
+  let slug: string | string[] | undefined;
+  let content: any;
+  if (context.params != undefined) {
+    slug = context.params.slug;
+  }
+  totalData.data.map((item: any, index: number) => {
+    if (item.slug == slug) {
+      content = item;
+    }
+  });
   return {
     props: {
       content,
