@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { parseWidth, parseTitle } from '@/common/Parse';
+import { parseWidth, parseTitle } from '@/libs/utils';
 
 type Props = {
   data: any;
