@@ -12,11 +12,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/:slug*",
+        source: "/Xapi/:slug*",
         destination: "https://prelogin.padev.xyz/api/:slug*",
       },
     ];
   },
+
 };
 
 module.exports = nextConfig;
