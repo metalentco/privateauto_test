@@ -159,7 +159,6 @@ export async function getStaticPaths() {
       },
     }
   );
-  // const res = await fetch("http://localhost:3000/json/components.json");
   const content = await res.json();
   const paths = content.data.map((item: any, index: number) => {
     return {
@@ -186,7 +185,6 @@ export async function getStaticProps() {
       },
     }
   );
-  // const res = await fetch("http://localhost:3000/json/components.json");
   const content = await res.json();
   return {
     props: {
