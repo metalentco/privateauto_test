@@ -7,8 +7,6 @@ type Props = {
 };
 
 const ContentBlock = ({ data }: Props) => {
-  console.log("data:", data);
-
   return data.Position == "Center" ? (
     <div
       className={twMerge(
@@ -55,7 +53,7 @@ const ContentBlock = ({ data }: Props) => {
         <Image
           width={data.Image.data.attributes.width}
           height={data.Image.data.attributes.height}
-          className="w-full sm:h-[490px]"
+          className="w-full sm:h-[334px]"
           src={data.Image.data.attributes.url}
           alt="4.term"
         />
