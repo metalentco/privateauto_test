@@ -21,7 +21,7 @@ function Components(content: any) {
 
   useEffect(() => {
     if (slug) {
-      const slugValue = slug.toString();
+      const slugValue = "/" + slug.toString();
       getData(slugValue);
     }
   }, [slug]);
@@ -53,12 +53,11 @@ function Components(content: any) {
       <div className="w-full">
         <Header />
         <Menu />
-        <main className="w-full space-y-5">
-          <section className="w-4/6 mx-auto mb-20">
-            <div className="text-3xl font-semibold mt-14">
-              {data.attributes.PageTitle}
-            </div>
-            {data && data.attributes.Image.data ? (
+        <main className="w-full">
+          <section className="w-4/6 mx-auto">
+            {data &&
+            data.attributes.Image != undefined &&
+            data.attributes.Image.data ? (
               <div className="w-full flex justify-center mt-8">
                 <Image
                   src={data.attributes.Image.data.attributes.formats.small.url}
@@ -74,7 +73,7 @@ function Components(content: any) {
             ) : (
               ""
             )}
-            <div className="text-base text-center break-words mt-8">
+            <div className="text-base text-center break-words">
               {data.attributes.Body}
             </div>
           </section>
@@ -149,12 +148,23 @@ function Components(content: any) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch("http://localhost:3000/json/components.json");
+  const res = await fetch(
+    "https://strapi.padev.xyz/api/base-pages?populate=deep",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer 86317a6db6eb2b66d1976e89fd7ae3eb63fd70771b678a3ee307c0c018b289776b6bff2ff1ab51052cff881cf766464876e87b695ccf20fc8f8cb6d1637923b5e9ac37e39fdfe48463807dac38c0997fff0d41421c513bbecaaca6aba93d26e3cdd21782d3635ad06fb3ab4892d43582945457ef4cdde438cd6a9ce07b6809c4",
+      },
+    }
+  );
+  // const res = await fetch("http://localhost:3000/json/components.json");
   const content = await res.json();
   const paths = content.data.map((item: any, index: number) => {
     return {
       params: {
-        slug: item.attributes.slug,
+        slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
       },
     };
   });
@@ -165,7 +175,18 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps() {
-  const res = await fetch("http://localhost:3000/json/components.json");
+  const res = await fetch(
+    "https://strapi.padev.xyz/api/base-pages?populate=deep",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "Bearer 86317a6db6eb2b66d1976e89fd7ae3eb63fd70771b678a3ee307c0c018b289776b6bff2ff1ab51052cff881cf766464876e87b695ccf20fc8f8cb6d1637923b5e9ac37e39fdfe48463807dac38c0997fff0d41421c513bbecaaca6aba93d26e3cdd21782d3635ad06fb3ab4892d43582945457ef4cdde438cd6a9ce07b6809c4",
+      },
+    }
+  );
+  // const res = await fetch("http://localhost:3000/json/components.json");
   const content = await res.json();
   return {
     props: {

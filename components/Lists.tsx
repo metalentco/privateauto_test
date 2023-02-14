@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { parseTitle, parseColor } from "@/common/Parse";
+import { parseTitle, parseColor } from "@/libs/utils";
 
 type Props = {
   data: any;
@@ -15,9 +15,9 @@ const Lists = ({ data }: Props) => {
     <div className="w-5/6 md:w-4/6 mx-auto py-8">
       <div className={`flex justify-center`}>
         <div
-          className={`w-[330px] bg-[${parseColor(
+          className={`w-[330px] ${parseColor(
             data.Color
-          )}] px-12 py-6 space-y-4 border-2 border-[#e6e6e6] border-solid rounded-lg`}
+          )} px-12 py-6 space-y-4 border-2 border-[#e6e6e6] border-solid rounded-lg`}
         >
           <div
             className={`${parseTitle(
