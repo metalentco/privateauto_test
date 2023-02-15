@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
+import { BASE_URL } from "@/libs/constants";
 const Footer = () => {
   return (
     <footer className="w-full md:px-32 bg-[#45577d] pb-12">
@@ -22,51 +24,78 @@ const Footer = () => {
         <div className="w-5/6 md:w-3/6 mx-auto flex justify-between mt-4 md:mt-0">
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold">For Sellers</div>
-            <div>How it works</div>
-            <div>Sell your car</div>
+            <div>
+              <Link href={`${BASE_URL}/how-it-works`}>How it works</Link>
+            </div>
+            <div>
+              <Link href={`${BASE_URL}/sell`}>Sell your car</Link>
+            </div>
           </div>
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold">For Buyers</div>
-            <div>Browse Listings</div>
-            <div>How to Buy</div>
+            <div>
+              <Link href="/buy">Browse Listings</Link>
+            </div>
+            <div>
+              <Link href={`${BASE_URL}/how-it-works/buy`}>How to Buy</Link>
+            </div>
           </div>
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold pr-0 md:pr-20">Company</div>
-            <div>Our Story</div>
-            <div>Blog</div>
-            <div>Contact</div>
+            <div>
+              <Link href={`${BASE_URL}/about`}>Our Story</Link>
+            </div>
+            <div>
+              <Link href={`${BASE_URL}/blog`}>Blog</Link>
+            </div>
+            <div>
+              <Link href={`${BASE_URL}/contact`}>Contact</Link>
+            </div>
           </div>
         </div>
       </div>
       <div className="block md:flex md:justify-between pt-6 md:px-0">
         <div className="w-1/2 mx-auto md:w-[220px] flex justify-between">
-          <a href="https://www.facebook.com/privateauto" target="_blank">
+          <Link
+            href="https://www.facebook.com/privateauto"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image
               width={20}
               height={20}
               src="/assets/listings/facebook.svg"
               alt="facebook"
             />
-          </a>
-          <a href="https://twitter.com/_PrivateAuto" target="_blank">
+          </Link>
+          <Link
+            href="https://twitter.com/_PrivateAuto"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image
               width={20}
               height={20}
               src="/assets/listings/twitter.svg"
               alt="twitter"
             />
-          </a>
-          <a href="https://www.instagram.com/privateauto/" target="_blank">
+          </Link>
+          <Link
+            href="https://www.instagram.com/privateauto/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image
               width={20}
               height={20}
               src="/assets/listings/instagram.svg"
               alt="instagram"
             />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://www.linkedin.com/company/privateauto/"
             target="_blank"
+            rel="noreferrer"
           >
             <Image
               width={20}
@@ -74,10 +103,11 @@ const Footer = () => {
               src="/assets/listings/linkedin.svg"
               alt="linkedin"
             />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://www.youtube.com/channel/UCAzVYyuUM09LDhaZN_uDrGQ"
             target="_blank"
+            rel="noreferrer"
           >
             <Image
               width={20}
@@ -85,25 +115,33 @@ const Footer = () => {
               src="/assets/listings/youtube.svg"
               alt="youtube"
             />
-          </a>
+          </Link>
         </div>
         <div className="md:w-[183px] mx-auto md:mx-0 flex justify-center md:justify-between space-x-8 mt-8 md:mt-0">
-          <a href="https://www.facebook.com/privateauto" target="_blank">
+          <Link
+            href="https://www.facebook.com/privateauto"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image
               width={78}
               height={26}
               src="/assets/appstore.svg"
               alt="IOS store"
             />
-          </a>
-          <a href="https://twitter.com/_PrivateAuto" target="_blank">
+          </Link>
+          <Link
+            href="https://twitter.com/_PrivateAuto"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Image
               width={81}
               height={29}
               src="/assets/googleplay.svg"
               alt="Google Play Store"
             />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="border border-[#6e83af] mt-[24px]"></div>

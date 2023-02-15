@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import Image from "next/image";
 
 const Menu = () => {
@@ -18,50 +19,50 @@ const Menu = () => {
     <div className="w-full px-[8%] py-4 bg-[#f1f5f9]">
       <div className="md:flex justify-between">
         <div className="flex justify-between md:items-center space-x-8">
-          <a className="cursor-pointer" href="/">
+          <Link className="cursor-pointer" href="/">
             <Image width={134} height={24} src="/assets/logo.svg" alt="logo" />
-          </a>
+          </Link>
           <div className="hidden md:flex text-xl font-normal text-[#333] space-x-6">
-            <a
+            <Link
               className={`"cursor-pointer" ${
                 router.pathname == "/sell" ? "underline" : ""
               }`}
               href="/sell"
             >
               Sell
-            </a>
-            <a
+            </Link>
+            <Link
               className={`"cursor-pointer" ${
                 router.pathname == "/buy" ? "underline" : ""
               }`}
               href="/buy"
             >
               Buy
-            </a>
-            <a
+            </Link>
+            <Link
               className={`"cursor-pointer" ${
                 router.pathname == "/pricing" ? "underline" : ""
               }`}
               href="/pricing"
             >
               Pricing
-            </a>
-            <a
+            </Link>
+            <Link
               className={`"cursor-pointer" ${
                 router.pathname == "/how-it-works" ? "underline" : ""
               }`}
               href="/how-it-works"
             >
               How it works
-            </a>
-            <a
+            </Link>
+            <Link
               className={`"cursor-pointer" ${
                 router.pathname == "/blog" ? "underline" : ""
               }`}
               href="/blog"
             >
               Blog
-            </a>
+            </Link>
           </div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,48 +109,48 @@ const Menu = () => {
               </svg>
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/sell"
               >
                 Sell
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/buy"
               >
                 Buy
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/pricing"
               >
                 Pricing
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/how-it-works"
               >
                 How it works
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div>
-              <a
+              <Link
                 className="text-xl font-bold text-[#333] cursor-pointer"
                 href="/blog"
               >
                 Blog
-              </a>
+              </Link>
               <hr className="bg-black my-4" />
             </div>
             <div className="w-[80%] mx-auto my-8">

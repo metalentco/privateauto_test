@@ -8,6 +8,7 @@ import MilesModal from "@/components/buy/modals/MilesModal";
 import MoreFilterModal from "@/components/buy/modals/MoreFilterModal";
 import LocationModal from "@/components/buy/modals/LocationModal";
 import SortModal from "@/components/buy/modals/SortModal";
+import Search from "@/components/buy/Search";
 
 type Props = {
   vehicleType: string;
@@ -170,18 +171,10 @@ const Filter = ({
             />
           )}
         </div>
-        <input
-          className="bg-[url('/assets/search.svg')] bg-no-repeat bg-[center_left_0.5rem] border border-[#333] rounded-full w-full py-2 px-8 text-[#2e3b54] leading-tight focus:border-sky-400 focus:outline-none"
-          id="search"
-          type="text"
-          placeholder="Search..."
-          value={search}
-          onChange={(e: any) => setSearch(e.target.value)}
-          onKeyPress={(event: any) => {
-            if (event.key === "Enter") {
-              setSearchKey(search);
-            }
-          }}
+        <Search
+          search={search}
+          setSearch={setSearch}
+          setSearchKey={setSearchKey}
         />
         <div className="block sm:flex space-x-4 py-4">
           <div className="block vs:flex justify-center space-x-4">
@@ -259,7 +252,7 @@ const Filter = ({
             <div className="flex justify-center space-x-4">
               <div className="relative py-3">
                 <button
-                  className={`w-[73px] bg-white border ${
+                  className={`bg-white border ${
                     minYear == 1910 && maxYear == 2022
                       ? "border-slate-400"
                       : "border-[#00b3de]"
@@ -296,7 +289,7 @@ const Filter = ({
               </div>
               <div className="relative py-3">
                 <button
-                  className={`w-[80px] bg-white border ${
+                  className={`bg-white border ${
                     minMiles == 0 && maxMiles == 300000
                       ? "border-slate-400"
                       : "border-[#00b3de]"

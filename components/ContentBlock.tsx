@@ -10,11 +10,11 @@ const ContentBlock = ({ data }: Props) => {
   return data.Position == "Center" ? (
     <div
       className={twMerge(
-        "w-full block md:flex items-center px-[10%] space-x-0 md:space-x-8 space-y-8 md:space-y-0 mb-8 text-[#333]",
+        "w-full block sm:flex items-center px-[10%] space-x-0 md:space-x-8 space-y-8 md:space-y-0 mb-8 text-[#333]",
         parseColor(data.Color)
       )}
     >
-      <div className="w-full md:w-1/2 text-center sm:text-left space-y-4">
+      <div className="w-full sm:w-1/2 text-center sm:text-left space-y-4">
         <div className={`text-[#333] text-4xl ${parseTitle(data.TitleStyle)}`}>
           {data.Title}
         </div>
@@ -49,11 +49,13 @@ const ContentBlock = ({ data }: Props) => {
           </div>
         )}
       </div>
-      <div className="w-full md:w-1/2 flex md:block justify-center">
+      <div className="w-full sm:w-1/2 flex md:block justify-center">
         <Image
           width={data.Image.data.attributes.width}
           height={data.Image.data.attributes.height}
-          className="w-full sm:h-[334px]"
+          className={`w-full ${
+            data.Buttons == "Sell & Browse" ? "md:h-[490px]" : "md:h-[334px]"
+          }`}
           src={data.Image.data.attributes.url}
           alt="4.term"
         />
@@ -135,6 +137,7 @@ const ContentBlock = ({ data }: Props) => {
               <a
                 href="https://apps.apple.com/us/app/privateauto-sell-privately/id1614271597"
                 target="_blank"
+                rel="noreferrer"
               >
                 <Image
                   width={132}
@@ -146,6 +149,7 @@ const ContentBlock = ({ data }: Props) => {
               <a
                 href="https://play.google.com/store/apps/details?id=io.gonative.android.qwkoyk"
                 target="_blank"
+                rel="noreferrer"
               >
                 <Image
                   width={137}

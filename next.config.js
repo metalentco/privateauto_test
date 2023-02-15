@@ -10,10 +10,11 @@ const nextConfig = {
     ],
   },
   async rewrites() {
+    const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
     return [
       {
         source: "/api/:slug*",
-        destination: "https://prelogin.padev.xyz/api/:slug*",
+        destination: `${BASE_URL}/api/:slug*`,
       },
     ];
   },

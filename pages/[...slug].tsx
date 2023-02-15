@@ -1,3 +1,4 @@
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useRouter } from "next/router";
@@ -13,40 +14,45 @@ import BulletedList from "@/components/BulletedList";
 import Lists from "@/components/Lists";
 import JumpLinks from "@/components/JumpLinks";
 import Footer from "@/components/Footer";
-function Components(content: any) {
+
+interface Props {
+  content: any;
+}
+
+function Components(content: Props) {
   const router = useRouter();
   const { slug } = router.query;
   const [data, setData] = useState<any>();
   const [indexFaq, setIndexFaq] = useState<any>(0);
 
   useEffect(() => {
+    const getData = (value: string) => {
+      const listing_content = content.content;
+      for (var i = 0; i < listing_content.data.length; i++) {
+        if (listing_content.data[i].attributes.slug === value) {
+          for (
+            var j = 0;
+            j < listing_content.data[i].attributes.Content.length;
+            j++
+          ) {
+            if (
+              listing_content.data[i].attributes.Content[j].__component ==
+              "page-elements.faq"
+            ) {
+              setIndexFaq(j);
+              break;
+            }
+          }
+          setData(listing_content.data[i]);
+        }
+      }
+    };
+
     if (slug) {
       const slugValue = "/" + slug.toString();
       getData(slugValue);
     }
   }, [slug]);
-
-  const getData = (value: string) => {
-    const listing_content = content.content;
-    for (var i = 0; i < listing_content.data.length; i++) {
-      if (listing_content.data[i].attributes.slug === value) {
-        for (
-          var j = 0;
-          j < listing_content.data[i].attributes.Content.length;
-          j++
-        ) {
-          if (
-            listing_content.data[i].attributes.Content[j].__component ==
-            "page-elements.faq"
-          ) {
-            setIndexFaq(j);
-            break;
-          }
-        }
-        setData(listing_content.data[i]);
-      }
-    }
-  };
 
   if (data) {
     return (
@@ -114,7 +120,7 @@ function Components(content: any) {
                 Uh no... Page not found
               </div>
               <div className="text-xl font-normal">
-                We couldn't find the page you were looking for.
+                We couldn&apos;t find the page you were looking for.
               </div>
               <button className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-base font-medium py-1 px-4 rounded cursor-pointer">
                 Go back
@@ -133,7 +139,7 @@ function Components(content: any) {
                 Uh no... Page not found
               </div>
               <div className="text-base sm:text-lg md:text-xl font-normal">
-                We couldn't find the page you were looking for.
+                We couldn&apos;t find the page you were looking for.
               </div>
               <button className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-base font-medium py-1 px-4 rounded cursor-pointer">
                 Go back
@@ -147,18 +153,17 @@ function Components(content: any) {
   }
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(
-    "https://strapi.padev.xyz/api/base-pages?populate=deep",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer 86317a6db6eb2b66d1976e89fd7ae3eb63fd70771b678a3ee307c0c018b289776b6bff2ff1ab51052cff881cf766464876e87b695ccf20fc8f8cb6d1637923b5e9ac37e39fdfe48463807dac38c0997fff0d41421c513bbecaaca6aba93d26e3cdd21782d3635ad06fb3ab4892d43582945457ef4cdde438cd6a9ce07b6809c4",
-      },
-    }
-  );
+export const getStaticPaths: GetStaticPaths = async () => {
+  const BASE_STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "";
+  const authorization =
+    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
+  const res = await fetch(BASE_STRAPI_URL, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: authorization,
+    },
+  });
   const content = await res.json();
   const paths = content.data.map((item: any, index: number) => {
     return {
@@ -169,28 +174,31 @@ export async function getStaticPaths() {
   });
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
-}
+};
 
-export async function getStaticProps() {
-  const res = await fetch(
-    "https://strapi.padev.xyz/api/base-pages?populate=deep",
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization:
-          "Bearer 86317a6db6eb2b66d1976e89fd7ae3eb63fd70771b678a3ee307c0c018b289776b6bff2ff1ab51052cff881cf766464876e87b695ccf20fc8f8cb6d1637923b5e9ac37e39fdfe48463807dac38c0997fff0d41421c513bbecaaca6aba93d26e3cdd21782d3635ad06fb3ab4892d43582945457ef4cdde438cd6a9ce07b6809c4",
-      },
-    }
-  );
+export const getStaticProps: GetStaticProps<Props> = async (
+  context
+): Promise<{ props: Props; revalidate: number }> => {
+  const BASE_STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "";
+  const authorization =
+    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
+  const res = await fetch(BASE_STRAPI_URL, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: authorization,
+    },
+  });
   const content = await res.json();
+
   return {
     props: {
       content,
     },
+    revalidate: 30,
   };
-}
+};
 
 export default Components;

@@ -19,6 +19,7 @@ const IconBar = ({ data }: Props) => {
                   href={item.URL}
                   key={index}
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <Image
                     width={item.Image.data.attributes.width}

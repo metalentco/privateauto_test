@@ -5,7 +5,7 @@ import Menu from "@/components/Menu";
 import Footer from "@/components/Footer";
 import Filter from "@/components/buy/Filter";
 import Pagination from "@/components/buy/Pagination";
-import useApi from "@/hooks/useApi";
+import API from "@/hooks/useApi";
 import { BASE_URL, PAGE_SIZE } from "@/libs/constants";
 import { MoreFilter } from "@/interfaces/MoreFilter";
 
@@ -19,7 +19,7 @@ export default function Buy() {
     driveType: [],
     cylinders: [],
   };
-  const { getPageData, getInitMakeData, getCarDetailsFilter } = useApi();
+
   const [isLoading, setIsLoading] = useState<Boolean>(true);
   const [pageData, setPageData] = useState<any>([]);
   const [pages, setPages] = useState<number>(0);
@@ -56,10 +56,66 @@ export default function Buy() {
   const [sort, setSort] = useState<string>("Newest");
 
   useEffect(() => {
+    const { getInitMakeData, getCarDetailsFilter } = API();
+    const getMakeData = async () => {
+      let data = await getInitMakeData();
+      const makeArr = [];
+      const resultData = data.results;
+      for (var i = 0; i < resultData.commonMakes.length; i++) {
+        makeArr.push(resultData.commonMakes[i]);
+      }
+      for (var i = 0; i < resultData.remainingMakes.length; i++) {
+        makeArr.push(resultData.remainingMakes[i]);
+      }
+      setMakeData(makeArr);
+    };
+
+    const getMoreFilterData = async () => {
+      let data = await getCarDetailsFilter();
+      setMoreFilterData(data.results);
+    };
+
+    const initPage = () => {
+      getMakeData();
+      getMoreFilterData();
+    };
     initPage();
   }, []);
 
   useEffect(() => {
+    const { getPageData } = API();
+    const getData = async () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+      setIsLoading(true);
+      const data = await getPageData(
+        current,
+        vehicleType,
+        searchKey,
+        make,
+        models,
+        bodyType,
+        minYear,
+        maxYear,
+        minMiles,
+        maxMiles,
+        moreFiltersArr,
+        location,
+        lat,
+        lng,
+        radius,
+        sort
+      );
+      setIsLoading(false);
+      setPages(Math.floor(data._meta.total / PAGE_SIZE));
+      setCurrent(data._meta.page);
+      imageFormat(data);
+      setPageData(data.data);
+      setTotal(data._meta.total);
+    };
     getData();
   }, [
     vehicleType,
@@ -72,17 +128,13 @@ export default function Buy() {
     minMiles,
     maxMiles,
     moreFiltersArr,
+    location,
     lat,
     lng,
     radius,
     sort,
     current,
   ]);
-
-  const initPage = () => {
-    getMakeData();
-    getMoreFilterData();
-  };
 
   const imageFormat = (data: any) => {
     data.data.map((item: any, index: number) => {
@@ -103,57 +155,6 @@ export default function Buy() {
           image_url.substring(image_url.indexOf("listings"), image_url.length);
       }
     });
-  };
-
-  const getData = async () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-    setIsLoading(true);
-    const data = await getPageData(
-      current,
-      vehicleType,
-      searchKey,
-      make,
-      models,
-      bodyType,
-      minYear,
-      maxYear,
-      minMiles,
-      maxMiles,
-      moreFiltersArr,
-      location,
-      lat,
-      lng,
-      radius,
-      sort
-    );
-    setIsLoading(false);
-    setPages(Math.floor(data._meta.total / PAGE_SIZE));
-    setCurrent(data._meta.page);
-    imageFormat(data);
-    setPageData(data.data);
-    setTotal(data._meta.total);
-  };
-
-  const getMakeData = async () => {
-    let data = await getInitMakeData();
-    const makeArr = [];
-    const resultData = data.results;
-    for (var i = 0; i < resultData.commonMakes.length; i++) {
-      makeArr.push(resultData.commonMakes[i]);
-    }
-    for (var i = 0; i < resultData.remainingMakes.length; i++) {
-      makeArr.push(resultData.remainingMakes[i]);
-    }
-    setMakeData(makeArr);
-  };
-
-  const getMoreFilterData = async () => {
-    let data = await getCarDetailsFilter();
-    setMoreFilterData(data.results);
   };
 
   const clearAll = () => {
@@ -370,7 +371,7 @@ export default function Buy() {
               </div>
               <div className="w-full text-center text-[#000]">
                 <p className="text-xl font-semibold py-1">
-                  We didn't find any matches
+                  We didn&apos;t find any matches
                 </p>
                 <p className="text-sm">
                   Try changing your search criteria or remove filters.

@@ -20,7 +20,7 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
   const [pagesArr, setPagesArr] = useState<any>(null);
   useEffect(() => {
     setPagesArr(IntegerToArray(pages));
-  }, [total]);
+  }, [total, pages]);
   if (pagesArr != null) {
     return (
       <div>

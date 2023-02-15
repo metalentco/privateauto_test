@@ -1,14 +1,15 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import Image from "next/image";
-import useApi from "@/hooks/useApi";
+import API from "@/hooks/useApi";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
-import { Google_Map_API_Key } from "@/libs/constants";
+import { Google_Map_API_Key, LIMIT } from "@/libs/constants";
 import {
   CheckSVG,
   ExclamationSVG,
@@ -22,45 +23,14 @@ interface Props {
 }
 
 function SlugPage(content: Props) {
-  const [data, setData] = useState<any>();
+  const [data] = useState<any>(content.content);
   const [isAdditionalInfo, setIsAdditionalInfo] = useState<Boolean>(false);
   const [isSellerDisclosures, setIsSellerDisclosures] =
     useState<Boolean>(false);
-  const [imageURI, setImageURI] = useState<String>("");
+  const [imageURI, setImageURI] = useState<String>(
+    content.content.uploadImages[0].images
+  );
   const [showImageModal, setShowImageModal] = useState<Boolean>(false);
-
-  useEffect(() => {
-    formatData();
-  }, []);
-
-  const formatData = () => {
-    const slugData = content.content;
-
-    if (slugData.userId.createdAt != null) {
-      var date = new Date(slugData.userId.createdAt);
-      var arr = date.toString().split(" ");
-      var date_str = arr[1] + " " + arr[2] + ", " + arr[3];
-      slugData.userId.createdAt = date_str;
-    }
-    slugData.uploadImages.map((item: any, index: number) => {
-      const image_url = item.images;
-      if (item.images.includes("vehicle-listing")) {
-        item.images = image_url.substring(
-          image_url.indexOf("/vehicle-listing"),
-          image_url.length
-        );
-      } else if (item.images.includes("jfif")) {
-        item.images = item.images;
-      } else {
-        item.images = image_url.substring(
-          image_url.indexOf("/listings"),
-          image_url.length
-        );
-      }
-    });
-    setData(slugData);
-    setImageURI(slugData.uploadImages[0].images);
-  };
 
   const defaultProps = {
     center: {
@@ -119,18 +89,18 @@ function SlugPage(content: Props) {
         <Menu />
         <main className="w-11/12 kl:w-10/12 lg:w-3/4 mx-auto">
           <section className="mt-14">
-            <span className="flex hover:underline cursor-pointer">
+            <Link href="/buy" className="flex hover:underline cursor-pointer">
               <span>
                 <Image
                   className="mt-[6px]"
                   width={14}
                   height={14}
                   src="/assets/listings/arrow.png"
-                  alt="back to search"
+                  alt="back"
                 />
               </span>
               <span>&nbsp;&nbsp;Back to search</span>
-            </span>
+            </Link>
             <div className="w-full mt-6">
               {data ? (
                 <div className="flex justify-center">
@@ -199,7 +169,7 @@ function SlugPage(content: Props) {
                           width={14}
                           height={14}
                           src="/assets/listings/arrow.png"
-                          alt="back to search"
+                          alt="back"
                         />
                       </span>
                       <span className="text-[#727a82]">
@@ -594,7 +564,7 @@ function SlugPage(content: Props) {
               </div>
             </div>
             <div className="flex items-center text-2xl font-bold mt-8">
-              Seller's Verification&nbsp;
+              Seller&apos;s Verification&nbsp;
               <QuestionSVG />
             </div>
             <div className="w-3/6 block md:flex justify-between pt-4">
@@ -623,7 +593,7 @@ function SlugPage(content: Props) {
                   <ExclamationSVG />
                 )}
                 &nbsp;
-                <span>Driver's license</span>
+                <span>Driver&apos;s license</span>
               </div>
               <div className="flex items-center">
                 {data.userId.verification.bacnk ? (
@@ -799,7 +769,7 @@ function SlugPage(content: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { getTotalData } = useApi();
+  const { getTotalData } = API();
   const content = await getTotalData();
 
   const paths = content.data.map((item: any, index: number) => {
@@ -811,14 +781,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
   });
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (
   context
-): Promise<{ props: Props }> => {
-  const { getTotalData } = useApi();
+): Promise<{ props: Props; revalidate: number }> => {
+  const { getTotalData } = API();
   const totalData = await getTotalData();
   let slug: string | string[] | undefined;
   let content: any;
@@ -830,10 +800,35 @@ export const getStaticProps: GetStaticProps<Props> = async (
       content = item;
     }
   });
+
+  if (content.userId.createdAt != null) {
+    var date = new Date(content.userId.createdAt);
+    var arr = date.toString().split(" ");
+    var date_str = arr[1] + " " + arr[2] + ", " + arr[3];
+    content.userId.createdAt = date_str;
+  }
+  content.uploadImages.map((item: any, index: number) => {
+    const image_url = item.images;
+    if (item.images.includes("vehicle-listing")) {
+      item.images = image_url.substring(
+        image_url.indexOf("/vehicle-listing"),
+        image_url.length
+      );
+    } else if (item.images.includes("jfif")) {
+      item.images = item.images;
+    } else {
+      item.images = image_url.substring(
+        image_url.indexOf("/listings"),
+        image_url.length
+      );
+    }
+  });
+
   return {
     props: {
       content,
     },
+    revalidate: 30,
   };
 };
 
