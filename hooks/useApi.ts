@@ -69,6 +69,7 @@ const useApi = () => {
 
   const getPageData = async (
     rows: number,
+    limit: number,
     current: number,
     vehicleType: string,
     searchKey: string,
@@ -86,8 +87,12 @@ const useApi = () => {
     radius: number,
     sort: string
   ) => {
-    let url = `/api/listings?_page=${current}&_limit=${rows * 6}`;
-
+    let url = `/api/listings?_page=${current}`;
+    if (limit < (current + 1) * (rows * 4)) {
+      url += `&_limit=${limit}`;
+    } else {
+      url += `&_limit=${rows * 4}`;
+    }
     //Filter by vehicleType
     if (vehicleType != "All Vehicles") {
       url += `&vehicleType=${text_format(vehicleType)}`;

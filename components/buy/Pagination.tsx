@@ -5,6 +5,7 @@ type Props = {
   pages: number;
   currentPage: number;
   total: number;
+  rows: number;
   onClick: Function;
 };
 
@@ -16,7 +17,7 @@ const IntegerToArray = (pages: Number) => {
   return pagesArr;
 };
 
-const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
+const Pagination = ({ pages, currentPage, total, rows, onClick }: Props) => {
   const [pagesArr, setPagesArr] = useState<any>(null);
   useEffect(() => {
     setPagesArr(IntegerToArray(pages));
@@ -102,8 +103,10 @@ const Pagination = ({ pages, currentPage, total, onClick }: Props) => {
           )}
         </div>
         <div className="text-center text-base font-normal text-[#212529] py-4">
-          {currentPage * 24 + 1}&nbsp; - &nbsp;
-          <span>{currentPage == pages ? total : currentPage * 24 + 24}</span>
+          {currentPage * rows * 4 + 1}&nbsp; - &nbsp;
+          <span>
+            {currentPage == pages ? total : (currentPage + 1) * (rows * 4)}
+          </span>
         </div>
       </div>
     );

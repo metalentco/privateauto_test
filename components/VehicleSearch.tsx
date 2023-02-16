@@ -42,6 +42,7 @@ const VehicleSearch = ({ data }: Props) => {
   };
 
   const rows = data.DisplayRows != null ? data.DisplayRows : 6;
+  const limit = data.MaxListings != null ? data.MaxListings : 0;
   const initVehicleType =
     data.Filters != null &&
     data.Filters.VehicleType != null &&
@@ -100,17 +101,19 @@ const VehicleSearch = ({ data }: Props) => {
       : "";
 
   useEffect(() => {
-    Geocode.setApiKey(Google_Autocomplete_Key);
-    Geocode.fromAddress(initLocation).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        setLat(lat);
-        setLng(lng);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+    if (initLocation != "") {
+      Geocode.setApiKey(Google_Autocomplete_Key);
+      Geocode.fromAddress(initLocation).then(
+        (response) => {
+          const { lat, lng } = response.results[0].geometry.location;
+          setLat(lat);
+          setLng(lng);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }
   }, []);
 
   //page states
@@ -168,6 +171,7 @@ const VehicleSearch = ({ data }: Props) => {
       setIsLoading(true);
       const data = await getPageData(
         rows,
+        limit,
         current,
         vehicleType,
         searchKey,
@@ -186,11 +190,16 @@ const VehicleSearch = ({ data }: Props) => {
         sort
       );
       setIsLoading(false);
-      setPages(Math.floor(data._meta.total / (rows * 4)));
       setCurrent(data._meta.page);
       imageFormat(data);
       setPageData(data.data);
-      setTotal(data._meta.total);
+      if (limit == 0) {
+        setPages(Math.floor(data._meta.total / (rows * 4)));
+        setTotal(data._meta.total);
+      } else {
+        setPages(Math.floor(limit / (rows * 4)));
+        setTotal(limit);
+      }
     };
     getData();
   }, [
@@ -254,7 +263,7 @@ const VehicleSearch = ({ data }: Props) => {
     <div className="w-full">
       {!isLoading ? (
         <div className="w-full">
-          {!data.AllowFilterChanges && data.Filters == null ? (
+          {!data.AllowFilterChanges ? (
             ""
           ) : (
             <Filter
@@ -470,6 +479,7 @@ const VehicleSearch = ({ data }: Props) => {
               pages={pages}
               currentPage={current}
               total={total}
+              rows={rows}
               onClick={setCurrent}
             />
           ) : null}

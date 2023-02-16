@@ -36,7 +36,6 @@ function Components(content: Props) {
               break;
             }
           }
-          document.title = listing_content.data[i].attributes.PageTitle;
           setData(listing_content.data[i]);
         }
       }
@@ -71,7 +70,7 @@ function Components(content: Props) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "base-pages?populate=deep";
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "titles?populate=deep";
   const authorization =
     "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
   const res = await fetch(STRAPI_URL, {
@@ -83,13 +82,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   });
   const content = await res.json();
   const paths = content.data.map((item: any, index: number) => {
-    if (item.attributes.slug != "/") {
-      return {
-        params: {
-          slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
-        },
-      };
-    }
+    return {
+      params: {
+        slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
+      },
+    };
   });
   return {
     paths,
@@ -101,7 +98,7 @@ export const getStaticProps: GetStaticProps<Props> = async (
   context
 ): Promise<{ props: Props; revalidate: number }> => {
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "base-pages?populate=deep";
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "titles?populate=deep";
   const authorization =
     "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
   const res = await fetch(STRAPI_URL, {
