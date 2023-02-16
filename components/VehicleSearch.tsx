@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Header from "@/components/Header";
-import Menu from "@/components/Menu";
-import Footer from "@/components/Footer";
+import Geocode from "react-geocode";
 import Filter from "@/components/buy/Filter";
 import Pagination from "@/components/buy/Pagination";
 import API from "@/hooks/useApi";
-import { BASE_URL, PAGE_SIZE } from "@/libs/constants";
+import { BASE_URL } from "@/libs/constants";
 import { MoreFilter } from "@/interfaces/MoreFilter";
+import { Google_Autocomplete_Key } from "@/libs/constants";
 
-export default function Buy() {
+type Props = {
+  data: any;
+};
+
+const VehicleSearch = ({ data }: Props) => {
   const initFilters = {
     trim: [],
     exteriorColor: [],
@@ -38,18 +41,90 @@ export default function Buy() {
     setHoverNum(index);
   };
 
+  const rows = data.DisplayRows != null ? data.DisplayRows : 6;
+  const initVehicleType =
+    data.Filters != null &&
+    data.Filters.VehicleType != null &&
+    data.Filters.VehicleType != undefined
+      ? data.Filters.VehicleType == "Car"
+        ? "Auto"
+        : data.Filters.VehicleType
+      : "All Vehicles";
+  const initMake =
+    data.Filters != null &&
+    data.Filters.Make != null &&
+    data.Filters.Make != undefined
+      ? data.Filters.Make
+      : "";
+  const initModels =
+    data.Filters != null &&
+    data.Filters.Model != null &&
+    data.Filters.Model != undefined
+      ? data.Filters.Model.split()
+      : [];
+  const initBodyType =
+    data.Filters != null &&
+    data.Filters.BodyType != null &&
+    data.Filters.BodyType != undefined
+      ? data.Filters.BodyType.split()
+      : [];
+  const initMinYear =
+    data.Filters != null &&
+    data.Filters.YearMin != null &&
+    data.Filters.YearMin != undefined
+      ? data.Filters.YearMin
+      : 1910;
+  const initMaxYear =
+    data.Filters != null &&
+    data.Filters.YearMax != null &&
+    data.Filters.YearMax != undefined
+      ? data.Filters.YearMax
+      : 2022;
+  const initMinMiles =
+    data.Filters != null &&
+    data.Filters.MilesMin != null &&
+    data.Filters.MilesMin != undefined
+      ? data.Filters.MilesMin
+      : 0;
+  const initMaxMiles =
+    data.Filters != null &&
+    data.Filters.MilesMax != null &&
+    data.Filters.MilesMax != undefined
+      ? data.Filters.MilesMax
+      : 300000;
+  const initLocation =
+    data.Filters != null &&
+    data.Filters.Location != null &&
+    data.Filters.Location != undefined
+      ? data.Filters.Location + ", USA"
+      : "";
+
+  useEffect(() => {
+    Geocode.setApiKey(Google_Autocomplete_Key);
+    Geocode.fromAddress(initLocation).then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        setLat(lat);
+        setLng(lng);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }, []);
+
   //page states
-  const [vehicleType, setVehicleType] = useState<string>("All Vehicles");
+  const [vehicleType, setVehicleType] = useState<string>(initVehicleType);
   const [searchKey, setSearchKey] = useState<string>("");
-  const [make, setMake] = useState<string>("");
-  const [models, setModels] = useState<Array<string>>([]);
-  const [bodyType, setBodyType] = useState<Array<string>>([]);
-  const [minYear, setMinYear] = useState<number>(1910);
-  const [maxYear, setMaxYear] = useState<number>(2022);
-  const [minMiles, setMinMiles] = useState<number>(0);
-  const [maxMiles, setMaxMiles] = useState<number>(300000);
+  const [make, setMake] = useState<string>(initMake);
+  const [models, setModels] = useState<Array<string>>(initModels);
+  const [bodyType, setBodyType] = useState<Array<string>>(initBodyType);
+  const [minYear, setMinYear] = useState<number>(initMinYear);
+  const [maxYear, setMaxYear] = useState<number>(initMaxYear);
+  const [minMiles, setMinMiles] = useState<number>(initMinMiles);
+  const [maxMiles, setMaxMiles] = useState<number>(initMaxMiles);
   const [moreFiltersArr, setMoreFiltersArr] = useState<MoreFilter>(initFilters);
-  const [location, setLocation] = useState<string>("");
+  const [location, setLocation] = useState<string>(initLocation);
   const [lat, setLat] = useState<number>(0);
   const [lng, setLng] = useState<number>(0);
   const [radius, setRadius] = useState<number>(50);
@@ -92,6 +167,7 @@ export default function Buy() {
       });
       setIsLoading(true);
       const data = await getPageData(
+        rows,
         current,
         vehicleType,
         searchKey,
@@ -110,7 +186,7 @@ export default function Buy() {
         sort
       );
       setIsLoading(false);
-      setPages(Math.floor(data._meta.total / PAGE_SIZE));
+      setPages(Math.floor(data._meta.total / (rows * 4)));
       setCurrent(data._meta.page);
       imageFormat(data);
       setPageData(data.data);
@@ -174,46 +250,48 @@ export default function Buy() {
     setRadius(50);
     setSort("Newest");
   };
-
   return (
     <div className="w-full">
       {!isLoading ? (
         <div className="w-full">
-          <Header />
-          <Menu />
-          <Filter
-            vehicleType={vehicleType}
-            setVehicleType={setVehicleType}
-            searchKey={searchKey}
-            setSearchKey={setSearchKey}
-            make={make}
-            setMake={setMake}
-            models={models}
-            setModels={setModels}
-            bodyType={bodyType}
-            setBodyType={setBodyType}
-            minYear={minYear}
-            setMinYear={setMinYear}
-            maxYear={maxYear}
-            setMaxYear={setMaxYear}
-            minMiles={minMiles}
-            setMinMiles={setMinMiles}
-            maxMiles={maxMiles}
-            setMaxMiles={setMaxMiles}
-            moreFiltersArr={moreFiltersArr}
-            setMoreFiltersArr={setMoreFiltersArr}
-            location={location}
-            setLocation={setLocation}
-            setLat={setLat}
-            setLng={setLng}
-            radius={radius}
-            setRadius={setRadius}
-            sort={sort}
-            setSort={setSort}
-            makeData={makeData}
-            moreFilterData={moreFilterData}
-            clearAll={clearAll}
-          />
+          {!data.AllowFilterChanges && data.Filters == null ? (
+            ""
+          ) : (
+            <Filter
+              vehicleType={vehicleType}
+              setVehicleType={setVehicleType}
+              searchKey={searchKey}
+              setSearchKey={setSearchKey}
+              make={make}
+              setMake={setMake}
+              models={models}
+              setModels={setModels}
+              bodyType={bodyType}
+              setBodyType={setBodyType}
+              minYear={minYear}
+              setMinYear={setMinYear}
+              maxYear={maxYear}
+              setMaxYear={setMaxYear}
+              minMiles={minMiles}
+              setMinMiles={setMinMiles}
+              maxMiles={maxMiles}
+              setMaxMiles={setMaxMiles}
+              moreFiltersArr={moreFiltersArr}
+              setMoreFiltersArr={setMoreFiltersArr}
+              location={location}
+              setLocation={setLocation}
+              setLat={setLat}
+              setLng={setLng}
+              radius={radius}
+              setRadius={setRadius}
+              sort={sort}
+              setSort={setSort}
+              makeData={makeData}
+              moreFilterData={moreFilterData}
+              clearAll={clearAll}
+              isFilterDisable={!data.AllowFilterChanges}
+            />
+          )}
           {total ? (
             <section className="max-w-[1160px] mx-auto w-full flex justify-center space-x-6 flex-wrap">
               {pageData.map((item: any, index: number) => {
@@ -395,12 +473,9 @@ export default function Buy() {
               onClick={setCurrent}
             />
           ) : null}
-          <Footer />
         </div>
       ) : (
         <div className="w-full">
-          <Header />
-          <Menu />
           <div className="w-full flex justify-center">
             <Image
               width={640}
@@ -409,9 +484,10 @@ export default function Buy() {
               alt="loading"
             />
           </div>
-          <Footer />
         </div>
       )}
     </div>
   );
-}
+};
+
+export default VehicleSearch;

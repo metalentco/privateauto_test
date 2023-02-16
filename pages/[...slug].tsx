@@ -10,6 +10,7 @@ import IconBar from "@/components/IconBar";
 import ContentBlock from "@/components/ContentBlock";
 import Faq from "@/components/Faq";
 import InlineImage from "@/components/InlineImage";
+import VehicleSearch from "@/components/VehicleSearch";
 import BulletedList from "@/components/BulletedList";
 import Lists from "@/components/Lists";
 import JumpLinks from "@/components/JumpLinks";
@@ -95,6 +96,8 @@ function Components(content: Props) {
                   <InlineImage key={index} data={item} />
                 ) : item.__component == "page-elements.bulleted-list" ? (
                   <BulletedList key={index} data={item} />
+                ) : item.__component == "app-forms.vehicle-search" ? (
+                  <VehicleSearch key={index} data={item} />
                 ) : item.__component == "page-elements.list" ? (
                   <Lists key={index} data={item} />
                 ) : item.__component == "page-elements.jump-links" ? (

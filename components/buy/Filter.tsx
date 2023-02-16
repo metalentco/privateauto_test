@@ -42,6 +42,7 @@ type Props = {
   makeData: Array<string>;
   moreFilterData: any;
   clearAll: Function;
+  isFilterDisable: boolean;
 };
 
 const Filter = ({
@@ -76,6 +77,7 @@ const Filter = ({
   makeData,
   moreFilterData,
   clearAll,
+  isFilterDisable,
 }: Props) => {
   const [isVehicleModal, setIsVehicleModal] = useState<Boolean>(false);
   const [isMakeModelModal, setIsMakeModelModal] = useState<Boolean>(false);
@@ -153,6 +155,7 @@ const Filter = ({
           <button
             className="flex items-center space-x-4 py-4"
             onClick={() => vehicleModal()}
+            disabled={isFilterDisable}
           >
             <span className="text-base text-[#333] font-medium">
               {vehicleType}
@@ -175,16 +178,18 @@ const Filter = ({
           search={search}
           setSearch={setSearch}
           setSearchKey={setSearchKey}
+          isFilterDisable={isFilterDisable}
         />
         <div className="block sm:flex space-x-4 py-4">
           <div className="block vs:flex justify-center space-x-4">
             <div className="flex justify-center space-x-4">
               <div className="relative z-10 py-3">
                 <button
-                  className={`w-[152px] bg-white border ${
+                  className={`bg-white border ${
                     make == "" ? "border-slate-400" : "border-[#00b3de]"
                   } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
                   onClick={() => makeModelModal()}
+                  disabled={isFilterDisable}
                 >
                   {make == "" ? (
                     <span className="text-slate-400">Make and Model</span>
@@ -219,10 +224,11 @@ const Filter = ({
               </div>
               <div className="relative z-10 py-3">
                 <button
-                  className={`w-[113px] bg-white border ${
+                  className={`bg-white border ${
                     bodyType.length ? "border-[#00b3de]" : "border-slate-400"
                   } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
                   onClick={() => carTypeModal()}
+                  disabled={isFilterDisable}
                 >
                   {bodyType.length ? (
                     <span className="text-[#00b3de]">{bodyType[0]}</span>
@@ -258,6 +264,7 @@ const Filter = ({
                       : "border-[#00b3de]"
                   } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
                   onClick={() => yearModal()}
+                  disabled={isFilterDisable}
                 >
                   {minYear == 1910 && maxYear == 2022 ? (
                     <span className="text-slate-400">Year</span>
@@ -295,6 +302,7 @@ const Filter = ({
                       : "border-[#00b3de]"
                   } flex items-center text-sm font-medium px-2 space-x-4 py-2 rounded`}
                   onClick={() => milesModal()}
+                  disabled={isFilterDisable}
                 >
                   {minMiles == 0 && maxMiles == 300000 ? (
                     <span className="text-slate-400">Miles</span>
@@ -344,6 +352,7 @@ const Filter = ({
                   moreFilterModal();
                   setScrollHidden();
                 }}
+                disabled={isFilterDisable}
               >
                 <span
                   className={`${
@@ -389,6 +398,7 @@ const Filter = ({
             <button
               className="flex items-center space-x-4 py-2"
               onClick={() => clearAll()}
+              disabled={isFilterDisable}
             >
               <span className="text-[#063829] text-sm">Clear All</span>
             </button>
@@ -400,6 +410,7 @@ const Filter = ({
           <button
             className="flex items-center text-sm font-medium space-x-1 vs:space-x-4 py-4"
             onClick={() => locationModal()}
+            disabled={isFilterDisable}
           >
             <span className="text-slate-400">Location:</span>
             {location == "" ? (
@@ -432,6 +443,7 @@ const Filter = ({
           <button
             className="flex items-center text-sm font-medium space-x-1 vs:space-x-4 py-4"
             onClick={() => sortModal()}
+            disabled={isFilterDisable}
           >
             <span className="text-slate-400">Sort by:</span>
             <span>{sort}</span>

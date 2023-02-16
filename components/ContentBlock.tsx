@@ -10,7 +10,7 @@ const ContentBlock = ({ data }: Props) => {
   return data.Position == "Center" ? (
     <div
       className={twMerge(
-        "w-full block sm:flex items-center px-[10%] space-x-0 md:space-x-8 space-y-8 md:space-y-0 mb-8 text-[#333]",
+        "w-full block sm:flex items-center px-[10%] space-x-0 md:space-x-8 space-y-8 md:space-y-0 mb-8 text-[#333] pt-8",
         parseColor(data.Color)
       )}
     >
@@ -41,24 +41,63 @@ const ContentBlock = ({ data }: Props) => {
               Browse Vehicles <strong>&#62;</strong>
             </button>
           </div>
-        ) : (
+        ) : data.Buttons == "Sell" ? (
           <div className="pt-12">
             <button className=" bg-[#00b3de] hover:bg-blue-300 text-white text-base font-normal py-2 px-3 rounded-sm cursor-pointer">
               Sell your vehicle
             </button>
           </div>
+        ) : data.Buttons == "Browse" ? (
+          <div className="pt-12">
+            <button className=" bg-[#00b3de] hover:bg-blue-300 text-white text-base font-normal py-2 px-3 rounded-sm cursor-pointer">
+              Browse Vehicles
+            </button>
+          </div>
+        ) : data.Buttons == "App Stores" ? (
+          <div className="flex justify-center sm:justify-start mt-8 space-x-8">
+            <a
+              href="https://apps.apple.com/us/app/privateauto-sell-privately/id1614271597"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image
+                width={132}
+                height={45}
+                src="/assets/appstore.svg"
+                alt="appstore"
+              />
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=io.gonative.android.qwkoyk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image
+                width={137}
+                height={49}
+                src="/assets/googleplay.svg"
+                alt="googleplay"
+              />
+            </a>
+          </div>
+        ) : (
+          ""
         )}
       </div>
       <div className="w-full sm:w-1/2 flex md:block justify-center">
-        <Image
-          width={data.Image.data.attributes.width}
-          height={data.Image.data.attributes.height}
-          className={`w-full ${
-            data.Buttons == "Sell & Browse" ? "md:h-[490px]" : "md:h-[334px]"
-          }`}
-          src={data.Image.data.attributes.url}
-          alt="4.term"
-        />
+        {data.Image.data != null ? (
+          <Image
+            width={data.Image.data.attributes.width}
+            height={data.Image.data.attributes.height}
+            className={`w-full ${
+              data.Buttons == "Sell & Browse" ? "md:h-[490px]" : "md:h-[334px]"
+            }`}
+            src={data.Image.data.attributes.url}
+            alt="4.term"
+          />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   ) : data.Position == "Right" ? (

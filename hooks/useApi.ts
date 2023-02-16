@@ -1,5 +1,5 @@
 import { createHmac } from "crypto";
-import { PAGE_SIZE, LIMIT } from "@/libs/constants";
+import { LIMIT } from "@/libs/constants";
 import { MoreFilter } from "@/interfaces/MoreFilter";
 
 const useApi = () => {
@@ -68,6 +68,7 @@ const useApi = () => {
   };
 
   const getPageData = async (
+    rows: number,
     current: number,
     vehicleType: string,
     searchKey: string,
@@ -85,7 +86,7 @@ const useApi = () => {
     radius: number,
     sort: string
   ) => {
-    let url = `/api/listings?_page=${current}&_limit=${PAGE_SIZE}`;
+    let url = `/api/listings?_page=${current}&_limit=${rows * 6}`;
 
     //Filter by vehicleType
     if (vehicleType != "All Vehicles") {

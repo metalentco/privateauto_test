@@ -2,9 +2,15 @@ type Props = {
   search: string;
   setSearch: Function;
   setSearchKey: Function;
+  isFilterDisable: boolean;
 };
 
-const Search = ({ search, setSearch, setSearchKey }: Props) => {
+const Search = ({
+  search,
+  setSearch,
+  setSearchKey,
+  isFilterDisable,
+}: Props) => {
   return (
     <input
       className="bg-[url('/assets/search.svg')] bg-no-repeat bg-[center_left_0.5rem] border border-[#333] rounded-full w-full py-2 px-8 text-[#2e3b54] leading-tight focus:border-sky-400 focus:outline-none"
@@ -18,6 +24,7 @@ const Search = ({ search, setSearch, setSearchKey }: Props) => {
           setSearchKey(search);
         }
       }}
+      disabled={isFilterDisable}
     />
   );
 };

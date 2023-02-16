@@ -9,7 +9,7 @@ import API from "@/hooks/useApi";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Menu from "@/components/Menu";
-import { Google_Map_API_Key, LIMIT } from "@/libs/constants";
+import { Google_Map_API_Key } from "@/libs/constants";
 import {
   CheckSVG,
   ExclamationSVG,

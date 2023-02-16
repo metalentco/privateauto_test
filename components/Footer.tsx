@@ -25,10 +25,10 @@ const Footer = () => {
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold">For Sellers</div>
             <div>
-              <Link href={`${BASE_URL}/how-it-works`}>How it works</Link>
+              <Link href="/how-it-works">How it works</Link>
             </div>
             <div>
-              <Link href={`${BASE_URL}/sell`}>Sell your car</Link>
+              <Link href="/sell">Sell your car</Link>
             </div>
           </div>
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
@@ -37,19 +37,19 @@ const Footer = () => {
               <Link href="/buy">Browse Listings</Link>
             </div>
             <div>
-              <Link href={`${BASE_URL}/how-it-works/buy`}>How to Buy</Link>
+              <Link href="/how-it-works/buy">How to Buy</Link>
             </div>
           </div>
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold pr-0 md:pr-20">Company</div>
             <div>
-              <Link href={`${BASE_URL}/about`}>Our Story</Link>
+              <Link href="/about">Our Story</Link>
             </div>
             <div>
-              <Link href={`${BASE_URL}/blog`}>Blog</Link>
+              <Link href="/blog">Blog</Link>
             </div>
             <div>
-              <Link href={`${BASE_URL}/contact`}>Contact</Link>
+              <Link href="/contact">Contact</Link>
             </div>
           </div>
         </div>
