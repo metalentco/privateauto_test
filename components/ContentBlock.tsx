@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-import ContentButtons from "@/components/subComponent/ContentButtons";
+import ContentButtons from "@/components/contentBlock/ContentButtons";
 import { parseColor, parseTitle } from "@/libs/utils";
 
 type Props = {
