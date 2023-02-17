@@ -11,7 +11,7 @@ type Props = {
   setIsMakeModelModal: Function;
 };
 
-const makeModelModal = ({
+const MakeModelModal = ({
   parentMake,
   parentModels,
   setParentMake,
@@ -209,4 +209,4 @@ const makeModelModal = ({
   );
 };
 
-export default makeModelModal;
+export default MakeModelModal;

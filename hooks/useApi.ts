@@ -1,5 +1,5 @@
 import { createHmac } from "crypto";
-import { PAGE_SIZE, LIMIT } from "@/libs/constants";
+import { LIMIT } from "@/libs/constants";
 import { MoreFilter } from "@/interfaces/MoreFilter";
 
 const useApi = () => {
@@ -39,7 +39,8 @@ const useApi = () => {
         ? window.navigator.userAgent
         : "build-server";
     const body = {};
-    const response = await fetch("https://prelogin.padev.xyz" + url, {
+    const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    const response = await fetch(BASE_URL + url, {
       method: "GET",
       headers: {
         "x-client": agent,
@@ -67,6 +68,8 @@ const useApi = () => {
   };
 
   const getPageData = async (
+    rows: number,
+    limit: number,
     current: number,
     vehicleType: string,
     searchKey: string,
@@ -84,8 +87,12 @@ const useApi = () => {
     radius: number,
     sort: string
   ) => {
-    let url = `/api/listings?_page=${current}&_limit=${PAGE_SIZE}`;
-
+    let url = `/api/listings?_page=${current}`;
+    if (limit < (current + 1) * (rows * 4)) {
+      url += `&_limit=${limit}`;
+    } else {
+      url += `&_limit=${rows * 4}`;
+    }
     //Filter by vehicleType
     if (vehicleType != "All Vehicles") {
       url += `&vehicleType=${text_format(vehicleType)}`;

@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Menu = () => {
   const [showMenuModal, setShowMenuModal] = useState<Boolean>(false);
@@ -20,13 +20,7 @@ const Menu = () => {
       <div className="md:flex justify-between">
         <div className="flex justify-between md:items-center space-x-8">
           <Link className="cursor-pointer" href="/">
-            <Image
-              className="w-[134px] h-[24px]"
-              src="/assets/logo.svg"
-              width="134"
-              height="24"
-              alt="PrivateAuto"
-            />
+            <Image width={134} height={24} src="/assets/logo.svg" alt="logo" />
           </Link>
           <div className="hidden md:flex text-xl font-normal text-[#333] space-x-6">
             <Link

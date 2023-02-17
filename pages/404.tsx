@@ -21,11 +21,11 @@ export default function NotPageFound() {
           </div>
           <div className="flex md:block justify-center pb-20 md:pb-0">
             <Image
+              width={286}
+              height={286}
               className="w-[60%] md:w-full"
               src="/assets/notFoundCar.svg"
-              alt="Not found"
-              width={60}
-              height={100}
+              alt="notFoundCar"
             />
           </div>
           <div className="block md:hidden text-center md:text-left space-y-8">

@@ -3,10 +3,10 @@ export const Google_Autocomplete_Key =
   "AIzaSyABX4LTqTLQGg_b3jFOH8Z6_H5CDqn8tbc";
 
 export const BASE_URL = "https://padev.xyz";
-export const PAGE_SIZE = 24;
 export const LIMIT = 1000;
 
 export const vehicles = ["All Vehicles", "Auto", "ATV/OHV", "Motorcycle"];
+export const vehiclesOnSellEntry = ["Auto", "ATV/OHV", "Motorcycle"];
 export const comingVehicles = ["RV", "Boat"];
 export const initalCarsArray = [
   {

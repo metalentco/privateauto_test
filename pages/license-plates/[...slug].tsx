@@ -1,12 +1,12 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useEffect, useState } from 'react';
-import React from 'react';
-import { useRouter } from 'next/router';
-import Header from '@/components/Header';
-import Menu from '@/components/Menu';
-import SlugMainComp from '@/components/SlugMainComp';
-import Footer from '@/components/Footer';
-import PageNotFound from '@/components/PageNotFound';
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useEffect, useState } from "react";
+import React from "react";
+import { useRouter } from "next/router";
+import Header from "@/components/Header";
+import Menu from "@/components/Menu";
+import SlugMainComp from "@/components/SlugMainComp";
+import Footer from "@/components/Footer";
+import PageNotFound from "@/components/PageNotFound";
 
 interface Props {
   content: any;
@@ -30,20 +30,19 @@ function Components(content: Props) {
           ) {
             if (
               listing_content.data[i].attributes.Content[j].__component ==
-              'page-elements.faq'
+              "page-elements.faq"
             ) {
               setIndexFaq(j);
               break;
             }
           }
-          document.title = listing_content.data[i].attributes.PageTitle;
           setData(listing_content.data[i]);
         }
       }
     };
 
     if (slug) {
-      const slugValue = '/' + slug.toString();
+      const slugValue = "/" + slug.toString();
       getData(slugValue);
     }
   }, [slug]);
@@ -71,29 +70,27 @@ function Components(content: Props) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + 'base-pages?populate=deep';
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "license-plates?populate=deep";
   const authorization =
-    'Bearer ' + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
+    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
   const res = await fetch(STRAPI_URL, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: authorization,
     },
   });
   const content = await res.json();
   const paths = content.data.map((item: any, index: number) => {
-    if (item.attributes.slug != '/') {
-      return {
-        params: {
-          slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
-        },
-      };
-    }
+    return {
+      params: {
+        slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
+      },
+    };
   });
   return {
     paths,
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 };
 
@@ -101,13 +98,13 @@ export const getStaticProps: GetStaticProps<Props> = async (
   context
 ): Promise<{ props: Props; revalidate: number }> => {
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + 'base-pages?populate=deep';
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "license-plates?populate=deep";
   const authorization =
-    'Bearer ' + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
+    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
   const res = await fetch(STRAPI_URL, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: authorization,
     },
   });
