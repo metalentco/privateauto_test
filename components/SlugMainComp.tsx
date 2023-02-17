@@ -8,6 +8,11 @@ import VehicleSearch from "@/components/VehicleSearch";
 import BulletedList from "@/components/BulletedList";
 import Lists from "@/components/Lists";
 import JumpLinks from "@/components/JumpLinks";
+import ContactForm from "@/components/ContactForm";
+import PaymentCalculator from "@/components/PaymentCalculator";
+import SellEntry from "@/components/SellEntry";
+import WatermarkBlock from "@/components/WatermarkBlock";
+import HeaderWithOverlap from "@/components/HeaderWithOverlap";
 
 type Props = {
   data: any;
@@ -52,6 +57,16 @@ const SlugMainComp = ({ data, indexFaq }: Props) => {
               <BulletedList key={index} data={item} />
             ) : item.__component == "app-forms.vehicle-search" ? (
               <VehicleSearch key={index} data={item} />
+            ) : item.__component == "app-forms.contact-form" ? (
+              <ContactForm key={index} data={item} />
+            ) : item.__component == "app-forms.payment-calculator" ? (
+              <PaymentCalculator key={index} data={item} />
+            ) : item.__component == "app-forms.vin-entry" ? (
+              <SellEntry key={index} data={item} />
+            ) : item.__component == "page-elements.watermark-block" ? (
+              <WatermarkBlock key={index} data={item} />
+            ) : item.__component == "page-elements.header-with-overlap" ? (
+              <HeaderWithOverlap key={index} data={item} />
             ) : item.__component == "page-elements.list" ? (
               <Lists key={index} data={item} />
             ) : item.__component == "page-elements.jump-links" ? (
