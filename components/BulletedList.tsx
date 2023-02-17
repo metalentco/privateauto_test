@@ -25,7 +25,7 @@ const BulletedList = ({ data }: Props) => {
           }
           return (
             <div className="w-full flex items-center space-x-4" key={index}>
-              <img
+              <Image
                 className={`w-[${width}]px h-[${height}px]`}
                 width={width}
                 height={height}
