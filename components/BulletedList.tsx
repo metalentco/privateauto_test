@@ -11,7 +11,7 @@ const BulletedList = ({ data }: Props) => {
   var width = 0;
   var height = 0;
   return (
-    <div className={`w-[${parseWidth(data.Width)}]% space-y-6 py-8`}>
+    <div className={`w-[${parseWidth(data.Width)}]% space-y-6`}>
       <div className={`w-5/6 md:w-4/6 mx-auto ${parseTitle(data.TitleStyle)}`}>
         {data.Title}
       </div>

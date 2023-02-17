@@ -43,39 +43,41 @@ const SlugMainComp = ({ data, indexFaq }: Props) => {
           {data.attributes.Body}
         </div>
       </section>
-      {data && data.attributes.Content.length != 0
-        ? data.attributes.Content.map((item: any, index: number) => {
-            return item.__component == "page-elements.jump-link-target" ? (
-              <JumpLinkTarget key={index} data={item} />
-            ) : item.__component == "page-elements.icon-bar" ? (
-              <IconBar key={index} data={item} />
-            ) : item.__component == "page-elements.image-text" ? (
-              <ContentBlock key={index} data={item} />
-            ) : item.__component == "page-elements.inline-image" ? (
-              <InlineImage key={index} data={item} />
-            ) : item.__component == "page-elements.bulleted-list" ? (
-              <BulletedList key={index} data={item} />
-            ) : item.__component == "app-forms.vehicle-search" ? (
-              <VehicleSearch key={index} data={item} />
-            ) : item.__component == "app-forms.contact-form" ? (
-              <ContactForm key={index} data={item} />
-            ) : item.__component == "app-forms.payment-calculator" ? (
-              <PaymentCalculator key={index} data={item} />
-            ) : item.__component == "app-forms.vin-entry" ? (
-              <SellEntry key={index} data={item} />
-            ) : item.__component == "page-elements.watermark-block" ? (
-              <WatermarkBlock key={index} data={item} />
-            ) : item.__component == "page-elements.header-with-overlap" ? (
-              <HeaderWithOverlap key={index} data={item} />
-            ) : item.__component == "page-elements.list" ? (
-              <Lists key={index} data={item} />
-            ) : item.__component == "page-elements.jump-links" ? (
-              <JumpLinks key={index} data={item} />
-            ) : (
-              <Faq key={index} data={item} faq={indexFaq} index={index} />
-            );
-          })
-        : null}
+      <div className="w-full space-y-4">
+        {data && data.attributes.Content.length != 0
+          ? data.attributes.Content.map((item: any, index: number) => {
+              return item.__component == "page-elements.jump-link-target" ? (
+                <JumpLinkTarget key={index} data={item} />
+              ) : item.__component == "page-elements.icon-bar" ? (
+                <IconBar key={index} data={item} />
+              ) : item.__component == "page-elements.image-text" ? (
+                <ContentBlock key={index} data={item} />
+              ) : item.__component == "page-elements.inline-image" ? (
+                <InlineImage key={index} data={item} />
+              ) : item.__component == "page-elements.bulleted-list" ? (
+                <BulletedList key={index} data={item} />
+              ) : item.__component == "app-forms.vehicle-search" ? (
+                <VehicleSearch key={index} data={item} />
+              ) : item.__component == "app-forms.contact-form" ? (
+                <ContactForm key={index} data={item} />
+              ) : item.__component == "app-forms.payment-calculator" ? (
+                <PaymentCalculator key={index} data={item} />
+              ) : item.__component == "app-forms.vin-entry" ? (
+                <SellEntry key={index} data={item} />
+              ) : item.__component == "page-elements.watermark-block" ? (
+                <WatermarkBlock key={index} data={item} />
+              ) : item.__component == "page-elements.header-with-overlap" ? (
+                <HeaderWithOverlap key={index} data={item} />
+              ) : item.__component == "page-elements.list" ? (
+                <Lists key={index} data={item} />
+              ) : item.__component == "page-elements.jump-links" ? (
+                <JumpLinks key={index} data={item} />
+              ) : (
+                <Faq key={index} data={item} faq={indexFaq} index={index} />
+              );
+            })
+          : null}
+      </div>
     </main>
   );
 };
