@@ -1,15 +1,15 @@
-import Image from "next/image";
-import { parseTitle, parseColor } from "@/libs/utils";
+import Image from 'next/image';
+import { parseTitle, parseColor } from '@/libs/utils';
 
 type Props = {
   data: any;
 };
 
 const Lists = ({ data }: Props) => {
-  var url = "";
-  var alt = "";
-  var width = 0;
-  var height = 0;
+  let url = '';
+  let alt = '';
+  let width = 0;
+  let height = 0;
 
   return (
     <div className="w-5/6 md:w-4/6 mx-auto py-8">

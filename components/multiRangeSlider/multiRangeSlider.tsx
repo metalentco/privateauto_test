@@ -35,13 +35,13 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
     if (min - 1 < minValue && minValue < max) {
       setMinVal(minValue);
     }
-  }, [minValue]);
+  }, [minValue, min, max]);
 
   useEffect(() => {
     if (minValue < maxValue && maxValue < max + 1) {
       setMaxVal(maxValue);
     }
-  }, [maxValue]);
+  }, [maxValue, minValue, max]);
 
   // Convert to percentage
   const getPercent = useCallback(

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import Image from "next/image";
-import { MoreFilter } from "@/interfaces/MoreFilter";
+import { useState } from 'react';
+import Image from 'next/image';
+import { MoreFilter } from '@/interfaces/MoreFilter';
 
 type Props = {
   moreFilterData: any;
@@ -66,22 +66,22 @@ const MoreFilterModal = ({
   };
 
   const clickItem = (type: string, item: string) => {
-    if (type == "trim") {
+    if (type == 'trim') {
       const trims = trimArr.slice();
       setTrimArr(getResetArr(trims, item));
-    } else if (type == "exterior") {
+    } else if (type == 'exterior') {
       const exteriors = exteriorColorArr.slice();
       setExteriorColorArr(getResetArr(exteriors, item));
-    } else if (type == "interior") {
+    } else if (type == 'interior') {
       const interiors = interiorColorArr.slice();
       setInteriorColorArr(getResetArr(interiors, item));
-    } else if (type == "fuel") {
+    } else if (type == 'fuel') {
       const fuels = fuelTypeArr.slice();
       setFuelTypeArr(getResetArr(fuels, item));
-    } else if (type == "transmission") {
+    } else if (type == 'transmission') {
       const transmissions = transmissionArr.slice();
       setTransmissionArr(getResetArr(transmissions, item));
-    } else if (type == "drive") {
+    } else if (type == 'drive') {
       const drives = driveTypeArr.slice();
       setDriveTypeArr(getResetArr(drives, item));
     } else {
@@ -92,7 +92,7 @@ const MoreFilterModal = ({
 
   const apply = () => {
     setIsMoreFilterModal(false);
-    document.body.style.overflowY = "scroll";
+    document.body.style.overflowY = 'scroll';
     let data: MoreFilter = {
       trim: [],
       exteriorColor: [],
@@ -114,7 +114,7 @@ const MoreFilterModal = ({
 
   const clear = () => {
     setIsMoreFilterModal(false);
-    document.body.style.overflowY = "scroll";
+    document.body.style.overflowY = 'scroll';
     let data: MoreFilter = {
       trim: [],
       exteriorColor: [],
@@ -150,20 +150,20 @@ const MoreFilterModal = ({
             className="cursor-pointer"
             onClick={() => {
               setIsMoreFilterModal(false);
-              document.body.style.overflowY = "scroll";
+              document.body.style.overflowY = 'scroll';
             }}
           >
             <g id="SVGRepo_bgCarrier"></g>
             <g id="SVGRepo_tracerCarrier"></g>
             <g id="SVGRepo_iconCarrier">
-              {" "}
+              {' '}
               <g>
-                {" "}
+                {' '}
                 <g>
-                  {" "}
-                  <path d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"></path>{" "}
-                </g>{" "}
-              </g>{" "}
+                  {' '}
+                  <path d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"></path>{' '}
+                </g>{' '}
+              </g>{' '}
             </g>
           </svg>
         </div>
@@ -180,7 +180,7 @@ const MoreFilterModal = ({
             >
               <div className="flex justify-between">
                 <span>
-                  {trimArr[0] != undefined ? trimArr[0].slice(0, 35) : ""}
+                  {trimArr[0] != undefined ? trimArr[0].slice(0, 35) : ''}
                 </span>
                 <Image
                   width={10}
@@ -200,7 +200,7 @@ const MoreFilterModal = ({
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
-                        onClick={() => clickItem("trim", item)}
+                        onClick={() => clickItem('trim', item)}
                       >
                         <input
                           type="checkbox"
@@ -246,7 +246,7 @@ const MoreFilterModal = ({
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
-                        onClick={() => clickItem("exterior", item)}
+                        onClick={() => clickItem('exterior', item)}
                       >
                         <input
                           type="checkbox"
@@ -292,7 +292,7 @@ const MoreFilterModal = ({
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
-                        onClick={() => clickItem("interior", item)}
+                        onClick={() => clickItem('interior', item)}
                       >
                         <input
                           type="checkbox"
@@ -338,7 +338,7 @@ const MoreFilterModal = ({
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
-                        onClick={() => clickItem("fuel", item)}
+                        onClick={() => clickItem('fuel', item)}
                       >
                         <input
                           type="checkbox"
@@ -384,7 +384,7 @@ const MoreFilterModal = ({
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
-                        onClick={() => clickItem("transmission", item)}
+                        onClick={() => clickItem('transmission', item)}
                       >
                         <input
                           type="checkbox"
@@ -430,7 +430,7 @@ const MoreFilterModal = ({
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
-                        onClick={() => clickItem("drive", item)}
+                        onClick={() => clickItem('drive', item)}
                       >
                         <input
                           type="checkbox"
@@ -476,7 +476,7 @@ const MoreFilterModal = ({
                       <div
                         className="w-full flex space-x-1 text-sm font-medium text-[#212529] px-4 py-2 cursor-pointer"
                         key={index}
-                        onClick={() => clickItem("cylinders", item)}
+                        onClick={() => clickItem('cylinders', item)}
                       >
                         <input
                           type="checkbox"

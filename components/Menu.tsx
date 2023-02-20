@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import Image from "next/image";
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const Menu = () => {
   const [showMenuModal, setShowMenuModal] = useState<Boolean>(false);
@@ -9,10 +9,10 @@ const Menu = () => {
   const router = useRouter();
 
   const setScrollHidden = () => {
-    if (document.body.style.overflow !== "hidden") {
-      document.body.style.overflow = "hidden";
+    if (document.body.style.overflow !== 'hidden') {
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflowY = "scroll";
+      document.body.style.overflowY = 'scroll';
     }
   };
   return (
@@ -25,7 +25,7 @@ const Menu = () => {
           <div className="hidden md:flex text-xl font-normal text-[#333] space-x-6">
             <Link
               className={`"cursor-pointer" ${
-                router.pathname == "/sell" ? "underline" : ""
+                router.pathname == '/sell' ? 'underline' : ''
               }`}
               href="/sell"
             >
@@ -33,7 +33,7 @@ const Menu = () => {
             </Link>
             <Link
               className={`"cursor-pointer" ${
-                router.pathname == "/buy" ? "underline" : ""
+                router.pathname == '/buy' ? 'underline' : ''
               }`}
               href="/buy"
             >
@@ -41,7 +41,7 @@ const Menu = () => {
             </Link>
             <Link
               className={`"cursor-pointer" ${
-                router.pathname == "/pricing" ? "underline" : ""
+                router.pathname == '/pricing' ? 'underline' : ''
               }`}
               href="/pricing"
             >
@@ -49,7 +49,7 @@ const Menu = () => {
             </Link>
             <Link
               className={`"cursor-pointer" ${
-                router.pathname == "/how-it-works" ? "underline" : ""
+                router.pathname == '/how-it-works' ? 'underline' : ''
               }`}
               href="/how-it-works"
             >
@@ -57,7 +57,7 @@ const Menu = () => {
             </Link>
             <Link
               className={`"cursor-pointer" ${
-                router.pathname == "/blog" ? "underline" : ""
+                router.pathname == '/blog' ? 'underline' : ''
               }`}
               href="/blog"
             >
@@ -91,20 +91,20 @@ const Menu = () => {
                 viewBox="0 0 92.13 92.13"
                 onClick={() => {
                   setShowMenuModal(false);
-                  document.body.style.overflowY = "scroll";
+                  document.body.style.overflowY = 'scroll';
                 }}
               >
                 <g id="SVGRepo_bgCarrier"></g>
                 <g id="SVGRepo_tracerCarrier"></g>
                 <g id="SVGRepo_iconCarrier">
-                  {" "}
+                  {' '}
                   <g>
-                    {" "}
+                    {' '}
                     <g>
-                      {" "}
-                      <path d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"></path>{" "}
-                    </g>{" "}
-                  </g>{" "}
+                      {' '}
+                      <path d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"></path>{' '}
+                    </g>{' '}
+                  </g>{' '}
                 </g>
               </svg>
             </div>

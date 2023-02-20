@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 type Props = {
   data: any;
@@ -17,15 +17,16 @@ const IconBar = ({ data }: Props) => {
                 <a
                   className="mt-10 md:mt-0 flex justify-center"
                   href={item.URL}
-                  key={index}
+                  key={item.id}
                   target="_blank"
                   rel="noreferrer"
                 >
                   <Image
+                    className={`w-[${item.Image.data.attributes.width}px] h-[${item.Image.data.attributes.height}px]`}
                     width={item.Image.data.attributes.width}
                     height={item.Image.data.attributes.height}
                     src={item.Image.data.attributes.url}
-                    alt="icon_bar"
+                    alt={item.Image.data.attributes.alternativeText}
                   />
                 </a>
               );

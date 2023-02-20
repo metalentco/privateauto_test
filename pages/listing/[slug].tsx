@@ -1,21 +1,21 @@
-import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import Link from "next/link";
-import { useState } from "react";
-import React from "react";
-import GoogleMapReact from "google-map-react";
-import Image from "next/image";
-import API from "@/hooks/useApi";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Menu from "@/components/Menu";
-import { Google_Map_API_Key } from "@/libs/constants";
+import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useState } from 'react';
+import React from 'react';
+import GoogleMapReact from 'google-map-react';
+import Image from 'next/image';
+import API from '@/hooks/useApi';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Menu from '@/components/Menu';
+import { Google_Map_API_Key } from '@/libs/constants';
 import {
   CheckSVG,
   ExclamationSVG,
   QuestionSVG,
   GripHorizontalSVG,
-} from "@/components/Icon/Icons";
+} from '@/components/Icon/Icons';
 const AnyReactComponent = ({ lat, lng }: { lat: any; lng: any }) => <div></div>;
 
 interface Props {
@@ -41,7 +41,7 @@ function SlugPage(content: Props) {
   };
 
   const showAdditionalInfo = () => {
-    if (isAdditionalInfo == false) {
+    if (!isAdditionalInfo) {
       setIsAdditionalInfo(true);
     } else {
       setIsAdditionalInfo(false);
@@ -49,7 +49,7 @@ function SlugPage(content: Props) {
   };
 
   const showSellerDisclosures = () => {
-    if (isSellerDisclosures == false) {
+    if (!isSellerDisclosures) {
       setIsSellerDisclosures(true);
     } else {
       setIsSellerDisclosures(false);
@@ -61,10 +61,10 @@ function SlugPage(content: Props) {
   };
 
   const setScrollHidden = () => {
-    if (document.body.style.overflow !== "hidden") {
-      document.body.style.overflow = "hidden";
+    if (document.body.style.overflow !== 'hidden') {
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflowY = "scroll";
+      document.body.style.overflowY = 'scroll';
     }
   };
 
@@ -80,7 +80,7 @@ function SlugPage(content: Props) {
             } ${data.CarMake} ${data.CarModel} ${
               data.listingLocation != undefined
                 ? ` for sale in ${data.listingLocation.city}, ${data.listingLocation.stateShortname}`
-                : ""
+                : ''
             }. Buy and sell used cars on PrivateAuto.`}
             key="desc"
           />
@@ -109,12 +109,12 @@ function SlugPage(content: Props) {
                       return (
                         <div
                           className="w-[202px] h-[236px] mt-2.5 mr-2"
-                          key={index}
+                          key={item.id}
                         >
                           <Image
                             className="cursor-pointer"
                             src={
-                              "https://padev.xyz/images/202x236" + item.images
+                              'https://padev.xyz/images/202x236' + item.images
                             }
                             width={202}
                             height={236}
@@ -138,7 +138,7 @@ function SlugPage(content: Props) {
                         className="cursor-pointer"
                         width={564}
                         height={480}
-                        src={"https://padev.xyz/images/564x480" + imageURI}
+                        src={'https://padev.xyz/images/564x480' + imageURI}
                         alt="car_image_564x480"
                       />
                     </div>
@@ -149,7 +149,7 @@ function SlugPage(content: Props) {
                   </div>
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
             {showImageModal ? (
@@ -159,7 +159,7 @@ function SlugPage(content: Props) {
                     className="h-[70px] flex items-center px-8 hover:underline cursor-pointer"
                     onClick={() => {
                       setShowImageModal(false);
-                      document.body.style.overflowY = "scroll";
+                      document.body.style.overflowY = 'scroll';
                     }}
                   >
                     <div className="flex">
@@ -180,15 +180,18 @@ function SlugPage(content: Props) {
                   <div>
                     {data?.uploadImages.map((item: any, index: number) => {
                       return (
-                        <div className="w-full lg:w-[1154px] mb-8" key={index}>
+                        <div
+                          className="w-full lg:w-[1154px] mb-8"
+                          key={item.id}
+                        >
                           <Image
                             className="w-full h-full cursor-pointer"
                             src={
-                              "https://padev.xyz/images/1250x1000" + item.images
+                              'https://padev.xyz/images/1250x1000' + item.images
                             }
                             width={1153}
                             height={923}
-                            key={index}
+                            key={item.id}
                             alt="car_image_1250x1000"
                           />
                         </div>
@@ -332,7 +335,7 @@ function SlugPage(content: Props) {
               <h3 className="text-2xl font-bold mb-1">Description</h3>
               <div className="space-y-4">
                 {data.vehicleDescription
-                  .split("\n")
+                  .split('\n')
                   .map((item: any, i: number) => (
                     <p key={i}>{item}</p>
                   ))}
@@ -346,7 +349,7 @@ function SlugPage(content: Props) {
                 alt="authocheck-logo"
               />
               <a className="text-xs text-[#727a82] font-normal cursor-pointer">
-                Vehicle history {">"}
+                Vehicle history {'>'}
               </a>
             </div>
           </section>
@@ -398,7 +401,7 @@ function SlugPage(content: Props) {
                   </div>
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
             <hr className="mt-[20px]" />
@@ -426,7 +429,7 @@ function SlugPage(content: Props) {
                           type="checkbox"
                           className="text-white cursor-pointer"
                           checked
-                        />{" "}
+                        />{' '}
                         &nbsp;
                         <span>Yes</span>
                       </div>
@@ -435,7 +438,7 @@ function SlugPage(content: Props) {
                           type="checkbox"
                           className=" cursor-pointer"
                           disabled
-                        />{" "}
+                        />{' '}
                         &nbsp;
                         <span>No</span>
                       </div>
@@ -447,7 +450,7 @@ function SlugPage(content: Props) {
                           type="checkbox"
                           className=" cursor-pointer"
                           disabled
-                        />{" "}
+                        />{' '}
                         &nbsp;
                         <span>Yes</span>
                       </div>
@@ -456,26 +459,26 @@ function SlugPage(content: Props) {
                           type="checkbox"
                           className=" cursor-pointer"
                           checked
-                        />{" "}
+                        />{' '}
                         &nbsp;
                         <span>No</span>
                       </div>
                     </div>
                   )}
-                  {data && data.description != "" ? (
+                  {data.description != '' ? (
                     <div className="w-full bg-[#f7f9fc] text-sm font-normal px-4 py-4 my-4 border-[#dee2e6] border rounded">
                       {data.description
-                        .split("\n")
+                        .split('\n')
                         .map((item: any, i: number) => (
                           <p key={i}>{item}</p>
                         ))}
                     </div>
                   ) : (
-                    ""
+                    ''
                   )}
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
             <hr className="mt-[20px]" />
@@ -516,7 +519,7 @@ function SlugPage(content: Props) {
                       width={56}
                       height={56}
                       src={
-                        "https://padev.xyz" +
+                        'https://padev.xyz' +
                         data.userId.userDetails.profileImage
                       }
                       alt="profile"
@@ -612,7 +615,7 @@ function SlugPage(content: Props) {
               <QuestionSVG />
             </div>
             <div className="flex space-x-8 mt-8">
-              {data && data.dealPreferences.paymentMethod.privateAutoPay ? (
+              {data.dealPreferences.paymentMethod.privateAutoPay ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
                     width={46}
@@ -622,9 +625,9 @@ function SlugPage(content: Props) {
                   />
                 </div>
               ) : (
-                ""
+                ''
               )}
-              {data && data.dealPreferences.paymentMethod.cash ? (
+              {data.dealPreferences.paymentMethod.cash ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
                     width={60}
@@ -634,9 +637,9 @@ function SlugPage(content: Props) {
                   />
                 </div>
               ) : (
-                ""
+                ''
               )}
-              {data && data.dealPreferences.paymentMethod.crypto.btc ? (
+              {data.dealPreferences.paymentMethod.crypto.btc ? (
                 <div className="px-4 py-2 border border-[#dee2e6] rounded">
                   <Image
                     width={60}
@@ -646,7 +649,7 @@ function SlugPage(content: Props) {
                   />
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
             <hr className="mt-6" />
@@ -666,7 +669,7 @@ function SlugPage(content: Props) {
                       {data.listingLocation.stateShortname}
                     </p>
                   ) : (
-                    ""
+                    ''
                   )}
                 </div>
                 <div className="flex items-center">
@@ -694,7 +697,7 @@ function SlugPage(content: Props) {
               </div>
             </section>
           ) : (
-            ""
+            ''
           )}
           <section className="w-full bg-[#f7f9fc] mt-20 px-4 md:px-12 py-8 md:py-16">
             <div className="text-[28px] font-bold pb-4">Why PrivateAuto</div>
@@ -704,7 +707,7 @@ function SlugPage(content: Props) {
                   width={82}
                   height={82}
                   src="/assets/listings/sendMoneyIcon.svg"
-                  alt="img-size"
+                  alt="Image-size"
                 />
                 <div>
                   <p className="text-lg md:text-2xl font-medium">
@@ -721,7 +724,7 @@ function SlugPage(content: Props) {
                   width={82}
                   height={82}
                   src="/assets/listings/chatFeatureIcon.svg"
-                  alt="img-size"
+                  alt="Image-size"
                 />
                 <div>
                   <p className="text-lg md:text-2xl font-medium">
@@ -738,7 +741,7 @@ function SlugPage(content: Props) {
                   width={82}
                   height={82}
                   src="/assets/listings/easySchedulingIcon.svg"
-                  alt="img-size"
+                  alt="Image-size"
                 />
                 <div>
                   <p className="text-lg md:text-2xl font-medium">
@@ -781,7 +784,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   });
   return {
     paths,
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 };
 
@@ -803,22 +806,22 @@ export const getStaticProps: GetStaticProps<Props> = async (
 
   if (content.userId.createdAt != null) {
     var date = new Date(content.userId.createdAt);
-    var arr = date.toString().split(" ");
-    var date_str = arr[1] + " " + arr[2] + ", " + arr[3];
+    var arr = date.toString().split(' ');
+    var date_str = arr[1] + ' ' + arr[2] + ', ' + arr[3];
     content.userId.createdAt = date_str;
   }
   content.uploadImages.map((item: any, index: number) => {
     const image_url = item.images;
-    if (item.images.includes("vehicle-listing")) {
+    if (item.images.includes('vehicle-listing')) {
       item.images = image_url.substring(
-        image_url.indexOf("/vehicle-listing"),
+        image_url.indexOf('/vehicle-listing'),
         image_url.length
       );
-    } else if (item.images.includes("jfif")) {
+    } else if (item.images.includes('jfif')) {
       item.images = item.images;
     } else {
       item.images = image_url.substring(
-        image_url.indexOf("/listings"),
+        image_url.indexOf('/listings'),
         image_url.length
       );
     }

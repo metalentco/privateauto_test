@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
-import { BASE_URL } from "@/libs/constants";
+import Link from 'next/link';
+import Image from 'next/image';
+import { BASE_URL } from '@/libs/constants';
 const Footer = () => {
   return (
     <footer className="w-full md:px-32 bg-[#45577d] pb-12">
@@ -124,9 +124,10 @@ const Footer = () => {
             rel="noreferrer"
           >
             <Image
+              className="w-[78px] h-[26px]"
+              src="/assets/appstore.svg"
               width={78}
               height={26}
-              src="/assets/appstore.svg"
               alt="IOS store"
             />
           </Link>
@@ -136,9 +137,10 @@ const Footer = () => {
             rel="noreferrer"
           >
             <Image
+              className="w-[81px] h-[29px]"
+              src="/assets/googleplay.svg"
               width={81}
               height={29}
-              src="/assets/googleplay.svg"
               alt="Google Play Store"
             />
           </Link>

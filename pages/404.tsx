@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Header from "@/components/Header";
-import Menu from "@/components/Menu";
-import Footer from "@/components/Footer";
+import Image from 'next/image';
+import Header from '@/components/Header';
+import Menu from '@/components/Menu';
+import Footer from '@/components/Footer';
 
 export default function NotPageFound() {
   return (

@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Geocode from "react-geocode";
-import Filter from "@/components/buy/Filter";
-import Pagination from "@/components/buy/Pagination";
-import API from "@/hooks/useApi";
-import { BASE_URL } from "@/libs/constants";
-import { MoreFilter } from "@/interfaces/MoreFilter";
-import { Google_Autocomplete_Key } from "@/libs/constants";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Geocode from 'react-geocode';
+import Filter from '@/components/buy/Filter';
+import Pagination from '@/components/buy/Pagination';
+import API from '@/hooks/useApi';
+import { BASE_URL } from '@/libs/constants';
+import { MoreFilter } from '@/interfaces/MoreFilter';
+import { Google_Autocomplete_Key } from '@/libs/constants';
 
 type Props = {
   data: any;
@@ -47,16 +47,16 @@ const VehicleSearch = ({ data }: Props) => {
     data.Filters != null &&
     data.Filters.VehicleType != null &&
     data.Filters.VehicleType != undefined
-      ? data.Filters.VehicleType == "Car"
-        ? "Auto"
+      ? data.Filters.VehicleType == 'Car'
+        ? 'Auto'
         : data.Filters.VehicleType
-      : "All Vehicles";
+      : 'All Vehicles';
   const initMake =
     data.Filters != null &&
     data.Filters.Make != null &&
     data.Filters.Make != undefined
       ? data.Filters.Make
-      : "";
+      : '';
   const initModels =
     data.Filters != null &&
     data.Filters.Model != null &&
@@ -97,11 +97,11 @@ const VehicleSearch = ({ data }: Props) => {
     data.Filters != null &&
     data.Filters.Location != null &&
     data.Filters.Location != undefined
-      ? data.Filters.Location + ", USA"
-      : "";
+      ? data.Filters.Location + ', USA'
+      : '';
 
   useEffect(() => {
-    if (initLocation != "") {
+    if (initLocation != '') {
       Geocode.setApiKey(Google_Autocomplete_Key);
       Geocode.fromAddress(initLocation).then(
         (response) => {
@@ -118,7 +118,7 @@ const VehicleSearch = ({ data }: Props) => {
 
   //page states
   const [vehicleType, setVehicleType] = useState<string>(initVehicleType);
-  const [searchKey, setSearchKey] = useState<string>("");
+  const [searchKey, setSearchKey] = useState<string>('');
   const [make, setMake] = useState<string>(initMake);
   const [models, setModels] = useState<Array<string>>(initModels);
   const [bodyType, setBodyType] = useState<Array<string>>(initBodyType);
@@ -131,7 +131,7 @@ const VehicleSearch = ({ data }: Props) => {
   const [lat, setLat] = useState<number>(0);
   const [lng, setLng] = useState<number>(0);
   const [radius, setRadius] = useState<number>(50);
-  const [sort, setSort] = useState<string>("Newest");
+  const [sort, setSort] = useState<string>('Newest');
 
   useEffect(() => {
     const { getInitMakeData, getCarDetailsFilter } = API();
@@ -166,7 +166,7 @@ const VehicleSearch = ({ data }: Props) => {
       window.scrollTo({
         top: 0,
         left: 0,
-        behavior: "smooth",
+        behavior: 'smooth',
       });
       setIsLoading(true);
       const data = await getPageData(
@@ -225,27 +225,27 @@ const VehicleSearch = ({ data }: Props) => {
     data.data.map((item: any, index: number) => {
       const image_url = item.uploadImages[0].images;
       //replace the image url fit for source url
-      if (item.uploadImages[0].images.includes("vehicle-listing")) {
+      if (item.uploadImages[0].images.includes('vehicle-listing')) {
         item.uploadImages[0].images =
-          "/images/264x198/" +
+          '/images/264x198/' +
           image_url.substring(
-            image_url.indexOf("vehicle-listing"),
+            image_url.indexOf('vehicle-listing'),
             image_url.length
           );
-      } else if (item.uploadImages[0].images.includes("jfif")) {
+      } else if (item.uploadImages[0].images.includes('jfif')) {
         item.uploadImages[0].images = item.uploadImages[0].images;
       } else {
         item.uploadImages[0].images =
-          "/images/264x198/" +
-          image_url.substring(image_url.indexOf("listings"), image_url.length);
+          '/images/264x198/' +
+          image_url.substring(image_url.indexOf('listings'), image_url.length);
       }
     });
   };
 
   const clearAll = () => {
-    setVehicleType("All Vehicles");
-    setSearchKey("");
-    setMake("");
+    setVehicleType('All Vehicles');
+    setSearchKey('');
+    setMake('');
     setModels([]);
     setBodyType([]);
     setMinYear(1910);
@@ -253,18 +253,18 @@ const VehicleSearch = ({ data }: Props) => {
     setMinMiles(0);
     setMaxMiles(300000);
     setMoreFiltersArr(initFilters);
-    setLocation("");
+    setLocation('');
     setLat(0);
     setLng(0);
     setRadius(50);
-    setSort("Newest");
+    setSort('Newest');
   };
   return (
     <div className="w-full">
       {!isLoading ? (
         <div className="w-full">
           {!data.AllowFilterChanges ? (
-            ""
+            ''
           ) : (
             <Filter
               vehicleType={vehicleType}
@@ -396,7 +396,7 @@ const VehicleSearch = ({ data }: Props) => {
                                     width={28}
                                     height={28}
                                     className="w-full rounded-full"
-                                    src={`${BASE_URL}${"/assets/defaultImg.png"}`}
+                                    src={`${BASE_URL}${'/assets/defaultImg.png'}`}
                                     alt="profile"
                                   />
                                   {item.userId.verification.vouched ? (
