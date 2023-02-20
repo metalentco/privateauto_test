@@ -1,59 +1,36 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { useEffect, useState } from 'react';
-import React from 'react';
-import { useRouter } from 'next/router';
-import Header from '@/components/Header';
-import Menu from '@/components/Menu';
-import SlugMainComp from '@/components/SlugMainComp';
-import Footer from '@/components/Footer';
-import PageNotFound from '@/components/PageNotFound';
+import { GetStaticPaths, GetStaticProps } from "next";
+import { useEffect, useState } from "react";
+import React from "react";
+import Header from "@/components/Header";
+import Menu from "@/components/Menu";
+import SlugMainComp from "@/components/SlugMainComp";
+import Footer from "@/components/Footer";
+import PageNotFound from "@/components/PageNotFound";
 
 interface Props {
   content: any;
 }
 
 function Components(content: Props) {
-  const router = useRouter();
-  const { slug } = router.query;
-  const [data, setData] = useState<any>();
   const [indexFaq, setIndexFaq] = useState<any>(0);
 
   useEffect(() => {
-    const getData = (value: string) => {
-      const listing_content = content.content;
-      for (var i = 0; i < listing_content.data.length; i++) {
-        if (listing_content.data[i].attributes.slug === value) {
-          for (
-            var j = 0;
-            j < listing_content.data[i].attributes.Content.length;
-            j++
-          ) {
-            if (
-              listing_content.data[i].attributes.Content[j].__component ==
-              'page-elements.faq'
-            ) {
-              setIndexFaq(j);
-              break;
-            }
-          }
-          document.title = listing_content.data[i].attributes.PageTitle;
-          setData(listing_content.data[i]);
+    if (content.content != null) {
+      document.title = content.content.attributes.PageTitle;
+      content.content.attributes.Content.map((item: any, index: number) => {
+        if (item.__component == "page-elements.faq") {
+          setIndexFaq(index);
         }
-      }
-    };
-
-    if (slug) {
-      const slugValue = '/' + slug.toString();
-      getData(slugValue);
+      });
     }
-  }, [slug]);
+  }, []);
 
-  if (data) {
+  if (content.content != null) {
     return (
       <div className="w-full">
         <Header />
         <Menu />
-        <SlugMainComp data={data} indexFaq={indexFaq} />
+        <SlugMainComp data={content.content} indexFaq={indexFaq} />
         <Footer />
       </div>
     );
@@ -71,54 +48,90 @@ function Components(content: Props) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + 'base-pages?populate=deep';
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "base-pages?populate=deep";
   const authorization =
-    'Bearer ' + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
-  const res = await fetch(STRAPI_URL, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: authorization,
-    },
-  });
-  const content = await res.json();
-  const paths = content.data.map((item: any, index: number) => {
-    if (item.attributes.slug != '/') {
-      return {
-        params: {
-          slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
-        },
-      };
-    }
-  });
-  return {
-    paths,
-    fallback: 'blocking',
-  };
+    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
+  try {
+    const res = await fetch(STRAPI_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization,
+      },
+    });
+    const content = await res.json();
+    let paths: any[] = [];
+    content.data.map((item: any, index: number) => {
+      if (item.attributes.slug != "/") {
+        paths.push({
+          params: {
+            slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
+          },
+        });
+      }
+    });
+    return {
+      paths,
+      fallback: "blocking",
+    };
+  } catch (e: any) {
+    console.log(
+      `Strapi content for ${STRAPI_URL} (${authorization}) - ${e.message}`
+    );
+    return {
+      paths: [{ params: { slug: [] } }],
+      fallback: "blocking",
+    };
+  }
 };
 
 export const getStaticProps: GetStaticProps<Props> = async (
   context
 ): Promise<{ props: Props; revalidate: number }> => {
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + 'base-pages?populate=deep';
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "base-pages?populate=deep";
   const authorization =
-    'Bearer ' + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
-  const res = await fetch(STRAPI_URL, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: authorization,
-    },
-  });
-  const content = await res.json();
+    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
+  try {
+    const res = await fetch(STRAPI_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization,
+      },
+    });
+    const total_list = await res.json();
 
-  return {
-    props: {
-      content,
-    },
-    revalidate: 30,
-  };
+    let slug: string | string[] | undefined;
+    let content: any = null;
+
+    if (context.params != undefined) {
+      slug = context.params.slug;
+    }
+
+    total_list.data.map((item: any, index: number) => {
+      if (item.attributes.slug == "/" + slug) {
+        content = item;
+      }
+    });
+
+    return {
+      props: {
+        content,
+      },
+      revalidate: 30,
+    };
+  } catch (e: any) {
+    console.log(
+      `Strapi content for ${STRAPI_URL} (${authorization}) - ${e.message}`
+    );
+    return {
+      props: {
+        content: {},
+      },
+      revalidate: 30,
+    };
+  }
 };
 
 export default Components;

@@ -23,7 +23,8 @@ const useApi = () => {
         ? window.navigator.userAgent
         : "build-server";
     const body = {};
-    const response = await fetch(url, {
+    const BASE_URL = process.env.NEXT_PUBLIC_SEARCH_API_BASE_URL;
+    const response = await fetch(BASE_URL + url, {
       method: "GET",
       headers: {
         "x-client": agent,

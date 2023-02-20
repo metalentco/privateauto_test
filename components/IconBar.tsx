@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   data: any;
@@ -14,7 +15,7 @@ const IconBar = ({ data }: Props) => {
           <div className="block md:flex items-center justify-center space-x-8">
             {data.Links.map((item: any, index: number) => {
               return (
-                <a
+                <Link
                   className="mt-10 md:mt-0 flex justify-center"
                   href={item.URL}
                   key={item.id}
@@ -28,7 +29,7 @@ const IconBar = ({ data }: Props) => {
                     src={item.Image.data.attributes.url}
                     alt={item.Image.data.attributes.alternativeText}
                   />
-                </a>
+                </Link>
               );
             })}
           </div>

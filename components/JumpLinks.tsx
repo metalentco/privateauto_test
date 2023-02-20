@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type Props = {
   data: any;
 };
@@ -16,12 +18,12 @@ const JumpLinks = ({ data }: Props) => {
               key={item.TargetName}
               className="w-[95%] text-base md:text-xl space-y-4"
             >
-              <a href={`${'#'}${item.Label}`}>
+              <Link href={`${"#"}${item.Label}`}>
                 <div className="flex justify-between text-slate-500 mt-4 cursor-pointer">
                   <span>{item.TargetName}</span>
-                  <span className="pr-4"> {'>'} </span>
+                  <span className="pr-4"> {">"} </span>
                 </div>
-              </a>
+              </Link>
               <hr className="border text-black" />
             </div>
           </div>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import SlugMainComp from "@/components/SlugMainComp";
 import Footer from "@/components/Footer";
-import PageNotFound from "@/components/PageNotFound";
 import { Inter } from "@next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -76,7 +76,14 @@ const Home = () => {
       <div className="w-full">
         <Header />
         <Menu />
-        <PageNotFound />
+        <div className="w-full flex justify-center">
+          <Image
+            width={640}
+            height={600}
+            src="/assets/loading.gif"
+            alt="loading"
+          />
+        </div>
         <Footer />
       </div>
     );

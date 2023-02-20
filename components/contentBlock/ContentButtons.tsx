@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 type Props = {
@@ -30,7 +31,7 @@ const ContentButtons = ({ buttonType }: Props) => {
         </div>
       ) : buttonType == "App Stores" ? (
         <div className="flex justify-center sm:justify-start mt-8 space-x-8">
-          <a
+          <Link
             href="https://apps.apple.com/us/app/privateauto-sell-privately/id1614271597"
             target="_blank"
             rel="noreferrer"
@@ -41,8 +42,8 @@ const ContentButtons = ({ buttonType }: Props) => {
               src="/assets/appstore.svg"
               alt="appstore"
             />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://play.google.com/store/apps/details?id=io.gonative.android.qwkoyk"
             target="_blank"
             rel="noreferrer"
@@ -53,7 +54,7 @@ const ContentButtons = ({ buttonType }: Props) => {
               src="/assets/googleplay.svg"
               alt="googleplay"
             />
-          </a>
+          </Link>
         </div>
       ) : (
         ""

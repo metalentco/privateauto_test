@@ -42,11 +42,6 @@ const Pagination = ({ pages, currentPage, total, rows, onClick }: Props) => {
               src="/assets/chevron-left.svg"
               alt="left"
               onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: "smooth",
-                });
                 onClick(currentPage - 1);
               }}
             />
@@ -64,11 +59,6 @@ const Pagination = ({ pages, currentPage, total, rows, onClick }: Props) => {
                 key={index}
                 className="cursor-pointer"
                 onClick={() => {
-                  window.scrollTo({
-                    top: 0,
-                    left: 0,
-                    behavior: "smooth",
-                  });
                   onClick(page);
                 }}
               >
@@ -92,11 +82,6 @@ const Pagination = ({ pages, currentPage, total, rows, onClick }: Props) => {
               src="/assets/chevron-right.svg"
               alt="left"
               onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: "smooth",
-                });
                 onClick(currentPage + 1);
               }}
             />

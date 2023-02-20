@@ -24,6 +24,7 @@ const PaymentCalculator = ({ data }: Props) => {
               type="text"
               className="form-control block w-full px-4 py-2 text-sm font-medium bg-white bg-clip-padding border border-solid border-[#9797aa] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-700 focus:outline-2"
               value="20,000"
+              onChange={() => {}}
             />
           </div>
           <div className="w-full space-y-2">
@@ -32,6 +33,7 @@ const PaymentCalculator = ({ data }: Props) => {
               type="text"
               className="form-control block w-full px-4 py-2 text-sm font-medium bg-white bg-clip-padding border border-solid border-[#9797aa] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-700 focus:outline-2"
               value="1,500"
+              onChange={() => {}}
             />
           </div>
           <div className="w-full space-y-2">
@@ -55,6 +57,7 @@ const PaymentCalculator = ({ data }: Props) => {
               type="text"
               className="form-control block w-full px-4 py-2 text-sm font-medium bg-white bg-clip-padding border border-solid border-[#9797aa] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-700 focus:outline-2"
               value="2.99%"
+              onChange={() => {}}
             />
           </div>
           <div className="w-full space-y-2">

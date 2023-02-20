@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { BASE_URL } from '@/libs/constants';
+import Link from "next/link";
+import Image from "next/image";
 const Footer = () => {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   return (
     <footer className="w-full md:px-32 bg-[#45577d] pb-12">
       <div className="w-full block md:flex justify-between pt-12">
@@ -25,31 +25,31 @@ const Footer = () => {
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold">For Sellers</div>
             <div>
-              <Link href="/how-it-works">How it works</Link>
+              <Link href={`${BASE_URL}how-it-works`}>How it works</Link>
             </div>
             <div>
-              <Link href="/sell">Sell your car</Link>
+              <Link href={`${BASE_URL}sell`}>Sell your car</Link>
             </div>
           </div>
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold">For Buyers</div>
             <div>
-              <Link href="/buy">Browse Listings</Link>
+              <Link href={`${BASE_URL}buy`}>Browse Listings</Link>
             </div>
             <div>
-              <Link href="/how-it-works/buy">How to Buy</Link>
+              <Link href={`${BASE_URL}how-it-works/buy`}>How to Buy</Link>
             </div>
           </div>
           <div className="font-normal text-sm text-[#fafcfe] space-y-3">
             <div className="font-semibold pr-0 md:pr-20">Company</div>
             <div>
-              <Link href="/about">Our Story</Link>
+              <Link href={`${BASE_URL}about`}>Our Story</Link>
             </div>
             <div>
-              <Link href="/blog">Blog</Link>
+              <Link href={`${BASE_URL}blog`}>Blog</Link>
             </div>
             <div>
-              <Link href="/contact">Contact</Link>
+              <Link href={`${BASE_URL}contact`}>Contact</Link>
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@ const Footer = () => {
         </div>
         <div className="md:w-[183px] mx-auto md:mx-0 flex justify-center md:justify-between space-x-8 mt-8 md:mt-0">
           <Link
-            href="https://www.facebook.com/privateauto"
+            href="https://apps.apple.com/us/app/privateauto-sell-privately/id1614271597"
             target="_blank"
             rel="noreferrer"
           >
@@ -132,7 +132,7 @@ const Footer = () => {
             />
           </Link>
           <Link
-            href="https://twitter.com/_PrivateAuto"
+            href="https://play.google.com/store/apps/details?id=io.gonative.android.qwkoyk"
             target="_blank"
             rel="noreferrer"
           >
@@ -151,8 +151,16 @@ const Footer = () => {
         <div className="text-sm text-normal text-[#c5cddf] px-4 text-center md:px-0">
           Copyrights &copy; 2023. All Rights Reserved by PrivateAuto Inc
         </div>
-        <div className="text-sm text-normal text-[#c5cddf] text-center md:text-left pt-4 md:pt-0">
-          Terms | Privacy
+        <div className="flex justify-center">
+          <div className="flex space-x-2 text-sm text-normal text-[#c5cddf]">
+            <Link href={`${BASE_URL}terms`} rel="noopener" target="_blank">
+              Terms
+            </Link>
+            <div> | </div>
+            <Link href={`${BASE_URL}privacy`} rel="noopener" target="_blank">
+              Privacy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

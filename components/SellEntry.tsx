@@ -8,6 +8,7 @@ type Props = {
 };
 
 const SellEntry = ({ data }: Props) => {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
   if (data.VehicleType == "Car") {
     data.VehicleType = "Auto";
   }
@@ -54,7 +55,10 @@ const SellEntry = ({ data }: Props) => {
         </div>
         <div className="w-full text-sm text-center">
           A valid Vin is required to list your car on PrivateAuto.{" "}
-          <Link href="/blog/where-is-my-vin-number" className="text-[#3eb7df]">
+          <Link
+            href={`${BASE_URL}blog/where-is-my-vin-number`}
+            className="text-[#3eb7df]"
+          >
             Learn more
           </Link>
         </div>
