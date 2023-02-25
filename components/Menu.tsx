@@ -167,10 +167,16 @@ const Menu = () => {
           </div>
         ) : null}
         <div className="hidden md:flex space-x-6">
-          <button className="bg-white hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded">
+          <button
+            className="bg-white hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded"
+            onClick={() => window.alert("Sign in")}
+          >
             Sign in
           </button>
-          <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-base font-bold py-1 px-4 rounded-lg cursor-pointer">
+          <button
+            className="bg-[#00b3de] hover:bg-blue-300 text-white text-base font-bold py-1 px-4 rounded-lg cursor-pointer"
+            onClick={() => window.alert("Create account")}
+          >
             Create account
           </button>
         </div>

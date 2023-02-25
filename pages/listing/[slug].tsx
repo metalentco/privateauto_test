@@ -225,13 +225,22 @@ function SlugPage(content: Props) {
               )}
             </div>
             <div className="flex mt-10 space-x-4">
-              <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-1 px-4 rounded cursor-pointer">
+              <button
+                className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-1 px-4 rounded cursor-pointer"
+                onClick={() => window.alert("Message Seller")}
+              >
                 Message Seller
               </button>
-              <button className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-sm font-medium py-1 px-4 rounded cursor-pointer">
+              <button
+                className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-sm font-medium py-1 px-4 rounded cursor-pointer"
+                onClick={() => window.alert("Schedule Test Drive")}
+              >
                 Schedule Test Drive
               </button>
-              <button className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-sm font-medium py-1 px-4 rounded cursor-pointer">
+              <button
+                className="bg-[#f7f9fc] hover:bg-slate-200 text-black text-sm font-medium py-1 px-4 rounded cursor-pointer"
+                onClick={() => window.alert("Make Offer")}
+              >
                 Make Offer
               </button>
             </div>
@@ -351,8 +360,12 @@ function SlugPage(content: Props) {
                 height={24}
                 src="/assets/listings/authochek-logo.png"
                 alt="authocheck-logo"
+                onClick={() => window.alert("Autocheck")}
               />
-              <span className="text-xs text-[#727a82] font-normal cursor-pointer">
+              <span
+                className="text-xs text-[#727a82] font-normal cursor-pointer"
+                onClick={() => window.alert("Vehicle history")}
+              >
                 Vehicle history {">"}
               </span>
             </div>
@@ -507,7 +520,10 @@ function SlugPage(content: Props) {
                 </div>
               </div>
               <div className="flex items-center">
-                <button className="bg-transparent hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded">
+                <button
+                  className="bg-transparent hover:bg-blue-500 text-sm text-[#00b3de] font-medium hover:text-white py-2 px-4 border border-[#00b3de] hover:border-transparent rounded"
+                  onClick={() => window.alert("Apply for a loan")}
+                >
                   Apply for a loan
                 </button>
               </div>
@@ -562,10 +578,16 @@ function SlugPage(content: Props) {
                 </div>
               </div>
               <div className="space-x-4">
-                <button className="bg-transparent hover:bg-blue-500 text-sm text-[#00b3de] font-bold hover:text-white py-1 px-4 border border-[#00b3de] hover:border-transparent rounded">
+                <button
+                  className="bg-transparent hover:bg-blue-500 text-sm text-[#00b3de] font-bold hover:text-white py-1 px-4 border border-[#00b3de] hover:border-transparent rounded"
+                  onClick={() => window.alert("Make offer")}
+                >
                   Make Offer
                 </button>
-                <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-1 px-4 rounded cursor-pointer">
+                <button
+                  className="bg-[#00b3de] hover:bg-blue-300 text-white text-sm font-bold py-1 px-4 rounded cursor-pointer"
+                  onClick={() => window.alert("Message Seller")}
+                >
                   Message Seller
                 </button>
               </div>
@@ -677,7 +699,10 @@ function SlugPage(content: Props) {
                   )}
                 </div>
                 <div className="flex items-center">
-                  <button className="bg-[#00b3de] hover:bg-blue-300 text-white text-xs md:text-sm font-bold py-1 px-4 rounded cursor-pointer">
+                  <button
+                    className="bg-[#00b3de] hover:bg-blue-300 text-white text-xs md:text-sm font-bold py-1 px-4 rounded cursor-pointer"
+                    onClick={() => window.alert("Schedule Test Drive")}
+                  >
                     Schedule Test Drive
                   </button>
                 </div>
