@@ -6,26 +6,19 @@ import Filter from "@/components/buy/Filter";
 import Pagination from "@/components/buy/Pagination";
 import API from "@/hooks/useApi";
 import { MoreFilter } from "@/interfaces/MoreFilter";
-import { Google_Autocomplete_Key } from "@/libs/constants";
+import { Google_Autocomplete_Key, initFilters } from "@/libs/constants";
 
 type Props = {
   data: any;
+  vehicleListing: any;
 };
 
-const VehicleSearch = ({ data }: Props) => {
+const VehicleSearch = ({ data, vehicleListing }: Props) => {
   const IMAGE_BASE_URL = process.env.NEXT_PUBLIC_IMAGE_BASE_URL;
   const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
-  const initFilters = {
-    trim: [],
-    exteriorColor: [],
-    interiorColor: [],
-    fuelType: [],
-    transmission: [],
-    driveType: [],
-    cylinders: [],
-  };
 
   const [isLoading, setIsLoading] = useState<Boolean>(true);
+  const [isFirstLoading, setIsFirstLoading] = useState<Boolean>(true);
   const [pageData, setPageData] = useState<any>([]);
   const [pages, setPages] = useState<number>(0);
   const [current, setCurrent] = useState<number>(0);
@@ -45,91 +38,90 @@ const VehicleSearch = ({ data }: Props) => {
 
   const rows = data.DisplayRows != null ? data.DisplayRows : 6;
   const limit = data.MaxListings != null ? data.MaxListings : 0;
-  const initVehicleType =
-    data.Filters != null &&
-    data.Filters.VehicleType != null &&
-    data.Filters.VehicleType != undefined
-      ? data.Filters.VehicleType == "Car"
-        ? "Auto"
-        : data.Filters.VehicleType
-      : "All Vehicles";
-  const initMake =
-    data.Filters != null &&
-    data.Filters.Make != null &&
-    data.Filters.Make != undefined
-      ? data.Filters.Make
-      : "";
-  const initModels =
-    data.Filters != null &&
-    data.Filters.Model != null &&
-    data.Filters.Model != undefined
-      ? data.Filters.Model.split()
-      : [];
-  const initBodyType =
-    data.Filters != null &&
-    data.Filters.BodyType != null &&
-    data.Filters.BodyType != undefined
-      ? data.Filters.BodyType.split()
-      : [];
-  const initMinYear =
-    data.Filters != null &&
-    data.Filters.YearMin != null &&
-    data.Filters.YearMin != undefined
-      ? data.Filters.YearMin
-      : 1910;
-  const initMaxYear =
-    data.Filters != null &&
-    data.Filters.YearMax != null &&
-    data.Filters.YearMax != undefined
-      ? data.Filters.YearMax
-      : 2022;
-  const initMinMiles =
-    data.Filters != null &&
-    data.Filters.MilesMin != null &&
-    data.Filters.MilesMin != undefined
-      ? data.Filters.MilesMin
-      : 0;
-  const initMaxMiles =
-    data.Filters != null &&
-    data.Filters.MilesMax != null &&
-    data.Filters.MilesMax != undefined
-      ? data.Filters.MilesMax
-      : 300000;
-  const initLocation =
-    data.Filters != null &&
-    data.Filters.Location != null &&
-    data.Filters.Location != undefined
-      ? data.Filters.Location + ", USA"
-      : "";
-
   useEffect(() => {
-    if (initLocation != "") {
-      Geocode.setApiKey(Google_Autocomplete_Key);
-      Geocode.fromAddress(initLocation).then(
-        (response) => {
-          const { lat, lng } = response.results[0].geometry.location;
-          setLat(lat);
-          setLng(lng);
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
+    console.log("Page Loading");
+    setIsLoading(false);
+    setCurrent(vehicleListing._meta.page);
+    imageFormat(vehicleListing);
+    setPageData(vehicleListing.data);
+    if (limit == 0) {
+      setPages(Math.floor(vehicleListing._meta.total / (rows * 4)));
+      setTotal(vehicleListing._meta.total);
+    } else {
+      setPages(Math.floor(limit / (rows * 4)));
+      setTotal(limit);
     }
+    setIsFirstLoading(false);
   }, []);
 
   //page states
-  const [vehicleType, setVehicleType] = useState<string>(initVehicleType);
+  const [vehicleType, setVehicleType] = useState<string>(
+    data.Filters != null &&
+      data.Filters.VehicleType != null &&
+      data.Filters.VehicleType != undefined
+      ? data.Filters.VehicleType == "Car"
+        ? "Auto"
+        : data.Filters.VehicleType
+      : "All Vehicles"
+  );
   const [searchKey, setSearchKey] = useState<string>("");
-  const [make, setMake] = useState<string>(initMake);
-  const [models, setModels] = useState<Array<string>>(initModels);
-  const [bodyType, setBodyType] = useState<Array<string>>(initBodyType);
-  const [minYear, setMinYear] = useState<number>(initMinYear);
-  const [maxYear, setMaxYear] = useState<number>(initMaxYear);
-  const [minMiles, setMinMiles] = useState<number>(initMinMiles);
-  const [maxMiles, setMaxMiles] = useState<number>(initMaxMiles);
+  const [make, setMake] = useState<string>(
+    data.Filters != null &&
+      data.Filters.Make != null &&
+      data.Filters.Make != undefined
+      ? data.Filters.Make
+      : ""
+  );
+  const [models, setModels] = useState<Array<string>>(
+    data.Filters != null &&
+      data.Filters.Model != null &&
+      data.Filters.Model != undefined
+      ? data.Filters.Model.split()
+      : []
+  );
+  const [bodyType, setBodyType] = useState<Array<string>>(
+    data.Filters != null &&
+      data.Filters.BodyType != null &&
+      data.Filters.BodyType != undefined
+      ? data.Filters.BodyType.split()
+      : []
+  );
+  const [minYear, setMinYear] = useState<number>(
+    data.Filters != null &&
+      data.Filters.YearMin != null &&
+      data.Filters.YearMin != undefined
+      ? data.Filters.YearMin
+      : 1910
+  );
+  const [maxYear, setMaxYear] = useState<number>(
+    data.Filters != null &&
+      data.Filters.YearMax != null &&
+      data.Filters.YearMax != undefined
+      ? data.Filters.YearMax
+      : 2022
+  );
+  const [minMiles, setMinMiles] = useState<number>(
+    data.Filters != null &&
+      data.Filters.MilesMin != null &&
+      data.Filters.MilesMin != undefined
+      ? data.Filters.MilesMin
+      : 0
+  );
+  const [maxMiles, setMaxMiles] = useState<number>(
+    data.Filters != null &&
+      data.Filters.MilesMax != null &&
+      data.Filters.MilesMax != undefined
+      ? data.Filters.MilesMax
+      : 300000
+  );
   const [moreFiltersArr, setMoreFiltersArr] = useState<MoreFilter>(initFilters);
-  const [location, setLocation] = useState<string>(initLocation);
+  const [location, setLocation] = useState<string>(
+    data.Filters != null &&
+      data.Filters.Location != null &&
+      data.Filters.Location != undefined
+      ? data.Filters.Location + ", USA"
+      : ""
+  );
   const [lat, setLat] = useState<number>(0);
   const [lng, setLng] = useState<number>(0);
   const [radius, setRadius] = useState<number>(50);
@@ -203,7 +195,9 @@ const VehicleSearch = ({ data }: Props) => {
         setTotal(limit);
       }
     };
-    getData();
+    if (!isFirstLoading) {
+      getData();
+    }
   }, [
     vehicleType,
     searchKey,

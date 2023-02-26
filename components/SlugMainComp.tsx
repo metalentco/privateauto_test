@@ -16,10 +16,11 @@ import HeaderWithOverlap from "@/components/HeaderWithOverlap";
 
 type Props = {
   data: any;
+  vehicleListing: any;
   indexFaq: number;
 };
 
-const SlugMainComp = ({ data, indexFaq }: Props) => {
+const SlugMainComp = ({ data, vehicleListing, indexFaq }: Props) => {
   return (
     <main className="w-full">
       <section className="w-4/6 mx-auto">
@@ -57,7 +58,11 @@ const SlugMainComp = ({ data, indexFaq }: Props) => {
               ) : item.__component == "page-elements.bulleted-list" ? (
                 <BulletedList key={index} data={item} />
               ) : item.__component == "app-forms.vehicle-search" ? (
-                <VehicleSearch key={index} data={item} />
+                <VehicleSearch
+                  key={index}
+                  data={item}
+                  vehicleListing={vehicleListing}
+                />
               ) : item.__component == "app-forms.contact-form" ? (
                 <ContactForm key={index} data={item} />
               ) : item.__component == "app-forms.payment-calculator" ? (

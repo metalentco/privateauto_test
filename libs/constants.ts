@@ -79,3 +79,13 @@ export const sortArray = [
   "Lowest mileage",
   "Newest year",
 ];
+
+export const initFilters = {
+  trim: [],
+  exteriorColor: [],
+  interiorColor: [],
+  fuelType: [],
+  transmission: [],
+  driveType: [],
+  cylinders: [],
+};
