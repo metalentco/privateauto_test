@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Geocode from "react-geocode";
 import Filter from "@/components/buy/Filter";
 import Pagination from "@/components/buy/Pagination";
 import API from "@/hooks/useApi";
 import { MoreFilter } from "@/interfaces/MoreFilter";
-import { Google_Autocomplete_Key, initFilters } from "@/libs/constants";
+import { initFilters } from "@/libs/constants";
 
 type Props = {
   data: any;

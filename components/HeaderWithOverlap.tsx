@@ -8,7 +8,9 @@ type Props = {
 const HeaderWithOverlap = ({ data }: Props) => {
   return (
     <div className={`relative w-full py-8 ${parseTextColor(data.Color)}`}>
-      {data.Image.data != null ? (
+      {data.Image != undefined &&
+      data.Image != null &&
+      data.Image.data != null ? (
         <Image
           width={data.Image.data.attributes.width}
           height={data.Image.data.attributes.height}

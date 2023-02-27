@@ -67,7 +67,7 @@ const Home = () => {
       <div className="w-full">
         <Header />
         <Menu />
-        <SlugMainComp data={data} indexFaq={indexFaq} />
+        <SlugMainComp data={data} vehicleListing={null} indexFaq={indexFaq} />
         <Footer />
       </div>
     );

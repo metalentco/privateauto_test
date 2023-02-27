@@ -26,7 +26,8 @@ const SlugMainComp = ({ data, vehicleListing, indexFaq }: Props) => {
       <section className="w-4/6 mx-auto">
         {data &&
         data.attributes.Image != undefined &&
-        data.attributes.Image.data ? (
+        data.attributes.Image != null &&
+        data.attributes.Image.data != null ? (
           <div className="w-full flex justify-center mt-8">
             <Image
               src={data.attributes.Image.data.attributes.formats.small.url}
