@@ -180,7 +180,8 @@ const VehicleSearch = ({ data, vehicleListing }: Props) => {
         lat,
         lng,
         radius,
-        sort
+        sort,
+        false
       );
       setIsLoading(false);
       setCurrent(data._meta.page);

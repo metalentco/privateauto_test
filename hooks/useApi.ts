@@ -17,13 +17,16 @@ const useApi = () => {
     return hash;
   };
 
-  const getResponseFromAPI = async (url: string) => {
+  const getResponseFromAPI = async (url: string, isClient: Boolean) => {
     const agent =
       typeof window !== "undefined"
         ? window.navigator.userAgent
         : "build-server";
     const body = {};
-    const BASE_URL = process.env.NEXT_PUBLIC_SEARCH_API_BASE_URL;
+    let BASE_URL = process.env.NEXT_PUBLIC_SEARCH_API_BASE_URL;
+    if (isClient) {
+      BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+    }
     const response = await fetch(BASE_URL + url, {
       method: "GET",
       headers: {
@@ -86,7 +89,8 @@ const useApi = () => {
     lat: number,
     lng: number,
     radius: number,
-    sort: string
+    sort: string,
+    isClient: Boolean
   ) => {
     let url = `/api/listings?_page=${current}`;
     if (limit < (current + 1) * (rows * 4)) {
@@ -194,12 +198,12 @@ const useApi = () => {
         "&_sort[0][column]=RegistrationYear&_sort[0][direction]=desc"
       );
     }
-    return await getResponseFromAPI(url);
+    return await getResponseFromAPI(url, isClient);
   };
 
   const getInitMakeData = async () => {
     const url = "/api/listings/automobile-makes";
-    return await getResponseFromAPI(url);
+    return await getResponseFromAPI(url, false);
   };
 
   const getModelDataByMake = async (make: string) => {
@@ -218,12 +222,12 @@ const useApi = () => {
       formatted = make;
     }
     const url = `/api/vehicles/make/${formatted}`;
-    return await getResponseFromAPI(url);
+    return await getResponseFromAPI(url, false);
   };
 
   const getCarDetailsFilter = async () => {
     const url = `/api/listings/car-details-filter`;
-    return await getResponseFromAPI(url);
+    return await getResponseFromAPI(url, false);
   };
 
   return {

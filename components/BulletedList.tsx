@@ -1,13 +1,13 @@
-import Image from 'next/image';
-import { parseWidth, parseTitle } from '@/libs/utils';
+import Image from "next/image";
+import { parseWidth, parseTitle } from "@/libs/utils";
 
 type Props = {
   data: any;
 };
 
 const BulletedList = ({ data }: Props) => {
-  let url = '';
-  let alt = '';
+  let url = "";
+  let alt = "";
   let width = 0;
   let height = 0;
   return (
@@ -25,13 +25,15 @@ const BulletedList = ({ data }: Props) => {
           }
           return (
             <div className="w-full flex items-center space-x-4" key={index}>
-              <Image
-                className={`w-[${width}]px h-[${height}px]`}
-                width={width}
-                height={height}
-                src={url}
-                alt={alt}
-              />
+              {item.Image.data != null && (
+                <Image
+                  className={`w-[${width}]px h-[${height}px]`}
+                  width={width}
+                  height={height}
+                  src={url}
+                  alt={alt}
+                />
+              )}
               <div className="text-lg md:text-2xl text-[#4f4f4f] font-normal">
                 {item.Text}
               </div>
