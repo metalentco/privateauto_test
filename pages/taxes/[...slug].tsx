@@ -55,8 +55,11 @@ function Components({ content, vehicleListing }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const STRAPI_URL =
+  let STRAPI_URL =
     process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "taxes?populate=deep";
+  if (process.env.NEXT_PUBLIC_PREVIEW_STATE) {
+    STRAPI_URL += "&publicationState=preview";
+  }
   const authorization =
     "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
   try {
@@ -69,13 +72,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
     });
     const content = await res.json();
     let paths: any[] = [];
-    content.data.map((item: any, index: number) => {
+    content.data.map((item: any) => {
       if (item.attributes.slug != "/") {
-        paths.push({
-          params: {
-            slug: [item.attributes.slug.slice(1, item.attributes.slug.length)],
-          },
-        });
+        const slugArr = item.attributes.slug
+          .slice(1, item.attributes.slug.length)
+          .split("/");
+        if (slugArr.length > 1) {
+          paths.push({
+            params: {
+              slug: [slugArr[0], slugArr[1]],
+            },
+          });
+        }
       }
     });
     return {
@@ -115,10 +123,10 @@ export const getStaticProps: GetStaticProps<Props> = async (
     let content: any = null;
 
     if (context.params != undefined) {
-      slug = context.params.slug;
+      slug = "/taxes/" + context.params.slug;
     }
     for (let item of total_list.data) {
-      if (item.attributes.slug == "/" + slug) {
+      if (item.attributes.slug == slug) {
         content = item; // page static data for url
       }
     }

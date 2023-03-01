@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { parseTitle } from "@/libs/utils";
 
 type Props = {
@@ -5,6 +6,12 @@ type Props = {
 };
 
 const PaymentCalculator = ({ data }: Props) => {
+  const [vehiclePrice, setVehiclePrice] = useState<number>(20000);
+  const [downPayment, setDownPayment] = useState<number>(1500);
+  const [interestRate, setInterestRate] = useState<number>(2.99);
+  const loanPayment = vehiclePrice - downPayment + 0.07 * vehiclePrice;
+  const monthlyPayment = Math.floor(loanPayment * (interestRate / 1200));
+
   return (
     <div className="w-full">
       <div className="w-full h-[300px] bg-[#45577d]">
@@ -23,8 +30,10 @@ const PaymentCalculator = ({ data }: Props) => {
             <input
               type="text"
               className="form-control block w-full px-4 py-2 text-sm font-medium bg-white bg-clip-padding border border-solid border-[#9797aa] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-700 focus:outline-2"
-              value="20,000"
-              onChange={() => {}}
+              value={vehiclePrice.toLocaleString()}
+              onChange={(e: any) => {
+                setVehiclePrice(Number(e.target.value.replace(/\D/g, "")));
+              }}
             />
           </div>
           <div className="w-full space-y-2">
@@ -32,8 +41,10 @@ const PaymentCalculator = ({ data }: Props) => {
             <input
               type="text"
               className="form-control block w-full px-4 py-2 text-sm font-medium bg-white bg-clip-padding border border-solid border-[#9797aa] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-700 focus:outline-2"
-              value="1,500"
-              onChange={() => {}}
+              value={downPayment.toLocaleString()}
+              onChange={(e: any) => {
+                setDownPayment(Number(e.target.value.replace(/\D/g, "")));
+              }}
             />
           </div>
           <div className="w-full space-y-2">
@@ -56,8 +67,20 @@ const PaymentCalculator = ({ data }: Props) => {
             <input
               type="text"
               className="form-control block w-full px-4 py-2 text-sm font-medium bg-white bg-clip-padding border border-solid border-[#9797aa] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-sky-700 focus:outline-2"
-              value="2.99%"
-              onChange={() => {}}
+              value={interestRate + "%"}
+              onChange={(e: any) => {
+                let rate = e.target.value.slice(0, e.target.value.length - 1);
+                if (Number(rate) > 100) {
+                  rate = 100;
+                  setInterestRate(100);
+                }
+                if (Number(rate) < 0) {
+                  rate = 0;
+                  setInterestRate(0);
+                } else {
+                  setInterestRate(rate);
+                }
+              }}
             />
           </div>
           <div className="w-full space-y-2">
@@ -81,7 +104,8 @@ const PaymentCalculator = ({ data }: Props) => {
         >
           <p className="pt-8 text-[#595c5f]">Estimated monthly payment</p>
           <p className="font-semibold text-3xl">
-            $300<span className="font-bold text-lg">/mo</span>
+            ${monthlyPayment.toLocaleString()}
+            <span className="font-bold text-lg">/mo</span>
           </p>
           <p className="pb-4">for 5 years</p>
           <hr className="text-[#d2d2d2] border-[1.5px]" />
@@ -89,26 +113,28 @@ const PaymentCalculator = ({ data }: Props) => {
             <div className="font-semibold">Loan Summary</div>
             <div className="w-full flex">
               <p className="w-[70%]">Vehicle Budget</p>
-              <p className="w-[30%]">$20,000</p>
+              <p className="w-[30%]">${vehiclePrice.toLocaleString()}</p>
             </div>
             <div className="w-full flex">
               <p className="w-[70%]">Down Payment</p>
-              <p className="w-[30%]">-$5,000</p>
+              <p className="w-[30%]">-${downPayment.toLocaleString()}</p>
             </div>
             <div className="w-full flex items-center">
               <p className="w-[70%]">Est, Tax, Title&Registration</p>
-              <p className="w-[30%]">$1,000</p>
+              <p className="w-[30%]">
+                ${(0.07 * vehiclePrice).toLocaleString()}
+              </p>
             </div>
             <hr className="text-[#d2d2d2] border-[1.5px]" />
             <div className="w-full flex">
               <p className="w-[70%] text-[#565656]">Total Loan Amount</p>
-              <p className="w-[30%]">$16,000</p>
+              <p className="w-[30%]">${loanPayment.toLocaleString()}</p>
             </div>
             <div className="w-full flex">
               <p className="w-[70%] text-black font-semibold">
                 Monthly Payment
               </p>
-              <p className="w-[30%]">$300/mo</p>
+              <p className="w-[30%]">${monthlyPayment.toLocaleString()}/mo</p>
             </div>
           </div>
           <div className="text-left text-xs text-[#a5a5a5]">{data.Content}</div>

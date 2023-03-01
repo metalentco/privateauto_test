@@ -11,6 +11,7 @@ import JumpLinks from "@/components/JumpLinks";
 import ContactForm from "@/components/ContactForm";
 import PaymentCalculator from "@/components/PaymentCalculator";
 import SellEntry from "@/components/SellEntry";
+import VideoPlayer from "@/components/VideoPlayer";
 import WatermarkBlock from "@/components/WatermarkBlock";
 import HeaderWithOverlap from "@/components/HeaderWithOverlap";
 
@@ -70,6 +71,8 @@ const SlugMainComp = ({ data, vehicleListing, indexFaq }: Props) => {
                 <PaymentCalculator key={index} data={item} />
               ) : item.__component == "app-forms.vin-entry" ? (
                 <SellEntry key={index} data={item} />
+              ) : item.__component == "page-elements.video-player" ? (
+                <VideoPlayer key={index} data={item} />
               ) : item.__component == "page-elements.watermark-block" ? (
                 <WatermarkBlock key={index} data={item} />
               ) : item.__component == "page-elements.header-with-overlap" ? (

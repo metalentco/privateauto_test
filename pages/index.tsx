@@ -12,8 +12,11 @@ const inter = Inter({ subsets: ["latin"] });
 const Home = () => {
   const [content, setContent] = useState<any>();
   const init = async () => {
-    const STRAPI_URL =
+    let STRAPI_URL =
       process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "base-pages?populate=deep";
+    if (process.env.NEXT_PUBLIC_PREVIEW_STATE) {
+      STRAPI_URL += "&publicationState=preview";
+    }
     const authorization =
       "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
     const res = await fetch(STRAPI_URL, {
