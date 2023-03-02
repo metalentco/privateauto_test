@@ -89,3 +89,16 @@ export const initFilters = {
   driveType: [],
   cylinders: [],
 };
+
+export type Redirect = {
+  id: number;
+  attributes: {
+    RedirectFrom: string;
+    RedirectTo: string;
+    RedirectCode: string;
+    Comment: string;
+    createdAt: string;
+    updatedAt: string;
+    publishedAt: string;
+  };
+};

@@ -3,7 +3,6 @@ type Props = {
 };
 
 const VideoPlayer = ({ data }: Props) => {
-  console.log("data:", data);
   return (
     <div className="w-full flex justify-center px-4">
       {data.Poster.data != null && (

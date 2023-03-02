@@ -56,7 +56,7 @@ function Components({ content, vehicleListing }: Props) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "warranties?populate=deep";
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "warranties?populate=deep,6";
   if (process.env.NEXT_PUBLIC_PREVIEW_STATE) {
     STRAPI_URL += "&publicationState=preview";
   }
@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps<Props> = async (
 ): Promise<{ props: Props; revalidate: number }> => {
   //To get the page data for specific url using strapi api
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "warranties?populate=deep";
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "warranties?populate=deep,6";
   const authorization =
     "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
   try {

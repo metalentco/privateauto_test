@@ -14,6 +14,7 @@ import SellEntry from "@/components/SellEntry";
 import VideoPlayer from "@/components/VideoPlayer";
 import WatermarkBlock from "@/components/WatermarkBlock";
 import HeaderWithOverlap from "@/components/HeaderWithOverlap";
+import LinkHub from "@/components/LinkHub";
 
 type Props = {
   data: any;
@@ -81,6 +82,8 @@ const SlugMainComp = ({ data, vehicleListing, indexFaq }: Props) => {
                 <Lists key={index} data={item} />
               ) : item.__component == "page-elements.jump-links" ? (
                 <JumpLinks key={index} data={item} />
+              ) : item.__component == "page-elements.link-hub" ? (
+                <LinkHub key={index} data={item} />
               ) : (
                 <Faq key={index} data={item} faq={indexFaq} index={index} />
               );
