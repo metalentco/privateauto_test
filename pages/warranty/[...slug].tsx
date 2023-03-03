@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useEffect, useState } from "react";
 import React from "react";
 import Geocode from "react-geocode";
+import MetaHeader from "@/components/MetaHeader";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
 import SlugMainComp from "@/components/SlugMainComp";
@@ -13,14 +14,18 @@ import { Google_Autocomplete_Key, initFilters } from "@/libs/constants";
 interface Props {
   content: any;
   vehicleListing: any;
+  header: any;
 }
 
-function Components({ content, vehicleListing }: Props) {
+function Components({ content, vehicleListing, header }: Props) {
   const [indexFaq, setIndexFaq] = useState<any>(0);
+  let headerContent = null;
+  if (header.data && header.data[0].attributes) {
+    headerContent = header.data[0].attributes.Content;
+  }
 
   useEffect(() => {
     if (content != null) {
-      document.title = content.attributes.PageTitle;
       content.attributes.Content.map((item: any, index: number) => {
         if (item.__component == "page-elements.faq") {
           setIndexFaq(index);
@@ -32,6 +37,10 @@ function Components({ content, vehicleListing }: Props) {
   if (content != null) {
     return (
       <div className="w-full">
+        <MetaHeader
+          content={content.attributes}
+          headerContent={headerContent}
+        />
         <Header />
         <Menu />
         <SlugMainComp
@@ -252,10 +261,27 @@ export const getStaticProps: GetStaticProps<Props> = async (
         }
       }
     }
+
+    //To get header Meta Content
+    let HEADER_STRAPI_URL =
+      process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "header-elements?populate=deep";
+    if (process.env.NEXT_PUBLIC_PREVIEW_STATE) {
+      HEADER_STRAPI_URL += "&publicationState=preview";
+    }
+    const header_res = await fetch(HEADER_STRAPI_URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: authorization,
+      },
+    });
+    const header = await header_res.json();
+
     return {
       props: {
         content,
         vehicleListing: initVehicleSearchData,
+        header,
       },
       revalidate: 30,
     };
@@ -265,8 +291,9 @@ export const getStaticProps: GetStaticProps<Props> = async (
     );
     return {
       props: {
-        content: {},
+        content: null,
         vehicleListing: null,
+        header: null,
       },
       revalidate: 30,
     };
