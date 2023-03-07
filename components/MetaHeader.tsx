@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 type Props = {
   content: any;
   headerContent: string;
@@ -62,14 +61,18 @@ const MetaHeader = ({ content, headerContent }: Props) => {
           content={`https://${imageDomain}/${content.Image.data.attributes.url}`}
         />
       )}
-      <meta
-        property="og:image:width"
-        content="${ImageData.data.attributes.width}"
-      />
-      <meta
-        property="og:image:height"
-        content="${ImageData.data.attributes.height}"
-      />
+      {content.Image && content.Image.data && (
+        <meta
+          property="og:image:width"
+          content={`https://${imageDomain}/${content.Image.data.attributes.width}`}
+        />
+      )}
+      {content.Image && content.Image.data && (
+        <meta
+          property="og:image:height"
+          content={`https://${imageDomain}/${content.Image.data.attributes.height}`}
+        />
+      )}
       <meta
         property="og:title"
         content={`${content.PageTitle} | PrivateAuto`}
