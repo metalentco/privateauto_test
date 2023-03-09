@@ -17,7 +17,7 @@ const Menu = () => {
     }
   };
   return (
-    <div className="w-full px-[8%] py-4 bg-[#f1f5f9]">
+    <div className="w-full px-[8%] py-4 bg-[#eef2f5]">
       <div className="md:flex justify-between">
         <div className="flex justify-between md:items-center space-x-8">
           <Link className="cursor-pointer" href={`${BASE_URL}`}>
