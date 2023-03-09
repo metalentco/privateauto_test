@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import ContentButtons from "@/components/contentBlock/ContentButtons";
-import { parseColor, parseTitle } from "@/libs/utils";
+import { parseColor, parseTitle, parseWidth } from "@/libs/utils";
 
 type Props = {
   data: any;
 };
 
 const ContentBlock = ({ data }: Props) => {
+  console.log("contentBlock:", data);
   return data.Position == "Center" ? (
     <div
       className={twMerge(
-        "w-full block sm:flex items-center px-[10%] space-x-0 md:space-x-8 space-y-8 md:space-y-0 mb-8 text-[#333] pt-8",
+        "w-full block sm:flex items-center px-[10%] space-x-0 md:space-x-8 space-y-8 md:space-y-0 mb-8 text-[#333]",
         parseColor(data.Color)
       )}
     >
@@ -52,7 +53,7 @@ const ContentBlock = ({ data }: Props) => {
       <div
         className={`w-[90%] sm:h-[538px] ${parseColor(
           data.Color
-        )} block sm:flex ml-[10%] items-center mt-16 space-x-0 md:space-x-8 space-y-8 md:space-y-0 rounded-l-xl
+        )} block sm:flex ml-[10%] items-center space-x-0 md:space-x-8 space-y-8 md:space-y-0 rounded-l-xl
         `}
       >
         <div className="w-full sm:w-2/6 pt-8 sm:pt-0 flex justify-center items-center">
@@ -91,11 +92,11 @@ const ContentBlock = ({ data }: Props) => {
   ) : (
     <div className="w-full mb-8">
       <div
-        className={`w-[90%] ${parseColor(data.Color)} ${
+        className={`w-[${parseWidth(data.Width)}%] ${parseColor(data.Color)} ${
           data.Color == "Dark Blue" ? "text-white" : ""
-        } block sm:flex items-center mt-16 px-[10%] py-8 rounded-tr-xl space-x-0 md:space-x-40 rounded-br-xl`}
+        } block sm:flex items-center px-[6%] py-8 rounded-tr-xl space-x-0 md:space-x-40 rounded-br-xl`}
       >
-        <div className="w-full sm:w-2/3 text-center sm:text-left pl-[5%] space-y-4">
+        <div className="w-full sm:w-1/2 text-center sm:text-left pl-[5%] space-y-4">
           <div
             className={`text-lg ${parseTitle(
               data.TitleStyle
@@ -121,12 +122,16 @@ const ContentBlock = ({ data }: Props) => {
           </div>
           <ContentButtons buttonType={data.Buttons} />
         </div>
-        <div className="w-full md:w-1/3 flex md:block justify-center">
+        <div className="w-full md:w-1/2 flex md:block justify-center">
           {data.Image != undefined &&
             data.Image != null &&
             data.Image.data != null && (
               <Image
-                className={`w-[225px] mt-6 md:mt-0`}
+                className={`${
+                  data.Image.data.attributes.name == "phonesLanding.png"
+                    ? "w-[540px]"
+                    : "w-[225px]"
+                } mt-6 md:mt-0`}
                 width={data.Image.data.attributes.width}
                 height={data.Image.data.attributes.height}
                 src={data.Image.data.attributes.url}

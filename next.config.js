@@ -7,6 +7,7 @@ const nextConfig = {
       "strapi-cms-media-dev.s3.us-east-2.amazonaws.com",
       "strapi-cms-media-dev.s3.amazonaws.com",
       "padev.xyz",
+      "strapi-cms-media-live.s3.us-east-2.amazonaws.com",
     ],
   },
   async rewrites() {
@@ -18,7 +19,6 @@ const nextConfig = {
       },
     ];
   },
-
 };
 
 module.exports = nextConfig;

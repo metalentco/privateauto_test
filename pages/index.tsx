@@ -70,9 +70,10 @@ export const getStaticProps: GetStaticProps<Props> = async (
 ): Promise<{ props: Props; revalidate: number }> => {
   //To get the page data for specific url using strapi api
   const STRAPI_URL =
-    process.env.NEXT_PUBLIC_STRAPI_BASE_URL + "base-pages?populate=deep";
+    process.env.NEXT_PUBLIC_STRAPI_BASE_URL_PRODUCTION +
+    "base-pages?populate=deep";
   const authorization =
-    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER;
+    "Bearer " + process.env.NEXT_PUBLIC_STRAPI_AUTHORIZATION_BEARER__PRODUCTION;
   try {
     const res = await fetch(STRAPI_URL, {
       method: "GET",
